@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 360" font-family="Helvetica Neue, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="860" height="360" fill="#1a1a2e" rx="12"/>
+
+  <!-- Title -->
+  <text x="430" y="30" text-anchor="middle" fill="#aaa" font-size="12">CSP: Communicating Sequential Processes</text>
+
+  <!-- Producer process -->
+  <rect x="40" y="70" width="160" height="220" rx="10" fill="#1e2d4a" stroke="#3a6ab5" stroke-width="2"/>
+  <text x="120" y="100" text-anchor="middle" fill="#7ab8ff" font-size="15" font-weight="bold">Producer</text>
+  <text x="120" y="125" text-anchor="middle" fill="#556" font-size="11">microthread</text>
+
+  <!-- Code in producer -->
+  <rect x="55" y="140" width="130" height="70" rx="4" fill="#151525"/>
+  <text x="65" y="160" fill="#4ecdc4" font-size="11" font-family="monospace">for (auto x : data)</text>
+  <text x="65" y="178" fill="#ffd700" font-size="11" font-family="monospace">  w &lt;&lt; x;</text>
+  <text x="65" y="196" fill="#666" font-size="9" font-family="monospace">// blocks via RAII</text>
+
+  <!-- Writer endpoint -->
+  <circle cx="120" cy="240" r="14" fill="#2d5a3d" stroke="#4ecdc4" stroke-width="2"/>
+  <text x="120" y="244" text-anchor="middle" fill="#4ecdc4" font-size="10" font-weight="bold">w</text>
+  <text x="120" y="270" text-anchor="middle" fill="#556" font-size="9">writer&lt;int&gt;</text>
+
+  <!-- Channel pipe -->
+  <rect x="240" y="218" width="370" height="44" rx="22" fill="none" stroke="#ffd700" stroke-width="2"/>
+
+  <!-- Message in flight -->
+  <rect x="380" y="225" width="50" height="30" rx="6" fill="#5a4a1a" stroke="#ffd700" stroke-width="1.5">
+    <animate attributeName="x" values="260;540;260" dur="3s" repeatCount="indefinite"/>
+  </rect>
+  <text x="405" y="245" text-anchor="middle" fill="#ffd700" font-size="13" font-weight="bold">42
+    <animate attributeName="x" values="285;565;285" dur="3s" repeatCount="indefinite"/>
+  </text>
+
+  <!-- Channel label -->
+  <text x="425" y="212" text-anchor="middle" fill="#ffd700" font-size="12">typed synchronous channel</text>
+
+  <!-- Arrows on channel -->
+  <polygon points="610,232 620,240 610,248" fill="#ffd700" opacity="0.5"/>
+
+  <!-- Reader endpoint -->
+  <circle cx="720" cy="240" r="14" fill="#2d5a3d" stroke="#4ecdc4" stroke-width="2"/>
+  <text x="720" y="244" text-anchor="middle" fill="#4ecdc4" font-size="10" font-weight="bold">r</text>
+  <text x="720" y="270" text-anchor="middle" fill="#556" font-size="9">reader&lt;int&gt;</text>
+
+  <!-- Consumer process -->
+  <rect x="660" y="70" width="160" height="220" rx="10" fill="#1e2d4a" stroke="#3a6ab5" stroke-width="2"/>
+  <text x="740" y="100" text-anchor="middle" fill="#7ab8ff" font-size="15" font-weight="bold">Consumer</text>
+  <text x="740" y="125" text-anchor="middle" fill="#556" font-size="11">microthread</text>
+
+  <!-- Code in consumer -->
+  <rect x="675" y="140" width="130" height="70" rx="4" fill="#151525"/>
+  <text x="685" y="160" fill="#4ecdc4" font-size="11" font-family="monospace">for (auto x : r)</text>
+  <text x="685" y="178" fill="#ffd700" font-size="11" font-family="monospace">  process(x);</text>
+  <text x="685" y="196" fill="#666" font-size="9" font-family="monospace">// blocks on read</text>
+
+  <!-- Alt box in the middle -->
+  <rect x="350" y="290" width="160" height="50" rx="8" fill="#2d2d4a" stroke="#b07aff" stroke-width="1.5"/>
+  <text x="430" y="312" text-anchor="middle" fill="#b07aff" font-size="12" font-weight="bold">alt { r1, r2, r3 }</text>
+  <text x="430" y="330" text-anchor="middle" fill="#666" font-size="10">fair multiplexing (like Go select)</text>
+
+  <!-- Combinators -->
+  <text x="430" y="355" text-anchor="middle" fill="#556" font-size="10">+ tee | fanout | quantize | latch | map | where | buffer</text>
+
+  <!-- Key insight callout -->
+  <rect x="240" y="55" width="370" height="35" rx="6" fill="#1a2a1a" stroke="#4ecdc4" stroke-width="1"/>
+  <text x="425" y="72" text-anchor="middle" fill="#4ecdc4" font-size="11">w &lt;&lt; val;  →  action destructor calls prialt  →  blocks until rendezvous</text>
+  <text x="425" y="85" text-anchor="middle" fill="#4a8a6a" font-size="9">synchronisation is implicit via RAII — no explicit wait/notify</text>
+</svg>
