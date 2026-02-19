@@ -76,6 +76,22 @@ style: |
   img {
     border-radius: 8px;
   }
+  section.split {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 40px;
+  }
+  section.split h1 {
+    width: 100%;
+  }
+  section.split .columns {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    width: 100%;
+  }
 ---
 
 <!-- _class: lead -->
@@ -120,9 +136,17 @@ to iOS, Android, desktop. Progressive mip streaming. Custom TCP relay.
 
 ---
 
+<!-- _class: split -->
+
 # Spherical Chess
 
-![w:360](slides/esfera2.png)
+<div class="columns">
+<div>
+
+![w:300](slides/esfera2.png)
+
+</div>
+<div>
 
 - Geodesic sphere board — pentagons and hexagons, not squares
 - 62 chess pieces with two-pass translucency rendering
@@ -131,6 +155,9 @@ to iOS, Android, desktop. Progressive mip streaming. Custom TCP relay.
 - iOS standalone app
 - Online multiplayer: Go backend, WebSocket relay, matchmaking
 - Deployed to OCI with reserved IP and security hardening
+
+</div>
+</div>
 
 ---
 
