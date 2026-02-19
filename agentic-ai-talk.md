@@ -143,11 +143,6 @@ to iOS, Android, desktop. Progressive mip streaming. Custom TCP relay.
 <div class="columns">
 <div>
 
-![w:300](slides/esfera2.png)
-
-</div>
-<div>
-
 - Geodesic sphere board — pentagons and hexagons, not squares
 - 62 chess pieces with two-pass translucency rendering
 - AI opponent with alpha-beta pruning
@@ -155,6 +150,11 @@ to iOS, Android, desktop. Progressive mip streaming. Custom TCP relay.
 - iOS standalone app
 - Online multiplayer: Go backend, WebSocket relay, matchmaking
 - Deployed to OCI with reserved IP and security hardening
+
+</div>
+<div>
+
+![w:300](slides/esfera2.png)
 
 </div>
 </div>
