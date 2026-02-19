@@ -122,8 +122,7 @@ to iOS, Android, desktop. Progressive mip streaming. Custom TCP relay.
 
 # Spherical Chess
 
-<!-- TODO: capture a screenshot of esfera2 and add here -->
-<!-- ![w:500](slides/esfera2.png) -->
+![w:360](slides/esfera2.png)
 
 - Geodesic sphere board — pentagons and hexagons, not squares
 - 62 chess pieces with two-pass translucency rendering
