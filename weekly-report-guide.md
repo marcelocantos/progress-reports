@@ -295,15 +295,17 @@ After writing a new report:
 
 1. **Update README.md**: Add a new collapsible entry under `## Reports`, above the existing entries (newest first). Use this template:
 
-   ```markdown
+   ```html
    <details>
    <summary><a href="<filename>"><b><YYYY-MM-DD…DD> (<N> days)</b></a> key achievement, key achievement, ...</summary>
 
-   Full synopsis here: 2-3 sentences naming the key repos (**bolded**) and headline
+   Full synopsis here: 2-3 sentences naming the key repos (<b>bolded</b>) and headline
    accomplishments. End with commit count and repo count.
 
    </details>
    ```
+
+   **Important**: Use `<b>` tags (not `**`) for bold text inside `<details>` blocks. Markdown formatting does not render inside HTML elements on GitHub.
 
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
 2. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
