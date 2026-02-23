@@ -27,8 +27,8 @@ Built the <b>csp</b> C++ microthreading library from a bare extraction into a pr
 
 ## Metrics
 
-| Period | Days | Commits | Equiv. (mo) | ≈Multiplier | Highlights |
-|--------|------|---------|-------------|-------------|------------|
+| Period | Days | ⊙ | Equiv. (mo) | ≈Gain | Highlights |
+|--------|------|---|-------------|-------|------------|
 | [02-19](weekly-report-2026-02-22.md) | 4 | 159 | 5-8 | 25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
 | [02-13](weekly-report-2026-02-18.md) | 6 | 108 | 5-9 | 30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
 | [02-05](weekly-report-2026-02-12.md) | 8 | 115 | 7-13 | 30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |

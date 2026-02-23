@@ -311,17 +311,17 @@ After writing a new report:
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
 2. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
 
-   | Period | Days | Commits | Equiv. (mo) | ≈Multiplier | Highlights |
-   |--------|------|---------|-------------|-------------|------------|
+   | Period | Days | ⊙ | Equiv. (mo) | ≈Gain | Highlights |
+   |--------|------|---|-------------|-------|------------|
 
    - **Period**: Link to the report file using the period start date only, e.g. `[02-13](weekly-report-2026-02-18.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
    - **Days**: Number of days in the reporting period.
-   - **Commits**: Total commits.
+   - **⊙**: Total commits (icon represents a git commit node).
    - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row.
-   - **≈Multiplier**: The vs. generalist figure, e.g. `25-50x` (tilde is in the heading).
+   - **≈Gain**: The vs. generalist figure, e.g. `25-50x` (≈ is in the heading).
    - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
 
-   Maintain a **Total** row at the bottom summing Days, Commits, and Equiv. Leave Multiplier and Highlights blank in the totals row.
+   Maintain a **Totals** row at the bottom summing Days, ⊙, and Equiv. Leave ≈Gain and Highlights blank in the totals row.
 
 3. **Commit and push**: Stage the new report and the updated README together in a single commit.
 
