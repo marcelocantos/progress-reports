@@ -27,12 +27,12 @@ Built the <b>csp</b> C++ microthreading library from a bare extraction into a pr
 
 ## Metrics
 
-| Period | Days | Commits | Equiv. | Multiplier | Highlights |
-|--------|------|---------|--------|------------|------------|
-| [02-19…22](weekly-report-2026-02-22.md) | 4 | 159 | 5-8 mo | ~25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
-| [02-13…18](weekly-report-2026-02-18.md) | 6 | 108 | 5-9 mo | ~30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
-| [02-05…12](weekly-report-2026-02-12.md) | 8 | 115 | 7-13 mo | ~30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
-| **Total** | **18** | **382** | **17-30 mo** | | |
+| Period | Days | Commits | Equiv. (mo) | ~Multiplier | Highlights |
+|--------|------|---------|-------------|-------------|------------|
+| [02-19](weekly-report-2026-02-22.md) | 4 | 159 | 5-8 | 25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
+| [02-13](weekly-report-2026-02-18.md) | 6 | 108 | 5-9 | 30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
+| [02-05](weekly-report-2026-02-12.md) | 8 | 115 | 7-13 | 30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
+| **Total** | **18** | **382** | **17-30** | | |
 
 ## Guide
 
