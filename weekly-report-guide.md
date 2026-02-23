@@ -192,6 +192,7 @@ A table of repos that added tests, sorted by test count descending:
 | Repo | New tests | Notes |
 |------|-----------|-------|
 
+
 Include a **Total** row. Only include repos that added tests.
 
 ### 3.7 Ideas & Innovations
@@ -305,7 +306,21 @@ After writing a new report:
    ```
 
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
-2. **Commit and push**: Stage the new report and the updated README together in a single commit.
+2. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
+
+   | Period | Days | Repos | Commits | Lines | Net | Multiplier | Highlights |
+   |--------|------|-------|---------|-------|-----|------------|------------|
+
+   - **Period**: Link to the report file, e.g. `[02-13…18](weekly-report-2026-02-18.md)`. Use `MM-DD…MM-DD` when straddling a month, full dates when straddling a year.
+   - **Days**: Number of days in the reporting period.
+   - **Repos**: Repositories touched.
+   - **Commits**: Total commits.
+   - **Lines**: `+added / -removed`.
+   - **Net**: Net new lines with `+` prefix.
+   - **Multiplier**: The `~Nx` vs. generalist figure from the Effort Estimate section.
+   - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
+
+3. **Commit and push**: Stage the new report and the updated README together in a single commit.
 
 ---
 

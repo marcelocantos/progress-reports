@@ -5,6 +5,13 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 ## Reports
 
 <details>
+<summary><a href="weekly-report-2026-02-22.md"><b>2026-02-19…22 (4 days)</b></a> mk build tool from scratch to Homebrew, csp topology surgery + cancellation + ~20 combinators, sqlift + sqlpipe new libraries, yourworld2 state sync via sqlpipe</summary>
+
+**mk** built from scratch as a modern build tool (pattern rules, parallel execution, stdlib) and shipped 5 releases to Homebrew. **csp** added ~20 more combinators, channel topology surgery (swap/fuse/splice/tap), cancellation framework with cancel-aware TLS, C++23 migration, and 6-paper engineering series. Two new C++ libraries: **sqlift** (declarative SQLite migration) and **sqlpipe** (streaming SQLite replication). **yourworld2** gained SQLite-backed game state with bidirectional sync via sqlpipe. 159 commits across 10 repos.
+
+</details>
+
+<details>
 <summary><a href="weekly-report-2026-02-18.md"><b>2026-02-13…18 (6 days)</b></a> M:N scheduler with TLA+ verification, 50+ stream combinators, mmap stack pool, HAMT allocation elimination (75%), Box2D integration, live-tunable physics, GPU mesh reuse for silhouettes</summary>
 
 Built the **csp** C++ microthreading library from a bare extraction into a production platform (M:N scheduler, 50+ stream combinators, TLA+ formal verification, kqueue I/O, mmap stack pool, persistent HAMT for dynamic scoping). **frozen** HAMT allocation elimination campaign (batched spine allocation, leaf2 reintroduction, boxing elimination — up to 75% fewer allocations). **multimaze2** Box2D v3 integration and live-tunable physics with SQLite persistence. **yourworld2** country carousel with GPU mesh reuse for silhouettes and audio integration. 108 commits across 6 repos.
@@ -18,6 +25,14 @@ Built the **csp** C++ microthreading library from a bare extraction into a produ
 
 </details>
 
+## Metrics
+
+| Period | Days | Repos | Commits | Lines | Net | Multiplier | Highlights |
+|--------|------|-------|---------|-------|-----|------------|------------|
+| [02-19…22](weekly-report-2026-02-22.md) | 4 | 10 | 159 | +57,395 / -11,967 | +45,428 | ~25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
+| [02-13…18](weekly-report-2026-02-18.md) | 6 | 6 | 108 | +40,454 / -13,881 | +26,573 | ~30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
+| [02-05…12](weekly-report-2026-02-12.md) | 8 | 10 | 115 | +27,025 / -4,191 | +22,834 | ~30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
+
 ## Guide
 
-See [weekly-report-guide.md](weekly-report-guide.md) for agent-optimised instructions on generating these reports.
+See [weekly-report-guide.md](weekly-report-guide.md) for detailed instructions on generating these reports. Project-level directives are in [CLAUDE.md](CLAUDE.md).
