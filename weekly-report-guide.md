@@ -311,20 +311,17 @@ After writing a new report:
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
 2. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
 
-   | Period | Days | Repos | Commits | Lines | Net | Equiv. | Multiplier | Highlights |
-   |--------|------|-------|---------|-------|-----|--------|------------|------------|
+   | Period | Days | Commits | Equiv. | Multiplier | Highlights |
+   |--------|------|---------|--------|------------|------------|
 
    - **Period**: Link to the report file, e.g. `[02-13…18](weekly-report-2026-02-18.md)`. Use `MM-DD…MM-DD` when straddling a month, full dates when straddling a year.
    - **Days**: Number of days in the reporting period.
-   - **Repos**: Repositories touched.
    - **Commits**: Total commits.
-   - **Lines**: `+added / -removed`.
-   - **Net**: Net new lines with `+` prefix.
    - **Equiv.**: Traditional generalist equivalent in months, e.g. `5-8 mo`. Taken from the Effort Estimate "Single talented generalist" row.
    - **Multiplier**: The `~Nx` vs. generalist figure from the Effort Estimate section.
    - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
 
-   Maintain a **Total** row at the bottom summing Days, Commits, Lines, Net, and Equiv. Leave Repos, Multiplier, and Highlights blank in the totals row.
+   Maintain a **Total** row at the bottom summing Days, Commits, and Equiv. Leave Multiplier and Highlights blank in the totals row.
 
 3. **Commit and push**: Stage the new report and the updated README together in a single commit.
 

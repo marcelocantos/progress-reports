@@ -27,12 +27,12 @@ Built the <b>csp</b> C++ microthreading library from a bare extraction into a pr
 
 ## Metrics
 
-| Period | Days | Repos | Commits | Lines | Net | Equiv. | Multiplier | Highlights |
-|--------|------|-------|---------|-------|-----|--------|------------|------------|
-| [02-19…22](weekly-report-2026-02-22.md) | 4 | 10 | 159 | +57,395 / -11,967 | +45,428 | 5-8 mo | ~25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
-| [02-13…18](weekly-report-2026-02-18.md) | 6 | 6 | 108 | +40,454 / -13,881 | +26,573 | 5-9 mo | ~30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
-| [02-05…12](weekly-report-2026-02-12.md) | 8 | 10 | 115 | +27,025 / -4,191 | +22,834 | 7-13 mo | ~30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
-| **Total** | **18** | | **382** | **+124,874 / -30,039** | **+94,835** | **17-30 mo** | | |
+| Period | Days | Commits | Equiv. | Multiplier | Highlights |
+|--------|------|---------|--------|------------|------------|
+| [02-19…22](weekly-report-2026-02-22.md) | 4 | 159 | 5-8 mo | ~25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
+| [02-13…18](weekly-report-2026-02-18.md) | 6 | 108 | 5-9 mo | ~30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
+| [02-05…12](weekly-report-2026-02-12.md) | 8 | 115 | 7-13 mo | ~30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
+| **Total** | **18** | **382** | **17-30 mo** | | |
 
 ## Guide
 
