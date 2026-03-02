@@ -316,12 +316,12 @@ After writing a new report:
 
    - **Period**: Link to the report file using the period start date only, e.g. `[02-13](weekly-report-2026-02-18.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
    - **Days**: Number of days in the reporting period.
-   - **<img src="https://github.githubassets.com/favicons/favicon.svg" width="16">**: Total commits (GitHub octocat represents commits).
+   - **Commits**: Total commits (column heading is the GitHub favicon icon).
    - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row. In the **Totals** row, convert the summed months to fractional years (one decimal place) with a `y` suffix, e.g. `1.9-3.3y`.
    - **Gain**: The vs. generalist figure, e.g. `25-50x` (approximate — values are ranges).
    - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
 
-   Maintain a **Totals** row at the bottom summing Days, <img src="https://github.githubassets.com/favicons/favicon.svg" width="16">, and Equiv. Leave Gain and Highlights blank in the totals row.
+   Maintain a **Totals** row at the bottom summing Days, commits, and Equiv. Leave Gain and Highlights blank in the totals row.
 
 3. **Commit and push**: Stage the new report and the updated README together in a single commit.
 
