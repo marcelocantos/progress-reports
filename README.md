@@ -5,6 +5,13 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 ## Reports
 
 <details>
+<summary><a href="weekly-report-2026-03-01.md"><b>2026-02-23…03-01 (7 days)</b></a> csp 5-phase Windows port + TLA+ verification, frozen H128 500x equality speedup, sqldeep transpiler from scratch, dais + doit new Claude Code tools, stock-car-racing Unity 6 + null-ref audit</summary>
+
+<b>csp</b> completed a full 5-phase Windows port (kqueue/epoll/Windows thread pool reactors), TLA+ formal verification for 4 concurrent protocols, and ARM64 thread-local corruption fix. <b>frozen</b> H128 128-bit content hash + recursive XOR hash (h0) delivering 500x set inequality speedup. <b>sqldeep</b> built from scratch as SQL transpiler with FK-guided join path algebra (4 releases). <b>dais</b> multi-session Claude Code orchestrator and <b>doit</b> three-level capability broker both designed and shipped. <b>sqlift</b> Go port with cross-language hash verification (6 releases). <b>stock-car-racing</b> Unity 6 upgrade with 61-finding null-ref audit. 364 commits across 13 repos. ~6-10 months traditional equivalent.
+
+</details>
+
+<details>
 <summary><a href="weekly-report-2026-02-22.md"><b>2026-02-19…22 (4 days)</b></a> mk build tool from scratch to Homebrew, csp topology surgery + cancellation + ~20 combinators, sqlift + sqlpipe new libraries, yourworld2 state sync via sqlpipe</summary>
 
 <b>mk</b> built from scratch as a modern build tool (pattern rules, parallel execution, stdlib) and shipped 5 releases to Homebrew. <b>csp</b> added ~20 more combinators, channel topology surgery (swap/fuse/splice/tap), cancellation framework with cancel-aware TLS, C++23 migration, and 6-paper engineering series. Two new C++ libraries: <b>sqlift</b> (declarative SQLite migration) and <b>sqlpipe</b> (streaming SQLite replication). <b>yourworld2</b> gained SQLite-backed game state with bidirectional sync via sqlpipe. 159 commits across 10 repos. ~5-8 months traditional equivalent.
@@ -29,10 +36,11 @@ Built the <b>csp</b> C++ microthreading library from a bare extraction into a pr
 
 | Period | Days | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
 |--------|------|---|-------------|-------|------------|
+| [02-23](weekly-report-2026-03-01.md) | 7 | 364 | 6-10 | 25-50x | csp Windows port + TLA+, frozen H128 500x speedup, sqldeep transpiler, dais + doit, Unity 6 audit |
 | [02-19](weekly-report-2026-02-22.md) | 4 | 159 | 5-8 | 25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
 | [02-13](weekly-report-2026-02-18.md) | 6 | 108 | 5-9 | 30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
 | [02-05](weekly-report-2026-02-12.md) | 8 | 115 | 7-13 | 30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
-| **Totals** | **18** | **382** | **17-30** | | |
+| **Totals** | **25** | **746** | **23-40** | | |
 
 ## Guide
 
