@@ -316,7 +316,7 @@ After writing a new report:
 
    - **Period**: Link to the report file using the period start date only, e.g. `[02-13](weekly-report-2026-02-18.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
    - **Days**: Number of days in the reporting period.
-   - **Commits**: Total commits (column heading is the GitHub favicon icon).
+   - **<img src="https://github.githubassets.com/favicons/favicon.svg" width="16">**: Total commits (GitHub favicon represents commits).
    - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row. In the **Totals** row, convert the summed months to fractional years (one decimal place) with a `y` suffix, e.g. `1.9-3.3y`.
    - **Gain**: The vs. generalist figure, e.g. `25-50x` (approximate — values are ranges).
    - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
