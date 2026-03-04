@@ -2,6 +2,24 @@
 
 Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 
+## The Journey So Far
+
+These reports started on 5 February 2026. In the 25 working days since, the output totals 746 commits across 23 repositories, spanning C++, Go, Rust, C#, TLA+, WGSL, SQL, and assembly. The estimated traditional equivalent is 1.9 to 3.3 years of full-time work.
+
+The numbers, whilst truly staggering, are the least interesting part.
+
+What stands out is the nature of the work. This is not boilerplate generation. The period includes a C++ microthreading library with M:N scheduling, formal verification, and a cross-platform port across three OS-specific reactor backends. A build tool that went from nothing to Homebrew in 4 days. A persistent data structure campaign that yielded 500x speedup on set inequality through a two-level hash architecture. A SQL transpiler with FK-guided join path algebra. Contributions accepted into the Go compiler. A custom physics engine. Wire-based remote rendering for mobile. An AI capability broker with three-level policy escalation. ARM64 ABI debugging. Unity lifecycle audits. Programming language theory papers.
+
+No single person holds expert-level knowledge in all of these areas. Traditionally, this breadth would require a team of specialists with coordination overhead, handoff friction, and design meetings. Here, one person directed AI agents across all of it, moving freely between formal methods and game physics, between parser construction and mobile platform engineering, without context-switch penalty.
+
+The human role shifted. Writing code is no longer the bottleneck. The actual human effort was roughly 70-135 hours across 25 days — about 3-5 hours per day — spent on architecture decisions, quality review, algorithmic insight, and course correction. The AI handled the volume. The human handled the direction.
+
+Several projects went from nothing to released software in days: mk (build tool, 4 days to Homebrew with 5 releases), sqldeep (SQL transpiler to v0.4.0), doit (capability broker, 164 tests), dais (multi-session orchestrator). These were not prototypes. They shipped with CI, documentation, test suites, and versioned releases.
+
+The consistency matters more than any individual result. Every week maintained a 25-100x multiplier over traditional development, across wildly different domains. The multiplier did not depend on easy problems — it held through formal verification, novel algorithm design, and cross-platform systems programming. It was highest on the hardest work, where the AI's ability to explore design spaces and handle cross-domain knowledge mattered most.
+
+This is 25 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
+
 ## Reports
 
 <details>
