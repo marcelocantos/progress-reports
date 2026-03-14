@@ -4,7 +4,7 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 
 ## The Journey So Far
 
-These reports started on 5 February 2026. In the 32 days since, the output totals 1,051 commits across 27 repositories, spanning C++, Go, Rust, C#, Swift, Svelte, TLA+, WGSL, SQL, and assembly. The estimated traditional equivalent is 2.3 to 4.0 years of full-time work.
+These reports started on 20 January 2026. In the 48 days since, the output totals 1,174 commits across 27 repositories, spanning C++, Go, Rust, C#, Swift, Svelte, TLA+, WGSL, SQL, and assembly. The estimated traditional equivalent is 2.7 to 4.8 years of full-time work.
 
 The numbers, whilst truly staggering, are the least interesting part.
 
@@ -12,13 +12,13 @@ What stands out is the nature of the work. This is not boilerplate generation. T
 
 No single person holds expert-level knowledge in all of these areas. Traditionally, this breadth would require a team of specialists with coordination overhead, handoff friction, and design meetings. Here, one person directed AI agents across all of it, moving freely between formal methods and game physics, between parser construction and mobile platform engineering, without context-switch penalty.
 
-The human role shifted. Writing code is no longer the bottleneck. The actual human effort was roughly 90-170 hours across 32 days — about 3-5 hours per day — spent on architecture decisions, quality review, algorithmic insight, and course correction. The AI handled the volume. The human handled the direction.
+The human role shifted. Writing code is no longer the bottleneck. The actual human effort was roughly 105-200 hours across 48 days — about 2-4 hours per day — spent on architecture decisions, quality review, algorithmic insight, and course correction. The AI handled the volume. The human handled the direction.
 
 Several projects went from nothing to released software in days: mk (build tool, 4 days to Homebrew with 5 releases), sqldeep (SQL transpiler to v0.5.0), doit (capability broker, MCP integration), jevon (multi-session orchestrator with iOS app). HMS2 went from vertical slice to 30+ functional screens with MFA and QR session transfer in a week. These were not prototypes. They shipped with CI, documentation, test suites, and versioned releases.
 
 The consistency matters more than any individual result. Every week maintained a 25-100x multiplier over traditional development, across wildly different domains. The multiplier did not depend on easy problems — it held through formal verification, novel algorithm design, and cross-platform systems programming. It was highest on the hardest work, where the AI's ability to explore design spaces and handle cross-domain knowledge mattered most.
 
-This is 32 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
+This is 48 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
 
 ## Reports
 
@@ -57,6 +57,20 @@ Built the <b>csp</b> C++ microthreading library from a bare extraction into a pr
 
 </details>
 
+<details>
+<summary><a href="weekly-report-2026-02-04.md"><b>2026-01-27…02-04 (9 days)</b></a> yourworld2 engine extraction into sq submodule, bgfx-to-Dawn/WebGPU migration, JSON manifest + binary mesh pack pipeline, damped globe rotation, bathymetry ocean sphere</summary>
+
+Intensive single-repo period: <b>yourworld2</b> evolved from prototype to properly architected application. Engine extracted into <b>sq</b> shared submodule (Module.mk, libsq.a). Full rendering backend migration from bgfx to Dawn/WebGPU with WGSL shaders. Asset pipeline split into JSON manifest + binary mesh pack. Interactive globe controls with damped inertia. Translucent bathymetry ocean sphere. macOS live resize fix via SDL event watcher. 79 commits across 1 repo. ~2-4 months traditional equivalent.
+
+</details>
+
+<details>
+<summary><a href="weekly-report-2026-01-26.md"><b>2026-01-20…26 (7 days)</b></a> yourworld2 globe prototype from scratch in 2 days (GPU atlas, shapefile pipeline, visual regression tests), Android 16KB page compliance + Firebase upgrade, iOS resolution fix</summary>
+
+First week of AI-assisted development. <b>yourworld2</b> built from zero to a fully rendered globe with country meshes, GPU-based texture atlas generation, ESRI shapefile-to-binary mesh pipeline, and visual regression testing — all in two days. <b>stock-car-racing</b> Android build stabilisation: 16KB page compliance via IL2CPP CMake post-processor, Firebase SDK 12.4.1 to 13.7.0 upgrade, R8 minification, Facebook SDK regression workaround. <b>yourworld</b> iPhone resolution scaling fix and project documentation. 44 commits across 3 repos. ~2-4 months traditional equivalent.
+
+</details>
+
 ## Metrics
 
 | Period | Days | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
@@ -66,7 +80,9 @@ Built the <b>csp</b> C++ microthreading library from a bare extraction into a pr
 | [02-19](weekly-report-2026-02-22.md) | 4 | 159 | 5-8 | 25-50x | mk from scratch to Homebrew, csp topology surgery + cancellation, sqlift + sqlpipe, yourworld2 state sync |
 | [02-13](weekly-report-2026-02-18.md) | 6 | 108 | 5-9 | 30-75x | M:N scheduler + TLA+ verification, HAMT allocation -75%, Box2D physics, GPU silhouettes |
 | [02-05](weekly-report-2026-02-12.md) | 8 | 115 | 7-13 | 30-100x | Wire-based remote rendering, custom physics + 72 levels, HAMT -280 lines, CLI installer |
-| **Totals** | **32** | **1,051** | **2.3-4.2y** | | |
+| [01-27](weekly-report-2026-02-04.md) | 9 | 79 | 2-4 | 30-50x | yourworld2 engine extraction (sq submodule), bgfx-to-Dawn/WebGPU, JSON manifest + mesh pack |
+| [01-20](weekly-report-2026-01-26.md) | 7 | 44 | 2-4 | 25-50x | yourworld2 globe prototype (GPU atlas, shapefile pipeline), Android 16KB compliance, iOS resolution fix |
+| **Totals** | **48** | **1,174** | **2.7-4.8y** | | |
 
 ## Guide
 
