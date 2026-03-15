@@ -4,7 +4,7 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 
 ## The Journey So Far
 
-These reports started on 19 January 2026. In the 49 days since, the output totals 1,264 commits across 27 repositories, spanning C++, Go, Rust, C#, Swift, Svelte, TLA+, WGSL, SQL, and assembly. The estimated traditional equivalent is 2.8 to 4.8 years of full-time work.
+These reports started on 19 January 2026. In the 56 days since, the output totals 1,492 commits across 28 repositories, spanning C++, Go, Rust, C#, Swift, Svelte, Lua, TLA+, WGSL, SQL, and assembly. The estimated traditional equivalent is 3.2 to 5.5 years of full-time work.
 
 The numbers, whilst truly staggering, are the least interesting part.
 
@@ -21,6 +21,13 @@ The consistency matters more than any individual result. Every week maintained a
 This is 49 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
 
 ## Reports
+
+<details>
+<summary><a href="weekly-report-2026-03-15.md"><b>2026-03-09…15</b></a> GPU parity optimizer (JFA + differential evolution), server-driven iOS Lua runtime, cworkers v0.1-v0.9 in one week, HMS2 five-wave completion (50 targets), sqldeep recursive tree construction, linq v2 iter.Seq migration</summary>
+
+<b>yourworld2</b> GPU-accelerated visual parity optimizer — 5 WGSL compute shaders (Sobel, JFA, Chamfer distance), differential evolution tuning ~17 parameters at ~50 eval/sec. Three feature waves: hints, magnification, menus, tutorials, achievements, encyclopedia. Cube map pipeline with shapefile water detection. <b>hms</b> five-wave HMS2 completion: recurrence engine, SSE multiplexer, RBAC, transport, 50 convergence targets. <b>cworkers</b> from initial commit to MCP server + Svelte dashboard across 9 releases. <b>jevon</b> server-driven Lua UI on iOS (26 SwiftUI builders, sqlpipe sync). <b>sqldeep</b> recursive tree construction via 3-CTE bracket injection (v0.6-v0.8). <b>linq</b> v2 iter.Seq migration. <b>csp</b> processor reuse fix + 3 research papers. 228 commits across 13 repos. ~5.5-9 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="weekly-report-2026-03-08.md"><b>2026-03-02…08</b></a> HMS2 full-stack rewrite (C#/SvelteKit/30+ screens/MFA/QR transfer), yourworld2 wave-based game buildout, csp channel use-after-free fix + buffered channels, jevon iOS app + QR discovery, frozen zero-alloc reads</summary>
@@ -75,6 +82,7 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 
 | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
 |--------|---|-------------|-------|------------|
+| [03-09](weekly-report-2026-03-15.md) | 228 | 5.5-9 | 28-45x | GPU parity optimizer (JFA + Chamfer), Lua iOS runtime, cworkers v0.1-v0.9, HMS2 50 targets, sqldeep RECURSE ON, linq v2 |
 | [03-02](weekly-report-2026-03-08.md) | 305 | 5-9 | 25-45x | HMS2 full rewrite, yourworld2 game buildout, csp channel fix + buffered channels, jevon iOS app, frozen zero-alloc |
 | [02-23](weekly-report-2026-03-01.md) | 364 | 6-10 | 25-50x | csp Windows port + TLA+, frozen H128 500x speedup, sqldeep transpiler, dais + doit, Unity 6 audit |
 | [02-16](weekly-report-2026-02-22.md) | 313 | 10-17 | 30-60x | csp 133 commits (100+ combinators, topology surgery, TLA+, C++23), mk to Homebrew, sqlift + sqlpipe |
@@ -82,7 +90,7 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 | [02-02](weekly-report-2026-02-08.md) | 77 | 3-5 | 25-50x | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC |
 | [01-26](weekly-report-2026-02-01.md) | 61 | 2-4 | 25-50x | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched |
 | [01-19](weekly-report-2026-01-25.md) | 15 | 1-2 | 10-25x | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix |
-| **Totals** | **1,264** | **2.8-4.8y** | | |
+| **Totals** | **1,492** | **3.2-5.5y** | | |
 
 ## Guide
 
