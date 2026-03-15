@@ -1,4 +1,4 @@
-# Weekly Progress Report — 2026-03-02…08 (7 days)
+# Weekly Progress Report — 2026-03-02…08
 
 ## Executive Summary
 

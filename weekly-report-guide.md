@@ -8,7 +8,7 @@ Instructions for an AI agent generating weekly progress reports for Marcelo Cant
 
 ### 1.1 Determine the reporting period
 
-The report covers a calendar week. The date range goes in the title. If a previous report exists, the new period starts the day after the previous period ended. Otherwise, ask.
+The report covers a Monday-to-Sunday calendar week. The date range goes in the title. All reports use consistent 7-day Mon-Sun boundaries.
 
 ### 1.2 Discover active repositories
 
@@ -66,7 +66,7 @@ The report is a single markdown file named `weekly-report-<YYYY-MM-DD>.md` where
 ### Sections in order:
 
 ```
-# Weekly Progress Report — <YYYY-MM-DD…DD> (<N> days)
+# Weekly Progress Report — <YYYY-MM-DD…DD>
 
 ## Executive Summary
 ## <Category>          (repeated per category)
@@ -297,7 +297,7 @@ After writing a new report:
 
    ```html
    <details>
-   <summary><a href="<filename>"><b><YYYY-MM-DD…DD> (<N> days)</b></a> key achievement, key achievement, ...</summary>
+   <summary><a href="<filename>"><b><YYYY-MM-DD…DD></b></a> key achievement, key achievement, ...</summary>
 
    Full synopsis here: 2-3 sentences naming the key repos (<b>bolded</b>) and headline
    accomplishments. End with commit count, repo count, and traditional equivalent
@@ -311,17 +311,16 @@ After writing a new report:
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
 2. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
 
-   | Period | Days | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv. (mo) | Gain | Highlights |
-   |--------|------|---|-------------|-------|------------|
+   | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
+   |--------|---|-------------|-------|------------|
 
-   - **Period**: Link to the report file using the period start date only, e.g. `[02-13](weekly-report-2026-02-18.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
-   - **Days**: Number of days in the reporting period.
+   - **Period**: Link to the report file using the period start date only, e.g. `[02-16](weekly-report-2026-02-22.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
    - **<img src="https://github.githubassets.com/favicons/favicon.svg" width="16">**: Total commits (GitHub favicon represents commits).
    - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row. In the **Totals** row, convert the summed months to fractional years (one decimal place) with a `y` suffix, e.g. `1.9-3.3y`.
    - **Gain**: The vs. generalist figure, e.g. `25-50x` (approximate — values are ranges).
    - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
 
-   Maintain a **Totals** row at the bottom summing Days, commits, and Equiv. Leave Gain and Highlights blank in the totals row.
+   Maintain a **Totals** row at the bottom summing commits and Equiv. Leave Gain and Highlights blank in the totals row.
 
 3. **Commit and push**: Stage the new report and the updated README together in a single commit.
 
