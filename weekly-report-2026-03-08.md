@@ -268,6 +268,10 @@ Continued from last week's three-level capability broker:
 
 ---
 
+### Daily Activity
+
+![Daily active repositories](daily-activity-2026-03-08.svg)
+
 ## Ideas & Innovations
 
 ### Wave-Based Parallel Feature Delivery ([yourworld2](https://github.com/squz/yourworld2))

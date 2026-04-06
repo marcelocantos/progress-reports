@@ -92,6 +92,10 @@ No new automated tests were added this week. The yourworld2 visual regression te
 
 ---
 
+### Daily Activity
+
+![Daily active repositories](daily-activity-2026-01-25.svg)
+
 ## Ideas & Innovations
 
 ### ESRI Shapefile to Country Outline Pipeline ([yourworld2](https://github.com/squz/yourworld2))

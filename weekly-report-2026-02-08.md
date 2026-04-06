@@ -84,6 +84,10 @@ Massive progress from M3 through to a complete, playable game with online multip
 
 ---
 
+### Daily Activity
+
+![Daily active repositories](daily-activity-2026-02-08.svg)
+
 ## Ideas & Innovations
 
 ### Wire-Based Remote Rendering via WebGPU Wire Protocol ([yourworld2](https://github.com/squz/yourworld2))

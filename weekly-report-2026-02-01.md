@@ -93,6 +93,10 @@ New project: a rewrite of [esfera](https://github.com/squz/esfera), a chess game
 
 ---
 
+### Daily Activity
+
+![Daily active repositories](daily-activity-2026-02-01.svg)
+
 ## Ideas & Innovations
 
 ### GPU-Based Texture Atlas Generation ([yourworld2](https://github.com/squz/yourworld2))

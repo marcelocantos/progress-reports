@@ -190,6 +190,10 @@ Note: den's +1M/-506K includes ~1M lines of vendored C++ dependencies (spdlog, n
 
 ---
 
+### Daily Activity
+
+![Daily active repositories](daily-activity-2026-03-29.svg)
+
 ## Ideas & Innovations
 
 ### Quiescence Scope for Deterministic M:N Testing ([csp](https://github.com/marcelocantos/csp))

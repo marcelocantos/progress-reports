@@ -212,6 +212,10 @@ Continued from last week's iOS app and trust model with a radical UI architectur
 
 ---
 
+### Daily Activity
+
+![Daily active repositories](daily-activity-2026-03-15.svg)
+
 ## Ideas & Innovations
 
 ### GPU-Accelerated Visual Parity via Chamfer Distance ([yourworld2](https://github.com/squz/yourworld2))
