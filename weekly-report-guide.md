@@ -351,8 +351,12 @@ After writing a new report:
    ```sh
    ~/.claude/skills/progress-report/timeline-chart.py \
        --since 2026-01-19 \
+       --cache <report-repo>/data/daily-repos.yaml \
+       --weekly-dir <report-repo>/ \
        -o <report-repo>/timeline.svg
    ```
+
+   The `--cache` flag reads/writes a YAML file of daily repo counts. Cached days are reused; only dates within the last 2 days are rescanned (to avoid timezone edge cases). The `--weekly-dir` flag also regenerates per-week SVGs from the same data. Commit the updated cache alongside the charts.
 
    The README embeds this as `![Daily active repositories — full timeline](timeline.svg)` between "The Journey So Far" and "## Reports". The chart is regenerated on every report so it stays current.
 
