@@ -195,7 +195,31 @@ A table of repos that added tests, sorted by test count descending:
 
 Include a **Total** row. Only include repos that added tests.
 
-### 3.7 Ideas & Innovations
+### 3.7 Daily Activity Chart
+
+An SVG bar chart showing the number of active repositories per day across the reporting period. This visualises how effort is distributed through the week.
+
+**Generation**: Run the companion chart script with the daily data from `gather.sh`:
+
+```sh
+~/.claude/skills/progress-report/daily-chart.py \
+    --output <report-repo>/daily-activity-<YYYY-MM-DD>.svg \
+    <<< "<daily_active_repos output from gather.sh>"
+```
+
+The script reads lines of `DOW YYYY-MM-DD COUNT` on stdin (the `# daily_active_repos` section of `gather.sh` output) and produces an SVG bar chart.
+
+**Embedding**: Place the chart in the Metrics section, after Testing:
+
+```markdown
+### Daily Activity
+
+![Daily active repositories](daily-activity-<YYYY-MM-DD>.svg)
+```
+
+Commit the SVG alongside the report. The date in the filename matches the report date (last day of the period).
+
+### 3.8 Ideas & Innovations
 
 This section highlights the technically interesting ideas from the week — things that go beyond routine implementation. Each entry is:
 
@@ -213,7 +237,7 @@ Style: explanatory and appreciative. Write for a technically sophisticated reade
 
 Aim for 4-7 entries per report. Skip anything that's just "implemented X using standard approach Y".
 
-### 3.8 Effort Estimate
+### 3.9 Effort Estimate
 
 This section compares the AI-assisted output against traditional development. It has these subsections:
 
@@ -322,7 +346,17 @@ After writing a new report:
 
    Maintain a **Totals** row at the bottom summing commits and Equiv. Leave Gain and Highlights blank in the totals row.
 
-3. **Commit and push**: Stage the new report and the updated README together in a single commit.
+3. **Regenerate the timeline chart**: Run the timeline chart script to update the full-history chart in the README:
+
+   ```sh
+   ~/.claude/skills/progress-report/timeline-chart.py \
+       --since 2026-01-19 \
+       -o <report-repo>/timeline.svg
+   ```
+
+   The README embeds this as `![Daily active repositories — full timeline](timeline.svg)` between "The Journey So Far" and "## Reports". The chart is regenerated on every report so it stays current.
+
+4. **Commit and push**: Stage the new report, the daily activity SVG, the updated timeline SVG, and the updated README together in a single commit.
 
 ---
 

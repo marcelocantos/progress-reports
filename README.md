@@ -20,6 +20,8 @@ The consistency matters more than any individual result. Every week maintained a
 
 This is 49 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
 
+![Daily active repositories — full timeline](timeline.svg)
+
 ## Reports
 
 <details>
