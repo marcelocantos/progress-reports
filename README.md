@@ -12,13 +12,13 @@ What stands out is the nature of the work. This is not boilerplate generation. T
 
 No single person holds expert-level knowledge in all of these areas. Traditionally, this breadth would require a team of specialists with coordination overhead, handoff friction, and design meetings. Here, one person directed AI agents across all of it, moving freely between formal methods and game physics, between parser construction and mobile platform engineering, without context-switch penalty.
 
-The human role shifted. Writing code is no longer the bottleneck. The actual human effort was roughly 100-200 hours across 49 days — about 2-4 hours per day — spent on architecture decisions, quality review, algorithmic insight, and course correction. The AI handled the volume. The human handled the direction.
+The human role shifted. Writing code is no longer the bottleneck. The actual human effort was roughly 100-200 hours across 77 days — about 1-3 hours per day — spent on architecture decisions, quality review, algorithmic insight, and course correction. The AI handled the volume. The human handled the direction.
 
 Several projects went from nothing to released software in days: mk (build tool, 4 days to Homebrew with 5 releases), sqldeep (SQL transpiler to v0.5.0), doit (capability broker, MCP integration), jevon (multi-session orchestrator with iOS app). HMS2 went from vertical slice to 30+ functional screens with MFA and QR session transfer in a week. These were not prototypes. They shipped with CI, documentation, test suites, and versioned releases.
 
 The consistency matters more than any individual result. Every week maintained a 25-100x multiplier over traditional development, across wildly different domains. The multiplier did not depend on easy problems — it held through formal verification, novel algorithm design, and cross-platform systems programming. It was highest on the hardest work, where the AI's ability to explore design spaces and handle cross-domain knowledge mattered most.
 
-This is 49 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
+This is 77 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
 
 ![Daily active repositories — full timeline](timeline.svg)
 
