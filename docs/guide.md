@@ -61,7 +61,7 @@ Where applicable, count new test functions/cases added during the period. Look f
 
 ## 2. Report Structure
 
-The report is a single markdown file named `weekly-report-<YYYY-MM-DD>.md` where the date is the last day of the reporting period.
+The report is a single markdown file named `reports/weekly-report-<YYYY-MM-DD>.md` where the date is the last day of the reporting period.
 
 ### Sections in order:
 
@@ -203,7 +203,7 @@ An SVG bar chart showing the number of active repositories per day across the re
 
 ```sh
 ~/.claude/skills/progress-report/daily-chart.py \
-    --output <report-repo>/daily-activity-<YYYY-MM-DD>.svg \
+    --output <report-repo>/reports/daily-activity-<YYYY-MM-DD>.svg \
     <<< "<daily_active_repos output from gather.sh>"
 ```
 
@@ -338,7 +338,7 @@ After writing a new report:
    | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
    |--------|---|-------------|-------|------------|
 
-   - **Period**: Link to the report file using the period start date only, e.g. `[02-16](weekly-report-2026-02-22.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
+   - **Period**: Link to the report file using the period start date only, e.g. `[02-16](reports/weekly-report-2026-02-22.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
    - **<img src="https://github.githubassets.com/favicons/favicon.svg" width="16">**: Total commits (GitHub favicon represents commits).
    - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row. In the **Totals** row, convert the summed months to fractional years (one decimal place) with a `y` suffix, e.g. `1.9-3.3y`.
    - **Gain**: The vs. generalist figure, e.g. `25-50x` (approximate — values are ranges).
@@ -352,13 +352,13 @@ After writing a new report:
    ~/.claude/skills/progress-report/timeline-chart.py \
        --since 2026-01-19 \
        --cache <report-repo>/data/daily-repos.yaml \
-       --weekly-dir <report-repo>/ \
-       -o <report-repo>/timeline.svg
+       --weekly-dir <report-repo>/reports/ \
+       -o <report-repo>/reports/timeline.svg
    ```
 
    The `--cache` flag reads/writes a YAML file of daily repo counts. Cached days are reused; only dates within the last 2 days are rescanned (to avoid timezone edge cases). The `--weekly-dir` flag also regenerates per-week SVGs from the same data. Commit the updated cache alongside the charts.
 
-   The README embeds this as `![Daily active repositories — full timeline](timeline.svg)` between "The Journey So Far" and "## Reports". The chart is regenerated on every report so it stays current.
+   The README embeds this as `![Daily active repositories — full timeline](reports/timeline.svg)` between "The Journey So Far" and "## Reports". The chart is regenerated on every report so it stays current.
 
 4. **Commit and push**: Stage the new report, the daily activity SVG, the updated timeline SVG, and the updated README together in a single commit.
 
