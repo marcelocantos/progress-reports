@@ -22,6 +22,10 @@ This is 77 days in. The tooling is still maturing and the workflows are still be
 
 ![Daily active repositories — full timeline](reports/timeline.svg)
 
+## Greatest Hits
+
+The [top 50 achievements](docs/achievements.md) across all projects, ranked by meatiness.
+
 ## Reports
 
 <details>
