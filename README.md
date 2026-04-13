@@ -4,7 +4,7 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 
 ## The Journey So Far
 
-These reports started on 19 January 2026. In the 77 days since, the output totals 2,744 commits across 30+ repositories, spanning C++, C, Go, Rust, C#, Swift, Kotlin, TypeScript, Svelte, Python, Lua, TLA+, WGSL, SQL, Ruby, PlantUML, and assembly. The estimated traditional equivalent is 5.5 to 9.2 years of full-time work.
+These reports started on 19 January 2026. In the 84 days since, the output totals 3,390 commits across 40+ repositories, spanning C++, C, Go, Rust, C#, Swift, Kotlin, TypeScript, Svelte, Python, Lua, TLA+, WGSL, SQL, Ruby, PlantUML, and assembly. The estimated traditional equivalent is 6.0 to 10.0 years of full-time work.
 
 The numbers, whilst truly staggering, are the least interesting part.
 
@@ -18,7 +18,7 @@ Several projects went from nothing to released software in days: mk (build tool,
 
 The consistency matters more than any individual result. Every week maintained a 25-100x multiplier over traditional development, across wildly different domains. The multiplier did not depend on easy problems — it held through formal verification, novel algorithm design, and cross-platform systems programming. It was highest on the hardest work, where the AI's ability to explore design spaces and handle cross-domain knowledge mattered most.
 
-This is 77 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
+This is 84 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
 
 ![Daily active repositories — full timeline](reports/timeline.svg)
 
@@ -27,6 +27,13 @@ This is 77 days in. The tooling is still maturing and the workflows are still be
 The [top 50 achievements](docs/achievements.md) across all projects, ranked by meatiness.
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-04-12.md"><b>2026-04-06…12</b></a> bullseye v0.5-v0.14 (portfolio WSJF, cross-repo convergence), mnemo v0.4-v0.15 (11 new tools, session chains), pigeon pure C client library, claudia bootstrap to tmux agent pool, HMS 7-round de-identification hardening, sawmill git history indexing</summary>
+
+MCP ecosystem maturation week: <b>bullseye</b> reached v0.14.0 with portfolio-level WSJF ranking, cross-repo dependency edges, and convergence gap analysis (75 commits, 10 releases). <b>mnemo</b> climbed from v0.4.0 to v0.15.0 with 11 new tools including session chains, CI indexing, and self-healing streams (81 commits). <b>pigeon</b> gained a pure C client library with amalgamated distribution and cross-language crypto vector tests (v0.16.0). <b>claudia</b> went from bootstrap to tmux-backed agent pool with warm spawning and session chains (v0.6.0). <b>hms</b> de-identification tool hardened through 7 red-team audits with exhaustive PII coverage manifest. <b>sawmill</b> added git history AST indexing, 7 new MCP tools, and global daemon (v0.9.0). 646 commits across 28 repos. ~6-9 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-04-05.md"><b>2026-03-30…04-05</b></a> sawmill Rust-to-Go rewrite + open-source (11 frontier milestones), pigeon session protocol with generated state machines (Go/Swift/Kotlin/TS) + TLA+, sqldeep XML literals through 10 releases, nostalgia TUI git browser, csp v0.6-v0.8</summary>
@@ -109,6 +116,7 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 
 | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
 |--------|---|-------------|-------|------------|
+| [04-06](reports/weekly-report-2026-04-12.md) | 646 | 6-9 | 30-55x | bullseye 10 releases (portfolio WSJF, cross-repo convergence), mnemo 12 releases (11 tools, session chains), pigeon pure C client, claudia tmux pool, HMS 7 audits |
 | [03-30](reports/weekly-report-2026-04-05.md) | 432 | 5-7 | 25-45x | sawmill Rust→Go + open-source (11 frontiers), pigeon session state machines (4 langs + TLA+), sqldeep XML literals (10 releases), nostalgia TUI |
 | [03-23](reports/weekly-report-2026-03-29.md) | 574 | 5-8 | 25-45x | csp M:N-only (663 tests, quiescence, TLA+), rustuml SVG parity (6 renderers), den C++ rewrite + 5 audits, sqlpipe predicate VM, tern 97.5% coverage |
 | [03-16](reports/weekly-report-2026-03-22.md) | 246 | 6-9 | 30-50x | rustuml 12,500 golden tests, tern 5-platform relay, HMS2 V1+V2 (821 exceptions), cworkers C rewrite, jevon TLA+ |
@@ -120,7 +128,7 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 | [02-02](reports/weekly-report-2026-02-08.md) | 77 | 3-5 | 25-50x | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC |
 | [01-26](reports/weekly-report-2026-02-01.md) | 61 | 2-4 | 25-50x | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched |
 | [01-19](reports/weekly-report-2026-01-25.md) | 15 | 1-2 | 10-25x | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix |
-| **Totals** | **2,744** | **5.5-9.2y** | | |
+| **Totals** | **3,390** | **6.0-10.0y** | | |
 
 ## Guide
 
