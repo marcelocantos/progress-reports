@@ -91,7 +91,7 @@ A single punchy paragraph followed by two bullet-point subsections.
 
 - Repo count, bolded (exclude repos where Marcelo's only commits are submodule pointer updates)
 - The domains spanned (game dev, library engineering, tooling, etc.)
-- Headline items — name the 3-5 most significant efforts with a phrase each, repo names bolded
+- Headline items — name the significant efforts with a phrase each, repo names bolded. Drive selection from the scoring rubric below: any work that earned a bullet in Major Achievements, Significant Progress, or Tough Challenges belongs here. Do **not** impose a "3-5 item" quota or pick a dominant "theme" for the week — report what actually happened, including work across multiple unrelated domains.
 
 Tone: confident, specific, no fluff. Lead with scope and impact.
 
@@ -103,15 +103,31 @@ Tone: confident, specific, no fluff. Lead with scope and impact.
 
 The traditional equivalent is the solo generalist estimate from the Effort Estimate section. The multiplier is vs. that same generalist baseline.
 
-**Major Achievements & Innovations** (`### Major Achievements & Innovations`) — a bullet list of 4-7 items highlighting the week's most significant technical accomplishments and novel ideas. Each bullet should:
+#### Scoring rubric
+
+Score each piece of substantive work independently on four axes (0–5 each). **No ranking, no quotas, no "theme for the week".** Each axis is evaluated on the work's own merits — not against other work in the same week.
+
+- **Impact** — does it ship, unlock something, or fix a real problem? Released version (highest), user-visible behavior change, or another repo/system now depends on it. Unreleased work caps out lower on this axis.
+- **Platform/system depth** — native APIs, kernel primitives, video/audio codecs, GPU pipelines, crypto, OS-specific lifecycle. FFmpeg arm64 static integration or Metal/VideoToolbox work scores high here.
+- **Correctness surface** — concurrency, cryptographic equivalence, formal verification, security audit hardening, transactional semantics, multi-session resource lifecycle. The higher the cost of silent wrongness, the higher the score.
+- **Scope of change** — files touched × architectural layers crossed. A renderer backend swap touches shader pipelines, resource lifecycle, command recording, every graphics primitive — that's high scope regardless of the word "migration".
+
+**Anti-framing rule**: judge by *what was done*, not by the word used to describe it. Words like "migration", "cleanup", "refactor", "rewrite", or "port" often mask significant architectural work. If a repo's activity reads as low-effort at first glance, re-read the diffs before scoring.
+
+**Anti-bias rule**: polyglot novelty (C crypto, JNI bridges, cross-language test vectors) can *feel* harder than platform-deep mobile/GPU/codec work, but often isn't. Score on concrete axes, not on how exotic the description sounds.
+
+#### Section gates
+
+**Major Achievements & Innovations** (`### Major Achievements & Innovations`) — a bullet list gated on **Impact ≥ 4** (shipped or released this period). No minimum or maximum count; include every item that passes the gate. Each bullet should:
 
 - Start with the key concept or technique in bold
 - Name the repo
 - Explain concretely *what* was achieved and *why* it's noteworthy in 1-2 sentences
 - Quantify impact where possible (performance gains, lines eliminated, etc.)
-- These should be the items a reader remembers after skimming the report
 
-**Tough Challenges Overcome** (`### Tough Challenges Overcome`) — a bullet list of 3-6 items describing the hardest problems encountered and how they were solved. Each bullet should:
+**Significant Progress** (`### Significant Progress`) — a bullet list for **unreleased** work that scored high on depth, correctness, or scope (any axis ≥ 4). This captures major architectural work that didn't ship a version this week but represents real engineering progress. Released work always goes in Major Achievements regardless of how much it progressed — never double-list. Skip the section entirely if no work qualifies.
+
+**Tough Challenges Overcome** (`### Tough Challenges Overcome`) — a bullet list of problems that scored high on correctness surface or platform/system depth, independent of whether the work shipped. Each bullet should:
 
 - Start with a concise description of the problem in bold
 - Name the repo in parentheses
