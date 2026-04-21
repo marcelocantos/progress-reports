@@ -4,7 +4,7 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 
 ## The Journey So Far
 
-These reports started on 19 January 2026. In the 84 days since, the output totals 3,390 commits across 40+ repositories, spanning C++, C, Go, Rust, C#, Swift, Kotlin, TypeScript, Svelte, Python, Lua, TLA+, WGSL, SQL, Ruby, PlantUML, and assembly. The estimated traditional equivalent is 6.0 to 10.0 years of full-time work.
+These reports started on 19 January 2026. In the 91 days since, the output totals 3,781 commits across 40+ repositories, spanning C++, C, Go, Rust, C#, Swift, Kotlin, TypeScript, Svelte, Python, Lua, TLA+, WGSL, SQL, Ruby, Objective-C, PlantUML, and assembly. The estimated traditional equivalent is 6.5 to 11.0 years of full-time work.
 
 The numbers, whilst truly staggering, are the least interesting part.
 
@@ -27,6 +27,13 @@ This is 84 days in. The tooling is still maturing and the workflows are still be
 The [top 50 achievements](docs/achievements.md) across all projects, ranked by meatiness.
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-04-19.md"><b>2026-04-13…19</b></a> pageflip + spyder launched (2 new brew-installable products), mnemo v0.16-v0.21 (image/OCR/CLIP indexing + live compaction + connection identity + HTTP transport collapse + Windows), pigeon TLA+-verified cutover + ngtcp2 QUIC C + multi-client pairing, ge v0.1.0 with engine/render/bridge split, bullseye per-repo storage redesign</summary>
+
+Greenfield-plus-depth week: <b>pageflip</b> shipped v0.1.0 as a Rust+Go meeting-capture pipeline with macOS Vision face-blur, OCR PII redaction, ScreenCaptureKit audio with compile-time egress gate via sealed types, WhisperX+pyannote diarisation, and a Go meetcat shell spawning 5 claudia-backed specialist agents (skeptic/constructive/neutral/dejargoniser/contradictions) with artefact writer. <b>spyder</b> shipped v0.1.0→v0.5.0 in 3 days as an HTTP MCP server for cross-platform mobile orchestration with iOS (pymobiledevice3+CoreDevice) and Android (adb) adapters, reservation system, screen recording, crash collection, network shaping, and run artefacts. <b>mnemo</b> climbed v0.16→v0.21 (6 releases) adding image/OCR/CLIP indexing via Anthropic vision API, a live compaction lifecycle with claudia.Task LLM summariser, a connection-identity pivot that re-keyed session chains around daemon connections, HTTP MCP transport collapse, and native Windows support. <b>pigeon</b> v0.17.0 added a TLA+-verified (159K states) drain-window cutover protocol, ngtcp2 QUIC C transport vtable, one-time-token multi-client pairing. <b>squz/ge</b> v0.1.0 with engine/render/bridge subsystem split, Android text rendering (SDL_ttf vendored), GPU YUV colour-space conversion, physical-device matrix cells passing on iOS+Android. <b>bullseye</b> v0.15→v0.17 redesigned storage from machine-wide to per-repo path-driven discovery. <b>doit</b> v0.6.0 added shell-script SHA-256 approval gate, process-group timeouts, and audit-log-driven duration anomaly detection. <b>jevons</b> v0.4.0 added mTLS CA + device provisioning + cross-repo active-work dashboard. <b>esfera2</b> ported sphere+pieces from Dawn/WebGPU to bgfx atop ge v0.1.0. 391 commits across 21 repos. ~5.5-9 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-04-12.md"><b>2026-04-06…12</b></a> bullseye v0.5-v0.14 (portfolio WSJF, cross-repo convergence), mnemo v0.4-v0.15 (11 new tools, session chains), pigeon pure C client library, claudia bootstrap to tmux agent pool, HMS 7-round de-identification hardening, sawmill git history indexing</summary>
@@ -116,6 +123,7 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 
 | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
 |--------|---|-------------|-------|------------|
+| [04-13](reports/weekly-report-2026-04-19.md) | 391 | 5.5-9 | 35-55x | pageflip + spyder launched, mnemo v0.16-v0.21 (images/CLIP/compaction/connection identity/HTTP), pigeon TLA+ cutover + ngtcp2 QUIC C, ge v0.1.0 engine split, bullseye per-repo storage |
 | [04-06](reports/weekly-report-2026-04-12.md) | 646 | 6-9 | 30-55x | bullseye 10 releases (portfolio WSJF, cross-repo convergence), mnemo 12 releases (11 tools, session chains), pigeon pure C client, claudia tmux pool, HMS 7 audits |
 | [03-30](reports/weekly-report-2026-04-05.md) | 432 | 5-7 | 25-45x | sawmill Rust→Go + open-source (11 frontiers), pigeon session state machines (4 langs + TLA+), sqldeep XML literals (10 releases), nostalgia TUI |
 | [03-23](reports/weekly-report-2026-03-29.md) | 574 | 5-8 | 25-45x | csp M:N-only (663 tests, quiescence, TLA+), rustuml SVG parity (6 renderers), den C++ rewrite + 5 audits, sqlpipe predicate VM, tern 97.5% coverage |
@@ -128,7 +136,7 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 | [02-02](reports/weekly-report-2026-02-08.md) | 77 | 3-5 | 25-50x | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC |
 | [01-26](reports/weekly-report-2026-02-01.md) | 61 | 2-4 | 25-50x | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched |
 | [01-19](reports/weekly-report-2026-01-25.md) | 15 | 1-2 | 10-25x | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix |
-| **Totals** | **3,390** | **6.0-10.0y** | | |
+| **Totals** | **3,781** | **6.5-11.0y** | | |
 
 ## Guide
 
