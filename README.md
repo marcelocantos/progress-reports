@@ -4,21 +4,21 @@ Weekly progress reports for Marcelo Cantos's AI-assisted development work.
 
 ## The Journey So Far
 
-These reports started on 19 January 2026. In the 91 days since, the output totals 3,781 commits across 40+ repositories, spanning C++, C, Go, Rust, C#, Swift, Kotlin, TypeScript, Svelte, Python, Lua, TLA+, WGSL, SQL, Ruby, Objective-C, PlantUML, and assembly. The estimated traditional equivalent is 6.5 to 11.0 years of full-time work.
+Thirteen weeks in. These reports began on 19 January 2026; across the 91 days since, 3,781 commits have landed in more than forty repositories, written in seventeen languages — C++, C, Go, Rust, C#, Swift, Kotlin, TypeScript, Svelte, Python, Lua, TLA+, WGSL, SQL, Ruby, Objective-C, and PlantUML. A traditional-development equivalent comes to 6.5 to 11.0 years of full-time engineering.
 
-The numbers, whilst truly staggering, are the least interesting part.
+The volume is not the point. The nature of what shipped is.
 
-What stands out is the nature of the work. This is not boilerplate generation. The period includes a C++ microthreading library with M:N scheduling, formal verification, and a cross-platform port across three OS-specific reactor backends. A build tool that went from nothing to Homebrew in 4 days. A persistent data structure campaign that yielded 500x speedup on set inequality through a two-level hash architecture. A SQL transpiler with FK-guided join path algebra and PostgreSQL backend. Contributions accepted into the Go compiler. A custom physics engine. Wire-based remote rendering for mobile. An AI capability broker with three-level policy escalation. ARM64 ABI debugging. Unity lifecycle audits. Programming language theory papers. A full-stack health management system rewrite (C#/SvelteKit/SQL Server with MFA, QR session transfer, 30+ screens). A geography game built from globe renderer to complete game experience in a single day. A native iOS app with QR-based server discovery.
+The catalogue spans domains that ordinarily belong to separate specialists. A C++ microthreading library with M:N scheduling, demand-paged guard-page stacks, nine TLA+ specifications and a five-phase Windows port across kqueue, epoll and IOCP. A bidirectional SQLite replication protocol with a TLA+-verified convergence loop, a bytecode VM for predicate pushdown, and an Emscripten WebAssembly target. A WebTransport relay — now named pigeon — implemented in Go, Swift, Kotlin, TypeScript and pure C, with a TLA+-verified drain-window cutover model, a ngtcp2 QUIC transport vtable, and cross-language crypto-vector tests. A PlantUML clone grown from zero to 12,500 golden tests against the Java reference across eighteen diagram types. A SQL transpiler with four language bindings and XML-literal syntax. A globe renderer that became a geography game through GPU visual-parity optimisation — differential evolution over five WGSL compute shaders (Sobel, JFA, Chamfer). A full-stack health-management rewrite into C#/SvelteKit with thirty-plus screens, TOTP MFA, QR session transfer, and seven rounds of de-identification red-teaming. A 128-bit content-hashing migration that delivered a 500x speedup on set inequality. A contribution accepted into the Go compiler. An Android health tracker in Kotlin/Compose. Two research-paper series, on concurrency engineering and universal grammars.
 
-No single person holds expert-level knowledge in all of these areas. Traditionally, this breadth would require a team of specialists with coordination overhead, handoff friction, and design meetings. Here, one person directed AI agents across all of it, moving freely between formal methods and game physics, between parser construction and mobile platform engineering, without context-switch penalty.
+No single person carries expert-level knowledge across that range. Traditionally the breadth requires a team of specialists and the coordination overhead that comes with them: design meetings, handoffs, skill gaps at the boundaries. Here, one person directs AI agents across the lot — moving between formal methods and bytecode design, between shader tuning and protocol verification, without context-switch penalty.
 
-The human role shifted. Writing code is no longer the bottleneck. The actual human effort was roughly 100-200 hours across 77 days — about 1-3 hours per day — spent on architecture decisions, quality review, algorithmic insight, and course correction. The AI handled the volume. The human handled the direction.
+The human role has inverted. Writing code is no longer the bottleneck. Actual human effort sits at one to three hours per day, spent on architecture decisions, quality review, algorithmic insight, red-team audits and course correction. The AI handles the volume. The human holds the direction.
 
-Several projects went from nothing to released software in days: mk (build tool, 4 days to Homebrew with 5 releases), sqldeep (SQL transpiler to v0.5.0), doit (capability broker, MCP integration), jevon (multi-session orchestrator with iOS app). HMS2 went from vertical slice to 30+ functional screens with MFA and QR session transfer in a week. These were not prototypes. They shipped with CI, documentation, test suites, and versioned releases.
+Shipping pace is the signature. The mk build tool went from nothing to Homebrew-installable in four days with five releases. sqldeep reached v0.18.0 through ten releases in one week. sawmill rewrote itself from Rust to Go while being open-sourced and clearing eleven frontier milestones. This past week brought two more: pageflip — a Rust meeting-capture pipeline with macOS Vision face-blur, OCR-based PII redaction, and a compile-time egress gate (a sealed `RedactedFrame` type makes raw egress a type error) — went zero-to-brew in four days; spyder, an HTTP MCP server orchestrating iOS and Android devices, reached v0.5.0 in three. Alongside that, mnemo climbed six releases to v0.21.0, gaining image indexing with Anthropic-vision descriptions, OCR, CLIP embeddings, a live compaction lifecycle driven by an LLM summariser, a connection-identity pivot that re-keyed session chains around daemon connections, and a collapse of its custom JSON-RPC-over-UDS protocol into a single HTTP MCP daemon. None of these were prototypes: each shipped with CI, documentation, test suites and versioned releases.
 
-The consistency matters more than any individual result. Every week maintained a 25-100x multiplier over traditional development, across wildly different domains. The multiplier did not depend on easy problems — it held through formal verification, novel algorithm design, and cross-platform systems programming. It was highest on the hardest work, where the AI's ability to explore design spaces and handle cross-domain knowledge mattered most.
+Every week has held a 25x-to-100x multiplier over traditional development, across wildly different domains. The multiplier is highest where the work is hardest — formal verification, novel algorithm design, cross-platform systems programming — because that is where the AI's ability to explore design spaces and hold cross-domain knowledge matters most.
 
-This is 84 days in. The tooling is still maturing and the workflows are still being refined. But the fundamental capability — one person directing AI to produce years of output per month, across arbitrary technical domains, at production quality — is already real and consistent.
+Something else has emerged alongside the output. A cluster of tools built during this period — mnemo, bullseye, doit, claudia, sawmill, mcpsafe, spyder, pageflip — are themselves products of this workflow and now feed back into it as MCP servers and agent harnesses. What started in January as an experiment is operating, thirteen weeks in, as a sustained mode of production: one person directing AI to deliver years of engineering per month, across arbitrary technical domains, at shipping quality.
 
 ![Daily active repositories — full timeline](reports/timeline.svg)
 
@@ -120,6 +120,33 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 </details>
 
 ## Metrics
+
+The figures below are not derived from line counts, pull-request counts, or raw commit volume. Each weekly report begins with a per-repository reading of the actual commits — messages and diffs — to build a qualitative picture of what was built, why it matters, and where the difficulty lay.
+
+**Scoring.** Every substantive piece of work is then scored independently on four axes:
+
+- **Impact** — does it ship, unlock something, or fix a real problem?
+- **Platform / system depth** — native APIs, kernel primitives, GPU pipelines, crypto, codecs, OS-specific lifecycle.
+- **Correctness surface** — concurrency, formal verification, security hardening, transactional semantics; anywhere silent wrongness is costly.
+- **Scope of change** — files touched × architectural layers crossed.
+
+Two explicit rules guard against surface-framing bias:
+
+- Words like *migration*, *refactor*, *cleanup* or *port* often mask significant architectural work, so the diffs are re-read whenever a repo reads as low-effort at first glance.
+- Polyglot novelty (C crypto, JNI bridges, cross-language vectors) can *feel* harder than platform-deep mobile, GPU or codec work without actually being so; scoring stays on the concrete axes rather than on how exotic the description sounds.
+
+**Traditional-development baselines.** From the per-project assessment, estimates are produced twice:
+
+- A **single talented generalist** who must ramp up on every domain, with ramp-up costs itemised per project.
+- An **idealised specialist team** who each know their area but carry coordination overhead.
+
+A context-switching tax is added for multi-domain weeks. A *Diversity Tax* section enumerates every distinct specialism exercised that week — Rust screen-capture via objc2, pure-C QUIC with ngtcp2, TLA+ verification, pymobiledevice3 orchestration, bgfx mobile engine work, WhisperX/pyannote ML pipelines, healthcare PII compliance, and so on — because the breadth itself is load-bearing.
+
+**Actual human hours** are estimated separately per project, with explicit description of what the human did: architecture decisions, design pivots, scope discipline, red-team review, course correction.
+
+**Ranges, not point estimates.** Every figure below is a range — estimation uncertainty is reported honestly rather than hidden behind a single number.
+
+**Totals.** The **Equiv.** column is the *single talented generalist* bound from each week's Effort Estimate section; the **Totals** row sums those bounds. Open any report to see the full derivation — per-project person-days with *why it's hard* rationales, the Diversity Tax list, the What-If-It-Were-One-Person ramp-up table, and the human-hours breakdown.
 
 | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
 |--------|---|-------------|-------|------------|

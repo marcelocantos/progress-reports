@@ -333,7 +333,8 @@ When writing a report that follows a previous one:
 
 After writing a new report:
 
-1. **Update README.md**: Add a new collapsible entry under `## Reports`, above the existing entries (newest first). Use this template:
+1. **Rewrite "The Journey So Far"**: Replace the `## The Journey So Far` section at the top of `README.md` from scratch each iteration. Do not read the existing section before drafting — write a fresh narrative grounded in the current totals, this week's work, the achievements list, and (as needed) the previous reports. The section contextualises the cumulative body of work: total days, commits, languages, traditional equivalent, the nature of the work, the human role, and what stands out. Aim for similar length and tone (confident, dense, British English, no emojis), but feel free to restructure, re-emphasise, or change examples. Successive rewrites may converge on similar observations — that is fine; don't force artificial differences.
+2. **Update README.md**: Add a new collapsible entry under `## Reports`, above the existing entries (newest first). Use this template:
 
    ```html
    <details>
@@ -349,7 +350,7 @@ After writing a new report:
    **Important**: Use `<b>` tags (not `**`) for bold text inside `<details>` blocks. Markdown formatting does not render inside HTML elements on GitHub.
 
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
-2. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
+3. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
 
    | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
    |--------|---|-------------|-------|------------|
@@ -362,7 +363,7 @@ After writing a new report:
 
    Maintain a **Totals** row at the bottom summing commits and Equiv. Leave Gain and Highlights blank in the totals row.
 
-3. **Regenerate the timeline chart**: Run the timeline chart script to update the full-history chart in the README:
+4. **Regenerate the timeline chart**: Run the timeline chart script to update the full-history chart in the README:
 
    ```sh
    ~/.claude/skills/progress-report/timeline-chart.py \
@@ -376,7 +377,7 @@ After writing a new report:
 
    The README embeds this as `![Daily active repositories — full timeline](reports/timeline.svg)` between "The Journey So Far" and "## Reports". The chart is regenerated on every report so it stays current.
 
-4. **Commit and push**: Stage the new report, the daily activity SVG, the updated timeline SVG, and the updated README together in a single commit.
+5. **Commit and push**: Stage the new report, the daily activity SVG, the updated timeline SVG, and the updated README together in a single commit.
 
 ---
 
