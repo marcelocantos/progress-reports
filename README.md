@@ -18,7 +18,7 @@ Shipping pace is the signature. The mk build tool went from nothing to Homebrew-
 
 Every week has held a 25x-to-100x multiplier over traditional development, across wildly different domains. The multiplier is highest where the work is hardest — formal verification, novel algorithm design, cross-platform systems programming — because that is where the AI's ability to explore design spaces and hold cross-domain knowledge matters most.
 
-Something else has emerged alongside the output. A cluster of tools built during this period — mnemo, bullseye, doit, claudia, sawmill, mcpsafe, spyder, pageflip — are themselves products of this workflow and now feed back into it as MCP servers and agent harnesses. What started in January as an experiment is operating, thirteen weeks in, as a sustained mode of production: one person directing AI to deliver years of engineering per month, across arbitrary technical domains, at shipping quality.
+Something else has emerged alongside the output. A cluster of tools built during this period — mnemo, bullseye, doit, claudia, sawmill, spyder, pageflip — are themselves products of this workflow and now feed back into it as MCP servers and agent harnesses. What started in January as an experiment is operating, thirteen weeks in, as a sustained mode of production: one person directing AI to deliver years of engineering per month, across arbitrary technical domains, at shipping quality.
 
 ![Daily active repositories — full timeline](reports/timeline.svg)
 
