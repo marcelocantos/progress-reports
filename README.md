@@ -123,22 +123,22 @@ First week of AI-assisted development. <b>yourworld2</b> born as a globe renderi
 
 Figures come from qualitative per-repository reads of the actual commits, scored on four axes (impact, platform depth, correctness surface, scope) and converted into traditional-development equivalents under both a single-generalist and specialist-team model. Every number is a range. See [docs/methodology.md](docs/methodology.md) for the full derivation.
 
-| Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
-|--------|---|-------------|-------|------------|
-| [04-13](reports/weekly-report-2026-04-19.md) | 391 | 5.5-9 | 35-55x | pageflip + spyder launched, mnemo v0.16-v0.21 (images/CLIP/compaction/connection identity/HTTP), pigeon TLA+ cutover + ngtcp2 QUIC C, ge v0.1.0 engine split, bullseye per-repo storage |
-| [04-06](reports/weekly-report-2026-04-12.md) | 646 | 6-9 | 30-55x | bullseye 10 releases (portfolio WSJF, cross-repo convergence), mnemo 12 releases (11 tools, session chains), pigeon pure C client, claudia tmux pool, HMS 7 audits |
-| [03-30](reports/weekly-report-2026-04-05.md) | 432 | 5-7 | 25-45x | sawmill Rust→Go + open-source (11 frontiers), pigeon session state machines (4 langs + TLA+), sqldeep XML literals (10 releases), nostalgia TUI |
-| [03-23](reports/weekly-report-2026-03-29.md) | 574 | 5-8 | 25-45x | csp M:N-only (663 tests, quiescence, TLA+), rustuml SVG parity (6 renderers), den C++ rewrite + 5 audits, sqlpipe predicate VM, tern 97.5% coverage |
-| [03-16](reports/weekly-report-2026-03-22.md) | 246 | 6-9 | 30-50x | rustuml 12,500 golden tests, tern 5-platform relay, HMS2 V1+V2 (821 exceptions), cworkers C rewrite, jevon TLA+ |
-| [03-09](reports/weekly-report-2026-03-15.md) | 228 | 5.5-9 | 28-45x | GPU parity optimizer (JFA + Chamfer), Lua iOS runtime, cworkers v0.1-v0.9, HMS2 50 targets, sqldeep RECURSE ON, linq v2 |
-| [03-02](reports/weekly-report-2026-03-08.md) | 305 | 5-9 | 25-45x | HMS2 full rewrite, yourworld2 game buildout, csp channel fix + buffered channels, jevon iOS app, frozen zero-alloc |
-| [02-23](reports/weekly-report-2026-03-01.md) | 364 | 6-10 | 25-50x | csp Windows port + TLA+, frozen H128 500x speedup, sqldeep transpiler, dais + doit, Unity 6 audit |
-| [02-16](reports/weekly-report-2026-02-22.md) | 313 | 10-17 | 30-60x | csp 133 commits (100+ combinators, topology surgery, TLA+, C++23), mk to Homebrew, sqlift + sqlpipe |
-| [02-09](reports/weekly-report-2026-02-15.md) | 129 | 6-11 | 30-90x | csp born (M:N + timers + sanitizers), multimaze2 from scratch to Box2D, gg CLI overhaul, carousel + audio |
-| [02-02](reports/weekly-report-2026-02-08.md) | 77 | 3-5 | 25-50x | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC |
-| [01-26](reports/weekly-report-2026-02-01.md) | 61 | 2-4 | 25-50x | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched |
-| [01-19](reports/weekly-report-2026-01-25.md) | 15 | 1-2 | 10-25x | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix |
-| **Totals** | **3,781** | **6.5-11.0y** | | |
+| Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | hrs | Equiv.&nbsp;(mo) | Gain | Highlights |
+|--------|---|-----|-------------|-------|------------|
+| [04-13](reports/weekly-report-2026-04-19.md) | 391 | 18-28 | 5.5-9 | 35-55x | pageflip + spyder launched, mnemo v0.16-v0.21 (images/CLIP/compaction/connection identity/HTTP), pigeon TLA+ cutover + ngtcp2 QUIC C, ge v0.1.0 engine split, bullseye per-repo storage |
+| [04-06](reports/weekly-report-2026-04-12.md) | 646 | 21-32 | 6-9 | 30-55x | bullseye 10 releases (portfolio WSJF, cross-repo convergence), mnemo 12 releases (11 tools, session chains), pigeon pure C client, claudia tmux pool, HMS 7 audits |
+| [03-30](reports/weekly-report-2026-04-05.md) | 432 | 21-31 | 5-7 | 25-45x | sawmill Rust→Go + open-source (11 frontiers), pigeon session state machines (4 langs + TLA+), sqldeep XML literals (10 releases), nostalgia TUI |
+| [03-23](reports/weekly-report-2026-03-29.md) | 574 | 19-29 | 5-8 | 25-45x | csp M:N-only (663 tests, quiescence, TLA+), rustuml SVG parity (6 renderers), den C++ rewrite + 5 audits, sqlpipe predicate VM, tern 97.5% coverage |
+| [03-16](reports/weekly-report-2026-03-22.md) | 246 | 22-32 | 6-9 | 30-50x | rustuml 12,500 golden tests, tern 5-platform relay, HMS2 V1+V2 (821 exceptions), cworkers C rewrite, jevon TLA+ |
+| [03-09](reports/weekly-report-2026-03-15.md) | 228 | 23-33 | 5.5-9 | 28-45x | GPU parity optimizer (JFA + Chamfer), Lua iOS runtime, cworkers v0.1-v0.9, HMS2 50 targets, sqldeep RECURSE ON, linq v2 |
+| [03-02](reports/weekly-report-2026-03-08.md) | 305 | 21-32 | 5-9 | 25-45x | HMS2 full rewrite, yourworld2 game buildout, csp channel fix + buffered channels, jevon iOS app, frozen zero-alloc |
+| [02-23](reports/weekly-report-2026-03-01.md) | 364 | 24-42 | 6-10 | 25-50x | csp Windows port + TLA+, frozen H128 500x speedup, sqldeep transpiler, dais + doit, Unity 6 audit |
+| [02-16](reports/weekly-report-2026-02-22.md) | 313 | 25-46 | 10-17 | 30-60x | csp 133 commits (100+ combinators, topology surgery, TLA+, C++23), mk to Homebrew, sqlift + sqlpipe |
+| [02-09](reports/weekly-report-2026-02-15.md) | 129 | 17-35 | 6-11 | 30-90x | csp born (M:N + timers + sanitizers), multimaze2 from scratch to Box2D, gg CLI overhaul, carousel + audio |
+| [02-02](reports/weekly-report-2026-02-08.md) | 77 | 8-15 | 3-5 | 25-50x | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC |
+| [01-26](reports/weekly-report-2026-02-01.md) | 61 | 8-15 | 2-4 | 25-50x | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched |
+| [01-19](reports/weekly-report-2026-01-25.md) | 15 | 6-11 | 1-2 | 10-25x | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix |
+| **Totals** | **3,781** | **233-381** | **6.5-11.0y** | | |
 
 ## Guide
 

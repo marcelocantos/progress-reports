@@ -352,16 +352,17 @@ After writing a new report:
    Use `MM-DD…MM-DD` when straddling a month, `YYYY-MM-DD…YYYY-MM-DD` when straddling a year. The summary line after the `—` dash should be an ultra-condensed, achievement-focused list of the week's highlights (not a per-repo rundown). The expanded content holds the full synopsis.
 3. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
 
-   | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Equiv.&nbsp;(mo) | Gain | Highlights |
-   |--------|---|-------------|-------|------------|
+   | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | hrs | Equiv.&nbsp;(mo) | Gain | Highlights |
+   |--------|---|-----|-------------|-------|------------|
 
    - **Period**: Link to the report file using the period start date only, e.g. `[02-16](reports/weekly-report-2026-02-22.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
    - **<img src="https://github.githubassets.com/favicons/favicon.svg" width="16">**: Total commits (GitHub favicon represents commits).
+   - **hrs**: Actual human hours for the week, e.g. `18-28`. Taken from the Effort Estimate "Actual human effort this week" row (strip the `~` and the trailing `hours` / person-day annotation — keep just the range). In the **Totals** row, sum the low and high bounds across all periods.
    - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row. In the **Totals** row, convert the summed months to fractional years (one decimal place) with a `y` suffix, e.g. `1.9-3.3y`.
    - **Gain**: The vs. generalist figure, e.g. `25-50x` (approximate — values are ranges).
    - **Highlights**: Ultra-condensed (aim for ~15-20 words). Pick the 3-5 most impressive items and abbreviate aggressively — shorter than the `<summary>` line.
 
-   Maintain a **Totals** row at the bottom summing commits and Equiv. Leave Gain and Highlights blank in the totals row.
+   Maintain a **Totals** row at the bottom summing commits, hrs, and Equiv. Leave Gain and Highlights blank in the totals row.
 
 4. **Regenerate the timeline chart**: Run the timeline chart script to update the full-history chart in the README:
 
