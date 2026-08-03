@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" font-family="Helvetica Neue, Arial, sans-serif">
+  <!-- Background -->
+  <rect width="900" height="420" fill="#1a1a2e" rx="12"/>
+
+  <!-- BEFORE (left side) -->
+  <text x="200" y="36" text-anchor="middle" fill="#ff6b6b" font-size="16" font-weight="bold">BEFORE: 4 node types</text>
+
+  <!-- Branch node -->
+  <rect x="155" y="50" width="90" height="32" rx="6" fill="#4a4a6a" stroke="#7b7baa" stroke-width="1.5"/>
+  <text x="200" y="71" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="bold">branch</text>
+
+  <!-- Lines from branch -->
+  <line x1="175" y1="82" x2="90" y2="130" stroke="#555580" stroke-width="1.5"/>
+  <line x1="200" y1="82" x2="200" y2="130" stroke="#555580" stroke-width="1.5"/>
+  <line x1="225" y1="82" x2="310" y2="130" stroke="#555580" stroke-width="1.5"/>
+
+  <!-- leaf1 -->
+  <rect x="50" y="130" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="90" y="150" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <!-- leaf2 (highlighted as problem) -->
+  <rect x="160" y="130" width="80" height="30" rx="6" fill="#5a2d2d" stroke="#e07070" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="200" y="150" text-anchor="middle" fill="#ff9090" font-size="12">leaf2</text>
+
+  <!-- branch under leaf2 path -->
+  <rect x="265" y="130" width="90" height="30" rx="6" fill="#4a4a6a" stroke="#7b7baa" stroke-width="1.5"/>
+  <text x="310" y="150" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="bold">branch</text>
+
+  <!-- Lines from second branch -->
+  <line x1="290" y1="160" x2="260" y2="200" stroke="#555580" stroke-width="1.5"/>
+  <line x1="330" y1="160" x2="360" y2="200" stroke="#555580" stroke-width="1.5"/>
+
+  <!-- leaf1 under branch -->
+  <rect x="220" y="200" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="260" y="220" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <!-- twig (highlighted as problem) -->
+  <rect x="320" y="200" width="80" height="30" rx="6" fill="#5a2d2d" stroke="#e07070" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text x="360" y="220" text-anchor="middle" fill="#ff9090" font-size="12">twig</text>
+
+  <!-- twig contents -->
+  <text x="360" y="250" text-anchor="middle" fill="#888" font-size="10">linear scan</text>
+  <text x="360" y="264" text-anchor="middle" fill="#888" font-size="10">(hash bits exhausted)</text>
+
+  <!-- leaf2 annotation -->
+  <text x="200" y="180" text-anchor="middle" fill="#888" font-size="10">exactly 2 elements</text>
+
+  <!-- 4x4 dispatch note -->
+  <text x="200" y="310" text-anchor="middle" fill="#ff6b6b" font-size="13">4 types = 16 dispatch cases</text>
+  <text x="200" y="330" text-anchor="middle" fill="#888" font-size="11">every op handles branch x leaf1 x leaf2 x twig</text>
+
+  <!-- Arrow -->
+  <line x1="420" y1="190" x2="470" y2="190" stroke="#ffd700" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ffd700"/>
+    </marker>
+  </defs>
+
+  <!-- AFTER (right side) -->
+  <text x="680" y="36" text-anchor="middle" fill="#4ecdc4" font-size="16" font-weight="bold">AFTER: 3 node types</text>
+
+  <!-- Branch node -->
+  <rect x="635" y="50" width="90" height="32" rx="6" fill="#4a4a6a" stroke="#7b7baa" stroke-width="1.5"/>
+  <text x="680" y="71" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="bold">branch</text>
+
+  <!-- Lines from branch -->
+  <line x1="655" y1="82" x2="580" y2="130" stroke="#555580" stroke-width="1.5"/>
+  <line x1="680" y1="82" x2="680" y2="130" stroke="#555580" stroke-width="1.5"/>
+  <line x1="705" y1="82" x2="780" y2="130" stroke="#555580" stroke-width="1.5"/>
+
+  <!-- leaf1 -->
+  <rect x="540" y="130" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="580" y="150" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <!-- branch (deeper) -->
+  <rect x="635" y="130" width="90" height="30" rx="6" fill="#4a4a6a" stroke="#7b7baa" stroke-width="1.5"/>
+  <text x="680" y="150" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="bold">branch</text>
+
+  <!-- Re-hash annotation -->
+  <rect x="630" y="168" width="100" height="22" rx="4" fill="#2d3a5a" stroke="#4a7aba" stroke-width="1"/>
+  <text x="680" y="183" text-anchor="middle" fill="#7ab8ff" font-size="10">re-hash(seed++)</text>
+
+  <!-- Lines from deeper branch -->
+  <line x1="660" y1="190" x2="630" y2="230" stroke="#555580" stroke-width="1.5"/>
+  <line x1="700" y1="190" x2="730" y2="230" stroke="#555580" stroke-width="1.5"/>
+
+  <!-- leaf1 nodes at depth -->
+  <rect x="590" y="230" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="630" y="250" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <rect x="690" y="230" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="730" y="250" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <!-- branch (right side, deeper) -->
+  <rect x="735" y="130" width="90" height="30" rx="6" fill="#4a4a6a" stroke="#7b7baa" stroke-width="1.5"/>
+  <text x="780" y="150" text-anchor="middle" fill="#e0e0e0" font-size="13" font-weight="bold">branch</text>
+
+  <line x1="760" y1="160" x2="740" y2="200" stroke="#555580" stroke-width="1.5"/>
+  <line x1="800" y1="160" x2="820" y2="200" stroke="#555580" stroke-width="1.5"/>
+
+  <rect x="700" y="200" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="740" y="220" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <rect x="780" y="200" width="80" height="30" rx="6" fill="#2d5a3d" stroke="#4a9a6a" stroke-width="1.5"/>
+  <text x="820" y="220" text-anchor="middle" fill="#a0e0b0" font-size="12">leaf1</text>
+
+  <!-- collision node (faded, rarely used) -->
+  <rect x="635" y="355" width="90" height="30" rx="6" fill="#2d2d3d" stroke="#666690" stroke-width="1" stroke-dasharray="4,2" opacity="0.5"/>
+  <text x="680" y="375" text-anchor="middle" fill="#8888aa" font-size="11" opacity="0.6">collision</text>
+  <text x="680" y="400" text-anchor="middle" fill="#666" font-size="9" opacity="0.5">only for pathological hashes</text>
+
+  <!-- Result annotation -->
+  <text x="680" y="310" text-anchor="middle" fill="#4ecdc4" font-size="13">3 types = 9 dispatch cases</text>
+  <text x="680" y="330" text-anchor="middle" fill="#888" font-size="11">unlimited depth via re-hashing</text>
+
+  <!-- Net result -->
+  <text x="450" y="405" text-anchor="middle" fill="#ffd700" font-size="14" font-weight="bold">net -280 lines</text>
+</svg>
