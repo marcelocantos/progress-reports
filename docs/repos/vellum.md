@@ -20,23 +20,27 @@ The last two releases broadened the surface. v0.4.0 made **WeasyPrint the defaul
 - **Shell wrapper supersedes the launchd service block** — v0.3.0 fixes `PATH` for terminal, MCP-client and `brew services` launches alike, where the service block covered only the last. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **v0.4.0 makes WeasyPrint the default** — a `convert.Backend` interface, a 13-field `convert.Style`, a `config/` package and per-call-over-config-over-default precedence, with Prince demoted to an opt-in. ([2026-05-17](../../reports/weekly-report-2026-05-17.md))
 - **v0.5.0 rich-text import** — an importer converting RTF/DOCX/HTML/ODT/EPUB and friends to Markdown, with new MCP tools. ([2026-06-14](../../reports/weekly-report-2026-06-14.md))
+- **v0.8.0 media-orthogonal `convert`** — four MCP tools collapse into one taking `from`/`to` media (file, content, clipboard, file reference), with legacy sugars expanding into the same router. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **A corpus that cannot verify its own producer** — import fixtures built from implementations with no pandoc lineage, enforced by a provenance test, which found a `.doc` binary being returned as Markdown content on its first run. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
+- **AppKit's HTML importer is a launchd agent** — on macOS 26, `NSAttributedString` HTML init brokers to `com.apple.textkit.nsattributedstringagent`; vellum falls back to pandoc and names the route when that agent is unreachable. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 
 ## Standouts
 
 - **Three clipboard representations in one atomic transaction** — a single `declareTypes:` / `setData:forType:` pair puts RTF, HTML and plain text on the pasteboard together, with RTF and plain text derived in-process from the assembled HTML, replacing a `textutil` + `osascript` pipeline that was single-representation, lossy and gave no commit confirmation. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **One `PATH` fix for three launch contexts** — v0.3.0's install-time shell wrapper superseded the launchd service block, which had only ever covered `brew services`; terminal invocation and MCP clients with a stripped Aqua context now resolve node, mmdc and prince too. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **The commercial renderer demoted to opt-in** — v0.4.0 put WeasyPrint behind a new `convert.Backend` interface as the default, with a 13-field `convert.Style` and per-call-over-config-over-default precedence, so the open-source path works straight out of `brew install`. ([2026-05-17](../../reports/weekly-report-2026-05-17.md))
+- **The importer is another process** — paired sandbox-exec oracles pin the clipboard failure to one mach service (deny TextKit → pandoc; deny WindowServer → still AppKit) and refute "AppKit needs a GUI session". ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 6 |
-| Commits | ~18 |
-| Human attention | ~2–5 h |
-| Traditional equivalent | 0.5–0.8 months |
+| Weeks active | 9 |
+| Commits | ~34 |
+| Human attention | ~5–11 h |
+| Traditional equivalent | ~0.7–1.1 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)

@@ -18,8 +18,6 @@ The most recent window is about cooking and measuring. A **compressed-texture pi
 
 ## Highlights
 
-- **Carved out of yourworld2, then renamed** — the engine leaves as the `sq` submodule with namespaced `Module.mk` rules and `libsq.a` linking, and is rebranded `sq` → `ge` a fortnight later. ([2026-02-08](../../reports/weekly-report-2026-02-08.md), [2026-02-22](../../reports/weekly-report-2026-02-22.md))
-- **bgfx as sole renderer plus a scene display-list protocol** — Dawn removed, a `RenderBackend` split introduced, and a custom bgfx `RendererContextI` serialising full frame submissions for remote replay. ([2026-03-22](../../reports/weekly-report-2026-03-22.md))
 - **H.264 pivot and engine ownership** — per-session bgfx abandoned, a zero-copy IOSurface → VideoToolbox pipeline adopted, and `ge::run()` plus engine-owned persistence replacing per-game boilerplate. ([2026-04-05](../../reports/weekly-report-2026-04-05.md))
 - **Engine/render/bridge split and v0.1.0** — the first release, with an in-tree `tiltbuggy` sample as the canonical `add_subdirectory(ge)` integration and physical-device matrix cells passing. ([2026-04-19](../../reports/weekly-report-2026-04-19.md))
 - **`ge_wire.yaml` compile-time wire protocol** — one declarative source emitting Go/Swift/Kotlin/C/TypeScript bindings, so schema changes fail the lagging side at build time. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
@@ -30,6 +28,8 @@ The most recent window is about cooking and measuring. A **compressed-texture pi
 - **Plateau P: the control plane deleted** — the whole `ged` daemon and React console removed (−12,630 lines) once each capability was proven live on spyder's app-channel. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Browser platform and location-transparent stream** — an Emscripten/WebGL2 direct-mode target under an explicit Asyncify contract, plus sensor authority, seat policy and per-session instances (v0.75 → v0.79). ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Compressed textures and a metrics ring** — `ge-texenc` cooking ASTC/ETC2 with a runtime capability-probed candidate walk, and a zero-I/O per-instance frame-metrics ring built because logging changed the answer (v0.80 → v0.83). ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **One timeline drives the hand and the touch** — `ge::hint` compiles a gesture into a keyframed clip feeding both an SDF fragment-shader hand and an opt-in synthetic-input driver, so drawn and injected input cannot drift (v0.86 → v0.90). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **A tile pyramid whose coarse packs are byte prefixes** — the `.getp` cube-sphere container, sokol-aligned face conventions, an RG8 identity plane, and `queryDeviceTier()` deciding depth from RAM and live format support (v0.84). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 
 ## Standouts
 
@@ -44,12 +44,12 @@ The most recent window is about cooking and measuring. A **compressed-texture pi
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 25 |
-| Commits | ~305 |
-| Human attention | ~50–82 h |
-| Traditional equivalent | ~7.7–12.4 months |
+| Weeks active | 27 |
+| Commits | ~327 |
+| Human attention | ~53–86 h |
+| Traditional equivalent | ~8.0–12.8 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[02-01](../../reports/weekly-report-2026-02-01.md), [02-08](../../reports/weekly-report-2026-02-08.md), [02-15](../../reports/weekly-report-2026-02-15.md), [02-22](../../reports/weekly-report-2026-02-22.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[02-01](../../reports/weekly-report-2026-02-01.md), [02-08](../../reports/weekly-report-2026-02-08.md), [02-15](../../reports/weekly-report-2026-02-15.md), [02-22](../../reports/weekly-report-2026-02-22.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md)

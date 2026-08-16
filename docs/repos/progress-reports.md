@@ -28,6 +28,7 @@ Alongside the reports the repo carries the durable artefacts they feed: a per-we
 - **Length budgets applied to its own output** — the Journey recast as an overview under a sub-linear budget, with entry caps re-compressing seven bloated weeks. ([2026-06-21](../../reports/weekly-report-2026-06-21.md))
 - **Full-series vendor restamp** — every report and the README metrics table remeasured excluding `vendor/` and `node_modules/`, stripping ~+3.0M vendor adds across 26 weeks without touching commits or effort ranges. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **`data/line-excludes.yaml` as the fleet's single exclude file** — a documented schema for per-repo exclusions held centrally, so project repos stay clean and the honesty note declares exactly what each run removed. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **Split into a public series and a private commercial companion** — the classifier, residual rules and dual-write procedure written into the guide, with the public repository's history rewritten and its own line stats excluded from ☲ as a result. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts
 
@@ -41,12 +42,12 @@ Alongside the reports the repo carries the durable artefacts they feed: a per-we
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 12 |
-| Commits | ~61 |
+| Weeks active | 13 |
+| Commits | ~62 |
 | Human attention | not broken out in report tables |
 | Traditional equivalent | not broken out in report tables |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[02-22](../../reports/weekly-report-2026-02-22.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[02-22](../../reports/weekly-report-2026-02-22.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [08-03](../../reports/weekly-report-2026-08-09.md)

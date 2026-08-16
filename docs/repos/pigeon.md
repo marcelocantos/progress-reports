@@ -18,7 +18,6 @@ The final phase is security. v0.25.0 let one `PairingRecord` fan out to concurre
 
 ## Highlights
 
-- **tern extracted from jevon** — a WebTransport relay on quic-go and Fly.io with certmagic TLS, X25519 + AES-256-GCM E2E encryption, and transparent relay-to-LAN upgrade that needs no re-keying because encryption sits above the transport. ([03-22](../../reports/weekly-report-2026-03-22.md))
 - **protogen: one spec, six targets** — Go, Swift, Kotlin, TypeScript, TLA+, and PlantUML all generated from YAML protocol specs, so a protocol change propagates to every platform, every formal model, and the documentation at once. ([03-22](../../reports/weekly-report-2026-03-22.md))
 - **faultproxy** — a transparent UDP proxy with sequence-aware fault injection that exercises the real protocol stack, including encryption, fragmentation, and retransmission, rather than a mock. ([03-29](../../reports/weekly-report-2026-03-29.md))
 - **Renamed to pigeon, with a unified session protocol** — a 784-line YAML spec covering pairing and session, generating typed state machines in four languages, plus a PlusCal-to-pure-TLA+ rewrite whose channel elimination cut the state space to 121 states verified in under a second. ([04-05](../../reports/weekly-report-2026-04-05.md))
@@ -30,6 +29,7 @@ The final phase is security. v0.25.0 let one `PairingRecord` fan out to concurre
 - **Multi-channel mux relay** — N clients on one backend via a `Listener`/`Session` API, a four-byte per-client tag, and datagram channel ids carried inside the AEAD envelope, with the 1:1 path preserved by a handshake variant. ([05-03](../../reports/weekly-report-2026-05-03.md))
 - **Wire-format codegen** — four parallel `sprintf` branches across Go and C replaced by `protocol/wireformats.yaml` generating native encoders and decoders in every target language, with cross-language byte vectors kept green. ([05-17](../../reports/weekly-report-2026-05-17.md))
 - **Crypto remediation (v0.26→v0.31)** — the AES-GCM nonce-reuse race fixed and then made unrepresentable by forking per-stream and per-datagram AEAD channels through HKDF diversify labels, plus a ZRTP-style commit-reveal SAS round ending the relay-MitM grind; each fix shipped a failing-then-passing repro under `-race`. ([07-12](../../reports/weekly-report-2026-07-12.md))
+- **A pure-Swift product for iOS consumers** — `PigeonCore` plus corrected SPM linker paths, which is what let orthograph's iPad app consume pigeon as a sibling package for its QR pairing ceremony. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts
 
@@ -43,12 +43,12 @@ The final phase is security. v0.25.0 let one `PairingRecord` fan out to concurre
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 16 |
-| Commits | ~322 |
-| Human attention | ~29–37 h |
-| Traditional equivalent | ~5.7–8.8 months |
+| Weeks active | 17 |
+| Commits | ~324 |
+| Human attention | ~30–38 h |
+| Traditional equivalent | ~5.7–8.9 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md)
+[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-03](../../reports/weekly-report-2026-08-09.md)

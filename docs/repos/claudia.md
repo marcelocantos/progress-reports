@@ -1,6 +1,6 @@
 # [marcelocantos/claudia](https://github.com/marcelocantos/claudia)
 
-claudia is the Go library for embedding coding agents in other programs — one-shot tasks, persistent sessions and warm pools over Claude Code, with a Grok provider over the [Agent Client Protocol](https://agentclientprotocol.com/) and a Codex seam alongside it. Almost every other tool in the fleet that drives an agent drives it through claudia.
+claudia is the Go library for embedding coding agents in other programs — one-shot tasks, persistent sessions and warm pools over Claude Code, with Grok (ACP), AWS Bedrock, and Codex providers behind one interface. Almost every other tool in the fleet that drives an agent drives it through claudia.
 
 ## The journey
 
@@ -14,10 +14,11 @@ The Grok surface grew next, driven by [jevons](jevons.md)'s push-to-talk voice b
 
 July turned claudia into a multi-provider library and then made its session contract honest. v0.14.0 shipped **session rewind** — kill the process, truncate the session JSONL back *n* user turns, let resume replay the surviving prefix — with the subtlety that tool-result entries are excluded from the turn count, so a rewind can never land mid-tool-use and leave an agent waiting on a result that will never come, and a `.rewind-bak` sidecar making the operation itself undoable; a readiness classifier that distinguishes the `--resume` summary menu from an idle prompt unblocked long-lived fleet agents that had been wedging. v0.15→v0.17 then added a **Grok Task provider, a persistent Grok Session provider over ACP** with a hermetic fake ACP server for tests, and registry wiring so `Registry.Launch` honours `AgentDef.Provider` instead of always starting Claude (+5,263/−300, ~58 new test declarations). Finally v0.18 made `session/load` **fail closed** for materialised conversations rather than silently minting a replacement — a provider that "helpfully" recovers by discarding history is a data-loss bug wearing a recovery mask — and v0.19 passed ACP `mcpServers` through, preferring `mcp.claudia.json` so Grok cannot reclassify the servers as repo-local and drop them.
 
+August added the fourth provider and the recovery the crash-survival had been missing. v0.21.0 shipped **Codex** (`codex exec`, subscription-auth preflight that fails closed on API-key fall-through) beside Bedrock, plus `QueryPlanUsage` that returns explicit unavailable rather than invented zeros. A capability matrix now **refuses** every field a path cannot honour — Grok Session had been dropping `DisallowTools` and hardcoding always-approve; Bedrock accepted a `SessionID` against a stateless API. `Adopt` / `StartAllPreferAdopt` reacquire leftover tmux windows on upgrade so a consumer restart does not double the fleet; ordinary `Launch` does not reap. A mid-turn paste is submitted or reported, never "Message sent". The start of a **tiered ladder** (🎯T27) treats the model as the escalation path, with rule identity a content hash and recall a consumer-owned seam.
+
 ## Highlights
 
 - **Bootstrap to v0.6.0, and the PTY-to-tmux pivot** — tmux-backed agents, a `probe-ready-tmux` readiness binary, warm pools and session chains, with the old daemon and its ~1,100-line state machine deleted. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
-- **Windows advisory flock** — v0.7.0 splits `flock` into platform-gated helpers; small, but it unblocks spyder's and mnemo's Windows stories. ([2026-04-19](../../reports/weekly-report-2026-04-19.md))
 - **Public session probes** — `SessionExists` and `SessionJSONLPath` let `/waw`, `/cv` and mnemo's compactor query session state without re-implementing discovery. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **v1.0 API cluster and multi-subscriber events** — one breaking rename release, then behavioural fixes plus pkg.go.dev-ready docs, with `OnEvent` replaced by `SubscribeEvents` after subscriber starvation under bulk fan-out. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **Grok push-to-talk primitives** — `ManualCommit`, `CommitAndRespond` and `OnResponseDone`, built for jevons' voice bridge where server-side VAD was actively wrong. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -26,6 +27,9 @@ July turned claudia into a multi-provider library and then made its session cont
 - **Session rewind without landing mid-tool-use** — roll a conversation back *n* user turns, undoable via a `.rewind-bak` sidecar, plus a stale-session resume-menu auto-advance. ([2026-07-05](../../reports/weekly-report-2026-07-05.md))
 - **Grok provider, Task then Session over ACP** — provider resolution, headless streaming-JSON mapped to `TaskEvent`, persistent ACP sessions with hermetic fakes, and a registry that stops always starting Claude. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Fail-closed `session/load` and ACP MCP pass-through** — never silently mint a replacement for a materialised conversation, and prefer `mcp.claudia.json` so Grok's trust gate cannot drop the servers. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
+- **The restriction that existed in only one mode** — Task mode had never passed `--disallowedTools` despite the README promising five always-disallowed tools; v0.20.0 moved the baseline to a shared constant, unblocking mnemo's summariser containment. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **A third provider and process-durable agents** — `ProviderBedrock` over AWS `ConverseStream`, detached `grok agent serve` with ACP over WebSocket so agents outlive their consumer, and `RequireResume` fail-closed on a missing transcript. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
+- **Codex, capability refusal, and leftover-window Adopt** — v0.21.0 adds a fourth provider; every field a path cannot honour is refused; upgrade reacquires tmux windows so a bounce does not double the fleet. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 
 ## Standouts
 
@@ -33,17 +37,18 @@ July turned claudia into a multi-provider library and then made its session cont
 - **Event subscribers starving each other under fan-out** — the v0.x `OnEvent` API was single-subscriber, so any consumer displaced the previous one including claudia's own `WaitForResponse`; driving a pool of five or more tasks made events vanish. `SubscribeEvents`/`UnsubscribeEvents` made it multi-subscriber, with the internal waiter using the same path rather than evicting external ones. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **A rewind that cannot land mid-tool-use** — rolling a conversation back *n* user turns hinges on what counts as a turn: tool-result entries are excluded from the count, so a rewind never leaves the agent waiting on a result that will never arrive, and a `.rewind-bak` sidecar makes the whole operation undoable. ([2026-07-05](../../reports/weekly-report-2026-07-05.md))
 - **Fail-closed `session/load` as conversation integrity** — a provider that helpfully mints a new session when load fails is a data-loss bug wearing a recovery mask. `RequireResume`/`Materialized` make load fail closed for materialised conversations, and the ACP path prefers `mcp.claudia.json` so a trust gate cannot silently drop the MCP servers. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
+- **A field a path cannot honour is refused** — Grok Session dropped `DisallowTools` and hardcoded always-approve; Bedrock accepted a `SessionID` against a stateless API; non-Codex paths took `SandboxMode` and ran unrestricted. `capabilityRefusal` keeps the refusal alive even if a claim flips to supported ahead of the wiring. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 11 |
-| Commits | ~58 |
-| Human attention | ~16–27 h |
-| Traditional equivalent | ~1.3–2.1 months |
+| Weeks active | 14 |
+| Commits | ~139 |
+| Human attention | ~22–38 h |
+| Traditional equivalent | ~2.1–3.5 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)

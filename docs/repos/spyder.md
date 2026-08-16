@@ -16,8 +16,6 @@ July made spyder the only control plane. **"Plateau P"** re-implemented every ge
 
 ## Highlights
 
-- **Zero to v0.5.0 in three days** — 65 commits, 206 files, +18,790/-649, five releases, with iOS/Android adapters, reservations, run artefacts and seven mobile-dev primitives. ([2026-04-19](../../reports/weekly-report-2026-04-19.md))
-- **KeepAwake retired for a bundled pmd3-bridge** — ten releases moved iOS power assertion server-side over a Unix domain socket, deleting the companion app and `internal/tunneld/`. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **The panic-every-30-minutes wedge, and a demand-only pool** — eleven releases split recoverable transport errors from genuine bugs, and rebuilt the simulator pool on a restart-surviving SQLite hold ledger with adopt-from-live and LRU-on-release eviction. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **12k lines deleted when go-ios caught up** — T56 decommissioned pmd3-bridge, pmd3-tunneld and `xcrun devicectl` in one PR: net −12,592/+2,725 across 122 files. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
 - **Self-healing userspace tunnel** — v0.48.0 detects a dead device lifeline and rebuilds only that tunnel, leaving the rest of the pool intact; the in-flight devicectl migration was set aside as superseded. ([2026-05-24](../../reports/weekly-report-2026-05-24.md))
@@ -28,6 +26,8 @@ July made spyder the only control plane. **"Plateau P"** re-implemented every ge
 - **Plateau P: the sole control plane** — ged's capabilities re-proven on the app-channel across four launch media with H.264 streaming verified in headless Chrome, letting ge delete its daemon and console outright. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **A browser that is just another glass** — the player tree built to wasm at `/player/` replays SP2S at ~55–60 fps across three browsers, beside a headless glass, a six-state health plane and durable host Starlark recipes. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Semantic app control** — `hit_targets` resolves by id then role and never by label, and `app_metrics_*` exposes ge's per-instance frame-metrics ring, each failing closed when the app does not advertise the capability. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **App-advertised RPCs end per-game tooling** — spyder accepts every method in an app's hello, so `app_methods` discovers a session's surface and `app_call` invokes game-private commands; Android OS control landed beside it (v0.74 → v0.76). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **Mobile spawn without a registry** — `app_spawn` resolves through an explicit ordering because a mobile game *is* an installed bundle on a known device, returning `already_running` rather than double-launching and failing closed on an uninstalled one. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts
 
@@ -42,12 +42,12 @@ July made spyder the only control plane. **"Plateau P"** re-implemented every ge
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 13 |
-| Commits | ~246 |
-| Human attention | ~33–56 h |
-| Traditional equivalent | ~3.8–6.2 months |
+| Weeks active | 16 |
+| Commits | ~253 |
+| Human attention | ~35–60 h |
+| Traditional equivalent | ~4.0–6.5 months |
 | Multiplier | ~18–60× |
 
 ## Weekly reports
 
-[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)

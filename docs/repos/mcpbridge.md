@@ -19,6 +19,7 @@ Hardening followed, and its most interesting content is semantic rather than mec
 - **Cycle-aware replay semantics** — idempotent reads replay transparently; side-effecting `tools/call` gets a structured `-32002` so at-most-once delivery is never violated silently. ([05-03](../../reports/weekly-report-2026-05-03.md))
 - **v0.8.0 narrowed to a session-continuity proxy** — source backends and the polling scheduler retired in favour of fsnotify-driven reload on binary change, wire protocol unchanged. ([05-17](../../reports/weekly-report-2026-05-17.md))
 - **Survived the Fable-5 audit clean** — the two-lens adversarial method refuted its one candidate finding, a self-unlinking listener, and set it aside rather than filing it. ([07-05](../../reports/weekly-report-2026-07-05.md))
+- **A reload loop that fed itself** — kqueue reports `NOTE_ATTRIB` when a binary is merely executed, so every reload triggered the next: ~3 reloads/second, 51 backends churning, a 5.1 GB log. Reloads now require size+mtime evidence (v0.9.0). ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts
 
@@ -30,12 +31,12 @@ Hardening followed, and its most interesting content is semantic rather than mec
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 4 |
-| Commits | 42 |
-| Human attention | ~3–6 h |
-| Traditional equivalent | ~1.0–1.6 months |
+| Weeks active | 5 |
+| Commits | 43 |
+| Human attention | ~4–7 h |
+| Traditional equivalent | ~1.05–1.65 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [08-03](../../reports/weekly-report-2026-08-09.md)

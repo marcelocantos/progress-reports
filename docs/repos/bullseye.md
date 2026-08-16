@@ -16,8 +16,6 @@ Through June the surface widened again, carefully. `bullseye_subdivide` decompos
 
 ## Highlights
 
-- **targets is born** — a Rust MCP server with a hierarchical YAML schema, WSJF fields, auto-render on mutation and frontier scheduling. ([2026-03-29](../../reports/weekly-report-2026-03-29.md))
-- **Verification, rework and tunnels** — `kind`/`verifies` edges, bounded rework loops with retry budgets, and detection of work sitting far from its gate. ([2026-04-05](../../reports/weekly-report-2026-04-05.md))
 - **Ten releases and portfolio convergence** — 75 commits taking v0.5.0 to v0.14.0: cross-repo WSJF with cross-repo dependency edges, executable acceptance checks via sawmill, and the `bullseye.yaml` rename across 40+ repos. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
 - **Storage location redesigned three hours after shipping** — the machine-wide config is deleted in favour of per-repo, path-driven discovery with no machine state. ([2026-04-19](../../reports/weekly-report-2026-04-19.md))
 - **Rigour: set-aside, envelope guard, validate split** — six releases adding a rationale-bearing third life-state, machine-checked value/cost envelopes, and a blocking-versus-advisory validation split. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
@@ -28,6 +26,8 @@ Through June the surface widened again, carefully. `bullseye_subdivide` decompos
 - **GitHub issue mirror and CLI/MCP parity** — targets projected one-way into issues so collaborators meet the graph where they already look, without surrendering the authoritative store. ([2026-06-21](../../reports/weekly-report-2026-06-21.md))
 - **Four-tool ledger API with governance** — the surface collapses to open/query/commit/plan_checks with structured envelopes, plus release-surface and ownership rules and TOCTOU-safe server-minted IDs. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Issues as a target event path** — a feature-gated issuepipe consumer with strict opt-in, existence-non-disclosure on 403 and 4-second measured pickup. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **Attestation on achieve, and graph hygiene** — closing a target now requires a free-text note on how it was met (trivial tokens rejected), alongside a content-hashed store, postpone/wake gating, and advisory merge-completeness for multi-predecessor fan-in (v0.40 → v0.44). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **v0.45.0: UTF-8 hang, bounded subprocesses, ledger SHA stability** — non-UTF-8 subprocess output no longer hangs the server; amend ownership is a process-local HEAD record so concurrent agents cannot orphan each other's cited SHAs. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 
 ## Standouts
 
@@ -41,12 +41,12 @@ Through June the surface widened again, carefully. `bullseye_subdivide` decompos
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 16 |
-| Commits | ~192 |
-| Human attention | ~21–36 h |
-| Traditional equivalent | ~2.9–4.5 months |
+| Weeks active | 19 |
+| Commits | ~201 |
+| Human attention | ~23–40 h |
+| Traditional equivalent | ~3.1–4.8 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)

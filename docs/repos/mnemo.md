@@ -16,11 +16,10 @@ The compactor then absorbed a long convergence and hardening arc. Compaction was
 
 The final phase is reach and hardening. v0.55→v0.59 shipped a macOS menu-bar session navigator with live SSE, Codex CLI transcript ingest from `~/.codex/sessions/`, `mnemo_status` served from one nested sqldeep projection, a drift-proof `mnemo_config` patch allowlist derived from the struct, and Developer-ID signing in the release pipeline. The Fable-5 audit filed two critical and four high findings against it; remediation in v0.60→v0.62 replaced the client-resettable read guard with a dedicated read driver whose `ConnectHook` authorizer denies `ATTACH`/`DETACH` and `query_only`-off, fixed an ingest-durability bug where a `bufio.Scanner` token cap silently dropped oversized lines, and added a session-affinity MCP edge proxy that upgrades mnemo without invalidating live clients, plus a SIGTERM drain ending in `wal_checkpoint(TRUNCATE)`. Grok ACP transcripts joined the spine in the same run. v0.63→v0.68 closed the series with the vault wing MVP (`_mnemo/` namespace, decisions and memories), an in-process plugin system with launch, proxy, facets, signals, and an MCP bridge, and Codex transcript fidelity down to model, usage, and parent chains.
 
+The most recent phase is containment and cost. A summariser that fed transcripts to a headless model obeyed an instruction embedded in one of them and spawned roughly **33,000 subagents over two hours**, and closing that required a fix in [claudia](claudia.md) first, whose Task mode had never applied the tool restrictions its README promised. Alongside it, a token-cost engine was derived from published pricing rather than from an existing tool — the analysis found the tool's only genuinely external input, a public rate card, sits *upstream* of it — and produced four verified defects along the way, including usage rows duplicated enough to over-count by 1.95× to 2.83× with a factor that varies by class. Streaming topic segmentation arrived with a schema that carefully distinguishes containment from correction, FSEvents replaced a recursive kqueue watcher after a vnode-exhaustion incident, and the MCP surface was finally cut from 70 tools to 18 against recorded usage. The Jevons provider peer was then dropped outright — mnemo no longer dials jevonsd; generic `/health` and `/mcp` stay.
+
 ## Highlights
 
-- **Eleven tools in one week** — v0.4.0 to v0.15.0 across 81 commits: context sources, memory indexing, usage analytics, process attribution, CI indexing, session chains, and full-fidelity JSONL ingest. ([04-12](../../reports/weekly-report-2026-04-12.md))
-- **Image indexing with descriptions, OCR, and CLIP** — schema v16/v17 ingest inline and referenced images, describe them via the Anthropic vision API with conversational grounding, OCR them in-process via CGO + ObjC, and embed them with CLIP for semantic and visual search. ([04-19](../../reports/weekly-report-2026-04-19.md))
-- **Connection-identity pivot** — daemon connection identity replaced session IDs as the session-chain anchor, with one definitive writer and a reader that composes definitive rows with a query-time heuristic behind a `mode` parameter. ([04-19](../../reports/weekly-report-2026-04-19.md))
 - **Collapse to a single HTTP MCP daemon** — v0.20.0 killed the two-binary stdio-proxy-plus-daemon split and its custom JSON-RPC-over-UDS protocol in favour of mark3labs/mcp-go's StreamableHTTP transport. ([04-19](../../reports/weekly-report-2026-04-19.md))
 - **Eleven releases: Windows and federation** — v0.22.0–v0.32.0 delivered an Inno Setup installer, `llvm-mingw` ARM64 cross-compilation, admin-free per-user Windows Service registration under `HKCU`, and mTLS federation across linked instances with a peer certificate allowlist. ([04-26](../../reports/weekly-report-2026-04-26.md))
 - **Path-exclusion registry** — a canonicalised subtree-skip list with lazy symlink re-resolution, registered by `vault_path` before any walker runs, replacing a fence-marker protocol that would have been forgettable and format-specific. ([05-17](../../reports/weekly-report-2026-05-17.md))
@@ -30,6 +29,9 @@ The final phase is reach and hardening. v0.55→v0.59 shipped a macOS menu-bar s
 - **Menu-bar navigator, Codex ingest, signed releases** — v0.55→v0.59 added a macOS menu-bar session navigator with live SSE, Codex CLI transcript ingest, and macOS Developer-ID signing. ([07-05](../../reports/weekly-report-2026-07-05.md))
 - **Audit hardening and connection-preserving self-upgrade** — a dedicated read driver whose `ConnectHook` denies `ATTACH` and `query_only`-off, an ingest-durability fix for silently dropped oversized lines, a session-affinity edge proxy that upgrades without dropping live clients, and Grok ACP ingest. +7,332/−344, ~69 new test declarations. ([07-12](../../reports/weekly-report-2026-07-12.md))
 - **Vault wing and plugin system** — v0.63→v0.68 shipped the `_mnemo/` vault namespace with decisions and memories, an in-process plugin manager with launch, proxy, facets, signals, and an MCP bridge, and full Codex transcript fidelity. +8,457/−275, ~61 new `func Test`. ([07-19](../../reports/weekly-report-2026-07-19.md))
+- **A token-cost engine that reconciles to an invoice** — usage duplication (1.95×–2.83× over-count), cache-write TTL tiers and long-context repricing all discovered from data, with the reference tool kept as an oracle rather than a dependency. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **Summarisers stripped of the ability to act** — after one obeyed an instruction inside a transcript and spawned ~33,000 subagents; plus streaming topic segmentation with an explicit supersession lineage and FSEvents FD-bounded watching. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **MCP surface cut from 70 tools to 18** — sized to recorded usage, with `mnemo_self` deleted on evidence (2 nonce rows in four months) rather than reimplemented. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts
 
@@ -43,12 +45,12 @@ The final phase is reach and hardening. v0.55→v0.59 shipped a macOS menu-bar s
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 15 |
-| Commits | ~327 |
-| Human attention | ~35–57 h |
-| Traditional equivalent | ~4.0–6.5 months |
+| Weeks active | 18 |
+| Commits | ~362 |
+| Human attention | ~39–65 h |
+| Traditional equivalent | ~4.4–7.2 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)

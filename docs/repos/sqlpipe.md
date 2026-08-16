@@ -18,7 +18,6 @@ The Fable-5 audit reopened it. Two critical, six high, and one medium finding ca
 
 ## Highlights
 
-- **Streaming replication via the session extension** — initial release: master/replica handshake evolved into a symmetric `Peer`, changeset framing, resync, query subscriptions, and a vendored SQLite built with session and preupdate hooks. ([02-22](../../reports/weekly-report-2026-02-22.md))
 - **Compression, authoriser-driven subscriptions, reconnection** — LZ4 with uncompressed fallback, automatic table-dependency discovery through SQLite's authoriser API, `on_schema_mismatch` migration hooks, and a `reset()` preserving subscriptions and ownership. ([03-01](../../reports/weekly-report-2026-03-01.md))
 - **Go wrapper and schema fingerprinting** — CGo bindings for the C API, spdlog replaced by user-provided callback logging, and sqlift v0.12.0 integrated for cross-replica drift detection. ([03-08](../../reports/weekly-report-2026-03-08.md))
 - **WebAssembly build** — compiled through Emscripten with a TypeScript wrapper class and a live browser demo running bidirectional SQLite sync entirely client-side; the Go wrapper simultaneously dropped `mattn/go-sqlite3` for a zero-dependency raw-handle design. ([03-15](../../reports/weekly-report-2026-03-15.md))
@@ -30,6 +29,7 @@ The Fable-5 audit reopened it. Two critical, six high, and one medium finding ca
 - **Audit and full remediation (v0.25.0)** — nine findings fixed, including a diff sync keyed by `rowid` instead of PRIMARY KEY that wiped content-identical tables, and a never-reset `flush_pending` that streamed a phantom row into permanent divergence. ([07-05](../../reports/weekly-report-2026-07-05.md))
 - **Full structural schema fingerprint** — a lossy 32-bit fold replaced by the complete structural hash across the C++ core and all three binding mirrors, cutting false schema-equality collisions; `deepparser` vendored into `CSqlpipe` for a standalone Swift build. ([07-12](../../reports/weekly-report-2026-07-12.md))
 - **Reopen-safe metadata and migration diagnostics** — v0.29→v0.30 preserved `_sqlpipe_meta` across `Database` reopen and enriched migration diagnostics, with dual-channel transport tests. ([07-19](../../reports/weekly-report-2026-07-19.md))
+- **Replica prediction across three languages** — `begin`/`commit`/`end`/`rollback_prediction` and `queue_while_predicting` exposed through CGo with a Swift `TruthReplica`, shipped in the same week as its first consumer (v0.31.0). ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts
 
@@ -43,12 +43,12 @@ The Fable-5 audit reopened it. Two critical, six high, and one medium finding ca
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 17 |
-| Commits | ~141 |
-| Human attention | ~28–45 h |
-| Traditional equivalent | ~3.1–5.0 months |
+| Weeks active | 18 |
+| Commits | ~144 |
+| Human attention | ~29–47 h |
+| Traditional equivalent | ~3.2–5.1 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md)
+[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-03](../../reports/weekly-report-2026-08-09.md)

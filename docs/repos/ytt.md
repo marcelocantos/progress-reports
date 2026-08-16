@@ -23,6 +23,7 @@ None of that caught the failure that mattered. In late July v0.10.0 ended a **16
 - **v0.10.0 ends a 16-day silent outage** — fifteen scheduled runs had done nothing and exited zero; config resolution was decoupled from the install prefix and a `--dry-run` verified the fix without paying for the 51-video backlog it uncovered. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **Alerting that cannot itself fail loudly** — 🎯T11 reads a webhook from a mode-600 file outside the repo, refuses it if group-readable, dedups by problem digest, emits exactly one `RECOVERED` notice, and never lets notification failure change the run's exit status; 37 new bats cases. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **An inert notification button, fixed at the source** — an `osascript` notification posts on behalf of Script Editor with no click handler and no surviving process, so its **Show** button is inert by construction; `terminal-notifier` posts from its own bundle and makes the click open that run's log. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **Ported to Go, one dependency lighter** — v0.11.0 moved the CLI and transcript layer to Go on `yt-dlp`, dropping Python and `youtube-transcript-api`, verified against goldens captured from the installed binary before the port. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 
 ## Standouts
 
@@ -36,12 +37,12 @@ None of that caught the failure that mattered. In late July v0.10.0 ended a **16
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 6 |
-| Commits | 34 |
-| Human attention | ~7–12 h |
-| Traditional equivalent | ~0.6–1.0 months |
+| Weeks active | 7 |
+| Commits | 38 |
+| Human attention | ~8–14 h |
+| Traditional equivalent | ~0.7–1.2 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md)

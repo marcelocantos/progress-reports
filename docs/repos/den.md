@@ -29,6 +29,7 @@ Since then the work has been operational hardening. A remote conviction-loop har
 - **v1.0.0 release candidate** — five v1 frontier checkpoints including SAT-solver dependency resolution, with the trust model, source-build-plus-taps and perf benchmarks cleared as blockers; +7,848 lines across 84 files. ([06-28](../../reports/weekly-report-2026-06-28.md))
 - **Remote conviction-loop soak on real hardware** — live `~/.den` scenarios driven over SSH against a physical `den-test-mac`, plus Fable F1–F5 remediation and a Mach-O bottle-relocation fix. ([07-12](../../reports/weekly-report-2026-07-12.md))
 - **Two silent-failure bugs in one daemon install** — a Linux-only `/proc/self/exe` inside an Apple-guarded branch and a type-inferring settings writer, both of which let a user enable a feature and get nothing, with no error anywhere. ([07-26](../../reports/weekly-report-2026-07-26.md))
+- **A daemon install that did nothing, twice** — the macOS launchd path resolved its binary through Linux-only `/proc/self/exe` and emitted an argv the CLI rejects, while `set_setting` stored `auto_upgrade` as the string `"true"` (v0.13.0). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 
 ## Standouts
 
@@ -42,12 +43,12 @@ Since then the work has been operational hardening. A remote conviction-loop har
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 11 |
-| Commits | 172 |
-| Human attention | ~15–25 h |
-| Traditional equivalent | ~2.1–3.4 months |
+| Weeks active | 12 |
+| Commits | 173 |
+| Human attention | ~15–26 h |
+| Traditional equivalent | ~2.1–3.5 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md)

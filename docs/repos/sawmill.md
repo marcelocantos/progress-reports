@@ -25,6 +25,7 @@ The final arc widened both retrieval and coverage. v0.16.0's discovery tier laye
 - **`find_by_concept`** — per-symbol evidence token bags plus a built-in and project-taught concept dictionary, verified at recall 1.00 and precision@5 ≥ 0.8 on audit-corpus queries. ([05-17](../../reports/weekly-report-2026-05-17.md))
 - **v0.16.0 discovery and retrieval tier** — FTS5, a PageRank reference graph and RRF-fused vector embeddings, with concepts bound to AST nodes so they survive reformatting. ([07-05](../../reports/weekly-report-2026-07-05.md))
 - **v0.17.0 eighteen-language matrix with no skip hatch** — every adapter driven parse→rename→`add_field` through the MCP handler; the matrix itself found a real Ruby bug. ([07-19](../../reports/weekly-report-2026-07-19.md))
+- **Rename that understands scope** — a lexical binding model for Go and Python replaces identifier text matching, beside a behavioural-equivalence oracle and per-language capability cards served over MCP (v0.18.0). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 
 ## Standouts
 
@@ -38,12 +39,12 @@ The final arc widened both retrieval and coverage. v0.16.0's discovery tier laye
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 10 |
-| Commits | 215 |
-| Human attention | ~20–32 h |
-| Traditional equivalent | ~3.5–5.3 months |
+| Weeks active | 11 |
+| Commits | 218 |
+| Human attention | ~21–34 h |
+| Traditional equivalent | ~3.6–5.4 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-19](../../reports/weekly-report-2026-07-19.md)
+[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md)

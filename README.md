@@ -6,32 +6,32 @@ Commercial project detail (HMS, minicades, and non-`ge` Squz titles) lives in th
 
 ## At a Glance
 
-*27 weeks · 19 January – 26 July 2026*
+*30 weeks · 19 January – 16 August 2026*
 
-- **~6,390 commits** landed to default branches across **40+ repositories** in **20+ languages**
-- **~420–700 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
-- **~8.9–15.2 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
-- **~+3.0M net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
+- **~7,068 commits** landed to default branches across **40+ repositories** in **20+ languages**
+- **~468–777 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
+- **~9.4–16.0 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
+- **~+3.42M net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
 
 ## The Journey So Far
 
-Twenty-seven weeks of AI-assisted development, from 19 January to 26 July 2026. Around **6,390 commits** have landed to default branches across more than forty repositories and twenty-odd languages — a body of work a single talented generalist would need on the order of **nine to fifteen years** to match, produced on something like one to three hours of human attention a day.
+Thirty weeks of AI-assisted development, from 19 January to 16 August 2026. Around **7,070 commits** have landed to default branches across more than forty repositories and twenty-odd languages — a body of work a single talented generalist would need **nine to sixteen years** to match, produced on one to three hours of human attention a day.
 
-What those numbers describe is a *mode of production*, not a portfolio.
+The numbers describe a *mode of production*, not a portfolio.
 
-**Breadth held simultaneously rather than sequentially.** Concurrent systems, GPU and mobile bring-up, applied cryptography, sandbox policy compilation, compiler and layout reverse-engineering, formal verification, and full-stack fleet tooling sit in one working set. Crossing between them has stopped being expensive, so a single week can honestly found a new project, land a scheduler optimisation, and cut ten releases without waiting on specialists in turn.
+**Breadth held at once rather than in turn.** Concurrent systems, GPU and mobile bring-up, applied cryptography, sandbox policy, compiler and layout reverse-engineering, formal verification, stylus input, and full-stack fleet tooling sit in a single working set. Crossing between them stopped being expensive months ago, which is why a week can found a product, cut a release train, or spend two hundred commits on the fleet's own survival without queuing behind specialists.
 
-**Correctness carried inside the artefact.** The difficult work proves itself: model-checked protocols, golden and differential oracles — including a revived legacy application streaming layout ground truth to its own replacement — adversarial audits that default every finding to refuted, and red-team probes promoted from throwaway scripts into standing suites. An oracle is a loop, not an artefact: verification not wired to something that runs is not verification.
+**A system that has to survive operating itself.** The latest phase is not writing more agents but keeping a running fleet from destroying the machine it lives on. Work is dispatched against a target ledger, and the failures that follow are workshop failures: two workers reverting each other through one tree, a commit that swept up a neighbour's index, a completion word read out of context. Then a sharper class — crash-survival without recovery. Leftover agent windows rematerialised on every bounce until a 128 GB host sat at load 267 with 0.14 GB free; the compressor, not the CPUs, was the stall. The fixes are contractual: upgrade adopts leftovers, ordinary start does not reap, and the daemon and its watchdog live in different process trees so whichever dies cannot take the other with it.
 
-**A standing suspicion of silent success.** The most consistent theme is not building things but making failure visible. A pipeline that exits zero for a fortnight while ingesting nothing, an alert recorded as delivered that no sink received, a daemon that installs and configures itself and does neither, a channel that slows as processors are added — each was caught only when something asked "is this still producing anything?" rather than "did this step fail?". Exit codes are not monitoring, and green is not evidence.
+**Economics and correctness as the same surface.** Spend is decomposed along the axes the levers act on; a ceiling that cannot see one provider's cached reads is not a ceiling; unknown remaining is not 100% headroom. The same instinct is a field a provider cannot honour being refused rather than silently dropped, a gate whose exit status cannot be fabricated by a pipeline, and a corpus forbidden from being produced by the tool it tests. An oracle is a loop, not an artefact.
 
-**Work that compounds.** A large share of effort goes into tools that make the following week cheaper: transcript indexing, target ledgers, device orchestration, structural code transformation, cost governance. The instinct is to move each capability into a substrate everything else reuses — one engine under several titles, one control plane for the fleet, one manifest describing what a command may do.
+**A standing suspicion of silent success.** The consistent theme is making failure visible. A pipeline that exits zero while ingesting nothing, a watcher that reloads because it just reloaded, a summariser that took its input as instructions, a supervisor whose plist still looks healthy after launchd has dropped the job — each surfaced only when something asked "is this still producing anything?" rather than "did this step fail?".
 
-**Things that ship.** Libraries cut releases with CI, trust models, and Homebrew taps; a physics game reached both stores; an engine extracted from one title now runs the others across four platforms. Finish lines are store submissions, version tags, and installs that work for a stranger.
+**Things that ship.** Libraries cut releases with CI, trust models and Homebrew taps; games reached both stores; an engine extracted from one title now runs the others on four platforms. Finish lines are store submissions, version tags, and an install that works for a stranger.
 
-**An inverted human role.** Volume comes from the system. What remains is architecture, algorithmic direction, taste, judgement about what a tool should refuse to do, and the on-device verification no agent can perform — one to three hours a day, against output measured in engineer-years per month.
+**An inverted human role.** Volume comes from the system. What remains is architecture, on-device judgement no agent can supply, and deciding what a tool must *refuse* to do: that a secret is never a tool argument, that an unknown measurement must not trigger an action, that ordinary start must not reap, that the destructive branch is never the default under ambiguity.
 
-The multiplier — typically 20× to 95× — has held across the series, running highest on platform-deep and silent-wrongness work and lowest on mechanical consolidation, as honest accounting should show. Headline figures count landed commits only; line counts exclude vendored trees, generated mirrors, lockfiles, and ledger churn, and remain an activity signal rather than hand-authored output.
+The multiplier, typically 20× to 95×, has held across the series, highest on platform-deep and silent-wrongness work and lowest on mechanical consolidation. Headline figures count landed commits only; line counts exclude vendored trees, generated mirrors, lockfiles and ledger churn, and remain an activity signal rather than hand-authored output.
 
 For the specifics — which projects, which releases, which week — see **Greatest Hits**, the [per-repository pages](docs/repos/README.md), and the weekly reports below.
 
@@ -46,6 +46,27 @@ The [top 50 achievements](docs/achievements.md) across all projects, ranked by m
 One page per repository, summarising its whole arc across the series: [docs/repos](docs/repos/README.md). Commercial (HMS / minicades / non-`ge` Squz) journeys: [progress-reports-private](https://github.com/marcelocantos/progress-reports-private).
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-08-16.md"><b>2026-08-10…16</b></a> ghost Claude fleet recovered, mutual daemon/watchdog supervision, Claude cache-read ceiling, Codex provider, bullseye hang and SHA stability</summary>
+
+<b>jevons</b> spent the week surviving a host-down incident: leftover Claude tmux windows rematerialised on every bounce until a 128 GB machine sat at load 267. Upgrade now adopts leftovers; the daemon and a launchd watchdog supervise each other. Last week's context ceiling started working once Claude's cached reads counted as context, then needed hysteresis so it would not become a treadmill. <b>claudia</b> v0.21.0 added Codex and a capability matrix that refuses fields a path cannot honour. <b>bullseye</b> v0.45.0 ended a UTF-8 hang. 263 commits across 8 repos, ~2.4-3.8 months traditional equivalent.
+
+</details>
+
+<details>
+<summary><a href="reports/weekly-report-2026-08-09.md"><b>2026-08-03…09</b></a> orthograph shared sketch surface built and shipped, jevons fleet spend oracle and context ceiling, worker write and commit guards, slacker browser OAuth, mnemo 70→18 tools</summary>
+
+<b>orthograph</b> went from an empty repository to a <code>brew install</code>-able product in six days: a Pencil-first iPad sketch surface whose vector document lives on the Mac, readable and writable by agents over MCP. <b>jevons</b> landed 80 commits largely by supervising itself — a spend oracle decomposing cost as turns × calls × context, a hard context ceiling, wake coalescing after over half its costliest agent's prompts proved to be machine noise, a compare-and-swap write guard, and a <code>GIT_INDEX_FILE</code> commit gate. <b>slacker</b> replaced paste-a-token with browser OAuth over a TLS loopback callback; <b>mnemo</b> cut 70 MCP tools to 18; <b>mcpbridge</b> ended a self-feeding reload loop. 297 commits across 19 repos, ~2.3-3.8 months traditional equivalent.
+
+</details>
+
+<details>
+<summary><a href="reports/weekly-report-2026-08-02.md"><b>2026-07-27…08-02</b></a> summariser containment after a 4.3-billion-token runaway, ge gesture-hint service and tile pyramid, csp ARM64 stack analyser, mnemo cost engine, 40 releases</summary>
+
+<b>mnemo</b> had its largest week of the series — fourteen releases — carrying streaming topic segmentation, a token-cost engine derived from published pricing, and the fix for a real incident: a summariser obeyed an instruction inside a transcript and spawned roughly 33,000 subagents. Closing it needed <b>claudia</b> v0.20.0 first, whose Task mode had never applied the tool restrictions the package documented. <b>ge</b> cut eight tags including a gesture-hint service where one timeline both draws an SDF hand and injects real touch events, and a tile-pyramid format whose coarse packs are byte prefixes of the fine ones. <b>csp</b> shipped an ARM64 stack analyser; <b>ytt</b> was ported to Go and lost a dependency doing it. 115 commits, 19 repos, 40 releases, ~1.1-1.8 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-07-26.md"><b>2026-07-20…26</b></a> writ declared-intent execution sandbox, blurter spool-first daemon released same-day, ge compressed textures + metrics ring, csp ~3× scheduler fix + Windows gate, ytt 16-day silent outage closed</summary>
@@ -244,6 +265,9 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 
 | Week&nbsp;ℂommits&nbsp;☲±kloc<br>AI&nbsp;Human&nbsp;boost× | Highlights |
 |--------|------------|
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-08-16.md">08-10</a>&nbsp;ℂ263&nbsp;☲+83-10\*<br><b>AI</b>14-24h&nbsp;<b>H</b>2.4-3.8mo&nbsp;40-70× | ghost-fleet adopt + mutual supervision, Claude cache-read ceiling, Codex refusal matrix, bullseye SHA. \*no new exclude globs; +5.3k/−0.6k lockfile and ledger omitted |
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-08-09.md">08-03</a>&nbsp;ℂ297&nbsp;☲+252-14\*<br><b>AI</b>18-30h&nbsp;<b>H</b>2.3-3.8mo&nbsp;60-95× | orthograph 0→brew in six days, jevons spend oracle + context ceiling + worker write/commit guards, slacker TLS OAuth, mnemo 70→18 tools. \*three new exclude globs: orthograph SPM build tree, both report repos' `reports/`+`docs/` (history rewrite re-added the back-catalogue) — +72k/−4.9k omitted |
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-08-02.md">07-27</a>&nbsp;ℂ115&nbsp;☲+82-9\*<br><b>AI</b>14-24h&nbsp;<b>H</b>1.1-1.8mo&nbsp;35-60× | summariser containment after a 4.3B-token runaway, ge gesture hints + tile pyramid, csp ARM64 stack analyser, mnemo cost engine, ytt Go port. 40 releases. \*+8.2k/−2.8k bulk omitted; no new globs |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-07-26.md">07-20</a>&nbsp;ℂ63&nbsp;☲+27-7\*<br><b>AI</b>12-20h&nbsp;<b>H</b>0.8-1.3mo&nbsp;30-50× | writ declared-intent sandbox, blurter released same-day, ge textures + metrics ring (4 tags), csp ~3× scheduler fix + Windows gate, ytt 16-day outage closed. \*six new exclude globs this week: ge `headers/`+`prebuilt/`, csp `dist/`, lockfiles, `bullseye.yaml` (+2.9k/−1.2k omitted) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-07-19.md">07-13</a>&nbsp;ℂ96&nbsp;☲+132-13\*<br><b>AI</b>11-18h&nbsp;<b>H</b>0.7-1.2mo&nbsp;30-55× | ge web platform (Emscripten/WebGL2), spyder wasm command-stream glass, jevons MCP attach + fail-closed durability, csp ~146 ns hot-path, mnemo vault/plugins, sawmill 18-language matrix. \*+770k vendor omitted (spyder +731k, ge +38k); yourworld2 goldens + ge verdicts still in ☲ |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-07-12.md">07-06</a>&nbsp;ℂ120&nbsp;☲+93-33\*<br><b>AI</b>14-24h&nbsp;<b>H</b>0.8-1.4mo&nbsp;35-60× | MultiMaze 2 v1 store launch, pigeon crypto remediation (AES-GCM nonce-reuse), jevons v0.5.0 cockpit + cost governance, ged→spyder Plateau P, Grok provider rollout, bullseye four-tool API. \*+35k vendor omitted (bullseye +29k, yourworld2 +5k) |
@@ -271,7 +295,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-08.md">02-02</a>&nbsp;ℂ77&nbsp;☲+14-9\*<br><b>AI</b>8-15h&nbsp;<b>H</b>3-5mo&nbsp;25-50× | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC. \*+402k vendor omitted (ge +367k, yourworld2 +34k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-01.md">01-26</a>&nbsp;ℂ61&nbsp;☲+8-3\*<br><b>AI</b>8-15h&nbsp;<b>H</b>2-4mo&nbsp;25-50× | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched. \*+309k vendor omitted (yourworld2 +308k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-01-25.md">01-19</a>&nbsp;ℂ15&nbsp;☲+2-1<br><b>AI</b>6-11h&nbsp;<b>H</b>1-2mo&nbsp;10-25× | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix. |
-| **Totals**&nbsp;ℂ**~6,393**\*&nbsp;**☲+4105-1064**<br><b>AI</b>**422-699h**&nbsp;<b>H</b>**8.9-15.2y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those). Remaining activity-signal inflation: Unity-regenerated assets, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
+| **Totals**&nbsp;ℂ**~7,068**\*&nbsp;**☲+4522-1097**<br><b>AI</b>**468-777h**&nbsp;<b>H</b>**9.4-16.0y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those). Remaining activity-signal inflation: Unity-regenerated assets, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
 
 
 ## Guide

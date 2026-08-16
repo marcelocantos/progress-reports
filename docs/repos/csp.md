@@ -18,7 +18,6 @@ The final phase is performance, done measurement-first. A bench showed the wrong
 
 ## Highlights
 
-- **Extracted from bricabrac** — microthreads, typed channels, `alt`/`prialt`, timer channels and an M:N work-stealing scheduler land in one week, and bricabrac's own concurrency module is deleted (−5,556 lines). ([2026-02-15](../../reports/weekly-report-2026-02-15.md))
 - **From extraction to platform in 133 commits** — 100+ combinators, topology surgery, cancellation with cancel-aware TLS, HAMT-backed dynamic scoping, demand-paged guard-page stacks, C++23, 400+ tests and the first six papers. ([2026-02-22](../../reports/weekly-report-2026-02-22.md))
 - **9+ TLA+ models of the scheduler** — suspension TOCTOU, work stealing, channel lifecycle, worker parking, alt-state CAS, concurrent swap and tap lifecycle, all exhaustively checked by TLC. ([2026-02-22](../../reports/weekly-report-2026-02-22.md))
 - **Five-phase Windows port** — `VirtualAlloc` stacks, thread-pool timers, `WSAEventSelect` I/O, console signals and CI, giving three reactor backends (kqueue/epoll/Windows) behind one abstraction, alongside the ARM64 `TPIDR_EL0` TLS-corruption fix. ([2026-03-01](../../reports/weekly-report-2026-03-01.md))
@@ -30,6 +29,7 @@ The final phase is performance, done measurement-first. A bench showed the wrong
 - **The push path deleted, not deprecated** — HTTP/1.1 bodies stream through the pull-based `io::source` and `net::connection.input` is removed outright, leaving one flow-control model. ([2026-06-21](../../reports/weekly-report-2026-06-21.md))
 - **Channel rendezvous flattened to ~146 ns** — a measured 16× negative-scaling curve root-caused to `global_mu` on every switch and wake, fixed with a channel-owned buffered ring and five new formal models. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Scheduler thrash worth ~3× and a trusted Windows gate** — multi-writer `alt/8ch` from 3.2 µs to 1.07 µs, plus a two-tier Windows CI whose authoritative half is a local ARM64 VM keyed on an in-band marker. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **Stacks sized from machine code** — an ARM64 walker returning maximum SP displacement with an honest `is_exact` flag, indirect branches resolved through live data, composed with a measured shell constant under an audit gate (v0.29.0). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 
 ## Standouts
 
@@ -43,12 +43,12 @@ The final phase is performance, done measurement-first. A bench showed the wrong
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 24 |
-| Commits | ~500 |
-| Human attention | ~52–92 h |
-| Traditional equivalent | ~10.9–17.0 months |
+| Weeks active | 25 |
+| Commits | ~513 |
+| Human attention | ~53–94 h |
+| Traditional equivalent | ~11.1–17.3 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[02-15](../../reports/weekly-report-2026-02-15.md), [02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[02-15](../../reports/weekly-report-2026-02-15.md), [02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md)

@@ -64,3 +64,22 @@ repos:
   # Generated 41 MB C blob embedding the Ruby bundle.
   marcelocantos/den:
     - src/ruby/bundle_data.c
+
+  # ios/build-spm-check is a Swift Package Manager build tree that was briefly
+  # tracked before "Stop tracking ios/build-spm-check SPM build tree" removed
+  # it: ~5,000 machine-written files (module caches, .build intermediates).
+  marcelocantos/orthograph:
+    - ios/build-spm-check/**
+
+  # The report series itself. Weekly reports, per-repo pages and achievement
+  # lists are narrative *about* the work, not the work — and each week's prose
+  # is already accounted for once, in the week it describes. The 2026-08 split
+  # into a public/private pair rewrote the public repo's history, so a single
+  # commit re-adds the whole back-catalogue (+59k). Counting that would double
+  # count every earlier week.
+  marcelocantos/progress-reports:
+    - reports/**
+    - docs/**
+  marcelocantos/progress-reports-private:
+    - reports/**
+    - docs/**
