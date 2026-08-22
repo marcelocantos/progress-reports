@@ -1,0 +1,356 @@
+# hygiene.yaml — declared, drift-validated hygiene posture for this repo.
+# Schema: ~/.claude/skills/hygiene/SKILL.md. Validate with `/hygiene`.
+# Narrative reports + YAML data + SVGs. No product runtime, tests, or CI
+# (CLAUDE.md skips pr-workflow, tests-exist, ci-green; push is to master).
+# Floors are the held tiers reality already reaches; gaps sit above them.
+
+schema_version: 1
+
+repo: progress-reports
+aspires: 3
+floors:            # per-dimension held-tier ratchet; below floor => DRIFT
+  correctness: 0   # no tests, no CI
+  security: 0      # GitHub secret scanning disabled; no gitleaks
+  quality: 0       # no linter or formatter
+  deps: 0          # no language manifest or lockfile
+  release: 0       # not a versioned software product
+  governance: 0    # README + .gitignore present; LICENSE absent
+  build: 0         # no Makefile, no workflows
+  docs: 1          # guide, methodology, README, per-repo index; no link checker
+  perf: 0          # no runtime to benchmark
+  vcs: 1           # origin exists; master unprotected by design
+  agent: 1         # CLAUDE.md + bullseye.yaml; no AGENTS.md
+
+tiers:
+  1: baseline    # LICENSE + README + .gitignore; tests build & run
+  2: maintained  # full matrix, examples run, lint/format, release + governance
+  3: hardened    # formal specs, security scanning, SBOM/signing, fuzzing, perf
+
+items:
+
+  # ============================== CORRECTNESS =============================
+  - id: correctness.tests
+    dim: correctness
+    desc: Tests exist and run on a shipped path (CI job or make target)
+    state: planned
+    cadence: continuous
+    enforce: blocking
+    tier: 1
+    reason: >-
+      Narrative reports, YAML data, and SVGs only. No product runtime or
+      test tree in this repo. Companion gather/chart scripts live in the
+      progress-report skill, not here.
+    evidence: {absent: {ci_job: ci.yml#test}}
+
+  - id: correctness.fuzzing
+    dim: correctness
+    desc: Fuzz harnesses over parsers or protocol state
+    state: skipped
+    cadence: continuous
+    enforce: informational
+    tier: 3
+    reason: No parsers or runtime to fuzz.
+    evidence: {absent: {ci_job: ci.yml#fuzz}}
+
+  # =========================== SECURITY / SUPPLY ==========================
+  - id: security.claude-ignored
+    dim: security
+    desc: Agent runtime directory (.claude/) is gitignored
+    state: present
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 1
+    evidence: {file: {path: .gitignore, matches: '\.claude'}}
+
+  - id: security.github-secret-scan
+    dim: security
+    desc: GitHub secret scanning enabled on the public repo
+    state: planned
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 1
+    reason: Public repo; secret_scanning.status is disabled.
+    evidence:
+      {
+        absent: {
+          gh_setting: {
+            key: security_and_analysis.secret_scanning.status,
+            equals: enabled,
+          }
+        }
+      }
+
+  - id: security.github-push-protection
+    dim: security
+    desc: GitHub secret-scanning push protection enabled
+    state: planned
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 2
+    reason: secret_scanning_push_protection.status is disabled.
+    evidence:
+      {
+        absent: {
+          gh_setting: {
+            key: security_and_analysis.secret_scanning_push_protection.status,
+            equals: enabled,
+          }
+        }
+      }
+
+  - id: security.gitleaks
+    dim: security
+    desc: Secret scanning (gitleaks) in pre-commit and/or CI
+    state: planned
+    cadence: continuous
+    enforce: blocking
+    tier: 3
+    reason: No CI or gitleaks config.
+    evidence: {absent: {scanner: {tool: gitleaks}}}
+
+  - id: security.sast
+    dim: security
+    desc: Static application security testing (CodeQL)
+    state: skipped
+    cadence: continuous
+    enforce: informational
+    tier: 3
+    reason: No source language to analyze; tree is markdown, YAML, and SVG.
+    evidence: {absent: {ci_job: ci.yml#codeql}}
+
+  # ============================== CODE QUALITY ============================
+  - id: quality.lint
+    dim: quality
+    desc: A markdown linter or formatter runs on the shipped path
+    state: planned
+    cadence: continuous
+    enforce: warning
+    tier: 2
+    reason: No markdownlint/prettier config and no CI to invoke one.
+    evidence: {absent: {file: {path: .markdownlint.yaml}}}
+
+  # =========================== DEPENDENCY HEALTH ==========================
+  - id: deps.lockfile
+    dim: deps
+    desc: Language lockfile pins the dependency graph
+    state: planned
+    cadence: once-must-hold
+    enforce: informational
+    tier: 2
+    reason: No language manifest; this tree has no package dependencies.
+    evidence: {absent: {file: {path: package.json}}}
+
+  - id: deps.dependabot
+    dim: deps
+    desc: Dependabot (or equivalent) watches manifests
+    state: skipped
+    cadence: periodic:30d
+    enforce: informational
+    tier: 3
+    reason: No dependency manifests; Dependabot security updates are disabled.
+    evidence: {absent: {file: {path: .github/dependabot.yml}}}
+
+  # ========================== RELEASE & VERSIONING =======================
+  - id: release.changelog
+    dim: release
+    desc: A maintained CHANGELOG records user-visible changes per release
+    state: planned
+    cadence: per-release
+    enforce: informational
+    tier: 2
+    reason: >-
+      Not a versioned software product. Reports are dated markdown files,
+      not tagged releases. No CHANGELOG.md.
+    evidence: {absent: {file: {path: CHANGELOG.md}}}
+
+  - id: release.ci-built
+    dim: release
+    desc: Release artifacts are built by CI, never locally
+    state: skipped
+    cadence: per-release
+    enforce: informational
+    tier: 3
+    reason: No versioned artifacts; no release workflow.
+    evidence: {absent: {ci_job: release.yml#build}}
+
+  # ============================ GOVERNANCE / META ========================
+  - id: governance.readme
+    dim: governance
+    desc: README present
+    state: present
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 1
+    evidence: {file: {path: README.md}}
+
+  - id: governance.gitignore
+    dim: governance
+    desc: .gitignore present
+    state: present
+    cadence: once-must-hold
+    enforce: warning
+    tier: 1
+    evidence: {file: {path: .gitignore}}
+
+  - id: governance.license
+    dim: governance
+    desc: Apache-2.0 LICENSE present
+    state: planned
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 1
+    reason: Public repo; GitHub licenseInfo is null and LICENSE is absent.
+    evidence: {absent: {file: {path: LICENSE}}}
+
+  - id: governance.squash-only
+    dim: governance
+    desc: Repo is squash-merge only, with delete-branch-on-merge
+    state: enforced
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 2
+    evidence: {gh_setting: {key: allow_merge_commit, equals: false}}
+
+  - id: governance.security-md
+    dim: governance
+    desc: SECURITY.md documents the vulnerability-disclosure process
+    state: planned
+    cadence: once-must-hold
+    enforce: informational
+    tier: 3
+    reason: Public narrative repo without a published disclosure policy file.
+    evidence: {absent: {file: {path: SECURITY.md}}}
+
+  - id: governance.codeowners
+    dim: governance
+    desc: CODEOWNERS file for review routing
+    state: skipped
+    cadence: once-must-hold
+    enforce: informational
+    tier: 3
+    reason: Sole owner; CLAUDE.md skips PR ceremony and review routing.
+    evidence: {absent: {file: {path: CODEOWNERS}}}
+
+  # ================================= BUILD ===============================
+  - id: build.ci
+    dim: build
+    desc: CI workflow builds or checks the project
+    state: planned
+    cadence: continuous
+    enforce: informational
+    tier: 2
+    reason: >-
+      CLAUDE.md skips ci-green. Narrative reports plus data/docs; no
+      Makefile or .github/workflows.
+    evidence: {absent: {file: {path: .github/workflows}}}
+
+  # ============================ DOCUMENTATION ============================
+  - id: docs.guide
+    dim: docs
+    desc: docs/guide.md is the report-authoring instruction set
+    state: present
+    cadence: once-must-hold
+    enforce: blocking
+    tier: 1
+    evidence: {file: {path: docs/guide.md, matches: 'Writing Weekly Progress Reports'}}
+
+  - id: docs.methodology
+    dim: docs
+    desc: docs/methodology.md records how metrics are derived
+    state: present
+    cadence: once-must-hold
+    enforce: warning
+    tier: 1
+    evidence: {file: {path: docs/methodology.md}}
+
+  - id: docs.repos-index
+    dim: docs
+    desc: docs/repos/README.md indexes per-repository journey pages
+    state: present
+    cadence: once-must-hold
+    enforce: warning
+    tier: 1
+    evidence: {file: {path: docs/repos/README.md}}
+
+  - id: docs.md-links
+    dim: docs
+    desc: Internal markdown links resolve (no dead cross-references)
+    state: planned
+    cadence: continuous
+    enforce: warning
+    tier: 2
+    reason: No link checker or CI job; report markdown is not mechanically verified.
+    evidence: {absent: {ci_job: ci.yml#docs}}
+
+  # ============================== PERFORMANCE ===========================
+  - id: perf.benchmarks
+    dim: perf
+    desc: Benchmark suite exists
+    state: planned
+    cadence: per-release
+    enforce: informational
+    tier: 3
+    reason: No runtime product to benchmark.
+    evidence: {absent: {file: {path: benches}}}
+
+  # ============================== VCS / HISTORY =========================
+  - id: vcs.remote
+    dim: vcs
+    desc: origin remote points at the GitHub repository
+    state: present
+    cadence: once-must-hold
+    enforce: warning
+    tier: 1
+    evidence: {command: git remote get-url origin}
+
+  - id: vcs.branch-protection
+    dim: vcs
+    desc: Default branch (master) is protected
+    state: skipped
+    cadence: once-must-hold
+    enforce: informational
+    tier: 3
+    reason: >-
+      CLAUDE.md skips pr-workflow; push is directly to master with no
+      branch protection or review gate.
+    evidence:
+      {absent: {command: gh api repos/marcelocantos/progress-reports/branches/master/protection}}
+
+  - id: vcs.pre-commit-hook
+    dim: vcs
+    desc: Committed git hooks (scripts/hooks) gate locally before commit
+    state: planned
+    cadence: once-must-hold
+    enforce: informational
+    tier: 3
+    reason: No scripts/hooks; core.hooksPath is the default .git/hooks.
+    evidence: {absent: {file: {path: scripts/hooks/pre-commit}}}
+
+  # =================== AGENT-READINESS / ONBOARDING ====================
+  - id: agent.claude-md
+    dim: agent
+    desc: CLAUDE.md present (project conventions discoverable by agents)
+    state: present
+    cadence: once-must-hold
+    enforce: warning
+    tier: 1
+    evidence: {file: {path: CLAUDE.md}}
+
+  - id: agent.bullseye
+    dim: agent
+    desc: bullseye.yaml present (convergence targets discoverable)
+    state: present
+    cadence: once-must-hold
+    enforce: informational
+    tier: 1
+    evidence: {file: {path: bullseye.yaml}}
+
+  - id: agent.agents-md
+    dim: agent
+    desc: AGENTS.md present (shared instruction source of truth)
+    state: planned
+    cadence: once-must-hold
+    enforce: warning
+    tier: 2
+    reason: Instructions live in CLAUDE.md only; AGENTS.md is absent.
+    evidence: {absent: {file: {path: AGENTS.md}}}
