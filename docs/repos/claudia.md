@@ -16,10 +16,11 @@ July turned claudia into a multi-provider library and then made its session cont
 
 August added the fourth provider and the recovery the crash-survival had been missing. v0.21.0 shipped **Codex** (`codex exec`, subscription-auth preflight that fails closed on API-key fall-through) beside Bedrock, plus `QueryPlanUsage` that returns explicit unavailable rather than invented zeros. A capability matrix now **refuses** every field a path cannot honour — Grok Session had been dropping `DisallowTools` and hardcoding always-approve; Bedrock accepted a `SessionID` against a stateless API. `Adopt` / `StartAllPreferAdopt` reacquire leftover tmux windows on upgrade so a consumer restart does not double the fleet; ordinary `Launch` does not reap. A mid-turn paste is submitted or reported, never "Message sent". The start of a **tiered ladder** (🎯T27) treats the model as the escalation path, with rule identity a content hash and recall a consumer-owned seam.
 
+The next fortnight made MCP and Goal host-owned. Five releases in seven days (v0.23–v0.27) moved Codex Session onto `codex app-server`, added a Goal the host can close without waiting for `GOAL_STATUS`, an HTTP MCP proxy that never stores tokens, and `MCPExclusive` so a Session is not drowned by user-scope maps. v0.28.0 added Cursor (`ListCursorModels`, thought/plan/permission on `Event`) and recovered a vanished tmux server by recreating the **anchor session** that holds it open. `/rc connecting` is read from the status bar, not the transcript — 29 of 33 ready-timeouts on 29 August were the overseer diagnosing the wedge in prose.
+
 ## Highlights
 
 - **Bootstrap to v0.6.0, and the PTY-to-tmux pivot** — tmux-backed agents, a `probe-ready-tmux` readiness binary, warm pools and session chains, with the old daemon and its ~1,100-line state machine deleted. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
-- **Public session probes** — `SessionExists` and `SessionJSONLPath` let `/waw`, `/cv` and mnemo's compactor query session state without re-implementing discovery. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **v1.0 API cluster and multi-subscriber events** — one breaking rename release, then behavioural fixes plus pkg.go.dev-ready docs, with `OnEvent` replaced by `SubscribeEvents` after subscriber starvation under bulk fan-out. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **Grok push-to-talk primitives** — `ManualCommit`, `CommitAndRespond` and `OnResponseDone`, built for jevons' voice bridge where server-side VAD was actively wrong. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
 - **System notes and per-call modality** — `SendSystemNote` for out-of-band events the conversation should react to, and text-only versus text+audio selection per call. ([2026-05-17](../../reports/weekly-report-2026-05-17.md))
@@ -30,6 +31,7 @@ August added the fourth provider and the recovery the crash-survival had been mi
 - **The restriction that existed in only one mode** — Task mode had never passed `--disallowedTools` despite the README promising five always-disallowed tools; v0.20.0 moved the baseline to a shared constant, unblocking mnemo's summariser containment. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 - **A third provider and process-durable agents** — `ProviderBedrock` over AWS `ConverseStream`, detached `grok agent serve` with ACP over WebSocket so agents outlive their consumer, and `RequireResume` fail-closed on a missing transcript. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Codex, capability refusal, and leftover-window Adopt** — v0.21.0 adds a fourth provider; every field a path cannot honour is refused; upgrade reacquires tmux windows so a bounce does not double the fleet. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
+- **Host-owned MCP, Goal, Exclusive, Cursor** — v0.23–v0.28: tokens stay in the host, CloseGoal is a host fact, Exclusive subtracts user-scope maps, Cursor Events are first-class, the tmux anchor is recovered. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 
 ## Standouts
 
@@ -38,17 +40,18 @@ August added the fourth provider and the recovery the crash-survival had been mi
 - **A rewind that cannot land mid-tool-use** — rolling a conversation back *n* user turns hinges on what counts as a turn: tool-result entries are excluded from the count, so a rewind never leaves the agent waiting on a result that will never arrive, and a `.rewind-bak` sidecar makes the whole operation undoable. ([2026-07-05](../../reports/weekly-report-2026-07-05.md))
 - **Fail-closed `session/load` as conversation integrity** — a provider that helpfully mints a new session when load fails is a data-loss bug wearing a recovery mask. `RequireResume`/`Materialized` make load fail closed for materialised conversations, and the ACP path prefers `mcp.claudia.json` so a trust gate cannot silently drop the MCP servers. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **A field a path cannot honour is refused** — Grok Session dropped `DisallowTools` and hardcoded always-approve; Bedrock accepted a `SessionID` against a stateless API; non-Codex paths took `SandboxMode` and ran unrestricted. `capabilityRefusal` keeps the refusal alive even if a claim flips to supported ahead of the wiring. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
+- **The status bar is not the transcript** — matching `/rc connecting` against the whole tmux frame made an overseer diagnosing the wedge become the wedge; only the last six lines, under the composer's bottom rule, are consulted. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 14 |
-| Commits | ~139 |
-| Human attention | ~22–38 h |
-| Traditional equivalent | ~2.1–3.5 months |
+| Weeks active | 16 |
+| Commits | ~174 |
+| Human attention | ~28–48 h |
+| Traditional equivalent | ~2.7–4.4 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md)

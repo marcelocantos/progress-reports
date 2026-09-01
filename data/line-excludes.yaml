@@ -65,6 +65,16 @@ repos:
   marcelocantos/den:
     - src/ruby/bundle_data.c
 
+  # Vendored Facebook zstd amalgamation bound via cgo (zstd.c is ~52k lines).
+  marcelocantos/mnemo:
+    - internal/zstdc/zstd.c
+    - internal/zstdc/zstd.h
+
+  # Disk-audit snapshots: du TSV dumps and rescued git-stash patches from
+  # other trees (one yourworld stash is 212k lines). Not authored product.
+  marcelocantos/housekeeping:
+    - snapshots/**
+
   # ios/build-spm-check is a Swift Package Manager build tree that was briefly
   # tracked before "Stop tracking ios/build-spm-check SPM build tree" removed
   # it: ~5,000 machine-written files (module caches, .build intermediates).

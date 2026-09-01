@@ -11,7 +11,7 @@ A repository earns a page once it has two or more dedicated weekly-report
 sections. Renamed projects are folded into one page: tern → [pigeon](pigeon.md),
 mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 [bullseye](bullseye.md), multimaze → multimaze2 (private), sq →
-[ge](ge.md).
+[ge](ge.md), marcelocantos/orthograph → [canticode/orthograph](orthograph.md).
 
 ## Games & Engines
 
@@ -28,7 +28,8 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/sqlift](sqlift.md) — schema migration in C and Go with cross-language verification
 - [marcelocantos/rustuml](rustuml.md) — Rust PlantUML renderer pursuing pixel and XML parity with the Java original
 - [arr-ai/frozen](frozen.md) — persistent immutable collections; 128-bit content hashing for fast inequality
-- [arr-ai/arrai](arrai.md) — relational programming language; maintained through generics migration and CVE custodianship
+- [arr-ai/hash](hash.md) — hashing primitives behind frozen; seedless hash128 so nested values can cache
+- [arr-ai/arrai](arrai.md) — relational programming language; interned shape-backed tuples and lexical-frame scopes
 - [arr-ai/wbnf](wbnf.md) — grammar language behind the arr.ai ecosystem
 - [marcelocantos/cworkers](cworkers.md) — worker broker rewritten from Go to C, 15 MB to 35 KB
 - [marcelocantos/mcpbridge](mcpbridge.md) — Go library for bimodal MCP servers: daemon plus stdio proxy over a socket
@@ -51,6 +52,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/ytt](ytt.md) — YouTube transcript ingest pipeline with self-healing scheduled runs
 - [marcelocantos/vellum](vellum.md) — document conversion MCP server with atomic clipboard delivery
 - [marcelocantos/slacker](slacker.md) — multi-workspace Slack MCP; browser OAuth to the keychain, no secret ever a tool argument
+- [canticode/orthograph](orthograph.md) — Pencil-first shared sketch surface; Mac daemon, MCP scene graph, iPad app; now a Canticode product
 - [marcelocantos/pageflip](pageflip.md) — meeting capture behind a compile-time egress gate
 - [marcelocantos/sysinfo-mcp](sysinfo-mcp.md) — C MCP server exposing macOS system metrics
 - [marcelocantos/mpe2pdf](mpe2pdf.md) — Markdown to PDF conversion, later an MCP server
@@ -78,7 +80,6 @@ Detail for HMS and Minicades titles lives in the private sibling ([progress-repo
 Repositories with a single dedicated section so far. They earn a page on their
 second.
 
-- marcelocantos/orthograph — Pencil-first shared sketch surface for a human and their agents; Mac daemon, MCP scene graph, iPad app
 - marcelocantos/marcelocantos.com — personal Hugo site; blog and an open-source products page
 - marcelocantos/writ — declared-intent execution: manifests compiled into a seatbelt profile, egress proxy, and drift audit
 - marcelocantos/blurter — spool-first notification daemon; applications spool to disk, the daemon owns credential and policy
@@ -92,7 +93,10 @@ second.
 - marcelocantos/solarmon — solar inverter monitor
 - marcelocantos/go-ios — fork carrying the tunnel self-heal used by spyder
 - linqgo/linq — LINQ for Go, migrated to `iter.Seq` in v2
-- arr-ai/hash — hashing primitives behind frozen
+- marcelocantos/tapper — Homebrew tap publisher with per-tap keychain tokens and codesigned ACLs
+- marcelocantos/finance — personal statement fetchers, PDF transcripts as the oracle, double-entry journal; no data in the repo
+- marcelocantos/downstream — incremental Markdown parser emitting Enter/Exit/Text/Attr events
+- marcelocantos/housekeeping — disk-audit snapshots (486 GB reclaimed); authored findings only, dumps excluded from ☲
 - squz/nostalgia — detail in [private](https://github.com/marcelocantos/progress-reports-private)
 - squz/bricabrac — detail in [private](https://github.com/marcelocantos/progress-reports-private)
 - unwisegames/tiltbuggy — the reference title behind ge's differential physics oracle

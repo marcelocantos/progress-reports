@@ -12,6 +12,8 @@ Custodianship dominated the rest. A 20-commit week modernised CI (Go 1.24, golan
 
 July brought the only language change in the window and its reversal: a one-token grammar correctness fix making the safe-accessor fallback `a?.b : c` bind a full expression rather than the restricted `@`, co-authored by Oliver Lade — reverted the following week alongside Dependabot crypto and docs vulnerability bumps and a Netlify docs-build fix.
 
+Late August rebuilt the runtime representation without moving the public API. Tuples are interned **shape-backed structs** (sorted names, cached hashes, With/Without transitions); same attribute set means same `*Shape`, so Get/With/Equal/Hash are positional. Scopes are lexical frames; `IdentExpr` caches `(hops, slot)`. reconstruct repro 2.98 s → 2.13 s, 2.85 GB → 1.88 GB, output byte-identical. A group-by key that was a bare `Value` would silently miss every lookup because frozen's `any` map key uses `Equal(any) bool`, which `Values` has and an arr.ai `Value` does not. Releases are tagged deliberately rather than auto-bumped on every merge.
+
 ## Highlights
 
 - **State-of-the-language assessment** — a 161-line document diagnosing dormancy and proposing an embeddable-engine positioning with a staged performance and language roadmap. ([2026-02-15](../../reports/weekly-report-2026-02-15.md))
@@ -21,6 +23,7 @@ July brought the only language change in the window and its reversal: a one-toke
 - **CVE closure and v0.336.0** — the lodash code-injection advisory fixed, docs CI moved to `npm ci`, and a release cut with an audit log. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
 - **Safe-accessor grammar fix** — `a?.b : c` made to bind a full expression rather than the restricted `@`, co-authored by Oliver Lade. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Reverted the following week** — the safe-accessor `fall=expr` change was backed out alongside Dependabot crypto/docs bumps and a Netlify docs-build fix. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
+- **Interned shapes and lexical frames** — tuples as interned `Shape` plus values in shape order; reconstruct 2.98 s → 2.13 s, output byte-identical. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 
 ## Standouts
 
@@ -28,17 +31,18 @@ July brought the only language change in the window and its reversal: a one-toke
 - **A whole dependency deleted inside a type migration** — the `Set[T]`/`Map[K,V]`/`Key[T]` pass across 43 files also removed `anz-bank/pkg` entirely, swapping its log package for stdlib `log/slog` and its mod package for a local `gomod.go`. ([2026-03-01](../../reports/weekly-report-2026-03-01.md))
 - **A dormancy diagnosis that set the direction** — 182 commits in 2021, effectively dormant since 2024, 146 open issues; the resulting 161-line assessment argued for positioning arr.ai as an embeddable data-transformation engine for Go. ([2026-02-15](../../reports/weekly-report-2026-02-15.md))
 - **A grammar fix that lasted one week** — the one-token change making `a?.b : c` bind a full expression landed with an external co-author and was backed out the following week. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
+- **Same shape means same pointer** — intern the name-set once; identity is a pointer; a group-by key must stay `Values` or frozen silently misses every lookup. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 6 |
-| Commits | 39 |
-| Human attention | ~7.5–12 h |
-| Traditional equivalent | ~0.7–1.2 months |
+| Weeks active | 7 |
+| Commits | 52 |
+| Human attention | ~9.5–15 h |
+| Traditional equivalent | ~1.1–1.8 months |
 | Multiplier | ~25–90× |
 
 ## Weekly reports
 
-[02-15](../../reports/weekly-report-2026-02-15.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md)
+[02-15](../../reports/weekly-report-2026-02-15.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-24](../../reports/weekly-report-2026-08-30.md)

@@ -465,6 +465,7 @@ instead. Count sections after folding renames and extractions:
 | targets → bullseye | `bullseye.md` |
 | multimaze (2010 original) → multimaze2 | private `multimaze2.md` |
 | sq (engine dir in yourworld2) → ge | `ge.md` (public) |
+| marcelocantos/orthograph → canticode/orthograph | `orthograph.md` |
 
 Page filename: bare repo name, lower-case (`csp.md`, `ge.md`). Commercial
 product pages (`hms`, `multimaze2`, `yourworld2`, minicades titles, …) live only

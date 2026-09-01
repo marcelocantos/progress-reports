@@ -18,10 +18,10 @@ By August the cockpit had become the thing doing the building. Most of a 297-com
 
 The next week was survival. Crash-survival without recovery rematerialised a **ghost Claude fleet** until a 128 GB host sat at load 267 with 0.14 GB free — the compressor, not the CPUs. Upgrade now adopts leftover tmux windows; ordinary start does not reap, so an exit leak stays visible; the daemon and a launchd watchdog supervise each other from different process trees after launchd quietly dropped the job. The ceiling, inert on Claude because cached reads were not counted as context, started working and immediately became a treadmill, closed with hysteresis. Plan remaining — a pointer, because 0 is exhausted and nil is unpublished — became the one honest budget a flat subscription has, and host run-queue plus swap folded into admission so a governor cannot report 100% headroom on a drowning machine.
 
+Then the fleet became *interpretable*. Host-owned MCP (claudia loads, probes and proxies; jevons persists tokens), a Session Goal the host can close, Codex Session over `codex app-server`, typed envelopes, and a fog-of-war scout that refuses to implement into an unseen map. Connect-replay pins to the last owner bubble, not the slot tail. The fortnight closed with **React as the daily cockpit** (`:13705`), coalesced transcripts in SQLite, Cursor ACP remint that does not deadlock, an exhausted model that falls down its ladder instead of being re-briefed forever, and the tmux **anchor pane** as the reason the fleet server stays up.
+
 ## Highlights
 
-- **Dual-use protocol state machines** — `protogen` emits Go, Swift, TLA+ and PlantUML from one YAML spec; the relay half is extracted as `tern`, which becomes [pigeon](pigeon.md). ([2026-03-22](../../reports/weekly-report-2026-03-22.md))
-- **Grok Realtime voice bridge and the web UI** — voice I/O with adaptive local VAD alongside a split-pane desktop UI with JSONL-persistent chat and a live terminal viewer. ([2026-03-29](../../reports/weekly-report-2026-03-29.md))
 - **v0.4.0: mTLS plus a cross-repo active-work dashboard** — Ed25519 CA and device provisioning, depth-limited `jwork` delegation, and one ranked table over sessions, dirty trees and open PRs. ([2026-04-19](../../reports/weekly-report-2026-04-19.md))
 - **Migration onto pigeon's typed pairing primitives** — bespoke X25519 and ad-hoc QR JSON replaced by `PairingHost`/`CredentialStore`, with an env-var deploy path that skips the QR scan entirely. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **JSONL canonical: SQLite and Lua deleted** — the database layer, the legacy Go package and the embedded interpreter all removed once mnemo was recognised as the real replay layer. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -32,6 +32,8 @@ The next week was survival. Crash-survival without recovery rematerialised a **g
 - **Fleet economics made measurable, then bounded** — a spend oracle decomposing cost as turns × calls × context from providers' own billing frames, a hard context ceiling where unknown never compacts, and wake coalescing after over half the most expensive agent's prompts proved to be machine noise. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Coordination safety for a shared clone** — a compare-and-swap write guard that names the lines a stale write would drop, a `GIT_INDEX_FILE` pre-commit gate, and a reap that stops treating ambiguity as a completion claim. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Ghost-fleet adopt and mutual supervision** — leftover Claude windows rematerialised on every bounce; upgrade adopts, ordinary start does not reap, and the daemon and watchdog watch each other from different trees. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
+- **Host-owned MCP, Goal, and J19's live end** — Exclusive Session MCP, a Goal the host can close, connect pinned to the last owner bubble not the slot tail. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
+- **React daily, statedb, ladder fallback, anchor pane** — the React cockpit is the daily UI; transcripts persist in SQLite; an exhausted model falls down its ladder; the tmux anchor holds the server open. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 
 ## Standouts
 
@@ -41,17 +43,19 @@ The next week was survival. Crash-survival without recovery rematerialised a **g
 - **The destructive branch was the default under ambiguity** — the fleet's auto-reap fired on any completion word in a terminal report, so a substring test made "incomplete" a claim of "complete". Two of three losses in one afternoon were replies *to* the agent: a reaped agent is not merely gone, it is an unanswerable address, and the caller only learns that afterwards. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **A guard that names what it saved** — treeguard refuses a write whose base no longer matches disk and reports the specific lines it would have dropped, turning silent loss into a mechanical merge instruction; its oracle is two-sided so a guard that refuses everything cannot pass. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Crash-survival without recovery** — leftover tmux windows rematerialised on every bounce until the host compressor, not the CPUs, stalled a 128 GB machine at load 267; upgrade adopts, ordinary start leaves the leak visible. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
+- **Connect must pin to a person, not a slot** — reload that pins to the slot tail paints a desert of empty turn-slots; J19 fails on an empty pane, not only a collapsed model. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
+- **The anchor pane holds the tmux server open** — `new-window: no server running` while the fleet's own panes were alive; the socket was never wrong, the session that holds it had been reaped. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 19 |
-| Commits | ~459 |
-| Human attention | ~40–68 h |
-| Traditional equivalent | ~5.3–8.4 months |
+| Weeks active | 21 |
+| Commits | ~816 |
+| Human attention | ~55–93 h |
+| Traditional equivalent | ~6.4–10.2 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md)
+[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md)

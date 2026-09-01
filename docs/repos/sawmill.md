@@ -12,6 +12,8 @@ Three focused releases followed. v0.12.0 shipped an **AST-aware three-way merge*
 
 The final arc widened both retrieval and coverage. v0.16.0's discovery tier layered FTS5 lexical search, a reference graph with PageRank, and vector embeddings fused by Reciprocal Rank Fusion, with `find_by_concept` rebound to syntax nodes so concepts survive reformatting; the same week's [Fable-5 audit](../../reports/weekly-report-2026-07-05.md) surfaced two criticals and eight highs, data-loss-heavy — a `rename_file` root escape and an empty-file-undo deletion among them — all fixed in place. v0.17.0 then took the adapter matrix to **eighteen languages** and, crucially, drove parse → `find_symbol` → rename → apply → `add_field` through the MCP handler for every one of them **with no skip hatch**; writing that matrix immediately found a real Ruby bug. The standing principle: support that is not exercised end-to-end on disk is not support.
 
+A 22 August entropy-follow-up squash replaced the tree with a one-line `f.py` (+1/−54,789). It sat that way until a revert on 31 August (outside the reporting window that recorded the wipe). The product survived; the incident is why an entropy squash is not a licence to replace a tree.
+
 ## Highlights
 
 - **Rust-to-Go rewrite and open-sourcing in one week** — 91 commits, Apache 2.0, agents guide and `STABILITY.md`, Canopy renamed to Sawmill, Rust codebase removed on completion. ([04-05](../../reports/weekly-report-2026-04-05.md))
@@ -47,4 +49,4 @@ The final arc widened both retrieval and coverage. v0.16.0's discovery tier laye
 
 ## Weekly reports
 
-[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md)
+[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md)
