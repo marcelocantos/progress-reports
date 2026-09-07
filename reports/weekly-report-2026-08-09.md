@@ -237,7 +237,7 @@ The series split into a public repository and a private commercial companion, wi
 
 ![Daily active repositories](daily-activity-2026-08-09.svg)
 
-*(Active repositories per day: Mon 08-03 9, Tue 08-04 6, Wed 08-05 7, Thu 08-06 0, Fri 08-07 7, Sat 08-08 6, Sun 08-09 6. Thursday is completely empty — the only such day since 2026-07-24 — and the fleet still landed 297 commits in the remaining six.)*
+*(Active repositories per day: Mon 08-03 10, Tue 08-04 6, Wed 08-05 10, Thu 08-06 0, Fri 08-07 9, Sat 08-08 9, Sun 08-09 5. Thursday is completely empty — the only such day since 2026-07-24 — and the fleet still landed 297 commits in the remaining six.)*
 
 ---
 

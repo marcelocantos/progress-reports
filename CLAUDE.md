@@ -36,3 +36,14 @@ This repo has no CI and contains only narrative reports + supporting
 data/docs. Push directly to `master` — no PR ceremony, no feature
 branch, no review gate. `/push` will commit and push to `master` in
 place.
+
+## Consistency gate
+
+`data/daily-repos.yaml` is the single source of truth for daily activity
+counts; the chart and the report caption are derivations of it. After
+generating or editing a weekly report, run:
+
+    python3 scripts/check_daily_counts.py
+
+It fails when a report's caption, its `daily-activity-<date>.svg` bar
+labels, and the ledger disagree. Never hand-write the caption day-tuple.

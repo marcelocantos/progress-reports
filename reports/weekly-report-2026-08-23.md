@@ -180,7 +180,7 @@ On 22 August a documentation pass landed `docs/audits/entropy-audit-2026-08-22.m
 
 ![Daily active repositories](daily-activity-2026-08-23.svg)
 
-*(Active repositories per day: Mon 08-17 4, Tue 08-18 3, Wed 08-19 4, Thu 08-20 0, Fri 08-21 3, Sat 08-22 78, Sun 08-23 4. Saturday is the entropy-audit fan-out.)*
+*(Active repositories per day: Mon 08-17 6, Tue 08-18 4, Wed 08-19 6, Thu 08-20 0, Fri 08-21 5, Sat 08-22 80, Sun 08-23 6. Saturday is the entropy-audit fan-out.)*
 
 ---
 

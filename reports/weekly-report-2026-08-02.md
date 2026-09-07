@@ -225,7 +225,7 @@ Eight tags. The hint service, the `.getp` tile pyramid, per-session scoping and 
 
 ![Daily active repositories](daily-activity-2026-08-02.svg)
 
-*(Active repositories per day: Mon 07-27 10, Tue 07-28 6, Wed 07-29 5, Thu 07-30 2, Fri 07-31 5, Sat 08-01 6, Sun 08-02 7. The week opens at its peak rather than closing there — Monday alone carried ge's tile-pyramid landing, the csp Windows fix and the ytt Go port — and Thursday is the one genuinely narrow day.)*
+*(Active repositories per day: Mon 07-27 13, Tue 07-28 4, Wed 07-29 9, Thu 07-30 4, Fri 07-31 10, Sat 08-01 9, Sun 08-02 8. The week opens at its peak rather than closing there — Monday alone carried ge's tile-pyramid landing, the csp Windows fix and the ytt Go port — and Thursday is the one genuinely narrow day.)*
 
 ---
 

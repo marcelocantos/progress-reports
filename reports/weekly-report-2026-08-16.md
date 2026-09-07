@@ -156,7 +156,7 @@ The AppKit/pandoc split is above. Alongside it, advertised MCP tool names are ch
 
 ![Daily active repositories](daily-activity-2026-08-16.svg)
 
-*(Active repositories per day: Mon 08-10 3, Tue 08-11 1, Wed 08-12 0, Thu 08-13 0, Fri 08-14 0, Sat 08-15 4, Sun 08-16 6. Wednesday through Friday are empty — the incident and the bulk of the landing concentrated on the weekend.)*
+*(Active repositories per day: Mon 08-10 4, Tue 08-11 3, Wed 08-12 0, Thu 08-13 0, Fri 08-14 0, Sat 08-15 4, Sun 08-16 12. Wednesday through Friday are empty — the incident and the bulk of the landing concentrated on the weekend.)*
 
 ---
 
