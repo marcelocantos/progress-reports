@@ -47,3 +47,13 @@ generating or editing a weekly report, run:
 
 It fails when a report's caption, its `daily-activity-<date>.svg` bar
 labels, and the ledger disagree. Never hand-write the caption day-tuple.
+
+`gather.sh` and `timeline-chart.py` live in the `/progress-report` skill
+(`~/.claude/skills/progress-report/`), not in this repo. After editing
+`docs/guide.md` or `bullseye.yaml` targets that name those producers,
+run:
+
+    python3 scripts/check_producer_boundary.py
+
+It fails if T1/T2 are still `identified` while the scripts are absent,
+or if the guide republishes the bare-date `--after/--before --all` recipe.

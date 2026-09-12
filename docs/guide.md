@@ -45,13 +45,31 @@ Scan all repos under the working directory for commits within the reporting peri
 - `arr-ai/*` — arr.ai ecosystem (frozen, arrai, wbnf, etc.)
 - `anz-bank/*` — work-related (decimal, etc.)
 
-For each candidate directory containing a `.git` folder, run:
+Do **not** invoke `git log` with a bare `YYYY-MM-DD` and `--all` as the
+discovery recipe. Git treats an incomplete date as "that calendar day at
+the *current* wall-clock time", so commits earlier on the start day are
+silently dropped — the 2026-04-27 report recorded 2 repos against a true
+count of 19. Headline counts are also landed-only (default branch), not
+`--all`; in-flight work is reported separately.
+
+The producer lives in the `/progress-report` skill, not this tree:
 
 ```sh
-git -C <repo> log --oneline --after="<start>" --before="<end+1day>" --all
+~/.claude/skills/progress-report/gather.sh "<start>" "<end+1day>"
 ```
 
-Any repo with commits in range is included. Collect the set of active repos before proceeding.
+`gather.sh` expands a bare `YYYY-MM-DD` to an explicit local-midnight
+ISO-8601 timestamp (`to_local_midnight` → `YYYY-MM-DDT00:00:00+1000`).
+If you must call `git log` directly, pass the same explicit bounds:
+
+```sh
+git -C <repo> log --oneline \
+  --after="<start>T00:00:00+10:00" \
+  --before="<end+1day>T00:00:00+10:00"
+```
+
+Any repo with landed commits in range is included. Collect the set of
+active repos before proceeding.
 
 ### 1.3 Per-repo metrics
 
