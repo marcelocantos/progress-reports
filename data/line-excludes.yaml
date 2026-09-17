@@ -58,8 +58,11 @@ repos:
 
   # The global **/vendor/** pathspec is case-sensitive and does not match
   # capital-V Vendor. This tree is ~330k lines (sqlite3.c alone is 261k).
+  # docs/audits/**/*.json is generated suite/fidelity maps (legacy-suites.json
+  # ~13k, map.json ~19k), not authored product.
   marcelocantos/jevons:
     - ios/Vendor/**
+    - docs/audits/**/*.json
 
   # Generated 41 MB C blob embedding the Ruby bundle.
   marcelocantos/den:
@@ -74,6 +77,17 @@ repos:
   # other trees (one yourworld stash is 212k lines). Not authored product.
   marcelocantos/housekeeping:
     - snapshots/**
+
+  # Pinned third-party language corpora (Postgres regress, W3C xmlts, CLDR,
+  # JUnit POM, CPython, CommonMark, gcc testsuite snippets). Not authored.
+  marcelocantos/xbnf:
+    - eval/testdata/*/corpus/**
+
+  # Reconstruct bench fixture: a 85k-line checked-in protobuf dump plus a
+  # vendored sysl-in-arrai tree used only as the workload, not product source.
+  arr-ai/arrai:
+    - perf/reconstruct/model.sysl.pb
+    - perf/reconstruct/vendor/**
 
   # ios/build-spm-check is a Swift Package Manager build tree that was briefly
   # tracked before "Stop tracking ios/build-spm-check SPM build tree" removed

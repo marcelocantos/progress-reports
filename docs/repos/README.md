@@ -27,10 +27,11 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/sqldeep](sqldeep.md) — SQL transpiler with FROM-first syntax and four-language bindings
 - [marcelocantos/sqlift](sqlift.md) — schema migration in C and Go with cross-language verification
 - [marcelocantos/rustuml](rustuml.md) — Rust PlantUML renderer pursuing pixel and XML parity with the Java original
-- [arr-ai/frozen](frozen.md) — persistent immutable collections; 128-bit content hashing for fast inequality
+- [arr-ai/frozen](frozen.md) — persistent immutable collections; frozen/v2 seedless hashing on a new module path
 - [arr-ai/hash](hash.md) — hashing primitives behind frozen; seedless hash128 so nested values can cache
-- [arr-ai/arrai](arrai.md) — relational programming language; interned shape-backed tuples and lexical-frame scopes
+- [arr-ai/arrai](arrai.md) — relational programming language; interned tuples, arena rows, 42× evaluator overhaul
 - [arr-ai/wbnf](wbnf.md) — grammar language behind the arr.ai ecosystem
+- [marcelocantos/xbnf](xbnf.md) — scannerless GLL+DFA parser generator that succeeds wbnf; unordered alternation, seven-language oracles
 - [marcelocantos/cworkers](cworkers.md) — worker broker rewritten from Go to C, 15 MB to 35 KB
 - [marcelocantos/mcpbridge](mcpbridge.md) — Go library for bimodal MCP servers: daemon plus stdio proxy over a socket
 - [marcelocantos/go-decimal-proposal](go-decimal-proposal.md) — IEEE 754 decimal64/128 proposal for the Go standard library
@@ -41,7 +42,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/mnemo](mnemo.md) — indexes every agent transcript; search, compaction, federation, and a vault wing
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
 - [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface
-- [marcelocantos/claudia](claudia.md) — Go library for embedding Claude Code and Grok agents in task or session mode
+- [marcelocantos/claudia](claudia.md) — Go library for embedding coding agents, now also a host daemon that reclaims seats by name
 - [marcelocantos/bullseye](bullseye.md) — Rust MCP convergence-target ledger; the canonical record of followable work
 - [marcelocantos/sawmill](sawmill.md) — structural code transformation over 18 languages, with a semantic git index
 - [marcelocantos/cv](cv.md) — build tool with a content-hash graph and a discovered-dependencies model

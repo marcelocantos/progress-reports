@@ -20,10 +20,10 @@ The next week was survival. Crash-survival without recovery rematerialised a **g
 
 Then the fleet became *interpretable*. Host-owned MCP (claudia loads, probes and proxies; jevons persists tokens), a Session Goal the host can close, Codex Session over `codex app-server`, typed envelopes, and a fog-of-war scout that refuses to implement into an unseen map. Connect-replay pins to the last owner bubble, not the slot tail. The fortnight closed with **React as the daily cockpit** (`:13705`), coalesced transcripts in SQLite, Cursor ACP remint that does not deadlock, an exhausted model that falls down its ladder instead of being re-briefed forever, and the tmux **anchor pane** as the reason the fleet server stays up.
 
+The next week **retired vanilla** and stopped treating Stop-then-Launch as a model switch: live `SetModel` never touches the session; a failed relaunch had been advertising grok-4 on a stopped seat. Long cycle tools return a handle that reports `lost` after restart rather than blocking past the 90 s stuck timer. An omitted provider lands on Claude while Claude has headroom. Then jevons **consumed the claudia daemon**: `LoadPlanUsage` reads the host snapshot; daemon-held seats are reclaimed, not stopped, on upgrade.
+
 ## Highlights
 
-- **v0.4.0: mTLS plus a cross-repo active-work dashboard** — Ed25519 CA and device provisioning, depth-limited `jwork` delegation, and one ranked table over sessions, dirty trees and open PRs. ([2026-04-19](../../reports/weekly-report-2026-04-19.md))
-- **Migration onto pigeon's typed pairing primitives** — bespoke X25519 and ad-hoc QR JSON replaced by `PairingHost`/`CredentialStore`, with an env-var deploy path that skips the QR scan entirely. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **JSONL canonical: SQLite and Lua deleted** — the database layer, the legacy Go package and the embedded interpreter all removed once mnemo was recognised as the real replay layer. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
 - **v0.5.0: fleet cockpit and live cost governance** — the process-as-cache Butler/CEO thread model plus a spend governor that sees off-book fleet burn and kills runaways without over-killing. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **MCP attach, conversation durability, stranger-safe install** — `mcp.claudia.json` past Grok's silent trust gate, a 45 s toolless-boot oracle, an fsynced jevons-owned chat log, loopback-only bind and an embedded web UI. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
@@ -34,28 +34,29 @@ Then the fleet became *interpretable*. Host-owned MCP (claudia loads, probes and
 - **Ghost-fleet adopt and mutual supervision** — leftover Claude windows rematerialised on every bounce; upgrade adopts, ordinary start does not reap, and the daemon and watchdog watch each other from different trees. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 - **Host-owned MCP, Goal, and J19's live end** — Exclusive Session MCP, a Goal the host can close, connect pinned to the last owner bubble not the slot tail. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 - **React daily, statedb, ladder fallback, anchor pane** — the React cockpit is the daily UI; transcripts persist in SQLite; an exhausted model falls down its ladder; the tmux anchor holds the server open. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
+- **Vanilla retired; live switch; job handles** — packaged React; `SetModel` not Stop-Launch; a handle that survives restart or reports `lost`. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
+- **Consume the claudia daemon** — plan usage via `LoadPlanUsage`; daemon-held seats reclaimed not stopped; Cursor `session/load` refusal reminted. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 
 ## Standouts
 
-- **A cost monitor that could not see the fleet that was burning** — usage collection watched only *registered* workers while a detached `claudia-anchor` fleet tmux burned tokens off-book. The fix tails every session JSONL on disk regardless of who started it, scopes the kill-switch to fleet-plus-orphan so the owner's own heavy sessions do not trip it, and adds thin-rate and sustained-breach guards so one $11 re-cache message cannot fire the nuke. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
-- **A CLI that silently drops MCP servers in untrusted folders** — Grok's ACP path reclassifies any session-supplied MCP server whose name matches cwd `.mcp.json` as repo-local and discards it with no error, producing weeks of toolless overseer boots. Fixed with a session-scoped `mcp.claudia.json` the CLI does not scan, mint-fresh sessions, and a 45 s toolless-boot oracle that fails loud. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
-- **Bounding what the UI materialises, not what the log stores** — clamping oversized message bodies with CSS made bubbles smaller and changed nothing, because the browser still parsed and built DOM for every turn before hiding it. The real cost was the server replaying the whole journal on each WebSocket reconnect plus an O(N²) streaming coalescer; attacking all three layers took a 4,707-line history from 15–20 s to ~1.5 s with DOM nodes held to ~276. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+
 - **The destructive branch was the default under ambiguity** — the fleet's auto-reap fired on any completion word in a terminal report, so a substring test made "incomplete" a claim of "complete". Two of three losses in one afternoon were replies *to* the agent: a reaped agent is not merely gone, it is an unanswerable address, and the caller only learns that afterwards. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **A guard that names what it saved** — treeguard refuses a write whose base no longer matches disk and reports the specific lines it would have dropped, turning silent loss into a mechanical merge instruction; its oracle is two-sided so a guard that refuses everything cannot pass. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Crash-survival without recovery** — leftover tmux windows rematerialised on every bounce until the host compressor, not the CPUs, stalled a 128 GB machine at load 267; upgrade adopts, ordinary start leaves the leak visible. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 - **Connect must pin to a person, not a slot** — reload that pins to the slot tail paints a desert of empty turn-slots; J19 fails on an empty pane, not only a collapsed model. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 - **The anchor pane holds the tmux server open** — `new-window: no server running` while the fleet's own panes were alive; the socket was never wrong, the session that holds it had been reaped. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
+- **Stop, then launch, is not a switch** — a failed `session/load` left `running=false` and wrote the new model into the registry; live `SetModel` never touches the session. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 21 |
-| Commits | ~816 |
-| Human attention | ~55–93 h |
-| Traditional equivalent | ~6.4–10.2 months |
+| Weeks active | 23 |
+| Commits | ~889 |
+| Human attention | ~64–107 h |
+| Traditional equivalent | ~7.0–11.1 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md)
+[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md)

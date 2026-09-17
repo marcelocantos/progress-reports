@@ -16,13 +16,15 @@ Mid-year work inverted the I/O model and hardened the runtime. A pull-based `io:
 
 The final phase is performance, done measurement-first. A bench showed the wrong *shape*: a serial two-imp rendezvous got **16× slower** from 2 to 16 processors (321 ns → 5,081 ns), root-caused to unconditional `global_mu` on every context switch and wake. The hot-path overhaul flattened rendezvous to **~146 ns across processor counts** and gave the buffered channel its own ring, with `OptimisticAlt`, `BufferedChanRing`, `ParkGate`, `DrainSuspended` and `PlacementClaim` models plus papers 33-34. A follow-up scheduler-thrash fix — a deferred-wake path that still hard-coded the old global-queue push, steals bouncing through the global queue, and idle workers taking the global mutex merely to test emptiness — bought ~3× on multi-writer `alt/8ch` (3.2 µs → 1.07 µs). Paper 35 then ranked every non-channel surface and concluded, defensibly, that there were no large actionable opportunities, filing zero follow-up targets. Windows CI was split into a cheap non-required cloud smoke and an authoritative local ARM64 VM gate that reads pass/fail from an in-band stdout marker rather than trusting ssh to propagate an exit code. The whole-suite oracle stands at 767 cases and 26,522 assertions.
 
+September shipped **Lifeboat**, a live orbital-dock application: six logistics imps plus per-rig motion imps over typed channels, the browser a glass at `127.0.0.1:8042`. Evacuation drains accepted cargo; a tripped crane is supervised without replaying completed waypoints. Paired TLA+ for lost worker wakes (Note CAS). An allocation ratchet — not nanobench — locks 2,000 rendezvous at 11 allocations.
+
 ## Highlights
 
 - **From extraction to platform in 133 commits** — 100+ combinators, topology surgery, cancellation with cancel-aware TLS, HAMT-backed dynamic scoping, demand-paged guard-page stacks, C++23, 400+ tests and the first six papers. ([2026-02-22](../../reports/weekly-report-2026-02-22.md))
 - **9+ TLA+ models of the scheduler** — suspension TOCTOU, work stealing, channel lifecycle, worker parking, alt-state CAS, concurrent swap and tap lifecycle, all exhaustively checked by TLC. ([2026-02-22](../../reports/weekly-report-2026-02-22.md))
 - **Five-phase Windows port** — `VirtualAlloc` stacks, thread-pool timers, `WSAEventSelect` I/O, console signals and CI, giving three reactor backends (kqueue/epoll/Windows) behind one abstraction, alongside the ARM64 `TPIDR_EL0` TLS-corruption fix. ([2026-03-01](../../reports/weekly-report-2026-03-01.md))
 - **M:N-only scheduler with a quiescence protocol** — the 1:1 fallback removed, 663/663 tests migrated, and `quiescence_scope` plus a `fake_clock` hook making concurrent tests deterministic. ([2026-03-29](../../reports/weekly-report-2026-03-29.md))
-- **HTTP/1.1 server on llhttp** — fully concurrent request handling atop CSP channels in 490 lines of implementation. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
+
 - **Channel exceptions and per-worker wake** — sender-side throws surface on `recv`, and a directed wake replaces the thundering-herd condvar for a 4-6× cut in cross-core futex traffic. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **QUIC transport on ngtcp2 + PicoTLS minicrypto** — `csp::quic::listen`/`dial` with FIN, multiplexing and a Linux `EPOLL_CTL_MOD` UDP re-arm fix for the kqueue-vs-epoll asymmetry. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **Per-protocol dist drop-ins under five DCE rules** — the failed monolithic amalgamation retired in favour of linker-selected protocol TUs, with the invariants documented so a new protocol is a one-line addition. ([2026-05-17](../../reports/weekly-report-2026-05-17.md))
@@ -30,6 +32,7 @@ The final phase is performance, done measurement-first. A bench showed the wrong
 - **Channel rendezvous flattened to ~146 ns** — a measured 16× negative-scaling curve root-caused to `global_mu` on every switch and wake, fixed with a channel-owned buffered ring and five new formal models. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Scheduler thrash worth ~3× and a trusted Windows gate** — multi-writer `alt/8ch` from 3.2 µs to 1.07 µs, plus a two-tier Windows CI whose authoritative half is a local ARM64 VM keyed on an in-band marker. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **Stacks sized from machine code** — an ARM64 walker returning maximum SP displacement with an honest `is_exact` flag, indirect branches resolved through live data, composed with a measured shell constant under an audit gate (v0.29.0). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **Lifeboat** — a live CSP application whose logistics and motion are real imps; lost-wake TLA+; allocation ratchet at 11 allocs per 2,000 rendezvous. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 
 ## Standouts
 
@@ -43,12 +46,12 @@ The final phase is performance, done measurement-first. A bench showed the wrong
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 25 |
-| Commits | ~513 |
-| Human attention | ~53–94 h |
-| Traditional equivalent | ~11.1–17.3 months |
+| Weeks active | 26 |
+| Commits | ~536 |
+| Human attention | ~55–98 h |
+| Traditional equivalent | ~11.4–17.8 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[02-15](../../reports/weekly-report-2026-02-15.md), [02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md)
+[02-15](../../reports/weekly-report-2026-02-15.md), [02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [09-07](../../reports/weekly-report-2026-09-13.md)

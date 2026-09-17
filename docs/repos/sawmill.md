@@ -17,7 +17,7 @@ A 22 August entropy-follow-up squash replaced the tree with a one-line `f.py` (+
 ## Highlights
 
 - **Rust-to-Go rewrite and open-sourcing in one week** — 91 commits, Apache 2.0, agents guide and `STABILITY.md`, Canopy renamed to Sawmill, Rust codebase removed on completion. ([04-05](../../reports/weekly-report-2026-04-05.md))
-- **Binary-hash daemon handshake and zero project footprint** — the proxy restarts a version-skewed daemon automatically, and all state lives in `~/.sawmill/` rather than in the analysed repo. ([04-05](../../reports/weekly-report-2026-04-05.md))
+
 - **Semantic git index** — tree-sitter parse trees stored by blob SHA in SQLite, indexed lazily over first-parent ancestry, powering `git_log`, `git_diff_summary` and `git_blame_symbol`. ([04-12](../../reports/weekly-report-2026-04-12.md))
 - **Semantic blame and code-free bisect** — four attribution commits per function separating body from signature, and a structural-predicate bisect that parses O(log N) commits without running tests. ([04-26](../../reports/weekly-report-2026-04-26.md))
 - **Pattern equivalences with union-find transitive closure** — taught rewrite pairs compose into classes; unanimous preferences propagate, conflicting ones neutralise, cycles collapse. ([04-26](../../reports/weekly-report-2026-04-26.md))
@@ -28,6 +28,7 @@ A 22 August entropy-follow-up squash replaced the tree with a one-line `f.py` (+
 - **v0.16.0 discovery and retrieval tier** — FTS5, a PageRank reference graph and RRF-fused vector embeddings, with concepts bound to AST nodes so they survive reformatting. ([07-05](../../reports/weekly-report-2026-07-05.md))
 - **v0.17.0 eighteen-language matrix with no skip hatch** — every adapter driven parse→rename→`add_field` through the MCP handler; the matrix itself found a real Ruby bug. ([07-19](../../reports/weekly-report-2026-07-19.md))
 - **Rename that understands scope** — a lexical binding model for Go and Python replaces identifier text matching, beside a behavioural-equivalence oracle and per-language capability cards served over MCP (v0.18.0). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **Every parse bounded** — a pathological file cannot wedge the daemon; the git index takes the same guard (🎯T56). ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 
 ## Standouts
 
@@ -41,12 +42,12 @@ A 22 August entropy-follow-up squash replaced the tree with a one-line `f.py` (+
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 11 |
-| Commits | 218 |
+| Weeks active | 12 |
+| Commits | 229 |
 | Human attention | ~21–34 h |
 | Traditional equivalent | ~3.6–5.4 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md)
+[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-31](../../reports/weekly-report-2026-09-06.md)

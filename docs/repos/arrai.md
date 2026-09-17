@@ -14,6 +14,8 @@ July brought the only language change in the window and its reversal: a one-toke
 
 Late August rebuilt the runtime representation without moving the public API. Tuples are interned **shape-backed structs** (sorted names, cached hashes, With/Without transitions); same attribute set means same `*Shape`, so Get/With/Equal/Hash are positional. Scopes are lexical frames; `IdentExpr` caches `(hops, slot)`. reconstruct repro 2.98 s → 2.13 s, 2.85 GB → 1.88 GB, output byte-identical. A group-by key that was a bare `Value` would silently miss every lookup because frozen's `any` map key uses `Equal(any) bool`, which `Values` has and an arr.ai `Value` does not. Releases are tagged deliberately rather than auto-bumped on every merge.
 
+September closed the rest of that ladder at **42× end-to-end / 106× on eval** against the v0.338.0 reconstruct baseline (58.8–67.8 s → 1.51 s): direct calls, index-backed `where`, `let rec` as a cell, parallel `where`/`=>` and `>>`/`>>>`, linear concat. Then relation rows stay on the arena instead of boxing as Tuples, Hash128 is gone for a seedless 64-bit `Hash()`, and [frozen](frozen.md)/v2 wraps its own sets. The design note that follows treats evaluation as query execution: streaming the default edge, materialize an explicit pipeline breaker.
+
 ## Highlights
 
 - **State-of-the-language assessment** — a 161-line document diagnosing dormancy and proposing an embeddable-engine positioning with a staged performance and language roadmap. ([2026-02-15](../../reports/weekly-report-2026-02-15.md))
@@ -24,6 +26,7 @@ Late August rebuilt the runtime representation without moving the public API. Tu
 - **Safe-accessor grammar fix** — `a?.b : c` made to bind a full expression rather than the restricted `@`, co-authored by Oliver Lade. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Reverted the following week** — the safe-accessor `fall=expr` change was backed out alongside Dependabot crypto/docs bumps and a Netlify docs-build fix. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Interned shapes and lexical frames** — tuples as interned `Shape` plus values in shape order; reconstruct 2.98 s → 2.13 s, output byte-identical. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
+- **42× / 106× evaluator close, then arena rows** — reconstruct 58.8–67.8 s → 1.51 s vs v0.338.0; seedless 64-bit Hash(); frozen/v2. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 
 ## Standouts
 
@@ -32,17 +35,18 @@ Late August rebuilt the runtime representation without moving the public API. Tu
 - **A dormancy diagnosis that set the direction** — 182 commits in 2021, effectively dormant since 2024, 146 open issues; the resulting 161-line assessment argued for positioning arr.ai as an embeddable data-transformation engine for Go. ([2026-02-15](../../reports/weekly-report-2026-02-15.md))
 - **A grammar fix that lasted one week** — the one-token change making `a?.b : c` bind a full expression landed with an external co-author and was backed out the following week. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Same shape means same pointer** — intern the name-set once; identity is a pointer; a group-by key must stay `Values` or frozen silently misses every lookup. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
+- **The interpreter is the query executor** — streaming the default edge; materialize is a pipeline breaker, not how evaluation works. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 7 |
-| Commits | 52 |
-| Human attention | ~9.5–15 h |
-| Traditional equivalent | ~1.1–1.8 months |
+| Weeks active | 8 |
+| Commits | 54 |
+| Human attention | ~13.5–22 h |
+| Traditional equivalent | ~1.6–2.6 months |
 | Multiplier | ~25–90× |
 
 ## Weekly reports
 
-[02-15](../../reports/weekly-report-2026-02-15.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-24](../../reports/weekly-report-2026-08-30.md)
+[02-15](../../reports/weekly-report-2026-02-15.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md)
