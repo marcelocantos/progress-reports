@@ -101,6 +101,13 @@ repos:
   # into a public/private pair rewrote the public repo's history, so a single
   # commit re-adds the whole back-catalogue (+59k). Counting that would double
   # count every earlier week.
+
+  # Synced third-party Anthropic/office skill trees (ISO OOXML XSDs, validators,
+  # docx/pptx/xlsx helpers). Copied wholesale by "Update skills from ~/.claude/skills";
+  # not authored product. A single sync can move ~80k lines of schema.
+  marcelocantos/skills:
+    - skills/synced/**
+
   marcelocantos/progress-reports:
     - reports/**
     - docs/**

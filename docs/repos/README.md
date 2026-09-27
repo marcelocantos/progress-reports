@@ -35,7 +35,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/cworkers](cworkers.md) — worker broker rewritten from Go to C, 15 MB to 35 KB
 - [marcelocantos/mcpbridge](mcpbridge.md) — Go library for bimodal MCP servers: daemon plus stdio proxy over a socket
 - [marcelocantos/go-decimal-proposal](go-decimal-proposal.md) — IEEE 754 decimal64/128 proposal for the Go standard library
-- [marcelocantos/threedee](threedee.md) — parametric 3D models, migrated from OpenSCAD to build123d
+- [marcelocantos/threedee](threedee.md) — parametric 3D models; OpenSCAD→build123d port closed under a mesh oracle
 
 ## Agent & Fleet Tooling
 
@@ -43,6 +43,9 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
 - [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface
 - [marcelocantos/claudia](claudia.md) — Go library for embedding coding agents, now also a host daemon that reclaims seats by name
+- [marcelocantos/sentinel](sentinel.md) — never-ending host-health loop via broker-admitted restricted tasks
+- [marcelocantos/serviceboard](serviceboard.md) — loopback Supervisor/Homebrew service dashboard
+- [marcelocantos/finance](finance.md) — personal dual-stream mid-cycle ledger with persistent transfer IDs
 - [marcelocantos/bullseye](bullseye.md) — Rust MCP convergence-target ledger; the canonical record of followable work
 - [marcelocantos/sawmill](sawmill.md) — structural code transformation over 18 languages, with a semantic git index
 - [marcelocantos/cv](cv.md) — build tool with a content-hash graph and a discovered-dependencies model
@@ -95,7 +98,6 @@ second.
 - marcelocantos/go-ios — fork carrying the tunnel self-heal used by spyder
 - linqgo/linq — LINQ for Go, migrated to `iter.Seq` in v2
 - marcelocantos/tapper — Homebrew tap publisher with per-tap keychain tokens and codesigned ACLs
-- marcelocantos/finance — personal statement fetchers, PDF transcripts as the oracle, double-entry journal; no data in the repo
 - marcelocantos/downstream — incremental Markdown parser emitting Enter/Exit/Text/Attr events
 - marcelocantos/housekeeping — disk-audit snapshots (486 GB reclaimed); authored findings only, dumps excluded from ☲
 - squz/nostalgia — detail in [private](https://github.com/marcelocantos/progress-reports-private)

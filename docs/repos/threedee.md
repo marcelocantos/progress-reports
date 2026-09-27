@@ -8,12 +8,16 @@ threedee's first appearance is a migration. A set of 3D-printable designs moved 
 
 In July the project appeared in the series as a newly tracked repository, landing as a single +1,053-line commit: OpenSCAD `.scad` models generated from Python under `projects/*.py`, with exported `.3mf`, `.stl`, `.step` and `.gcode` for a range of real parts — a baby-gate latch, a cat-flap Raspberry Pi mount, a router-bit rack, Starlock holders — brought under convergence tracking with a Makefile and a `bullseye.yaml`.
 
+Week ending 2026-09-20 closed the migration under a **geometric oracle**: OpenSCAD reference meshes versus build123d OFF exports with vertex merge within 1e-3–1e-4 mm, then deleted every verified SCAD source. Involute bevel gears, pure-algebra screw-box partitions, and true offsets replaced approximate fillets.
+
 ## Highlights
 
 - **OpenSCAD to build123d** — a Python-first CAD toolchain with VS Code OCP integration and 12 designs ported. ([2026-04-05](../../reports/weekly-report-2026-04-05.md))
 - **Involute bevel gears** — py_gearworks used for correct gear geometry in the triton lifter, rather than approximated profiles. ([2026-04-05](../../reports/weekly-report-2026-04-05.md))
 - **Live preview in the editor** — `ocp-vscode` `show()` calls give real-time 3D preview while models are being written. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
 - **Tracked as a convergence project** — the repo entered the series with a Makefile and `bullseye.yaml`, carrying exported `.3mf`/`.stl`/`.step`/`.gcode` for real household and workshop parts. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
+
+- **Port oracle closed** — OpenSCAD reference vs build123d OFF with vertex merge; involute bevel and pure-algebra parts; every verified SCAD source deleted. ([2026-09-20](../../reports/weekly-report-2026-09-20.md))
 
 ## Metrics
 
@@ -27,4 +31,4 @@ In July the project appeared in the series as a newly tracked repository, landin
 
 ## Weekly reports
 
-[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md)
+[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [09-14](../../reports/weekly-report-2026-09-20.md)
