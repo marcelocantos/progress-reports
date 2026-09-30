@@ -208,13 +208,21 @@ A table with these rows:
 |--------|-------|
 | Repositories touched | N |
 | Total commits | N |
-| Total lines added | +N |
-| Total lines removed | -N |
-| Net new lines | +N |
+| Total lines added | <span style="color:#1a7f37">+N</span> |
+| Total lines removed | <span style="color:#cf222e">−N</span> |
+| Net new lines | <span style="color:#1a7f37">+N</span> or <span style="color:#cf222e">−N</span> |
 | File changes | N |
 | New files created | N |
 | Languages | comma-separated list |
 | Contributors | N (names) |
+
+**LOC colouring (required).** Wrap every plus/minus line-count reading in an HTML
+`<span style="color:…">` so the published Jekyll site renders green for additions
+and red for removals (GitHub's blob view strips `style`, but
+[marcelocantos.github.io/progress-reports](https://marcelocantos.github.io/progress-reports/)
+keeps it). Use `#1a7f37` for any value that starts with `+` (or a positive net)
+and `#cf222e` for any value that starts with `−`/`-` (or a negative net). Keep
+the sign inside the span. Footnote markers (`‡`, `*`) stay outside the span.
 
 Add footnotes for anything that would distort the numbers (e.g. code extracted from another repo, Unity assets with no exclude glob yet). Line stats from `gather.sh` already **exclude** `**/vendor/**`, `**/node_modules/**`, and globs in **`data/line-excludes.yaml`** — do not hand-add those trees back into ☲. When `gather.sh` emits `landed-excluded: …` (or `exclude-config:`), mention the excluded bulk only as a footnote, never as the headline. Prefer adding a path under `data/line-excludes.yaml` over permanent prose footnotes.
 
@@ -227,7 +235,10 @@ A table sorted by commit count descending:
 | Repo | Commits | Files changed | Lines added | Lines removed | Net |
 |------|---------|---------------|-------------|---------------|-----|
 
-Repo names are links. Use `+` prefix for additions, `-` for removals. Append `*` to net values that need footnoting.
+Repo names are links. Use `+` prefix for additions, `−`/`-` for removals. Colour
+the three line-count columns with the same spans as §3.4
+(`#1a7f37` for `+…`, `#cf222e` for `−…`/`-…`; sign inside the span). Append `*`
+to net values that need footnoting (marker outside the span).
 
 ### 3.6 Metrics — Testing
 
@@ -402,26 +413,46 @@ After writing a new report:
    in the full weekly report, not the README index. Listing every target id or
    diff stat to prove significance is the main bloat vector — name the achievement,
    not its evidence trail.
-3. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table has these columns:
+3. **Update the metrics table**: Below `## Reports` and its collapsible entries, maintain a `## Metrics` table summarising every report. Add a new row at the **top** of the table body (newest first, matching the report order). The table is two columns — a packed stats cell and Highlights:
 
-   | Period | <img src="https://github.githubassets.com/favicons/favicon.svg" width="16"> | Hours | Equiv.&nbsp;(mo) | Gain | Highlights |
-   |--------|---|-------|-------------|-------|------------|
+   | Week&nbsp;ℂommits&nbsp;☲±kloc<br>AI&nbsp;Human&nbsp;boost× | Highlights |
+   |--------|------------|
 
-   - **Period**: Link to the report file using the period start date only, e.g. `[02-16](reports/weekly-report-2026-02-22.md)`. Use `MM-DD` normally, `YYYY-MM-DD` when straddling a year.
-   - **<img src="https://github.githubassets.com/favicons/favicon.svg" width="16">**: Total commits (GitHub favicon represents commits).
-   - **Hours**: Actual human hours for the week, e.g. `18-28`. Taken from the Effort Estimate "Actual human effort this week" row (strip the `~` and the trailing `hours` / person-day annotation — keep just the range). In the **Totals** row, sum the low and high bounds across all periods.
-   - **Equiv. (mo)**: Traditional generalist equivalent in months, e.g. `5-8` (unit is in the heading). Taken from the Effort Estimate "Single talented generalist" row. In the **Totals** row, convert the summed months to fractional years (one decimal place) with a `y` suffix, e.g. `1.9-3.3y`.
-   - **Gain**: The vs. generalist figure, e.g. `25-50x` (approximate — values are ranges).
-   - **Highlights**: **≤ 20 words (hard cap).** Pick the 3-5 most impressive items and abbreviate aggressively. Budget against this number, **not** against the `<summary>` line — anchoring it to the summary line lets it inherit any drift there.
+   Each stats cell packs: period-start link (`MM-DD`, or `YYYY-MM-DD` when
+   straddling a year) → ℂcommits → ☲±kloc → **AI** hours → **H** months → gain×.
+   Example (footnote `*` optional, outside the colour spans):
 
-   Maintain a **Totals** row at the bottom summing commits, Hours, and Equiv. Leave Gain and Highlights blank in the totals row.
+   ```html
+   <a href="…/weekly-report-2026-09-27.md">09-21</a>&nbsp;ℂ354&nbsp;☲<span style="color:#1a7f37">+55</span><span style="color:#cf222e">-6</span>*<br><b>AI</b>19-32h&nbsp;<b>H</b>3.5-5.5mo&nbsp;30-55×
+   ```
+
+   - **☲ ±kloc (required colouring):** always emit
+     `☲<span style="color:#1a7f37">+&lt;added&gt;</span><span style="color:#cf222e">-&lt;removed&gt;</span>`
+     (kloc integers from gather `landed:`). Green `#1a7f37` for the plus reading;
+     red `#cf222e` for the minus reading; keep the sign inside each span.
+     Footnote `*` / `\*` stays after the red span.
+   - **Hours (`AI`)**: Actual human hours for the week, e.g. `19-32h`. Taken from
+     the Effort Estimate "Actual human effort this week" row. In the **Totals**
+     row, sum the low and high bounds across all periods.
+   - **Equiv. (`H`)**: Traditional generalist equivalent in months, e.g. `3.5-5.5mo`.
+     In the **Totals** row, convert the summed months to fractional years (one
+     decimal place) with a `y` suffix, e.g. `11.3-19.1y`.
+   - **Gain**: The vs. generalist figure, e.g. `30-55×` (approximate — values are ranges).
+   - **Highlights**: **≤ 20 words (hard cap).** Pick the 3-5 most impressive items
+     and abbreviate aggressively. Budget against this number, **not** against the
+     `<summary>` line — anchoring it to the summary line lets it inherit any drift there.
+
+   Maintain a **Totals** row at the bottom packing summed ℂ, coloured ☲
+   (`**☲<span style="color:#1a7f37">+&lt;sumAdd&gt;</span><span style="color:#cf222e">-&lt;sumRem&gt;</span>**`),
+   **AI** hours, and **H** years. Put series footnotes in the Highlights cell of
+   the Totals row.
 
    Then refresh the **At a Glance** bullets at the very top of the README (above "The Journey So Far") so they stay in sync with the updated Totals row. They are the same headline figures, surfaced for scanning — keep it to four bullets and the one-line date span:
 
    - the week span (`<N> weeks · <first Monday> – <latest Sunday>`) and the commit count, repository count, and language count;
    - total human attention (the Totals **AI** hours range);
    - the single-generalist equivalent in years (the Totals **H** figure) and the multiplier range;
-   - net lines of tracked change (from the Totals **☲** added−removed; vendor/node_modules already excluded by gather), with the caveat that remaining counts are still an activity signal inflated by fixtures, prebuilts, and goldens.
+   - net lines of tracked change (from the Totals **☲** added−removed; vendor/node_modules already excluded by gather), with the caveat that remaining counts are still an activity signal inflated by fixtures, prebuilts, and goldens. Colour the net figure with the same spans as ☲ (`#1a7f37` when net is positive, `#cf222e` when negative), e.g. `**~<span style="color:#1a7f37">+3.68M</span> net lines**`.
 
    Do not invent new figures here — every number must already appear in the Totals row or the Journey. This block is a scannable mirror, not a new source of truth.
 
