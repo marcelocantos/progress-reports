@@ -10,7 +10,7 @@ The distinguishing feature came a fortnight later. v0.2.0's `convert_to_clipboar
 
 Two rounds of delivery mechanics followed. v0.3.0 replaced v0.2.0's launchd-`PATH`-via-service-block fix with an install-time shell wrapper at `bin/vellum` that prepends `HOMEBREW_PREFIX/bin`, `/usr/local/bin` and the usual user tool directories before exec'ing `bin/vellum-bin` — the same problem (node, mmdc and prince must resolve however vellum is launched) solved for terminal invocation, MCP clients with a stripped launchd Aqua context, and `brew services`, where the service block had only ever covered the third. The release workflow gained `CGO_ENABLED=1` on darwin, since the clipboard backend links Cocoa through `objc/foundation` bindings.
 
-The last two releases broadened the surface. v0.4.0 made **WeasyPrint the default** and Prince an opt-in, behind a new `convert.Backend` interface, and expanded `convert.Style` into a 13-field customisation surface (font size, line height, font families, page size and margins, page numbers, running head, bookmarks, hyphenation, BCP-47 lang, PDF/A) resolved per-call over a `config/` package reading `~/.config/vellum/config.yaml` over built-in defaults, with a `--backend` CLI flag, `style`/`backend` options on the MCP tools, relative-path image resolution via `--baseurl`, and a Homebrew formula that `depends_on "weasyprint"` so the open-source path works out of the box. v0.5.0 closed the loop in the other direction with a rich-text importer converting RTF, DOCX, HTML, ODT, EPUB and related formats to Markdown. A localhost Markdown view with TOC, lightbox and theme followed, MCP hosted on the view daemon so brew-service clients do not spawn `vellum --mcp`, and shipping moved to local `cv release` / tapper — GitHub Actions workflows dropped. On macOS 26 the HTML importer is a launchd agent; conversion falls back to pandoc and names the route.
+The last two releases broadened the surface. v0.4.0 made **WeasyPrint the default** and Prince an opt-in, behind a new `convert.Backend` interface, and expanded `convert.Style` into a 13-field customisation surface (font size, line height, font families, page size and margins, page numbers, running head, bookmarks, hyphenation, BCP-47 lang, PDF/A) resolved per-call over a `config/` package reading `~/.config/vellum/config.yaml` over built-in defaults, with a `--backend` CLI flag, `style`/`backend` options on the MCP tools, relative-path image resolution via `--baseurl`, and a Homebrew formula that `depends_on "weasyprint"` so the open-source path works out of the box. v0.5.0 closed the loop in the other direction with a rich-text importer converting RTF, DOCX, HTML, ODT, EPUB and related formats to Markdown. A localhost Markdown view with TOC, lightbox and theme followed, MCP hosted on the view daemon so brew-service clients do not spawn `vellum --mcp`, and shipping moved to local `cv release` / tapper — GitHub Actions workflows dropped. On macOS 26 the HTML importer is a launchd agent; conversion falls back to pandoc and names the route. v0.24.0 then **lifts Mermaid SVGs out of the document** — two small diagrams had been ~390 KB of inline SVG in a 10 KB page — serving each as `/_vellum/fragment` and fetching when they near the viewport.
 
 ## Highlights
 
@@ -25,6 +25,7 @@ The last two releases broadened the surface. v0.4.0 made **WeasyPrint the defaul
 - **AppKit's HTML importer is a launchd agent** — on macOS 26, `NSAttributedString` HTML init brokers to `com.apple.textkit.nsattributedstringagent`; vellum falls back to pandoc and names the route when that agent is unreachable. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 - **Localhost Markdown view** — TOC, lightbox, theme cycle, HTTP MCP on the view daemon; ship locally via tapper. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 - **Static TOC, live reload, consented task toggles** — in-document TOC for convert sinks; viewer live reload; checkbox consent modal (v0.18–v0.19). ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
+- **Lazy Mermaid fragments (v0.24.0)** — serve-time lift of every Mermaid SVG to `/_vellum/fragment`; fetch when they near the viewport. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 
 ## Standouts
 
@@ -37,12 +38,12 @@ The last two releases broadened the surface. v0.4.0 made **WeasyPrint the defaul
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 12 |
-| Commits | ~55 |
-| Human attention | ~7–15 h |
-| Traditional equivalent | ~0.9–1.5 months |
+| Weeks active | 13 |
+| Commits | ~57 |
+| Human attention | ~7–16 h |
+| Traditional equivalent | ~0.9–1.6 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md)

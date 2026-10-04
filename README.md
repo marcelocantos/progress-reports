@@ -6,32 +6,32 @@ Commercial project detail (HMS, minicades, and non-`ge` Squz titles) lives in th
 
 ## At a Glance
 
-*36 weeks · 19 January – 27 September 2026*
+*37 weeks · 19 January – 4 October 2026*
 
-- **~8,581 commits** landed to default branches across **40+ repositories** in **20+ languages**
-- **~569–946 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
-- **~11.3–19.1 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
-- **~<span style="color:#1a7f37">+3.68M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
+- **~9,143 commits** landed to default branches across **42+ repositories** in **20+ languages**
+- **~593–986 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
+- **~11.7–19.7 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
+- **~<span style="color:#1a7f37">+3.77M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
 
 ## The Journey So Far
 
-Thirty-six weeks of AI-assisted development, from 19 January to 27 September 2026. Around **8,580 commits** have landed across more than forty repositories and twenty-odd languages — work a single talented generalist would need **eleven to nineteen years** to match, on one to three hours of human attention a day.
+Thirty-seven weeks of AI-assisted development, from 19 January to 4 October 2026. Around **9,140 commits** have landed across more than forty repositories and twenty-odd languages — work a single talented generalist would need **twelve to twenty years** to match, on one to three hours of human attention a day.
 
 The numbers describe a *mode of production*, not a portfolio.
 
-**Breadth held at once rather than in turn.** Concurrent systems, GPU and mobile bring-up, applied cryptography, sandbox policy, scannerless parsing, language-runtime representation, CAD port oracles, personal double-entry ledgers, and full-stack fleet tooling sit in a single working set. Crossing between them stopped being expensive months ago — a week can found a host-health supervisor, close an OpenSCAD port under a mesh oracle, and seal an agent sidecar's credentials without queuing behind specialists.
+**Breadth held at once rather than in turn.** Concurrent systems, GPU and mobile bring-up, applied cryptography, sandbox policy, scannerless parsing, language-runtime representation, CAD port oracles, personal ledgers, store-shipped games, and full-stack fleet tooling sit in a single working set. A week can seal an agent sidecar's lifetime, land a fleet control plane, put a racing title on both stores, and found a lossless screen-history daemon without queuing behind specialists.
 
-**A system that has to survive operating itself.** The later phase keeps a running fleet from destroying its host, makes behaviour interpretable, takes providers out of the consumer, and puts subscription seats behind a sealed sidecar while the daemon owns migration. Failures are workshop failures: leftover windows until load 267; `/health` waiting on the packer; a migration that orphaned the successor. Fixes are contractual: upgrade adopts leftovers, Resolve returns one admitted pick, `/health` serves a snapshot, plan tokens never appear in argv, and Claudia owns the handover while the consumer owns a grant.
+**A system that has to survive operating itself.** The later phase keeps a running fleet from destroying its host, makes behaviour interpretable, takes providers out of the consumer, and puts subscription seats behind a sidecar that dies with the broker that started it. Failures are workshop failures: leftover windows until load 267; `/health` waiting on the packer; a `spawnSync` Bash that froze every other seat; a census that looked like done. Fixes are contractual: upgrade adopts leftovers, `/health` serves a snapshot, plan tokens never appear in argv, the sidecar's stdin is a lifeline, and done is a call-graph ratchet rather than a needle count.
 
-**Economics and correctness as the same surface.** Spend is decomposed along the axes the levers act on; unknown remaining is not 100% headroom; a WAL gigabyte is not a fault if checkpoints still copy frames; capacity pressure is not a Slack alert. The same instinct refuses a weather-based hermetic verdict, treats a quoted GOAL_STATUS as evidence rather than a reap, and requires reconstruct output to stay byte-identical while the hash contract changes. An oracle is a loop, not an artefact — OFF meshes, AccelSynth outputs, or broker Task admissions.
+**Economics and correctness as the same surface.** Spend is decomposed along the axes the levers act on; unknown remaining is not 100% headroom; a WAL gigabyte is not a fault if checkpoints still copy frames. The same instinct refuses a weather-based hermetic verdict, treats a quoted GOAL_STATUS as evidence rather than a reap, and tags a Verify screen as untrustworthy rather than pretending the model saw the right one. An oracle is a loop, not an artefact.
 
-**A standing suspicion of silent success.** The consistent theme is making failure visible. A pipeline that exits zero while ingesting nothing, a Verify dashboard that samples the app under test, a Keychain write that races a second process, a cook that wedges every later build after a killed SDL job — each surfaced only when something asked "is this still producing anything?" rather than "did this step fail?".
+**A standing suspicion of silent success.** The consistent theme is making failure visible. A pipeline that exits zero while ingesting nothing, a Verify dashboard that samples the app under test, a cook that wedges every later build after a killed SDL job, an achieve that only audited after the write — each surfaced only when something asked "is this still producing anything?" rather than "did this step fail?".
 
-**Things that ship.** Homebrew taps from codesigned binaries; games on both stores; an extracted engine that cooks from source; device Verify as a DAG a stranger can replay. Finish lines are store submissions, version tags, and installs that work without the author's machine state.
+**Things that ship.** Homebrew taps from codesigned binaries; games on both stores; an extracted engine that cooks from source; device Verify as a DAG a stranger can replay, then as a review the owner types in place. Finish lines are store submissions, version tags, and installs that work without the author's machine state.
 
-**An inverted human role.** Volume comes from the system. What remains is architecture, on-device judgement no agent can supply, and deciding what a tool must *refuse* to do: that a secret is never a tool argument or process argv, that an unknown measurement must not trigger an action, that ordinary start must not reap, that a library must never auto-rebind a grant, that migration must not invent a cold start, and that the destructive branch is never the default under ambiguity.
+**An inverted human role.** Volume comes from the system. What remains is architecture, on-device judgement no agent can supply, and deciding what a tool must *refuse* to do: that a secret is never a tool argument or process argv, that an unknown measurement must not trigger an action, that ordinary start must not reap, that a census is not done, and that the destructive branch is never the default under ambiguity.
 
-The multiplier, typically 20× to 95×, has held across the series, highest on platform-deep and silent-wrongness work and lowest on mechanical consolidation. Headline figures count landed commits only; line counts exclude vendored trees, generated mirrors, lockfiles, ledger churn, amalgamations, pinned corpora, and synced third-party skill trees, and remain an activity signal rather than hand-authored output.
+The multiplier, typically 20× to 95×, has held across the series, highest on platform-deep and silent-wrongness work and lowest on mechanical consolidation. Headline figures count landed commits only; line counts exclude vendored trees, generated mirrors, lockfiles, ledger churn, amalgamations, pinned corpora, synced third-party skill trees, and Unity track dumps, and remain an activity signal rather than hand-authored output.
 
 For the specifics — which projects, which releases, which week — see **Greatest Hits**, the [per-repository pages](docs/repos/README.md), and the weekly reports below.
 
@@ -46,6 +46,13 @@ The [top 50 achievements](docs/achievements.md) across all projects, ranked by m
 One page per repository, summarising its whole arc across the series: [docs/repos](docs/repos/README.md). Commercial (HMS / minicades / non-`ge` Squz) journeys: [progress-reports-private](https://github.com/marcelocantos/progress-reports-private).
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-10-04.md"><b>2026-09-28…10-04</b></a> jevons control plane, claudia sidecar lifetime, spyder owner-review, Stock Cars 3.26 live, memento</summary>
+
+<b>jevons</b> v0.14–v0.15 landed last week's in-flight train: one seat Authority, worktree isolation with a merge-tree integrator, rename-proof mission bounds, and reap-not-park. <b>claudia</b> v0.45–v0.48 sealed the OMP sidecar to the broker that started it and put one access token per plan under a broker-owned refresh lock. <b>spyder</b> Verify became an owner-review product; <b>Stock Cars 3.26</b> went live on both stores; <b>memento</b> and <b>jevons-mobile</b> founded. 562 commits across 15 repos, ~4.5-7.0 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-09-27.md"><b>2026-09-21…27</b></a> claudia OMP/Task/migration, spyder verify, sentinel, serviceboard, finance ledger, multimaze2 Classic key, mnemo /health ~2ms</summary>
@@ -307,6 +314,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 
 | Week&nbsp;ℂommits&nbsp;☲±kloc<br>AI&nbsp;Human&nbsp;boost× | Highlights |
 |--------|------------|
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-04.md">09-28</a>&nbsp;ℂ562&nbsp;☲<span style="color:#1a7f37">+99</span><span style="color:#cf222e">-13</span>\*<br><b>AI</b>24-40h&nbsp;<b>H</b>4.5-7.0mo&nbsp;30-50× | jevons control plane, claudia sidecar lifetime, spyder owner-review, Stock Cars 3.26 live. \*new globs: pubspec.lock, stock-car Tracks |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-09-27.md">09-21</a>&nbsp;ℂ354&nbsp;☲<span style="color:#1a7f37">+55</span><span style="color:#cf222e">-6</span>\*<br><b>AI</b>19-32h&nbsp;<b>H</b>3.5-5.5mo&nbsp;30-55× | claudia OMP/Task/migration, spyder verify, sentinel, serviceboard, finance, mnemo /health ~2ms. \*new glob: skills/synced/** |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-09-20.md">09-14</a>&nbsp;ℂ206&nbsp;☲<span style="color:#1a7f37">+47</span><span style="color:#cf222e">-12</span><br><b>AI</b>16-27h&nbsp;<b>H</b>2.8-4.3mo&nbsp;30-55× | claudia Resolve/pool/live-gates v0.32–v0.41, jevons survival, continuous Lifeboat, threedee port closed, ge source-only, bullseye checks. |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-09-13.md">09-07</a>&nbsp;ℂ115&nbsp;☲<span style="color:#1a7f37">+49</span><span style="color:#cf222e">-8</span>\*<br><b>AI</b>16-28h&nbsp;<b>H</b>2.6-4.1mo&nbsp;35-60× | arrai 42× evaluator, claudia broker daemon, Lifeboat, xbnf replaces wbnf. \*new glob: arrai reconstruct pb+vendor |
@@ -343,7 +351,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-08.md">02-02</a>&nbsp;ℂ77&nbsp;☲<span style="color:#1a7f37">+14</span><span style="color:#cf222e">-9</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>3-5mo&nbsp;25-50× | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC. \*+402k vendor omitted (ge +367k, yourworld2 +34k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-01.md">01-26</a>&nbsp;ℂ61&nbsp;☲<span style="color:#1a7f37">+8</span><span style="color:#cf222e">-3</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>2-4mo&nbsp;25-50× | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched. \*+309k vendor omitted (yourworld2 +308k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-01-25.md">01-19</a>&nbsp;ℂ15&nbsp;☲<span style="color:#1a7f37">+2</span><span style="color:#cf222e">-1</span><br><b>AI</b>6-11h&nbsp;<b>H</b>1-2mo&nbsp;10-25× | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix. |
-| **Totals**&nbsp;ℂ**~8,581**\*&nbsp;**☲<span style="color:#1a7f37">+4957</span><span style="color:#cf222e">-1274</span>**<br><b>AI</b>**569-946h**&nbsp;<b>H</b>**11.3-19.1y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21). Remaining activity-signal inflation: Unity-regenerated assets, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
+| **Totals**&nbsp;ℂ**~9,143**\*&nbsp;**☲<span style="color:#1a7f37">+5056</span><span style="color:#cf222e">-1287</span>**<br><b>AI</b>**593-986h**&nbsp;<b>H</b>**11.7-19.7y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and stock-car `Assets/Tracks/**` from 09-28). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
 
 
 ## Guide

@@ -25,6 +25,7 @@ None of that caught the failure that mattered. In late July v0.10.0 ended a **16
 - **An inert notification button, fixed at the source** — an `osascript` notification posts on behalf of Script Editor with no click handler and no surviving process, so its **Show** button is inert by construction; `terminal-notifier` posts from its own bundle and makes the click open that run's log. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **Ported to Go, one dependency lighter** — v0.11.0 moved the CLI and transcript layer to Go on `yt-dlp`, dropping Python and `youtube-transcript-api`, verified against goldens captured from the installed binary before the port. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 - **Paced download, unthrottled analysis** — two clocks so a Codex quota miss cannot stall YouTube fetch; mixed-ladder capacity miss is not exit 255. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
+- **Skip narrated slug replies; pin the broker** — 161 failed replies in two days had each re-raised a ytt alert; Claudia v0.48.0 + `RequireBroker` so tasks never fall back to a direct provider spawn. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 
 ## Standouts
 
@@ -38,12 +39,12 @@ None of that caught the failure that mattered. In late July v0.10.0 ended a **16
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 10 |
-| Commits | 47 |
-| Human attention | ~9–16 h |
-| Traditional equivalent | ~0.9–1.5 months |
+| Weeks active | 11 |
+| Commits | 49 |
+| Human attention | ~9–17 h |
+| Traditional equivalent | ~0.9–1.6 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md)
+[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md)

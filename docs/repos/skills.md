@@ -10,7 +10,7 @@ Through March the skills tracked the emergence of the convergence workflow. Thir
 
 The publishing loop then formalised: every change under `~/.claude/skills/*` triggers `/republish-skills`, which mirrors into this repository as an `Update skills from ~/.claude/skills` commit. The weekly reports consistently footnote the resulting line deltas as **auto-sync rather than authorship** — six syncs worth +1,143/−329 in one week, twelve worth +1,069/−193 in another — and exclude them from the hand-authored totals. Several weeks are net negative (−713, −290, −117), and the reason is the most interesting thing about the repository: capability kept migrating out of the skills and into binaries. [bullseye](bullseye.md) v0.25.0 moved ledger auto-commit inside the MCP server and explicitly *replaced the `/cv` skill workaround*; [claudia](claudia.md)'s public session probes let `/waw` and `/cv` stop re-implementing a session-discovery walk. A skill that shrinks because a tool absorbed its logic is the healthy outcome.
 
-The tree also owns this series. The `progress-report` skill generates the weekly reports, and a single commit in June rewrote its `gather.sh` to separate landed from in-flight commits and handle exact week boundaries — **the methodology every subsequent report runs on**, and the reason the reports distinguish shipped totals from unmerged work. Routine maintenance since has been just that: the `mk` → `cv` migration and stale-doc removal, and a steady tail of syncs as the workflows behind `/release`, `/cv` and `/push` continue to be tuned against real use.
+The tree also owns this series. The `progress-report` skill generates the weekly reports, and a single commit in June rewrote its `gather.sh` to separate landed from in-flight commits and handle exact week boundaries — **the methodology every subsequent report runs on**, and the reason the reports distinguish shipped totals from unmerged work. Routine maintenance since has been just that: the `mk` → `cv` migration and stale-doc removal, and a steady tail of syncs as the workflows behind `/release`, `/cv` and `/push` continue to be tuned against real use. The progress-report skill now requires green/red HTML spans on plus/minus line counts so the published site colours ☲.
 
 ## Highlights
 
@@ -33,12 +33,12 @@ The tree also owns this series. The `progress-report` skill generates the weekly
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 18 |
-| Commits | ~183 |
+| Weeks active | 19 |
+| Commits | ~184 |
 | Human attention | not broken out in report tables |
 | Traditional equivalent | not broken out in report tables |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md)
+[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md)

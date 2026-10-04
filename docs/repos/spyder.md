@@ -14,9 +14,10 @@ From June the work turned outward, toward apps rather than devices. `log_collect
 
 July made spyder the only control plane. **"Plateau P"** re-implemented every ged capability — tweaks, logs, state, screenshot, H.264 streaming — on spyder's app-channel across four launch media (device, simulator/emulator, desktop, server-spawned instance), proved the streaming path end-to-end in headless Chrome, and only then let [ge](ge.md) delete the entire `ged/` daemon and React console (−12,630 lines). The following week the glass itself became location-transparent: the same C++ player tree compiled to wasm and served at `/player/`, replaying SP2S at ~55–60 fps in Chrome, WebKit and Firefox, alongside a headless scripted glass, a six-state daemon/device health plane with recovery-exhaustion escalation, and durable host Starlark explore/collect/regress recipes. The most recent cut is semantic: `hit_targets` addresses UI **by stable id, then role, and deliberately never by display label**, failing closed on a disabled target, and `app_metrics_*` proxies ge's zero-I/O per-instance frame-metrics ring so an agent can pull full retained frame history instead of latest-value gauges. `wait_state` and an allowlisted `device_setting` followed. USB link speed is now a ratchet (`usb_ceiling` under `~/.spyder/usb-speed.json`, `usb_anomaly` when live is slower). A **ship front-door** (`internal/ship`) puts studio secrets in the keychain via Security.framework — clipboard absorb, live ASC/Play verify, `secret missing` preflight, fastlane wrap with child-only env — so the tap token and store keys leave Actions.
 
+Then **Verify became a product**. Daemon-wide DAG workflows with a live dashboard and unattended owner replay (v0.88–v0.95) grew into an owner-review surface (v0.96–v0.97): finished runs stay until dismissed; the owner types findings in place; `verify_now` restages one step without reassessing; a failed screen check is an advisory tag on the evidence rather than a gate. iOS Local Network alerts are read via Accessibility Inspector and tapped via an in-process XCUITest runner.
+
 ## Highlights
 
-- **The panic-every-30-minutes wedge, and a demand-only pool** — eleven releases split recoverable transport errors from genuine bugs, and rebuilt the simulator pool on a restart-surviving SQLite hold ledger with adopt-from-live and LRU-on-release eviction. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **12k lines deleted when go-ios caught up** — T56 decommissioned pmd3-bridge, pmd3-tunneld and `xcrun devicectl` in one PR: net −12,592/+2,725 across 122 files. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
 - **Self-healing userspace tunnel** — v0.48.0 detects a dead device lifeline and rebuilds only that tunnel, leaving the rest of the pool intact; the in-flight devicectl migration was set aside as superseded. ([2026-05-24](../../reports/weekly-report-2026-05-24.md))
 - **Port-per-session log identity and the MessagePack-RPC channel** — a kernel-assigned port per session removes in-band tagging entirely, then v0.52.0 ships the bidirectional channel server ge's `appchannel` dials. ([2026-06-07](../../reports/weekly-report-2026-06-07.md))
@@ -30,7 +31,7 @@ July made spyder the only control plane. **"Plateau P"** re-implemented every ge
 - **USB speed ratchet and ship front-door** — `devices()` reports link speed with a ceiling and an anomaly; studio secrets live in a codesigned keychain, not in Actions. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 - **Supervisord, local bottles** — brew spyder under supervisord not launchd; tapper cuts bottles on the Mac; listen-addr survives restart (v0.82–v0.86). ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 
-- **`spyder verify`** — daemon-wide DAG workflows, live WebSocket dashboard, model-reviewed runs, unattended prep + owner replay (v0.88–v0.95). ([2026-09-27](../../reports/weekly-report-2026-09-27.md))
+- **`spyder verify`, then owner review** — daemon-wide DAG workflows with live dashboard and unattended replay (v0.88–v0.95); then in-place findings, restage-without-reassess, advisory preconditions, iOS Local Network alerts (v0.96–v0.97). ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 
 ## Standouts
 
@@ -38,19 +39,19 @@ July made spyder the only control plane. **"Plateau P"** re-implemented every ge
 - **Deleting 12,000 lines because a library caught up** — the whole PyInstaller/FastAPI bridge existed only because Go's iOS-control story was inadequate. When `go-ios` crossed the bar, T56 removed pmd3-bridge, pmd3-tunneld and the `xcrun devicectl` shell-out in one PR (net −12,592/+2,725 across 122 files), replaced by a 166-line session helper. The volume of supervision the bridge demanded *was* the evidence the architecture was wrong. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
 - **Identity is the socket, not the payload** — log collection normally needs in-band tagging and an app-side parsing contract. `log_collect_*` opens a fresh kernel-assigned TCP port per session and hands it to the app, so a connection arriving on that port is unambiguously from the app launched against it. ([2026-06-07](../../reports/weekly-report-2026-06-07.md))
 - **wasm32 shift-width UB in the command-stream hash** — `HashKeyHash` put and get compiled to divergent bucket hashes on wasm32 at `-O2`, so every blob lookup missed and the browser player's first frame never decoded; fixed by pinning the 32-bit shift contract. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
-- **`postRun` is not exit under Asyncify** — with ASYNCIFY, `main()` suspends at its first yield, so `postRun` fires seconds after startup; the player treated that as termination and reloaded healthy sessions on a 1/2/4/8 s backoff. Moving the reload trigger to `onExit` ended the flicker. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Addressing UI by identity, never by label** — `hit_targets` resolves by stable id, then role, and refuses to match the display label at all, saying so in the error rather than leaving it as folklore; `setHitRect` derives the interaction rectangle and the exported bounds from one value so they cannot drift, and a disabled target is an error rather than a tap into the void. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **Untrustworthy, not blocked** — a failed screen check used to be a gate; it is now an advisory tag on the evidence so the run continues and the owner sees that the model may have judged the wrong screen. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 19 |
-| Commits | ~282 |
-| Human attention | ~38–66 h |
-| Traditional equivalent | ~4.3–7.0 months |
+| Weeks active | 20 |
+| Commits | ~321 |
+| Human attention | ~42–73 h |
+| Traditional equivalent | ~4.6–7.5 months |
 | Multiplier | ~18–60× |
 
 ## Weekly reports
 
-[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md)
+[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md)

@@ -22,17 +22,16 @@ September split the library from the process. v0.30.0 added **`Agent.Migrate`**:
 
 The next fortnight made placement a predicate and then sealed the subscription path. v0.32–v0.41 made **Resolve** the sole placement chooser over a daemon Acquire/Release pool, with live gates that refuse wall-clock weather as a hermetic verdict. v0.42–v0.44 added an **OMP sidecar** (pinned pi-agent-core, tool advertise on seats), moved plan credentials into an encrypted file with a Keychain ACL that never puts tokens in argv, and made **seat migration Claudia-owned** so a successor keeps its session identity.
 
+v0.45–v0.48 then **sealed the sidecar's lifetime**. Bun is a child whose stdin is a lifeline pipe; SIGKILL of the broker kills it. One access token per plan; the refresh lock is the broker's; unattended recover cannot pop a sign-in. Host MCP `tools/list` is a real session; a wedged stdio server is restarted. Homebrew ships the sidecar so a tap install can start plan seats.
+
 ## Highlights
 
 - **Bootstrap to v0.6.0, and the PTY-to-tmux pivot** — tmux-backed agents, a `probe-ready-tmux` readiness binary, warm pools and session chains, with the old daemon and its ~1,100-line state machine deleted. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
 - **v1.0 API cluster and multi-subscriber events** — one breaking rename release, then behavioural fixes plus pkg.go.dev-ready docs, with `OnEvent` replaced by `SubscribeEvents` after subscriber starvation under bulk fan-out. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 
-- **v0.12.0 Grok controls** — push-to-talk, system-note injection and conversation history replay ship together with a STABILITY document. ([2026-05-24](../../reports/weekly-report-2026-05-24.md))
 - **Session rewind without landing mid-tool-use** — roll a conversation back *n* user turns, undoable via a `.rewind-bak` sidecar, plus a stale-session resume-menu auto-advance. ([2026-07-05](../../reports/weekly-report-2026-07-05.md))
 - **Grok provider, Task then Session over ACP** — provider resolution, headless streaming-JSON mapped to `TaskEvent`, persistent ACP sessions with hermetic fakes, and a registry that stops always starting Claude. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Fail-closed `session/load` and ACP MCP pass-through** — never silently mint a replacement for a materialised conversation, and prefer `mcp.claudia.json` so Grok's trust gate cannot drop the servers. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
-- **The restriction that existed in only one mode** — Task mode had never passed `--disallowedTools` despite the README promising five always-disallowed tools; v0.20.0 moved the baseline to a shared constant, unblocking mnemo's summariser containment. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
-- **A third provider and process-durable agents** — `ProviderBedrock` over AWS `ConverseStream`, detached `grok agent serve` with ACP over WebSocket so agents outlive their consumer, and `RequireResume` fail-closed on a missing transcript. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Codex, capability refusal, and leftover-window Adopt** — v0.21.0 adds a fourth provider; every field a path cannot honour is refused; upgrade reacquires tmux windows so a bounce does not double the fleet. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
 - **Host-owned MCP, Goal, Exclusive, Cursor** — v0.23–v0.28: tokens stay in the host, CloseGoal is a host fact, Exclusive subtracts user-scope maps, Cursor Events are first-class, the tmux anchor is recovered. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 - **`Agent.Migrate` keeps the handle** — inert-seed inter-provider Session migrate; a vanished tmux window is death. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
@@ -40,6 +39,7 @@ The next fortnight made placement a predicate and then sealed the subscription p
 
 - **Resolve, pool, live gates (v0.32–v0.41)** — Resolve is the sole placement chooser; daemon Acquire/Release pool; hermetic gates measure the seam not wall-clock weather. ([2026-09-20](../../reports/weekly-report-2026-09-20.md))
 - **OMP sidecar, sealed plan credentials, Claudia-owned migration (v0.42–v0.44)** — plan blob in an encrypted file not argv; broker-admitted Task runs; live/stopped handover retains successor identity. ([2026-09-27](../../reports/weekly-report-2026-09-27.md))
+- **Sidecar lifetime sealed (v0.45–v0.48)** — stdin lifeline so SIGKILL of the broker kills Bun; one access token per plan under a broker-owned refresh lock; host MCP is a real session. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 
 ## Standouts
 
@@ -48,19 +48,19 @@ The next fortnight made placement a predicate and then sealed the subscription p
 - **A rewind that cannot land mid-tool-use** — rolling a conversation back *n* user turns hinges on what counts as a turn: tool-result entries are excluded from the count, so a rewind never leaves the agent waiting on a result that will never arrive, and a `.rewind-bak` sidecar makes the whole operation undoable. ([2026-07-05](../../reports/weekly-report-2026-07-05.md))
 - **Fail-closed `session/load` as conversation integrity** — a provider that helpfully mints a new session when load fails is a data-loss bug wearing a recovery mask. `RequireResume`/`Materialized` make load fail closed for materialised conversations, and the ACP path prefers `mcp.claudia.json` so a trust gate cannot silently drop the MCP servers. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **A field a path cannot honour is refused** — Grok Session dropped `DisallowTools` and hardcoded always-approve; Bedrock accepted a `SessionID` against a stateless API; non-Codex paths took `SandboxMode` and ran unrestricted. `capabilityRefusal` keeps the refusal alive even if a claim flips to supported ahead of the wiring. ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
-- **The status bar is not the transcript** — matching `/rc connecting` against the whole tmux frame made an overseer diagnosing the wedge become the wedge; only the last six lines, under the composer's bottom rule, are consulted. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 - **A grant, not a process** — the daemon owns the seats; the consumer owns a grant; reclaim-by-name after consumer death with a 256-event replay ring. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
+- **The sidecar dies with its broker** — a `setsid` sidecar that is never waited outlives every restart, so later token and tool fixes never take effect; stdin is a lifeline pipe and kernel EOF on SIGKILL is the destructor. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 18 |
-| Commits | ~202 |
-| Human attention | ~31–56 h |
-| Traditional equivalent | ~3.3–5.3 months |
+| Weeks active | 19 |
+| Commits | ~358 |
+| Human attention | ~37–66 h |
+| Traditional equivalent | ~3.8–6.1 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md)

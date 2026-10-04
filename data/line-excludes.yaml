@@ -20,6 +20,7 @@ defaults:
   - '**/package-lock.json'
   - '**/uv.lock'
   - '**/poetry.lock'
+  - '**/pubspec.lock'
 
 # Per-repo extras keyed by org/repo (same label gather.sh prints):
 
@@ -114,3 +115,8 @@ repos:
   marcelocantos/progress-reports-private:
     - reports/**
     - docs/**
+
+  # Unity track assets: 4,020 files / ~209 kloc in the 3.26 squash (Night +
+  # Derby scenery). Authored C# / tests / release tooling stay in ☲.
+  minicadesmobile/stock-car-racing:
+    - Assets/Tracks/**

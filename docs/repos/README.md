@@ -84,6 +84,8 @@ Detail for HMS and Minicades titles lives in the private sibling ([progress-repo
 Repositories with a single dedicated section so far. They earn a page on their
 second.
 
+- marcelocantos/memento — rolling in-memory macOS screen history as 64×64 LZ4 tiles with no GOP
+- marcelocantos/jevons-mobile — chrome-free Flutter WebView shell for the jevons cockpit
 - marcelocantos/marcelocantos.com — personal Hugo site; blog and an open-source products page
 - marcelocantos/writ — declared-intent execution: manifests compiled into a seatbelt profile, egress proxy, and drift audit
 - marcelocantos/blurter — spool-first notification daemon; applications spool to disk, the daemon owns credential and policy
