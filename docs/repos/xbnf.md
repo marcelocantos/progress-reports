@@ -10,6 +10,8 @@ The same week closed two gates that define the product. 🎯T22: seven live lang
 
 The following week made xbnf a wbnf replacement for arr.ai (🎯T33): macros expand at compile, `%%` hooks and `#import` run on the product path, `\b` matches as in Go regexp, converted `arrai.wbnf` agrees with wbnf on a pinned accept/reject set. Parse output became an event stream (🎯T34) — open/close/leaf/skip events whose lengths tile `[0, End)`, 24 bytes each, `#wrap` visible as skip, `Tree()` a decode. Positions (🎯T23) and converted-grammar language parity (🎯T32) landed with it. The sandbox runs the committed T22 grammars as a tree viewer.
 
+The week ending 2026-10-11 turned that accept/reject set into a tree oracle. Named captures bracket their children; `@choice` and `@skip` are omitted. The wrap-around stack tail is greedy, as in PEG. Lookaheads are memoised, and `Compiled.Parse` is safe to call concurrently. Regex alternation inside a leaf is unordered `|`, not `|>`, which took `join.arrai` from 7.8 s to 84 ms. The pinned arr.ai stdlib used as the oracle is excluded from ☲; the pin note beside it is not.
+
 ## Highlights
 
 - **GLL+DFA engine, self-host, unordered `|`** — empty repo to a scannerless CFG engine that parses `xbnf.xbnf`; ambiguity is a compile error unless a disambiguator is declared. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
@@ -18,23 +20,27 @@ The following week made xbnf a wbnf replacement for arr.ai (🎯T33): macros exp
 - **Capture matching not reverted for speed** — order-dependent bindings fixed; DISCARD/NOISY is not a reason to restore the old semantics. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 - **Replace wbnf for arr.ai** — converted `arrai.wbnf` agrees with wbnf on a pinned accept/reject set (🎯T33). ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 - **Event stream that tiles the input** — 24-byte events, wrap as skip, MEM WIN 2.88 → 1.30 MB, KEEP. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
+- **arr.ai tree oracle** — named captures bracket children; `@choice` and `@skip` are omitted. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
+- **PEG-greedy tails, concurrent parse** — the wrap-around stack fallback is greedy; lookaheads are memoised; `Compiled.Parse` may run concurrently. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 
 ## Standouts
 
 - **Alternation that means nothing until you say how** — PEG ordered choice is control flow pretending to be a combinator; xbnf's `|` has no source-order meaning. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 - **Keep/discard is a pair ratio, not a median** — interleaved old/new at `GOMAXPROCS=1` after an idle wait; `NOISY` refuses to decide. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 - **An event stream that tiles the input** — leaf+skip lengths sum to `End`; positions are a prefix sum; `Node.Text` is a slice. ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
+- **A capture must not rename a node that already has a name** — wrap with seq on both GLL and DFA; the tree oracle is the check. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
+- **`|` inside a leaf is not ordered choice** — regexp alternation had been emitting `|>`; unordered `|` is what took `join.arrai` from 7.8 s to 84 ms. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 2 |
-| Commits | 94 |
-| Human attention | ~8–13 h |
-| Traditional equivalent | ~1.1–1.8 months |
+| Weeks active | 3 |
+| Commits | 102 |
+| Human attention | ~10–17 h |
+| Traditional equivalent | ~1.4–2.3 months |
 | Multiplier | ~40–70× |
 
 ## Weekly reports
 
-[08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md)
+[08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [10-05](../../reports/weekly-report-2026-10-11.md)

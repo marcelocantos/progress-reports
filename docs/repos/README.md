@@ -42,6 +42,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/mnemo](mnemo.md) — indexes every agent transcript; search, compaction, federation, and a vault wing
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
 - [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface
+- [marcelocantos/jevons-mobile](jevons-mobile.md) — chrome-free Flutter cockpit shell; local photo picker, no remote
 - [marcelocantos/claudia](claudia.md) — Go library for embedding coding agents, now also a host daemon that reclaims seats by name
 - [marcelocantos/sentinel](sentinel.md) — never-ending host-health loop via broker-admitted restricted tasks
 - [marcelocantos/serviceboard](serviceboard.md) — loopback Supervisor/Homebrew service dashboard
@@ -85,7 +86,7 @@ Repositories with a single dedicated section so far. They earn a page on their
 second.
 
 - marcelocantos/memento — rolling in-memory macOS screen history as 64×64 LZ4 tiles with no GOP
-- marcelocantos/jevons-mobile — chrome-free Flutter WebView shell for the jevons cockpit
+- canticode/canticode.github.io — company site: about, Orthograph, contact, privacy
 - marcelocantos/marcelocantos.com — personal Hugo site; blog and an open-source products page
 - marcelocantos/writ — declared-intent execution: manifests compiled into a seatbelt profile, egress proxy, and drift audit
 - marcelocantos/blurter — spool-first notification daemon; applications spool to disk, the daemon owns credential and policy

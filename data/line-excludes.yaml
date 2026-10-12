@@ -83,6 +83,10 @@ repos:
   # JUnit POM, CPython, CommonMark, gcc testsuite snippets). Not authored.
   marcelocantos/xbnf:
     - eval/testdata/*/corpus/**
+    # Pinned arr.ai stdlib used as the fromwbnf tree oracle (syntax/stdlib
+    # on arr.ai master). Not authored. SOURCES.md beside it is the pin note
+    # and stays in ☲.
+    - fromwbnf/testdata/arrai/stdlib/**
 
   # Reconstruct bench fixture: a 85k-line checked-in protobuf dump plus a
   # vendored sysl-in-arrai tree used only as the workload, not product source.

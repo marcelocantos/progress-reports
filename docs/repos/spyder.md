@@ -16,6 +16,8 @@ July made spyder the only control plane. **"Plateau P"** re-implemented every ge
 
 Then **Verify became a product**. Daemon-wide DAG workflows with a live dashboard and unattended owner replay (v0.88–v0.95) grew into an owner-review surface (v0.96–v0.97): finished runs stay until dismissed; the owner types findings in place; `verify_now` restages one step without reassessing; a failed screen check is an advisory tag on the evidence rather than a gate. iOS Local Network alerts are read via Accessibility Inspector and tapped via an in-process XCUITest runner.
 
+The app channel's default path is now USB. `adb reverse` plus a loopback bind, with a per-serial LAN exception only when an OEM refuses reverse. Verify gained a read-only `#verify/<id>` link that opens a dismissed run. No tag this week.
+
 ## Highlights
 
 - **12k lines deleted when go-ios caught up** — T56 decommissioned pmd3-bridge, pmd3-tunneld and `xcrun devicectl` in one PR: net −12,592/+2,725 across 122 files. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -27,11 +29,11 @@ Then **Verify became a product**. Daemon-wide DAG workflows with a live dashboar
 - **A browser that is just another glass** — the player tree built to wasm at `/player/` replays SP2S at ~55–60 fps across three browsers, beside a headless glass, a six-state health plane and durable host Starlark recipes. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
 - **Semantic app control** — `hit_targets` resolves by id then role and never by label, and `app_metrics_*` exposes ge's per-instance frame-metrics ring, each failing closed when the app does not advertise the capability. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **App-advertised RPCs end per-game tooling** — spyder accepts every method in an app's hello, so `app_methods` discovers a session's surface and `app_call` invokes game-private commands; Android OS control landed beside it (v0.74 → v0.76). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
-- **Mobile spawn without a registry** — `app_spawn` resolves through an explicit ordering because a mobile game *is* an installed bundle on a known device, returning `already_running` rather than double-launching and failing closed on an uninstalled one. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **USB speed ratchet and ship front-door** — `devices()` reports link speed with a ceiling and an anomaly; studio secrets live in a codesigned keychain, not in Actions. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 - **Supervisord, local bottles** — brew spyder under supervisord not launchd; tapper cuts bottles on the Mac; listen-addr survives restart (v0.82–v0.86). ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 
 - **`spyder verify`, then owner review** — daemon-wide DAG workflows with live dashboard and unattended replay (v0.88–v0.95); then in-place findings, restage-without-reassess, advisory preconditions, iOS Local Network alerts (v0.96–v0.97). ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
+- **USB reverse, and a link to a dismissed run** — `adb reverse` with a loopback bind is the default app channel; `#verify/<id>` opens a finished run read-only. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 
 ## Standouts
 
@@ -46,12 +48,12 @@ Then **Verify became a product**. Daemon-wide DAG workflows with a live dashboar
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 20 |
-| Commits | ~321 |
-| Human attention | ~42–73 h |
-| Traditional equivalent | ~4.6–7.5 months |
+| Weeks active | 21 |
+| Commits | ~358 |
+| Human attention | ~44–77 h |
+| Traditional equivalent | ~4.9–7.9 months |
 | Multiplier | ~18–60× |
 
 ## Weekly reports
 
-[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md)
+[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)

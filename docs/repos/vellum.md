@@ -12,12 +12,13 @@ Two rounds of delivery mechanics followed. v0.3.0 replaced v0.2.0's launchd-`PAT
 
 The last two releases broadened the surface. v0.4.0 made **WeasyPrint the default** and Prince an opt-in, behind a new `convert.Backend` interface, and expanded `convert.Style` into a 13-field customisation surface (font size, line height, font families, page size and margins, page numbers, running head, bookmarks, hyphenation, BCP-47 lang, PDF/A) resolved per-call over a `config/` package reading `~/.config/vellum/config.yaml` over built-in defaults, with a `--backend` CLI flag, `style`/`backend` options on the MCP tools, relative-path image resolution via `--baseurl`, and a Homebrew formula that `depends_on "weasyprint"` so the open-source path works out of the box. v0.5.0 closed the loop in the other direction with a rich-text importer converting RTF, DOCX, HTML, ODT, EPUB and related formats to Markdown. A localhost Markdown view with TOC, lightbox and theme followed, MCP hosted on the view daemon so brew-service clients do not spawn `vellum --mcp`, and shipping moved to local `cv release` / tapper — GitHub Actions workflows dropped. On macOS 26 the HTML importer is a launchd agent; conversion falls back to pandoc and names the route. v0.24.0 then **lifts Mermaid SVGs out of the document** — two small diagrams had been ~390 KB of inline SVG in a 10 KB page — serving each as `/_vellum/fragment` and fetching when they near the viewport.
 
+v0.26.0 ships the KaTeX stylesheet and fonts with the binary and never fetches a CDN. Slide text is matched across pandoc's per-token code runs. A small authored Confluence layout corpus stays in the headline line count; the font files themselves do not. The same week recorded the 1.0 judgment and retired the settling clock.
+
 ## Highlights
 
 - **New Go MCP server, v0.1.0 in six commits** — goldmark plus Prince with KaTeX, Mermaid and GitHub-flavoured CSS, shipped with full project scaffolding and CI. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
 - **Atomic macOS clipboard delivery** — v0.2.0's `convert_to_clipboard` writes RTF, HTML and plain text in one NSPasteboard transaction, replacing a lossy `textutil` + `osascript` pipeline. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
 - **`Render` / `RenderFile` split** — callers can obtain the assembled HTML page without invoking Prince, which is what made in-process RTF derivation possible. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
-- **Shell wrapper supersedes the launchd service block** — v0.3.0 fixes `PATH` for terminal, MCP-client and `brew services` launches alike, where the service block covered only the last. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **v0.4.0 makes WeasyPrint the default** — a `convert.Backend` interface, a 13-field `convert.Style`, a `config/` package and per-call-over-config-over-default precedence, with Prince demoted to an opt-in. ([2026-05-17](../../reports/weekly-report-2026-05-17.md))
 - **v0.5.0 rich-text import** — an importer converting RTF/DOCX/HTML/ODT/EPUB and friends to Markdown, with new MCP tools. ([2026-06-14](../../reports/weekly-report-2026-06-14.md))
 - **v0.8.0 media-orthogonal `convert`** — four MCP tools collapse into one taking `from`/`to` media (file, content, clipboard, file reference), with legacy sugars expanding into the same router. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
@@ -26,6 +27,7 @@ The last two releases broadened the surface. v0.4.0 made **WeasyPrint the defaul
 - **Localhost Markdown view** — TOC, lightbox, theme cycle, HTTP MCP on the view daemon; ship locally via tapper. ([2026-08-30](../../reports/weekly-report-2026-08-30.md))
 - **Static TOC, live reload, consented task toggles** — in-document TOC for convert sinks; viewer live reload; checkbox consent modal (v0.18–v0.19). ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 - **Lazy Mermaid fragments (v0.24.0)** — serve-time lift of every Mermaid SVG to `/_vellum/fragment`; fetch when they near the viewport. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
+- **Offline KaTeX (v0.26.0)** — stylesheet and fonts ship with the binary; maths never fetches a CDN. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 
 ## Standouts
 
@@ -33,17 +35,18 @@ The last two releases broadened the surface. v0.4.0 made **WeasyPrint the defaul
 - **One `PATH` fix for three launch contexts** — v0.3.0's install-time shell wrapper superseded the launchd service block, which had only ever covered `brew services`; terminal invocation and MCP clients with a stripped Aqua context now resolve node, mmdc and prince too. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
 - **The commercial renderer demoted to opt-in** — v0.4.0 put WeasyPrint behind a new `convert.Backend` interface as the default, with a 13-field `convert.Style` and per-call-over-config-over-default precedence, so the open-source path works straight out of `brew install`. ([2026-05-17](../../reports/weekly-report-2026-05-17.md))
 - **The importer is another process** — paired sandbox-exec oracles pin the clipboard failure to one mach service (deny TextKit → pandoc; deny WindowServer → still AppKit) and refute "AppKit needs a GUI session". ([2026-08-16](../../reports/weekly-report-2026-08-16.md))
+- **Never a CDN** — KaTeX's stylesheet and fonts are vendored; a maths page renders with the network off. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 
 ## Metrics
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 13 |
-| Commits | ~57 |
-| Human attention | ~7–16 h |
-| Traditional equivalent | ~0.9–1.6 months |
+| Weeks active | 14 |
+| Commits | ~65 |
+| Human attention | ~8–18 h |
+| Traditional equivalent | ~1.1–1.9 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)

@@ -24,11 +24,11 @@ The next fortnight made placement a predicate and then sealed the subscription p
 
 v0.45–v0.48 then **sealed the sidecar's lifetime**. Bun is a child whose stdin is a lifeline pipe; SIGKILL of the broker kills it. One access token per plan; the refresh lock is the broker's; unattended recover cannot pop a sign-in. Host MCP `tools/list` is a real session; a wedged stdio server is restarted. Homebrew ships the sidecar so a tap install can start plan seats.
 
+v0.49–v0.51 made the host the minter of `RequestID`. Claudia carries that id across retries, refuses a fragment that does not correlate, and loads a migration destination without adopting it. The same train added per-seat provider policy and a one-shot legacy grant prune that leaves three personal-work seats alone.
+
 ## Highlights
 
 - **Bootstrap to v0.6.0, and the PTY-to-tmux pivot** — tmux-backed agents, a `probe-ready-tmux` readiness binary, warm pools and session chains, with the old daemon and its ~1,100-line state machine deleted. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
-- **v1.0 API cluster and multi-subscriber events** — one breaking rename release, then behavioural fixes plus pkg.go.dev-ready docs, with `OnEvent` replaced by `SubscribeEvents` after subscriber starvation under bulk fan-out. ([2026-05-03](../../reports/weekly-report-2026-05-03.md))
-
 - **Session rewind without landing mid-tool-use** — roll a conversation back *n* user turns, undoable via a `.rewind-bak` sidecar, plus a stale-session resume-menu auto-advance. ([2026-07-05](../../reports/weekly-report-2026-07-05.md))
 - **Grok provider, Task then Session over ACP** — provider resolution, headless streaming-JSON mapped to `TaskEvent`, persistent ACP sessions with hermetic fakes, and a registry that stops always starting Claude. ([2026-07-12](../../reports/weekly-report-2026-07-12.md))
 - **Fail-closed `session/load` and ACP MCP pass-through** — never silently mint a replacement for a materialised conversation, and prefer `mcp.claudia.json` so Grok's trust gate cannot drop the servers. ([2026-07-19](../../reports/weekly-report-2026-07-19.md))
@@ -40,6 +40,7 @@ v0.45–v0.48 then **sealed the sidecar's lifetime**. Bun is a child whose stdin
 - **Resolve, pool, live gates (v0.32–v0.41)** — Resolve is the sole placement chooser; daemon Acquire/Release pool; hermetic gates measure the seam not wall-clock weather. ([2026-09-20](../../reports/weekly-report-2026-09-20.md))
 - **OMP sidecar, sealed plan credentials, Claudia-owned migration (v0.42–v0.44)** — plan blob in an encrypted file not argv; broker-admitted Task runs; live/stopped handover retains successor identity. ([2026-09-27](../../reports/weekly-report-2026-09-27.md))
 - **Sidecar lifetime sealed (v0.45–v0.48)** — stdin lifeline so SIGKILL of the broker kills Bun; one access token per plan under a broker-owned refresh lock; host MCP is a real session. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
+- **Request identity (v0.49–v0.51)** — the host mints `RequestID`; an uncorrelated fragment is refused; migration loads a destination it does not adopt. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 
 ## Standouts
 
@@ -55,12 +56,12 @@ v0.45–v0.48 then **sealed the sidecar's lifetime**. Bun is a child whose stdin
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 19 |
-| Commits | ~358 |
-| Human attention | ~37–66 h |
-| Traditional equivalent | ~3.8–6.1 months |
+| Weeks active | 20 |
+| Commits | ~413 |
+| Human attention | ~41–72 h |
+| Traditional equivalent | ~4.2–6.7 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)
