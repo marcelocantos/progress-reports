@@ -18,6 +18,8 @@ Then **Verify became a product**. Daemon-wide DAG workflows with a live dashboar
 
 The app channel's default path is now USB. `adb reverse` plus a loopback bind, with a per-serial LAN exception only when an OEM refuses reverse. Verify gained a read-only `#verify/<id>` link that opens a dismissed run. No tag this week.
 
+The week ending 2026-10-18 put one supervised, reusable XCTest agent on each tethered iPhone, made lock and reboot state truthful (an unknown lock is not ready; a changed boot id stays rebooted), and held USB development flags and ad suppression as leases on fresh physical proof. Device operations were isolated by canonical identity so cancellation no longer restarts a healthy daemon. An unexplained test-runner startup outage was recorded, not claimed fixed. No tag.
+
 ## Highlights
 
 - **12k lines deleted when go-ios caught up** — T56 decommissioned pmd3-bridge, pmd3-tunneld and `xcrun devicectl` in one PR: net −12,592/+2,725 across 122 files. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -48,12 +50,12 @@ The app channel's default path is now USB. `adb reverse` plus a loopback bind, w
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 21 |
-| Commits | ~358 |
-| Human attention | ~44–77 h |
-| Traditional equivalent | ~4.9–7.9 months |
+| Weeks active | 22 |
+| Commits | ~376 |
+| Human attention | ~46–81 h |
+| Traditional equivalent | ~5.3–8.5 months |
 | Multiplier | ~18–60× |
 
 ## Weekly reports
 
-[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)
+[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)

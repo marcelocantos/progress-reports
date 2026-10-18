@@ -12,6 +12,8 @@ The following week made xbnf a wbnf replacement for arr.ai (🎯T33): macros exp
 
 The week ending 2026-10-11 turned that accept/reject set into a tree oracle. Named captures bracket their children; `@choice` and `@skip` are omitted. The wrap-around stack tail is greedy, as in PEG. Lookaheads are memoised, and `Compiled.Parse` is safe to call concurrently. Regex alternation inside a leaf is unordered `|`, not `|>`, which took `join.arrai` from 7.8 s to 84 ms. The pinned arr.ai stdlib used as the oracle is excluded from ☲; the pin note beside it is not.
 
+The week ending 2026-10-18 was attestation and rejects: T28, T37, and T38 achieved; SQL keywords reserved by moving a `(?!KEYWORD)` guard out of the regular block, where the DFA had compiled it to nothing; and an oracle that cannot run now reports `oracle-error` instead of a disagreement.
+
 ## Highlights
 
 - **GLL+DFA engine, self-host, unordered `|`** — empty repo to a scannerless CFG engine that parses `xbnf.xbnf`; ambiguity is a compile error unless a disambiguator is declared. ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
@@ -35,12 +37,12 @@ The week ending 2026-10-11 turned that accept/reject set into a tree oracle. Nam
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 3 |
-| Commits | 102 |
-| Human attention | ~10–17 h |
-| Traditional equivalent | ~1.4–2.3 months |
+| Weeks active | 4 |
+| Commits | 114 |
+| Human attention | ~10–17 h, plus a 1–2 h row shared with sentinel and serviceboard (10-18) |
+| Traditional equivalent | ~1.4–2.3 months, plus a shared 3–6 person-day row (10-18) |
 | Multiplier | ~40–70× |
 
 ## Weekly reports
 
-[08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [10-05](../../reports/weekly-report-2026-10-11.md)
+[08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)

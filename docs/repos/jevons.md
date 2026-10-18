@@ -24,6 +24,8 @@ The next week **retired vanilla** and stopped treating Stop-then-Launch as a mod
 
 The next land was the **control plane**. One `internal/seatstate.Authority` with explicit unknowns replaced eleven independent derivations; same-repo workers run in private git worktrees and land via `git merge-tree` plus a git-dir flock; `missionbound` attributes starts to the *target* so a rename cannot reset the meter; finished workers are reaped, not parked. v0.14.0–v0.15.0. 304 commits — the biggest jevons week of the series.
 
+The long in-flight branch then **landed in two squash merges** (#71, #72) in the week ending 2026-10-18: typed owner questions with a durable outbox and a cross-repo open view, reap and admission classifiers that spare blocked and in-progress workers, stall fixes with in-process profiling, jevons-mobile folded under `mobile/`, claudia v0.53.0 pinned with migration replaced by in-place switch, and the tmux pane census and CLI-harness boot plumbing deleted. It is counted once, at landing, as 2 commits.
+
 ## Highlights
 
 - **JSONL canonical: SQLite and Lua deleted** — the database layer, the legacy Go package and the embedded interpreter all removed once mnemo was recognised as the real replay layer. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -54,12 +56,12 @@ The next land was the **control plane**. One `internal/seatstate.Authority` with
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 24 |
-| Commits | ~1,193 |
-| Human attention | ~72–121 h |
-| Traditional equivalent | ~8.1–12.9 months |
+| Weeks active | 25 |
+| Commits | ~1,195 (the 10-18 landing is 2 squash commits) |
+| Human attention | ~75–126 h |
+| Traditional equivalent | ~8.8–13.9 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-28](../../reports/weekly-report-2026-10-04.md)
+[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-12](../../reports/weekly-report-2026-10-18.md)

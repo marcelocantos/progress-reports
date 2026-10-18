@@ -124,3 +124,9 @@ repos:
   # Derby scenery). Authored C# / tests / release tooling stay in ☲.
   minicadesmobile/stock-car-racing:
     - Assets/Tracks/**
+
+  # Personal knowledge vault, first cloned under the scan root on 2026-10-18.
+  # knowledge/youtube/ is automated transcript ingestion (~+505k lines in one
+  # week), not authored source.
+  marcelocantos/think:
+    - knowledge/youtube/**

@@ -6,30 +6,30 @@ Commercial project detail (HMS, minicades, and non-`ge` Squz titles) lives in th
 
 ## At a Glance
 
-*38 weeks · 19 January – 11 October 2026*
+*39 weeks · 19 January – 18 October 2026*
 
-- **~9,279 commits** landed to default branches across **42+ repositories** in **20+ languages**
-- **~607–1,010 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
-- **~11.9–20.0 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
-- **~<span style="color:#1a7f37">+3.78M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
+- **~9,452 commits** landed to default branches across **42+ repositories** in **20+ languages**
+- **~619–1,031 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
+- **~12.1–20.4 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
+- **~<span style="color:#1a7f37">+3.79M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
 
 ## The Journey So Far
 
-Thirty-eight weeks, from 19 January to 11 October 2026. About **9,280 commits** have landed on default branches across more than forty repositories and twenty-odd languages. A single talented generalist would need on the order of **twelve to twenty years**. Human attention across the series is about **600 to 1,000 hours**.
+Thirty-nine weeks, from 19 January to 18 October 2026. About **9,450 commits** have landed on default branches across more than forty repositories in twenty-odd languages. A single talented generalist would need roughly **twelve to twenty years** to produce the same body of work; the human attention behind it is about **620 to 1,030 hours**.
 
-The numbers describe a mode of production.
+Those figures describe a way of working rather than a pile of output.
 
-**Several hard surfaces in the same week.** Broker identity, live disk attribution, a scannerless grammar that has to agree with the compiler consuming it, and a phone app channel that must not open a hole on the LAN. The specialisms do not take turns. What repeats is a refusal to let a green step stand for a true one: an event that does not correlate is not a turn, a walk that includes the observer's own writes is not growth, a capture that renames a node is not a tree a compiler can dispatch on, and the default button on a trust dialog is not consent.
+**Breadth without hand-offs.** In a typical week the same person directs agent-runtime internals, phone automation, a parser generator, a Windows port, and a clinical desktop migration. No team is assembled for any of them. The diversity is the default, and the cost a traditional organisation would pay for it — ramp-up, coordination, context switches — is mostly absent.
 
-**The fleet is the production system.** Seats, brokers, sidecars, and device daemons are not a side tool. Their lifetime, identity, and admission are the product. The failures that matter are workshop failures — a process that outlives the broker that started it, a health check that cannot name which directory filled the disk, a parse that accepts the wrong operator because ordered choice is not regexp backtracking. The fixes are contractual. Stdin is a lifeline. One token per plan. Growth is a trie of deltas reconciled by a walk the program itself performs. Inside a regular leaf, longest match.
+**The workshop is the product.** A large share of the effort goes into the machinery that does the work: brokers that own agent processes, a cockpit that schedules and reaps them, ledgers that record what was proven, and health loops that watch the host. When that machinery misbehaves, the fix is a contract, not a patch. A process dies with the parent that started it. A request carries an identity minted by its host. A billing refresh may not start a model turn. The tools get better every week because they are what the work runs on.
 
-**Time passing is not evidence.** A settling clock does not make a surface ready for 1.0. A batch disk index does not say what grew in the last second. A test that exits zero while the grammar's names have been erased is not parity. Speed that changes the tree is discarded; speed that preserves the tree and deletes a stack of lookaheads is kept. Unknown is not headroom, and a quoted status is not a finished job.
+**Subtraction counts.** Some of the most consequential weeks remove more than they add. Once every agent seat ran on one core, the migration machinery, the terminal-multiplexer backend, and the legacy command-line transport were deleted instead of being kept as fallbacks. The deletion came after each remaining path had been made to refuse by name, so nothing silently depended on what was taken away.
 
-**Shipping is a tag, a store listing, or an install that does not need the author's machine.** A large share of a week's raw activity can sit on unmerged branches — a cockpit, a clinical port, a globe — and is reported as such, not folded into the headline. Line counts leave out vendored trees, generated mirrors, lockfiles, ledger churn, and pinned corpora, and they are still an activity signal rather than a count of hand-authored source.
+**Evidence over appearance.** A test that passes because its oracle crashed is not a pass. An unknown lock state is not "ready". A startup outage that has not been explained is recorded as unexplained. A long-lived branch is reported as in-flight until it lands, then counted once. Line counts exclude vendored trees, generated mirrors, lockfiles, ledgers, pinned corpora, and automated ingestion, and remain an activity signal rather than a measure of hand-written source.
 
-**The human role is inverted.** Volume comes from the system. What remains is architecture, on-device judgement, and the decision a tool must refuse: a fragment without a request identity is dropped, Touch ID is not reached by a non-interactive sudo, a backup clone's master is not a release, and an achieve whose cited gate is red is not an achieve.
+**The human role is inverted.** Volume comes from the system. What the person contributes is direction and refusal: which design to keep, which shortcut to forbid, which result is not yet true, and when to stop the fleet altogether to find out where the tokens went. That is where most of the hours go, and it is why the multiplier, typically 20× to 95×, is highest where silent wrongness would be expensive and lowest where the work is mechanical.
 
-The multiplier, typically 20× to 95×, sits highest where silent wrongness is expensive and lowest on mechanical publishing. For which projects, which releases, and which week, see **Greatest Hits**, the [per-repository pages](docs/repos/README.md), and the reports below.
+For the projects, releases, and weeks behind these numbers, see **Greatest Hits**, the [per-repository pages](docs/repos/README.md), and the reports below.
 
 ![Daily active repositories — full timeline](reports/timeline.svg)
 
@@ -42,6 +42,13 @@ The [top 50 achievements](docs/achievements.md) across all projects, ranked by m
 One page per repository, summarising its whole arc across the series: [docs/repos](docs/repos/README.md). Commercial (HMS / minicades / non-`ge` Squz) journeys: [progress-reports-private](https://github.com/marcelocantos/progress-reports-private).
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-10-18.md"><b>2026-10-12…18</b></a> claudia in-place model switch and CLI era deleted, jevons fleet train landed, spyder XCTest agent, vellum on Windows</summary>
+
+<b>claudia</b> v0.53–v0.56 lets a seat switch provider or model in place, deletes the tmux backend and legacy CLI transport after refusing every remaining spawn path, and records receipts and every physical provider attempt. <b>jevons</b> landed its long in-flight fleet train in two squash merges. <b>spyder</b> supervises one reusable XCTest agent per tethered iPhone; <b>vellum</b> v0.28.0 ships Windows; <b>serviceboard</b> cut v0.1.0. 173 commits across 12 repos, ~2.9-4.4 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-10-11.md"><b>2026-10-05…11</b></a> claudia request identity, sentinel disk trie, xbnf arr.ai parse, spyder USB channel, vellum offline KaTeX</summary>
@@ -317,6 +324,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 
 | Week&nbsp;ℂommits&nbsp;☲±kloc<br>AI&nbsp;Human&nbsp;boost× | Highlights |
 |--------|------------|
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-18.md">10-12</a>&nbsp;ℂ173&nbsp;☲<span style="color:#1a7f37">+61</span><span style="color:#cf222e">-58</span>\*<br><b>AI</b>12-21h&nbsp;<b>H</b>2.9-4.4mo&nbsp;25-55× | claudia v0.53–v0.56 in-place switch and CLI deletion, jevons train landed, spyder XCTest agent, vellum Windows. \*think vault excluded |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-11.md">10-05</a>&nbsp;ℂ136&nbsp;☲<span style="color:#1a7f37">+16</span><span style="color:#cf222e">-1</span>\*<br><b>AI</b>14-24h&nbsp;<b>H</b>2.3-3.5mo&nbsp;25-40× | claudia v0.49–v0.51 request identity, sentinel disk trie, xbnf greedy parse, vellum offline KaTeX. \*xbnf stdlib pin excluded |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-04.md">09-28</a>&nbsp;ℂ562&nbsp;☲<span style="color:#1a7f37">+99</span><span style="color:#cf222e">-13</span>\*<br><b>AI</b>24-40h&nbsp;<b>H</b>4.5-7.0mo&nbsp;30-50× | jevons control plane, claudia sidecar lifetime, spyder owner-review, Stock Cars 3.26 live. \*new globs: pubspec.lock, stock-car Tracks |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-09-27.md">09-21</a>&nbsp;ℂ354&nbsp;☲<span style="color:#1a7f37">+55</span><span style="color:#cf222e">-6</span>\*<br><b>AI</b>19-32h&nbsp;<b>H</b>3.5-5.5mo&nbsp;30-55× | claudia OMP/Task/migration, spyder verify, sentinel, serviceboard, finance, mnemo /health ~2ms. \*new glob: skills/synced/** |
@@ -355,7 +363,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-08.md">02-02</a>&nbsp;ℂ77&nbsp;☲<span style="color:#1a7f37">+14</span><span style="color:#cf222e">-9</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>3-5mo&nbsp;25-50× | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC. \*+402k vendor omitted (ge +367k, yourworld2 +34k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-01.md">01-26</a>&nbsp;ℂ61&nbsp;☲<span style="color:#1a7f37">+8</span><span style="color:#cf222e">-3</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>2-4mo&nbsp;25-50× | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched. \*+309k vendor omitted (yourworld2 +308k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-01-25.md">01-19</a>&nbsp;ℂ15&nbsp;☲<span style="color:#1a7f37">+2</span><span style="color:#cf222e">-1</span><br><b>AI</b>6-11h&nbsp;<b>H</b>1-2mo&nbsp;10-25× | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix. |
-| **Totals**&nbsp;ℂ**~9,279**\*&nbsp;**☲<span style="color:#1a7f37">+5072</span><span style="color:#cf222e">-1288</span>**<br><b>AI</b>**607-1010h**&nbsp;<b>H</b>**11.9-20.0y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and stock-car `Assets/Tracks/**` from 09-28; xbnf `fromwbnf/testdata/arrai/stdlib/**` from 10-05). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
+| **Totals**&nbsp;ℂ**~9,452**\*&nbsp;**☲<span style="color:#1a7f37">+5133</span><span style="color:#cf222e">-1346</span>**<br><b>AI</b>**619-1031h**&nbsp;<b>H</b>**12.1-20.4y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and stock-car `Assets/Tracks/**` from 09-28; xbnf `fromwbnf/testdata/arrai/stdlib/**` from 10-05; `marcelocantos/think` vault excluded from 10-12, with `knowledge/youtube/**` globbed). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
 
 
 ## Guide

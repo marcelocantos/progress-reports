@@ -42,8 +42,8 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/mnemo](mnemo.md) — indexes every agent transcript; search, compaction, federation, and a vault wing
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
 - [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface
-- [marcelocantos/jevons-mobile](jevons-mobile.md) — chrome-free Flutter cockpit shell; local photo picker, no remote
-- [marcelocantos/claudia](claudia.md) — Go library for embedding coding agents, now also a host daemon that reclaims seats by name
+- [marcelocantos/jevons-mobile](jevons-mobile.md) — chrome-free Flutter cockpit shell, merged into jevons under `mobile/` (10-18)
+- [marcelocantos/claudia](claudia.md) — Go library and host daemon for coding agents; every seat on one sidecar core, switchable in place
 - [marcelocantos/sentinel](sentinel.md) — never-ending host-health loop via broker-admitted restricted tasks
 - [marcelocantos/serviceboard](serviceboard.md) — loopback Supervisor/Homebrew service dashboard
 - [marcelocantos/finance](finance.md) — personal dual-stream mid-cycle ledger with persistent transfer IDs
@@ -55,7 +55,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/crosshair](crosshair.md) — Rust convergence-executor daemon with a stateless tick loop
 - [marcelocantos/mcpsafe](mcpsafe.md) — credential-injecting MCP proxy with Starlark request transforms
 - [marcelocantos/ytt](ytt.md) — YouTube transcript ingest pipeline with self-healing scheduled runs
-- [marcelocantos/vellum](vellum.md) — document conversion MCP server with atomic clipboard delivery
+- [marcelocantos/vellum](vellum.md) — document conversion MCP server with atomic clipboard delivery, on macOS and Windows
 - [marcelocantos/slacker](slacker.md) — multi-workspace Slack MCP; browser OAuth to the keychain, no secret ever a tool argument
 - [canticode/orthograph](orthograph.md) — Pencil-first shared sketch surface; Mac daemon, MCP scene graph, iPad app; now a Canticode product
 - [marcelocantos/pageflip](pageflip.md) — meeting capture behind a compile-time egress gate

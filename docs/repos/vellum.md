@@ -14,6 +14,8 @@ The last two releases broadened the surface. v0.4.0 made **WeasyPrint the defaul
 
 v0.26.0 ships the KaTeX stylesheet and fonts with the binary and never fetches a CDN. Slide text is matched across pandoc's per-token code runs. A small authored Confluence layout corpus stays in the headline line count; the font files themselves do not. The same week recorded the 1.0 judgment and retired the settling clock.
 
+v0.27.0 narrowed releases to darwin-arm64 and dropped Linux; v0.28.0 then **shipped Windows** — a pure-Go clipboard (CF_HTML, RTF, Unicode text, PDF, `CF_HDROP`), a Scheduled Task service, drive-letter paths and `file://` URLs, a rename-following poll watcher, and arm64/amd64 zips with a Scoop manifest. v0.26.1 bumped dependencies.
+
 ## Highlights
 
 - **New Go MCP server, v0.1.0 in six commits** — goldmark plus Prince with KaTeX, Mermaid and GitHub-flavoured CSS, shipped with full project scaffolding and CI. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
@@ -41,12 +43,12 @@ v0.26.0 ships the KaTeX stylesheet and fonts with the binary and never fetches a
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 14 |
-| Commits | ~65 |
-| Human attention | ~8–18 h |
-| Traditional equivalent | ~1.1–1.9 months |
+| Weeks active | 15 |
+| Commits | ~77 |
+| Human attention | ~9–20 h |
+| Traditional equivalent | ~1.3–2.2 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)

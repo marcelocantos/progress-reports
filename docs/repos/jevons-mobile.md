@@ -8,6 +8,8 @@ The shell was founded in the week ending 2026-10-04: eight landed commits, a Flu
 
 The week ending 2026-10-11 added one commit, `e27f825`, on the only local checkout, directory `jevons-mobile.pre-merge-backup`. That clone has no remote. `image_picker` serves both the iOS composer channel and Android's WebView file chooser; the page hears `jevons-picked-image`. `pubspec.lock` is excluded from the headline line count. Not a release, and not claimed as pushed.
 
+In the week ending 2026-10-18 the shell was **merged into jevons** under `mobile/` (T995, via jevons #71), with the native photo picker ported into the merged Flutter shell. Further work belongs to the [jevons](jevons.md) page.
+
 ## Highlights
 
 - **Chrome-free cockpit shell** — Flutter WebView, wildcard codesign without a portal App ID, on the Jevons iPad mini and the Pixel Fold. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
@@ -30,4 +32,4 @@ The week ending 2026-10-11 added one commit, `e27f825`, on the only local checko
 
 ## Weekly reports
 
-[09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)
+[09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)
