@@ -20,6 +20,8 @@ The app channel's default path is now USB. `adb reverse` plus a loopback bind, w
 
 The week ending 2026-10-18 put one supervised, reusable XCTest agent on each tethered iPhone, made lock and reboot state truthful (an unknown lock is not ready; a changed boot id stays rebooted), and held USB development flags and ad suppression as leases on fresh physical proof. Device operations were isolated by canonical identity so cancellation no longer restarts a healthy daemon. An unexplained test-runner startup outage was recorded, not claimed fixed. No tag.
 
+v0.98–v0.102 gave each tethered iPhone a resident DeviceKit automation agent supervised by the main daemon, with a fresh budget on each boot, an attended Retry, and sessions that come back after a reboot or replug. Hung device calls stopped restarting the daemon: listings are coalesced and bounded, a hung adb is killed at its dispatch deadline, and the CLI no longer starts a competing daemon. Retention archives runs instead of deleting them, and eight entropy-audit findings were closed.
+
 ## Highlights
 
 - **12k lines deleted when go-ios caught up** — T56 decommissioned pmd3-bridge, pmd3-tunneld and `xcrun devicectl` in one PR: net −12,592/+2,725 across 122 files. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -36,6 +38,7 @@ The week ending 2026-10-18 put one supervised, reusable XCTest agent on each tet
 
 - **`spyder verify`, then owner review** — daemon-wide DAG workflows with live dashboard and unattended replay (v0.88–v0.95); then in-place findings, restage-without-reassess, advisory preconditions, iOS Local Network alerts (v0.96–v0.97). ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 - **USB reverse, and a link to a dismissed run** — `adb reverse` with a loopback bind is the default app channel; `#verify/<id>` opens a finished run read-only. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
+- **Resident iOS agent per device (v0.98–v0.102)** — supervised DeviceKit runner per iPhone; reboot/replug recovery; bounded listings and adb; archive-not-delete retention. ([2026-10-25](../../reports/weekly-report-2026-10-25.md))
 
 ## Standouts
 
@@ -50,12 +53,12 @@ The week ending 2026-10-18 put one supervised, reusable XCTest agent on each tet
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 22 |
-| Commits | ~376 |
-| Human attention | ~46–81 h |
-| Traditional equivalent | ~5.3–8.5 months |
+| Weeks active | 23 |
+| Commits | ~450 |
+| Human attention | ~48–85 h |
+| Traditional equivalent | ~5.8–9.3 months |
 | Multiplier | ~18–60× |
 
 ## Weekly reports
 
-[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)
+[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md)

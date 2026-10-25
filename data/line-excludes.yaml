@@ -130,3 +130,10 @@ repos:
   # week), not authored source.
   marcelocantos/think:
     - knowledge/youtube/**
+
+  # fastlane match signing repo, new on 2026-10-25. profiles/ and certs/ hold
+  # match-encrypted provisioning profiles, .p12 and .cer blobs that fastlane
+  # writes; only README.md and match_version.txt are authored.
+  canticode/certs:
+    - profiles/**
+    - certs/**

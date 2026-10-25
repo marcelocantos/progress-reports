@@ -12,6 +12,8 @@ The week ending 2026-10-11 replaced batch size snapshots with a per-volume size 
 
 The week ending 2026-10-18 tuned the Jevons probe: owner pause honoured, saturated stalls alerted, stop reasons summarised in the cheap probe, and failed reviews budgeted per actionable incident.
 
+The week ending 2026-10-25 walked only the directories the FSEvents journal could not name, and filed targets for oversized-memory review degradation and Jevons fault classes.
+
 ## Highlights
 
 - Broker-admitted restricted Task runs; capacity deferral without fake green
@@ -31,11 +33,11 @@ The week ending 2026-10-18 tuned the Jevons probe: owner pause honoured, saturat
 
 | | |
 |--|--|
-| Weeks active (landed) | 4 |
-| Landed commits (series) | 58 |
-| Human attention | ~3–5 h in the 10-11 week; the 10-18 week sits in a shared 1–2 h row; earlier weeks sit in shared rows and are not broken out |
+| Weeks active (landed) | 5 |
+| Landed commits (series) | 60 |
+| Human attention | ~3–5 h in the 10-11 week; the 10-18 and 10-25 weeks sit in shared rows; earlier weeks sit in shared rows and are not broken out |
 | Traditional equivalent | ~10–15 person-days across the two weeks with their own rows (4–6 then 6–9); founding week not separated |
 
 ## Weekly reports
 
-- [2026-09-21…27](../../reports/weekly-report-2026-09-27.md), [2026-09-28…10-04](../../reports/weekly-report-2026-10-04.md), [2026-10-05…11](../../reports/weekly-report-2026-10-11.md), [2026-10-12…18](../../reports/weekly-report-2026-10-18.md)
+- [2026-09-21…27](../../reports/weekly-report-2026-09-27.md), [2026-09-28…10-04](../../reports/weekly-report-2026-10-04.md), [2026-10-05…11](../../reports/weekly-report-2026-10-11.md), [2026-10-12…18](../../reports/weekly-report-2026-10-18.md), [2026-10-19…25](../../reports/weekly-report-2026-10-25.md)

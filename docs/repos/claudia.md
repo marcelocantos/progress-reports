@@ -28,6 +28,8 @@ v0.49–v0.51 made the host the minter of `RequestID`. Claudia carries that id a
 
 v0.53–v0.56 ended the CLI era. A seat now switches provider or model in place with `SwitchModel` and keeps its conversation, so the context-transfer migration was deleted rather than kept as a fallback. With every seat on the OMP agent core, the tmux backend, warm pool and GHA workflows went; about fifteen commits then refused each remaining CLI spawn path by name before the legacy CLI transport itself was removed — **the April PTY-to-tmux pivot, reversed in full**. The same train persists request and execution receipts before dispatch and journals every physical provider attempt.
 
+v0.58–v0.65 made the broker survivable. A refusal now names its provider-failure cause and a billing error is stamped as a spend wall. A sidecar seat survives a broker restart, a restart relaunches only the seats that are wanted, and a restored tool call that never finished is not replayed. After a 22 Oct outage traced to a broken `CLAUDIA_BIN` pin, the pin falls back to the Homebrew broker and the installer stops carrying it forward; v0.65.0 adds `make verify-release` against the installed brew binary.
+
 ## Highlights
 
 - **Bootstrap to v0.6.0, and the PTY-to-tmux pivot** — tmux-backed agents, a `probe-ready-tmux` readiness binary, warm pools and session chains, with the old daemon and its ~1,100-line state machine deleted. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
@@ -43,6 +45,7 @@ v0.53–v0.56 ended the CLI era. A seat now switches provider or model in place 
 - **Sidecar lifetime sealed (v0.45–v0.48)** — stdin lifeline so SIGKILL of the broker kills Bun; one access token per plan under a broker-owned refresh lock; host MCP is a real session. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 - **Request identity (v0.49–v0.51)** — the host mints `RequestID`; an uncorrelated fragment is refused; migration loads a destination it does not adopt. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 - **In-place switch, CLI era deleted (v0.53–v0.56)** — `SwitchModel` keeps the conversation; migration, tmux backend, and legacy CLI transport removed after a refusal sweep; receipts before dispatch. ([2026-10-18](../../reports/weekly-report-2026-10-18.md))
+- **Restart-safe broker (v0.58–v0.65)** — failure causes and spend walls; sidecar seats survive a broker restart; intent-only relaunch; a broken pin falls back to Homebrew; `make verify-release`. ([2026-10-25](../../reports/weekly-report-2026-10-25.md))
 
 ## Standouts
 
@@ -58,12 +61,12 @@ v0.53–v0.56 ended the CLI era. A seat now switches provider or model in place 
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 21 |
-| Commits | ~528 |
-| Human attention | ~46–80 h |
-| Traditional equivalent | ~4.8–7.6 months |
+| Weeks active | 22 |
+| Commits | ~643 |
+| Human attention | ~50–87 h |
+| Traditional equivalent | ~5.5–8.6 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md)

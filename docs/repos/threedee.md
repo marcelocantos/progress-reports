@@ -10,6 +10,8 @@ In July the project appeared in the series as a newly tracked repository, landin
 
 Week ending 2026-09-20 closed the migration under a **geometric oracle**: OpenSCAD reference meshes versus build123d OFF exports with vertex merge within 1e-3–1e-4 mm, then deleted every verified SCAD source. Involute bevel gears, pure-algebra screw-box partitions, and true offsets replaced approximate fillets.
 
+The week ending 25 Oct added a ten-key print plate and grouped the shopping-trolley key source into one project.
+
 ## Highlights
 
 - **OpenSCAD to build123d** — a Python-first CAD toolchain with VS Code OCP integration and 12 designs ported. ([2026-04-05](../../reports/weekly-report-2026-04-05.md))
@@ -23,12 +25,12 @@ Week ending 2026-09-20 closed the migration under a **geometric oracle**: OpenSC
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 3 |
-| Commits | 10 |
+| Weeks active | 4 |
+| Commits | 12 |
 | Human attention | not broken out in report tables |
 | Traditional equivalent | ~0.3–0.6 months |
 | Multiplier | ~30–65× |
 
 ## Weekly reports
 
-[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [09-14](../../reports/weekly-report-2026-09-20.md)
+[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [09-14](../../reports/weekly-report-2026-09-20.md), [10-19](../../reports/weekly-report-2026-10-25.md)

@@ -16,6 +16,8 @@ Through June the surface widened again, carefully. `bullseye_subdivide` decompos
 
 The week ending 2026-10-11 recorded the agent's 1.0 judgment and retired the settling clock. No product code moved. The hour sits in a shared stability-notes row with mnemo and vellum, so it is not added here.
 
+The week ending 25 Oct added commit mode (T100): the ledger is written through a private `GIT_INDEX_FILE` with an `update-ref` compare-and-swap on an integration ref, opt-in via `--commit-mode`, with a concurrency oracle proving simultaneous writes are not silently lost. Serve-time history scans, which had starved under load and failed writes with `id_history_scan_failed`, are now bounded.
+
 ## Highlights
 
 - **Ten releases and portfolio convergence** — 75 commits taking v0.5.0 to v0.14.0: cross-repo WSJF with cross-repo dependency edges, executable acceptance checks via sawmill, and the `bullseye.yaml` rename across 40+ repos. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
@@ -32,6 +34,7 @@ The week ending 2026-10-11 recorded the agent's 1.0 judgment and retired the set
 - **One `apply` verb, HTTP only** — nine commit verbs are sugar; stdio gone; achieving a blocked target is refused (v0.49–v0.52). ([2026-09-06](../../reports/weekly-report-2026-09-06.md))
 
 - **Checks that actually gate, then refuse-before-write** — `command:` check kind executed (v0.53–v0.56); then `apply_with_gate` refuses an achieve whose cited check is not GREEN, and accepted-risk persists as `UNVERIFIED — ACCEPTED RISK`. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
+- **Commit mode (T100)** — private-index ledger writes with `update-ref` CAS, a concurrency oracle, bounded serve history scans. ([2026-10-25](../../reports/weekly-report-2026-10-25.md))
 
 ## Standouts
 
@@ -45,12 +48,12 @@ The week ending 2026-10-11 recorded the agent's 1.0 judgment and retired the set
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 25 |
-| Commits | ~272 |
-| Human attention | ~29–51 h |
-| Traditional equivalent | ~3.8–5.9 months |
+| Weeks active | 26 |
+| Commits | ~310 |
+| Human attention | ~30–53 h |
+| Traditional equivalent | ~4.2–6.5 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)
+[03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-19](../../reports/weekly-report-2026-10-25.md)

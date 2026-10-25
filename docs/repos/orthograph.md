@@ -8,6 +8,8 @@ Orthograph went from an empty repository to a `brew install`-able product in six
 
 Two weeks later the project moved to Canticode as a closed-source product. The conversion squash re-adds the existing tree plus the work since 22 August: HTTP MCP on the daemon at `:13720/mcp` with a flock instance lock (a second start fails closed naming the incumbent), padlink/presence/recognize/render (PNG/PDF/SVG, iso lattice, paper), and a peer-app study with a steal/avoid matrix (stretch vs scale inverted from the desktop convention because touch precision is worse; multi-tap replicate rejected because iPadOS already spent those gestures). Homebrew formulae are published from the dev Mac by [tapper](https://github.com/marcelocantos/tapper), not by a CI job holding a tap token. The +41k line count is a conversion squash, not that week's authorship.
 
+In the week ending 25 Oct iOS signing moved to the Canticode Apple team, with fastlane match certificates in the new `canticode/certs` repo and the App Store Connect record created.
+
 ## Highlights
 
 - **Empty repo to brew-installable in six days** — Mac daemon, MCP scene graph with stable ULIDs, Pencil iPad app, pigeon QR pairing proven through the shipped binary. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
@@ -23,12 +25,12 @@ Two weeks later the project moved to Canticode as a closed-source product. The c
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 2 |
-| Commits | ~90 |
+| Weeks active | 3 |
+| Commits | ~95 |
 | Human attention | ~8–14 h |
 | Traditional equivalent | ~1.1–1.8 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[08-03](../../reports/weekly-report-2026-08-09.md), [08-24](../../reports/weekly-report-2026-08-30.md)
+[08-03](../../reports/weekly-report-2026-08-09.md), [08-24](../../reports/weekly-report-2026-08-30.md), [10-19](../../reports/weekly-report-2026-10-25.md)

@@ -41,7 +41,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 
 - [marcelocantos/mnemo](mnemo.md) — indexes every agent transcript; search, compaction, federation, and a vault wing
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
-- [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface
+- [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface; usable state landed (10-25)
 - [marcelocantos/jevons-mobile](jevons-mobile.md) — chrome-free Flutter cockpit shell, merged into jevons under `mobile/` (10-18)
 - [marcelocantos/claudia](claudia.md) — Go library and host daemon for coding agents; every seat on one sidecar core, switchable in place
 - [marcelocantos/sentinel](sentinel.md) — never-ending host-health loop via broker-admitted restricted tasks

@@ -16,6 +16,8 @@ v0.26.0 ships the KaTeX stylesheet and fonts with the binary and never fetches a
 
 v0.27.0 narrowed releases to darwin-arm64 and dropped Linux; v0.28.0 then **shipped Windows** — a pure-Go clipboard (CF_HTML, RTF, Unicode text, PDF, `CF_HDROP`), a Scheduled Task service, drive-letter paths and `file://` URLs, a rename-following poll watcher, and arm64/amd64 zips with a Scoop manifest. v0.26.1 bumped dependencies.
 
+v0.29–v0.35 closed the Windows bookkeeping, moved the CLI and MCP converters onto one fail-fast dependency path, and added `make verify-release`, an end-to-end battery against the Homebrew install running under its supervisord release program. Same-page anchors now resolve and wide PDF artifacts fit the viewer.
+
 ## Highlights
 
 - **New Go MCP server, v0.1.0 in six commits** — goldmark plus Prince with KaTeX, Mermaid and GitHub-flavoured CSS, shipped with full project scaffolding and CI. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
@@ -30,6 +32,7 @@ v0.27.0 narrowed releases to darwin-arm64 and dropped Linux; v0.28.0 then **ship
 - **Static TOC, live reload, consented task toggles** — in-document TOC for convert sinks; viewer live reload; checkbox consent modal (v0.18–v0.19). ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 - **Lazy Mermaid fragments (v0.24.0)** — serve-time lift of every Mermaid SVG to `/_vellum/fragment`; fetch when they near the viewport. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 - **Offline KaTeX (v0.26.0)** — stylesheet and fonts ship with the binary; maths never fetches a CDN. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
+- **Release-path proof (v0.29–v0.35)** — Windows bookkeeping closed; shared fail-fast converters; `make verify-release` against the Homebrew install. ([2026-10-25](../../reports/weekly-report-2026-10-25.md))
 
 ## Standouts
 
@@ -43,12 +46,12 @@ v0.27.0 narrowed releases to darwin-arm64 and dropped Linux; v0.28.0 then **ship
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 15 |
-| Commits | ~77 |
-| Human attention | ~9–20 h |
-| Traditional equivalent | ~1.3–2.2 months |
+| Weeks active | 16 |
+| Commits | ~98 |
+| Human attention | ~10–22 h |
+| Traditional equivalent | ~1.4–2.4 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md)
