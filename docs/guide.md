@@ -617,8 +617,8 @@ no prose beyond the intro sentence and the one-liners.
 
 - **What never gets published.** Published reports, the README, per-repo pages
   and achievements (public and private repos alike) never mention the host or
-  machine the work or the report run happened on (no machine names such as
-  Colossus, no "drafted in the X shell"). They also never carry honesty notes
+  machine the work or the report run happened on (no machine or host names,
+  no "drafted in the X shell"). They also never carry honesty notes
   or methodology caveats: no "Honesty note" blockquotes, no notes about broker
   or tooling failures, excluded worktree clones, patched chart scripts,
   diverged or unpushed local branches, or how a figure was reconciled. Those
