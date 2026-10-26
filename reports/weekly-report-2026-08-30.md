@@ -6,8 +6,6 @@
 
 **183 commits** | **+107,414 net lines** | **~60-95 person-days traditional equivalent** | **~40-70x multiplier**
 
-> Honesty note: **new `data/line-excludes.yaml` globs this run** — `marcelocantos/mnemo` `internal/zstdc/zstd.c`+`zstd.h` (Facebook amalgamation, ~55k lines), `marcelocantos/housekeeping` `snapshots/**` (du TSV + rescued stash patches, including a 212k-line yourworld dump). Headline ☲ is gather `landed:` after those globs. Excluded bulk this week is **+325,995/−673**. Orthograph **+41,249/−448** is a closed-source conversion squash that re-adds the existing product plus subsequent work — an activity signal, not this week's hand-authored delta. jevons +35,843 and finance +4,090 were checked: authored Go/JS/TSX/Python/SQL, no new golden corpus.
-
 ### Major Achievements & Innovations
 
 - **React is the daily cockpit; transcripts live in SQLite** ([marcelocantos/jevons](https://github.com/marcelocantos/jevons) 🎯T540/🎯T548) — React on `:13705`, vanilla on `:13706`. InstantTip pockets, frontier play chrome, inspect/composer hermetic `itOracle`s, and a status bar that paints overseer phase so recovery chrome is not a turn. `statedb` persists coalesced transcripts and the fleet tree; mux indexes continue across a statedb suffix so PageUp grows past the first-paint tail rather than renumbering history.
@@ -24,7 +22,7 @@
 - **Hot policy config, bounce only on successive diffs** ([marcelocantos/jevons](https://github.com/marcelocantos/jevons) 🎯T574) — one loader/watch seam; first load seeds baseline so a restart is not a diff; `mcpscope` owner map classified bounce-required, pinned by a doc ratchet.
 - **Host load is not a Build-stop** ([marcelocantos/jevons](https://github.com/marcelocantos/jevons) 🎯T566/🎯T573) — remint before spawn; memory grind keys on kernel memory level, swap advisory only; one "overseer is back" per outage; stuck-busy stretches with host load. Daily activation peeled off the bounce ceremony (🎯T553); KeepAlive install uses repo `bin/jevonsd`, not argv0.
 - **vellum viewer** ([marcelocantos/vellum](https://github.com/marcelocantos/vellum) v0.15–v0.17) — HTTP MCP on the view daemon, TOC, figure lightbox (Mermaid SVGs as data URLs so `width="100%"` does not collapse), theme cycle, scroll-pane focus so Page Up/Down work without a click. Local ship via `cv release`; GitHub Actions workflows dropped.
-- **Orthograph as a Canticode product** ([canticode/orthograph](https://github.com/canticode/orthograph)) — daemon HTTP MCP at `:13720/mcp` with flock instance lock, padlink/presence/recognize/render (PNG/PDF/SVG, iso lattice, paper), iOS Pencil surface, peer-app study with a steal/avoid matrix. Conversion squash; see honesty note.
+- **Orthograph as a Canticode product** ([canticode/orthograph](https://github.com/canticode/orthograph)) — daemon HTTP MCP at `:13720/mcp` with flock instance lock, padlink/presence/recognize/render (PNG/PDF/SVG, iso lattice, paper), iOS Pencil surface, peer-app study with a steal/avoid matrix. Conversion squash.
 - **finance — transcripts are the oracle** ([marcelocantos/finance](https://github.com/marcelocantos/finance), initial) — ANZ/NAB/CBA fetchers inside an already-logged-in browser (human does 2FA); PDF → page-tagged JSON; running-balance reconcile; SQLite load; one audit chain per account; double-entry journal. OCR from the PDF's own stencil pixels, not a render. No data, no credentials in the repo.
 - **downstream — incremental Markdown events, not HTML** ([marcelocantos/downstream](https://github.com/marcelocantos/downstream), initial) — Rust crate, Enter/Exit/Text/Attr, append-incremental parsing, Html and Term backends, split-equivalence tests.
 - **bullseye v0.47.0/v0.48.0 — dotted children are umbrellas** ([marcelocantos/bullseye](https://github.com/marcelocantos/bullseye)) — `child_of`, explicit dotted create, and split add append the child to the parent's `depends_on` so a family cannot retire while children are open. Standing-invariants dirty tree warns instead of failing `make bullseye` (🎯T75).
@@ -114,7 +112,7 @@ Covered above. Idempotent refresh via `EXISTING` skip sets baked outside the Pla
 
 ### [canticode/orthograph](https://github.com/canticode/orthograph) — Canticode Product (4 commits)
 
-Covered above. Companion: [canticode/homebrew-tap](https://github.com/canticode/homebrew-tap) initialised; [canticode/canticode.github.io](https://github.com/canticode/canticode.github.io) landing page. **~375 new tests** in the conversion squash (includes the pre-existing suite); +41,249/−448 across 210 files — see honesty note.
+Covered above. Companion: [canticode/homebrew-tap](https://github.com/canticode/homebrew-tap) initialised; [canticode/canticode.github.io](https://github.com/canticode/canticode.github.io) landing page. **~375 new tests** in the conversion squash (includes the pre-existing suite); +41,249/−448 across 210 files.
 
 ### [marcelocantos/housekeeping](https://github.com/marcelocantos/housekeeping) — Disk Audit (2 commits, initial)
 

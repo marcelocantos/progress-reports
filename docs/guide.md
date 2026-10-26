@@ -568,8 +568,7 @@ happened. Bold sparingly, for genuinely load-bearing moments.
 - Cross-link related pages where the story demands it (`[ge](ge.md)` for the
   yourworld2 engine extraction, csp ↔ bricabrac, etc.).
 - Every fact must be traceable to the weekly reports or `docs/achievements.md`.
-  Copy figures exactly; never re-estimate. Keep the reports' honesty caveats
-  (vendor bulk, landed-only counts) when citing affected numbers.
+  Copy figures exactly; never re-estimate.
 
 ### 7.3 Weekly maintenance
 
@@ -615,6 +614,17 @@ no prose beyond the intro sentence and the one-liners.
 ---
 
 ## 8. Tone & Style
+
+- **What never gets published.** Published reports, the README, per-repo pages
+  and achievements (public and private repos alike) never mention the host or
+  machine the work or the report run happened on (no machine names such as
+  Colossus, no "drafted in the X shell"). They also never carry honesty notes
+  or methodology caveats: no "Honesty note" blockquotes, no notes about broker
+  or tooling failures, excluded worktree clones, patched chart scripts,
+  diverged or unpushed local branches, or how a figure was reconciled. Those
+  notes go only to Marcelo in the hand-off message and are never committed.
+  Ordinary metric footnotes defined in §3.4–§3.5 (vendor and
+  `data/line-excludes.yaml` omissions) remain allowed.
 
 - **Confident and direct.** No hedging, no "various improvements were made".
 - **Technically precise.** Name algorithms, protocols, data structures, libraries. The reader is technical.

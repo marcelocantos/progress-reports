@@ -6,8 +6,6 @@
 
 **206 commits** | **+35,614 net lines** | **~55-85 person-days traditional equivalent** | **~30-55x multiplier**
 
-> Honesty note: headline ☲ is gather `landed:` after standing `data/line-excludes.yaml` globs (no new globs this week). Excluded bulk this week **+22,652/−809** (mostly bullseye.yaml/lockfile churn and standing globs). Claudia gather count is **63** first-parent-landed on master in-window; the release train itself is ten tags.
-
 ### Major Achievements & Innovations
 
 - **Resolve is the only placement chooser** ([marcelocantos/claudia](https://github.com/marcelocantos/claudia) v0.32–v0.41) — purpose-quality picks from a daily intel series; model catalog is a set, not a ranking; seats are not placed on a spent allowance; Grok rollover reads as 100% remaining. Daemon pool serves Acquire/Release/`keep_alive_for`; the daemon package builds only on exported API (🎯T64/🎯T75).

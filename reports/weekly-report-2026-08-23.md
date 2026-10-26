@@ -6,8 +6,6 @@
 
 **411 commits** | **+35,928 net lines** | **~55-85 person-days traditional equivalent** | **~40-70x multiplier**
 
-> Honesty note: new `data/line-excludes.yaml` entries land with next week's report (mnemo zstd amalgamation, housekeeping snapshots) — they do not apply here. Headline ☲ is gather `landed:` after the existing globs. Excluded bulk this week is **+7,983/−2,132** (lockfiles, `bullseye.yaml`, standing per-repo trees). Net is depressed by a sawmill entropy-follow-up squash that replaced the tree with a one-line `f.py` (**+1/−54,789**); reverted 31 August, outside this window. 138 of jevons's 280 commits are yaml-only ledger updates (lines already excluded from ☲; they still count toward ℂ). The Saturday fan-out is **69 documentation commits across 68 repos** (+31,716 / −0).
-
 ### Major Achievements & Innovations
 
 - **Host-owned MCP, and a proxy that does not keep the keys** ([marcelocantos/claudia](https://github.com/marcelocantos/claudia) v0.23–v0.27, [marcelocantos/jevons](https://github.com/marcelocantos/jevons) 🎯T464/🎯T520) — `LoadMCP` reads the machine's existing Claude/Grok/Codex maps; `EnsureMCP` merges one HTTP server under flock; `ProbeMCP` classifies open/static/oauth; `AuthorizeMCP` runs PKCE and *returns* tokens. The new `MCPProxy` is a mountable `http.Handler` whose tokens live in the handler and in the host, never in claudia. Silent `RefreshMCPToken` on 401; the browser opens only when refresh is missing or fails. Concurrent 401s on the same server used to open one tab each; refresh is now serialised per server.

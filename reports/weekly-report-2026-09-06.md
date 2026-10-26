@@ -6,8 +6,6 @@
 
 **244 commits** | **−11,020 net lines** | **~55-85 person-days traditional equivalent** | **~40-70x multiplier**
 
-> Honesty note: **new `data/line-excludes.yaml` globs this run** — `marcelocantos/xbnf` `eval/testdata/*/corpus/**` (pinned third-party language corpora, ~5.9k lines), `marcelocantos/jevons` `docs/audits/**/*.json` (generated suite/fidelity maps; `legacy-suites.json` alone is 12,724 lines). Headline ☲ is gather `landed:` after those globs. Excluded bulk this week is **+28,416/−2,992**. jevons **−51,856 net** is the vanilla cockpit deletion (`web/index.html` and its scripts), not a wipe of this week's authorship. Twenty jevons commits and seven sawmill commits landed on master under agent git identities (`commitbase@example.invalid`, `Test@example.com`) and are excluded from ℂ/☲ by gather's `--author` filter.
-
 ### Major Achievements & Innovations
 
 - **A GLL+DFA parser generator in one week** ([marcelocantos/xbnf](https://github.com/marcelocantos/xbnf)) — empty repo to a self-hosting engine that parses `docs/xbnf.xbnf`. Alternation is unordered; ambiguity is a compile error unless a `#prefer` / `#longest` / `|>` disambiguator is declared. Regular fragments compile to DFAs; the rest run as Scott & Johnstone GLL. Seven live tracks (SQL, XML, Go, Python, YAML, JavaScript, CommonMark) are Failed=0 against present oracles on pinned third-party corpora. The 🎯T25 programme KEEP-gated JSON 64 KB 11.78 ms → **4.06 ms** / 2.35 MB / 2 allocs, corpus aggregate **3.043×** with B/op 18.89 → 3.20 MB.

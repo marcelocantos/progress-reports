@@ -6,8 +6,6 @@
 
 **63 commits** | **+20,805 net lines** | **~16-26 person-days traditional equivalent** | **~30-50x multiplier**
 
-> Honesty note: `data/line-excludes.yaml` gained six entries this run, so ☲ is stricter than in prior reports. New fleet defaults exclude machine-written files — dependency lockfiles and `bullseye.yaml`, which the bullseye MCP server owns and which moved **1,089 lines in a single csp commit**. Total excluded bulk: **+2,877/−1,211**. Earlier reports were not restamped, so week-on-week ☲ comparison now understates this week slightly. Commercial project detail: [private week 2026-07-26](https://github.com/marcelocantos/progress-reports-private/blob/master/reports/weekly-report-2026-07-26.md).
-
 ### Major Achievements & Innovations
 
 - **Compressed texture cook and load, owned by the engine** ([squz/ge](https://github.com/squz/ge), 🎯T167, v0.83.0) — a new `bin/ge-texenc` CLI where the *output extension* selects the encoder, backed by statically built ARM [astc-encoder](https://github.com/ARM-software/astc-encoder) and [etcpak](https://github.com/wolfpld/etcpak) (neither linked into `libge.a` — cook path only). Make pattern rules (`%.astc.getex: %.png`) mean consumers just declare the cooked artefact as a dependency. At runtime `ge::loadTexture` queries `sg_query_pixelformat` for real backend support and walks an ordered ASTC → ETC2 → PNG candidate list, so games never branch on encoding and device packages can ship compressed-only while desktop keeps source PNGs for the authoring loop.
@@ -164,7 +162,7 @@ Published the 2026-07-13…19 report, then corrected its line stats and **restam
 | Languages | Go, C++, Objective-C++, C, Rust, Python, JavaScript, Bash, Starlark, TLA+, PowerShell, JSON Schema, GNU Make, YAML, Markdown |
 | Contributors | 1 (Marcelo Cantos) |
 
-‡*☲ excludes `**/vendor/**`, `**/node_modules/**`, and the fleet `data/line-excludes.yaml` globs — six of which were added this run (see the honesty note). Generated amalgamations, lifted header mirrors, LFS prebuilts, lockfiles, and the bullseye ledger no longer score as authorship.*
+‡*☲ excludes `**/vendor/**`, `**/node_modules/**`, and the fleet `data/line-excludes.yaml` globs. Generated amalgamations, lifted header mirrors, LFS prebuilts, lockfiles, and the bullseye ledger no longer score as authorship.*
 
 ### Per-Repository Breakdown
 

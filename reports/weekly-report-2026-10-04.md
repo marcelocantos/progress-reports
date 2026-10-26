@@ -6,8 +6,6 @@
 
 **562 commits** | **+86,185 net lines** | **~90-140 person-days traditional equivalent** | **~30-50x multiplier**
 
-> Honesty note: **new `data/line-excludes.yaml` globs this run** — `**/pubspec.lock` in defaults (Flutter lockfile; jevons-mobile ~+370); `minicadesmobile/stock-car-racing` `Assets/Tracks/**` (4,020 Unity track files, ~+209k/−11k in the 3.26 squash). Headline ☲ is gather `landed:` after those globs plus the origin/main Stock Cars squash counted by hand (local `main` lagged origin). **+99,267/−13,082**. Excluded bulk this week **~+220k/−14k**. Remaining Unity garage/UI/scenes in stock-car still sit in ☲.
-
 ### Major Achievements & Innovations
 
 - **Control-plane land** ([marcelocantos/jevons](https://github.com/marcelocantos/jevons) v0.14.0–v0.15.0) — last week's ~383-commit in-flight train reached master. One `internal/seatstate.Authority` with explicit unknowns; same-repo workers in private git worktrees landed via `git merge-tree` + git-dir flock; `missionbound` caps starts per *target* so a rename cannot reset the meter; finished workers are reaped, not parked. Pins claudia v0.45–v0.48.

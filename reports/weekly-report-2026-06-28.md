@@ -8,8 +8,6 @@
 
 **74 commits** | **~+0.33M added / ~−20k removed** (excl. vendor) | **~18-28 person-days traditional equivalent** | **~20-40x multiplier**
 
-> Honesty note: the raw +440,947/−31,807 line figure (net +409,140) is badly distorted by non-authored content. Commercial project detail: [private week 2026-06-28](https://github.com/marcelocantos/progress-reports-private/blob/master/reports/weekly-report-2026-06-28.md).
-
 ### Major Achievements & Innovations
 
 - **den v1.0.0 release candidate** ([marcelocantos/den](https://github.com/marcelocantos/den)) — the dev-environment manager reached its v1 RC across four merges (+7,848 lines): five v1 **frontier checkpoints** (multi-provider, **SAT-solver dependency resolution**, migration, deferred upgrades, host detection, #47), the v1 blockers cleared (a **trust model**, source-build-plus-taps, perf benchmarks, #48), and 🎯T74 RC prep — a capability matrix, a v1 smoke set, and the version bump (#49) — plus a portable-SHA256 fix to the macOS RC pipeline (#50) so the Package binary hashes identically across platforms.

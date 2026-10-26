@@ -27,7 +27,7 @@ Alongside the reports the repo carries the durable artefacts they feed: a per-we
 - **Landed-versus-in-flight split** — unmerged branch work reported separately and excluded from shipped totals, ending the double-counting of dev commits and their later squash-merge. ([2026-05-24](../../reports/weekly-report-2026-05-24.md))
 - **Length budgets applied to its own output** — the Journey recast as an overview under a sub-linear budget, with entry caps re-compressing seven bloated weeks. ([2026-06-21](../../reports/weekly-report-2026-06-21.md))
 - **Full-series vendor restamp** — every report and the README metrics table remeasured excluding `vendor/` and `node_modules/`, stripping ~+3.0M vendor adds across 26 weeks without touching commits or effort ranges. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
-- **`data/line-excludes.yaml` as the fleet's single exclude file** — a documented schema for per-repo exclusions held centrally, so project repos stay clean and the honesty note declares exactly what each run removed. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
+- **`data/line-excludes.yaml` as the fleet's single exclude file** — a documented schema for per-repo exclusions held centrally, so project repos stay clean. ([2026-07-26](../../reports/weekly-report-2026-07-26.md))
 - **Split into a public series and a private commercial companion** — the classifier, residual rules and dual-write procedure written into the guide, with the public repository's history rewritten and its own line stats excluded from ☲ as a result. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 
 ## Standouts

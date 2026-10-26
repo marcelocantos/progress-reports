@@ -8,8 +8,6 @@ Around it, three large arcs ran in parallel. First, the **Fable-5 audit remediat
 
 **120 commits** | **~+92,767 / ~−33,291** (excl. vendor) | **~16–28 person-days traditional equivalent** | **~35–60x multiplier**
 
-> Honesty note: the raw line totals carry large vendored/generated content. Hand-authored source is led by jevons (~+10k Go), mnemo (~+7k Go), spyder (~+7k Go), pigeon (~+5.8k), and claudia (~+5.3k). Commercial project detail: [private week 2026-07-12](https://github.com/marcelocantos/progress-reports-private/blob/master/reports/weekly-report-2026-07-12.md).
-
 ### Major Achievements & Innovations
 
 - **MultiMaze 2 reaches v1 on both stores** — detail in [private week 2026-07-12](https://github.com/marcelocantos/progress-reports-private/blob/master/reports/weekly-report-2026-07-12.md)

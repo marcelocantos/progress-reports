@@ -6,8 +6,6 @@
 
 **136 commits** | **<span style="color:#1a7f37">+14,870</span> net lines** | **~45-70 person-days traditional equivalent** | **~25-40x multiplier**
 
-> Honesty note: **new `data/line-excludes.yaml` glob this run** — `marcelocantos/xbnf` `fromwbnf/testdata/arrai/stdlib/**` (pinned arr.ai stdlib for the tree oracle, +352). Headline ☲ is gather `landed:` after that adjustment, recomputed for xbnf only; the fleet `gather.sh` was not re-run. **<span style="color:#1a7f37">+15,866</span>/<span style="color:#cf222e">−996</span>**. Excluded bulk this week **+7,777/−2,062** (standing globs plus the new stdlib pin). KaTeX `.woff2` files are binary and do not enter ☲. Two of the thirteen repos are the report series publishing last week; their `reports/**` and `docs/**` stay excluded.
-
 ### Major Achievements & Innovations
 
 - **Request identity on the wire** ([marcelocantos/claudia](https://github.com/marcelocantos/claudia) v0.49.0–v0.51.0) — the host mints a durable `RequestID`; Claudia carries it on broker sends and provider events. An OMP sidecar turn has `TurnID`, per-turn `FragmentSeq`, and a daemon-authored `Final` fragment. A payload that does not correlate is refused. Three tags. Bare Claude and Codex seats route to OMP; Codex control is refused.
@@ -102,7 +100,7 @@ Personal paths in the Supervisor sample config replaced (2 files, <span style="c
 - **🎯T30.6**: `scripts/vendor-katex.sh` embeds KaTeX's minified CSS and woff2 fonts. Converted maths does not fetch a CDN.
 - **pptx**: slide text is matched across pandoc's per-token code runs, so a run boundary is not a missed string.
 - **Confluence corpus**: a Playwright capture script and a small markdown layout set (tables, media, portrait SVG) for the converter. Authored fixtures, not a generated dump.
-- **Stability**: settling-clock gate retired; the agent's 1.0 judgment recorded. 🎯T30.2, T30.7, and T30.9 retired, with the gate described as local rather than CI. `pr-workflow` skipped for the Colossus gated-push.
+- **Stability**: settling-clock gate retired; the agent's 1.0 judgment recorded. 🎯T30.2, T30.7, and T30.9 retired, with the gate described as local rather than CI. `pr-workflow` skipped in favour of a local gated push.
 
 ---
 

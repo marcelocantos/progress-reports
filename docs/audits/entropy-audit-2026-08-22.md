@@ -278,7 +278,6 @@ Deliberate duplication: public stub + private full narrative for commercial work
 - **Dual-home split** with a written classifier and residual rules (`docs/guide.md` Dual-home series; `CLAUDE.md` lines 5–8). Sampled weeks (2026-03-08, 2026-07-26, 2026-08-02, 2026-08-16) replace commercial `###` narrative with stubs and keep names in metrics tables.
 - **`data/line-excludes.yaml` as the fleet's only ☲ exclude file**, including the honesty that this repo's own `reports/**` and `docs/**` are excluded so a history rewrite does not double-count prose (`data/line-excludes.yaml` lines 74–85). Methodology documents the 2026-07-25 restamp (`docs/methodology.md` line 37).
 - **Landed vs in-flight split** in weekly Metrics (`reports/weekly-report-2026-08-16.md` lines 99–108) so squash-merges are not counted twice.
-- **Honesty notes** on each recent week stating which globs were added and what bulk was omitted.
 - **Declared no-CI path** (`CLAUDE.md` 27–38) matching reality (no `.github`, branch unprotected). Do not invent a PR workflow for this repo.
 - **Guide §7 per-repo pages** with inclusion threshold, alias table, length ceilings, and a self-healing backfill. T3 is achieved; the public index is categorised and links commercial titles privately (`docs/repos/README.md`).
 - **Ranges, not point estimates** for effort (`docs/methodology.md` line 28) — the scoring rubric is the live one, even where glyphs drifted.

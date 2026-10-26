@@ -6,8 +6,6 @@
 
 **115 commits** | **+40,842 net lines** | **~52-82 person-days traditional equivalent** | **~35-60x multiplier**
 
-> Honesty note: **new `data/line-excludes.yaml` globs this run** — `arr-ai/arrai` `perf/reconstruct/model.sysl.pb` + `perf/reconstruct/vendor/**` (85k-line protobuf dump and a vendored sysl-in-arrai workload). Headline ☲ is gather `landed:` after those globs. Excluded bulk this week is **+89,888/−274**. The arrai **42×/106×** figures are against the reported v0.338.0 reconstruct (58.8–67.8 s → 1.51 s); last week's interned-shapes slice was already on that ladder (2.13 s). This merge is the rest of the programme plus in-place rows and the hash-contract change.
-
 ### Major Achievements & Innovations
 
 - **Evaluator overhaul lands at 42× / 106×** ([arr-ai/arrai](https://github.com/arr-ai/arrai) v0.340.0–v0.341.0) — reconstruct wall-clock 58.8–67.8 s → **1.51 s** vs v0.338.0 (algo 106× after subtracting the ~925 ms compile floor). Direct calls, index-backed `where`, `let rec` as a once-written cell, parallel `where`/`=>` and `>>`/`>>>`, linear concat, interned `$`-strings. Then 🎯T29: common relational paths keep rows on the arena instead of boxing them as Tuples; Hash128 is gone — values use a seedless 64-bit `Hash()` with mix/xor and kind salts, matching frozen/v2.

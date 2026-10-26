@@ -8,8 +8,6 @@
 
 **75 commits** | **~+24,814 / ~−3,891** (excl. vendor) | **~24-38 person-days traditional equivalent** | **~18-30x multiplier**
 
-> Honesty note: the raw +24,951/−4,100 figure carries modest non-authored inflation. **progress-reports' +2,792/−970 is this repo's own output** (the 2026-06-01…07 report-publishing commit), and **multimaze2's +7,047 and ge's line counts include committed binaries** (`.png` sprites and `prebuilt/*.a` static libraries) that distort `git`'s accounting. Genuinely hand-authored, merged source is on the order of **+16-19k lines** — led by multimaze2 (+6.5k C++/GLSL incl. assets), rustuml (+4.2k Rust), spyder (+3.1k Go), mnemo (+1.5k Go), csp (+1.5k C++), and ge (+1.5k C++/Objective-C++).
-
 ### Major Achievements & Innovations
 
 - **spyder v0.54/v0.56/v0.57 — iOS ≤16 via lockdown + app-channel state slices** ([marcelocantos/spyder](https://github.com/marcelocantos/spyder)) — v0.54.0 (🎯T78) deploys, launches, and screenshots **iOS ≤16 devices over the lockdown protocol with no tunneld** — no Developer-mode tunnel required — and a follow-up fixes those same devices being silently filtered out by the `devicectl` gate, restoring a whole class of older test hardware. v0.56.0/v0.57.0 (🎯T80/T81) make app-channel state slices agent-consumable with **server-side `jq` filtering** and an `app_state_describe` tool. 32 new Go tests.

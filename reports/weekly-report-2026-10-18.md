@@ -6,8 +6,6 @@
 
 **173 commits** | **<span style="color:#1a7f37">+2,412</span> net lines** | **~58-88 person-days traditional equivalent** | **~25-55x multiplier**
 
-> Honesty notes. **(1) claudia and jevons are counted from `origin/master`, not the local checkout.** Both local `master` branches had diverged (claudia 17 ahead / 91 behind; jevons 3 ahead / 68 behind). Sixteen of claudia's seventeen local-only commits are patch-identical to origin commits; the seventeenth (a ledger-only audit commit) is counted. Twenty-one claudia commits authored 10–11 Oct and rebased onto `master` on 13 Oct are **not** counted again — last week's report already covered them. jevons' three local-only commits are content already inside squash #71 and are not counted. **(2) jevons' ℂ is 2** because #71 and #72 are squash merges; #71's body lists 206 squashed items, most written in earlier weeks while the branch was in-flight. **(3) `marcelocantos/think` is left out of every headline figure.** It is a personal knowledge vault that was cloned under the scan root on 18 Oct for the first time; its 123 commits this week are automated YouTube-transcript ingestion (<span style="color:#1a7f37">+505,081</span> lines under `knowledge/youtube/`), not development, and earlier weeks never counted it. A `knowledge/youtube/**` glob is added to `data/line-excludes.yaml` so a future run cannot fold that bulk into ☲. Excluded bulk on the counted repos this week: <span style="color:#1a7f37">+2,586</span>/<span style="color:#cf222e">−136</span> (lockfiles, `bullseye.yaml` ledgers, jevons `docs/audits/**/*.json`, spyder `player/vendor`, xbnf corpora), plus the report series' own `reports/**` and `docs/**`.
-
 ### Major Achievements & Innovations
 
 - **A seat switches provider in place** ([marcelocantos/claudia](https://github.com/marcelocantos/claudia) v0.53.0) — `Agent.SwitchModel` / `Registry.SwitchModel` replace `SetModel`, `Migrate`, and `MigrateStopped`. A sidecar seat moves from Anthropic to `openai-codex` between turns and keeps its conversation; nothing is summarised and no successor seat starts. The context-transfer migration, its transfer seat, and the migrate wire ops are deleted (61 files, <span style="color:#1a7f37">+976</span>/<span style="color:#cf222e">−3,829</span>). Live tests prove the switched seat recalls an earlier tool result, not just a prompt.
@@ -42,7 +40,7 @@
 
 ### [marcelocantos/claudia](https://github.com/marcelocantos/claudia) — In-Place Switch, CLI Era Deleted (115 commits, v0.53.0–v0.56.0)
 
-**The biggest landed effort of the week.** 968 file changes, <span style="color:#1a7f37">+23,961</span>/<span style="color:#cf222e">−37,516</span>. **~282 added test declarations** (Go `func Test` plus sidecar `test(`/`it(`), with many tmux-only tests deleted. Four tags. Counted from `origin/master`; see the honesty note.
+**The biggest landed effort of the week.** 968 file changes, <span style="color:#1a7f37">+23,961</span>/<span style="color:#cf222e">−37,516</span>. **~282 added test declarations** (Go `func Test` plus sidecar `test(`/`it(`), with many tmux-only tests deleted. Four tags.
 
 - **In-place switch (🎯T195, v0.53.0)**: `SwitchModel` on `Agent` and `Registry`; `set_model` carries a provider. A broker-run seat this host has not attached is refused. A re-attach never fails a working seat over its model. Live: Anthropic → `openai-codex` in place, recalling an earlier tool result.
 - **Deletion**: tmux backend, warm pool, Claude tmux ops/adopt, daemon pool grant (refused on the wire), `.github/workflows` (approved 8 Oct) — <span style="color:#cf222e">−11,624</span>. Then about fifteen commits refused each surviving CLI spawn path by name before the legacy CLI seat transport was deleted (<span style="color:#cf222e">−8,079</span>): attach, term-log writer, rewind, capture, paste, the control dial, window probes, `checkTmux`, the Task-surface lookup of subscription binaries, the Codex app-server schema probe. Every fleet provider is proven to launch through the sidecar.
@@ -126,13 +124,12 @@ Nothing commercial landed on a default branch.
 - **marcelocantos/mnemo** — 8 in-flight, <span style="color:#1a7f37">+4,885</span>/<span style="color:#cf222e">−273</span>.
 - **arr-ai/arrai** — 6 in-flight, <span style="color:#1a7f37">+1,353</span>/<span style="color:#cf222e">−15</span>.
 - **marcelocantos/sqlpipe** — 5 in-flight; **marcelocantos/cv** — 2 in-flight (the PR behind v0.11.0); **marcelocantos/sqldeep**, **mcpsafe**, **slacker**, **squz/ge** — stash or zero-file entries only.
-- Gather's in-flight lines for claudia (97) and jevons (230) are not used here: with local `master` diverged, they mostly re-count commits that are already on `origin/master`.
 
 ---
 
 ## Metrics
 
-*All metrics reflect Marcelo Cantos's contributions only, and count **landed** commits within 2026-10-12…18 — local default branch for most repos, `origin/master` for claudia and jevons (see the honesty note). `marcelocantos/think` is excluded. In-flight branch work is excluded by design.*
+*All metrics reflect Marcelo Cantos's contributions only, and count **landed** commits within 2026-10-12…18. `marcelocantos/think` is excluded. In-flight branch work is excluded by design.*
 
 ### Aggregate
 

@@ -8,8 +8,6 @@
 
 **169 commits** | **~+54,760 / ~−49,810** (excl. vendor) | **~14–24 person-days traditional equivalent** | **~30–55x multiplier**
 
-> Honesty note: the raw line totals are dominated by non-authored content. **ge's −42,729** is almost entirely deletion of vendored bgfx/bimg/bx submodule sources (one commit is −39,767); **stock-car-racing's +10,343** is mostly Unity PSD decal assets and release churn; **sqlpipe's +1,535** is largely triplicated across `dist/`/Go/Swift mirrors. Genuinely hand-authored source is led by rustuml (+5.7k Rust), mnemo (~+10k Go incl. design docs), sawmill (~+8k Go), ge (~+3.9k C++), and csp (+2.9k C++).
-
 ### Major Achievements & Innovations
 
 - **Fleet-wide Fable-5 deep audit + same-week remediation** ([csp](https://github.com/marcelocantos/csp), [pigeon](https://github.com/marcelocantos/pigeon), [sqlpipe](https://github.com/marcelocantos/sqlpipe), [mnemo](https://github.com/marcelocantos/mnemo), [sawmill](https://github.com/marcelocantos/sawmill), [doit](https://github.com/marcelocantos/doit), [mcpbridge](https://github.com/marcelocantos/mcpbridge), [squz/ge](https://github.com/squz/ge)) — an AI security/correctness audit ran across eight repos, surfacing multiple confirmed criticals and shipping fixes in csp **v0.20.0/v0.21.0**, pigeon **v0.25.0** and sqlpipe **v0.25.0** the same week. The methodology is the achievement as much as the findings: two-lens adversarial re-verification defaulting to "refuted" caught a false positive in mcpbridge (a self-unlinking listener) and set it aside rather than filing it.

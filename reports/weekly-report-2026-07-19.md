@@ -8,8 +8,6 @@
 
 **96 commits** | **~+132k added / ~−13k removed** (excl. vendor) | **~14–24 person-days traditional equivalent** | **~30–55x multiplier**
 
-> Honesty note: Line stats exclude `**/vendor/**` (and `node_modules/`). Under that policy, **spyder is +22.5k/−1.1k** for authored daemon + player; **~+731k** under `player/vendor/` (ge vendor snapshot — sqlite amalgamation, asio, headers, …) is recorded only as excluded bulk. **ge is +41.2k/−3.9k** excl. vendor (~+39k more under `vendor/`); the remaining ge total still carries T156.6 verdict traces (~+29k). Hand-authored leaders excl. those: mnemo (~+8.5k), csp (~+6.6k), sawmill (~+4.4k), jevons (~+3.9k). Commercial project detail: [private week 2026-07-19](https://github.com/marcelocantos/progress-reports-private/blob/master/reports/weekly-report-2026-07-19.md).
-
 ### Major Achievements & Innovations
 
 - **ge browser platform (Emscripten/WebGL2)** ([squz/ge](https://github.com/squz/ge), 🎯T157, v0.75→v0.79) — fourth direct-mode platform: unmodified `ge::run(Factory)` builds to wasm via `make web`, sokol GLES3 over WebGL2, Asyncify-preserving native run loop (RAF-aligned, no exception-unwound main loop), IDBFS-backed sqlite, single-threaded (no COOP/COEP). A deepparser arena default-align abort that killed every web app at startup was fixed same-week.

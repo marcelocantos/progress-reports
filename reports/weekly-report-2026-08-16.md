@@ -6,8 +6,6 @@
 
 **263 commits** | **+73,131 net lines** | **~48-76 person-days traditional equivalent** | **~40-70x multiplier**
 
-> Honesty note: no new `data/line-excludes.yaml` entries this run. Headline ☲ is gather `landed:` after the existing globs. Excluded bulk this week is **+5,333/−614** (lockfiles, `bullseye.yaml`, and the standing per-repo trees). jevons +45,282 and claudia +28,966 were checked: authored Go, vanilla JS, Rust tests, and small JSON/JSONL fixtures — no new golden or generated corpus.
-
 ### Major Achievements & Innovations
 
 - **Crash-survival is not recovery** ([marcelocantos/jevons](https://github.com/marcelocantos/jevons) 🎯T40.1, [marcelocantos/claudia](https://github.com/marcelocantos/claudia) 🎯T34) — Claudia's tmux substrate keeps an agent alive if the consumer dies, which is true and was the entire problem: there was no `Adopt`, `Registry.Stop` was a silent no-op without an in-memory handle, and every bounce called `Launch`. One day's log held ~500 `agent started` events against ~24 live agents, 46 tmux windows and 65 `claude` processes. Containment (watchdog `bootout`) dropped compression from 1,136 MB/s to zero and freed 19 GB without touching Bitdefender, Parallels or ollama. The contract now distinguishes drain, cold start and upgrade: only an upgrade handoff carrying `TmuxWindowID` adopts; ordinary start leaves leftovers visible so an exit leak cannot hide behind the next boot.

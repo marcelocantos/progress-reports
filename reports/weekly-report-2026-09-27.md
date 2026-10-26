@@ -6,8 +6,6 @@
 
 **354 commits** | **+48,347 net lines** | **~70-110 person-days traditional equivalent** | **~30-55x multiplier**
 
-> Honesty note: **new `data/line-excludes.yaml` globs this run** — `marcelocantos/skills` `skills/synced/**` (third-party Anthropic/office skill trees and ISO OOXML XSDs copied by skill sync; ~+79k this week). Headline ☲ is gather `landed:` after that glob (**+54,770/−6,423**). Excluded bulk this week **+83,171/−469**.
-
 ### Major Achievements & Innovations
 
 - **OMP sidecar + sealed plan credentials** ([marcelocantos/claudia](https://github.com/marcelocantos/claudia) v0.42–v0.44) — subscription providers route through pinned pi-agent-core; Bash/Read/Write/Glob/Grep advertised on OMP seats; plan blob in an encrypted file not Keychain argv; one Keychain read/write per process; ACL sealed to the product broker; login refresh when xAI rejects the access token.

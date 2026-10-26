@@ -20,6 +20,7 @@ The repos to scan live under `~/work/github.com/` in these organisations:
 
 - British English spelling (colour, behaviour, minimise, etc.).
 - No emojis.
+- Never mention the host machine (e.g. Colossus) and never publish honesty notes or methodology caveats; those go to Marcelo in the hand-off only (see guide §8).
 - Tone: confident, technically precise, dense. No filler.
 - Report filenames: `reports/weekly-report-<YYYY-MM-DD>.md` (date = last day of period).
 - After writing a report, update `README.md` (newest first) and commit both together.

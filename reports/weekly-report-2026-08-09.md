@@ -6,8 +6,6 @@
 
 **297 commits** | **+237,246 net lines** | **~46-76 person-days traditional equivalent** | **~60-95x multiplier**
 
-> Honesty note: three new `data/line-excludes.yaml` entries this run. `marcelocantos/orthograph: ios/build-spm-check/**` removes a briefly-tracked Swift Package Manager build tree — **4,996 of the repo's 5,441 raw file changes** were machine-written module caches. `marcelocantos/progress-reports` and `progress-reports-private`: `reports/**` and `docs/**`, because the public/private split rewrote the public repo's history and a single commit re-adds the whole back-catalogue (+59k), which would double-count prose already reported in the weeks it describes. Total excluded bulk: **+72,004/−4,850**. jevons's +160,946 was checked and is genuine authored source — 632 distinct files, 502 of them new, spread across Go packages and vanilla-JS modules with no vendored blob. Commercial project detail: [private week 2026-08-09](https://github.com/marcelocantos/progress-reports-private/blob/master/reports/weekly-report-2026-08-09.md).
-
 ### Major Achievements & Innovations
 
 - **orthograph — a shared drawing surface for a human and their agents, nothing to installable in six days** ([marcelocantos/orthograph](https://github.com/marcelocantos/orthograph)) — the stated problem is precise: agents can read code, logs and screenshots, but cannot *share a drawing surface* with a human in real time, so technical discussion collapses into ASCII, PlantUML links, or "describe what you mean". Orthograph is a Mac daemon (Homebrew service) owning a vector document in SQLite with an append-only op log, an HTTP MCP server giving agents a full observation and mutation surface over stable ULID-keyed objects, a deterministic render hash so an agent can tell whether the canvas changed, content-addressed media with four export formats, and an iPad SwiftUI app taking per-sample Apple Pencil force and tilt with Pencil-only ink and three-finger viewport control. Pairing runs the pigeon QR ceremony, proven **through the shipped binary** rather than in a test harness. 86 commits, +43,945/−3,269, **399 tests**.
@@ -138,7 +136,7 @@ An `/open-source/` products page on the Hugo site. +170/−1.
 
 ### [marcelocantos/progress-reports](https://github.com/marcelocantos/progress-reports) · [progress-reports-private](https://github.com/marcelocantos/progress-reports-private) (1 commit each)
 
-The series split into a public repository and a private commercial companion, with the classifier, residual rules and dual-write procedure written into the guide. The public repository's history was rewritten in the process, which is why its line stats are now excluded from ☲ (see the honesty note). +4,175 and +60 respectively in headline ☲, with +54,953 and +1,775 of re-added back-catalogue excluded.
+The series split into a public repository and a private commercial companion, with the classifier, residual rules and dual-write procedure written into the guide. The public repository's history was rewritten in the process, which is why its line stats are now excluded from ☲. +4,175 and +60 respectively in headline ☲, with +54,953 and +1,775 of re-added back-catalogue excluded.
 
 ---
 
@@ -185,7 +183,7 @@ The series split into a public repository and a private commercial companion, wi
 | Languages | Go, Swift, JavaScript, C, C++, Rust, Python, C#, Objective-C, GLSL, Bash, Starlark, SQL, YAML, Markdown |
 | Contributors | 1 (Marcelo Cantos) |
 
-‡*☲ excludes `**/vendor/**`, `**/node_modules/**`, and the fleet `data/line-excludes.yaml` globs — three entries added this run (see the honesty note).*
+‡*☲ excludes `**/vendor/**`, `**/node_modules/**`, and the fleet `data/line-excludes.yaml` globs.*
 
 ### Per-Repository Breakdown
 

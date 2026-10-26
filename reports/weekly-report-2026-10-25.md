@@ -6,8 +6,6 @@
 
 **292 commits** | **<span style="color:#1a7f37">+70,116</span> net lines** | **~58-90 person-days traditional equivalent** | **~20-55x multiplier**
 
-> Honesty notes. **(1) The draft was written directly in the Colossus shell.** `claudia broker task --pick remaining` still fails with "Task CLI transport removed; no OMP Task replacement is available (T192; T190)". **(2) Six full jevons clones are left out.** They sit under `.jevons-worktrees-jevons/`, and each re-counts about 950 jevons commits as a separate repo. Gather's raw totals (27 repos, 6,018 commits) and its daily repo counts include them, so every figure here was recounted per commit without them. The README timeline was regenerated with that directory skipped. **(3) claudia and jevons are counted as the union of local `master` and `origin/master`.** Both had diverged again: claudia was 34 ahead and 3 behind, and all 34 local-only commits are unique. Most of them are weekend ledger commits, and they are counted, along with the three origin-only commits (v0.65.0 and `make verify-release`). jevons has **5** commits: squash #74 on origin, plus four unpushed local `master` commits (T1054, T393). #74's body lists 242 squashed items, many of them written on the branch in earlier weeks that reported it as in-flight; it is counted once, here, and dominates ☲ (<span style="color:#1a7f37">+51,136</span>/<span style="color:#cf222e">−11,445</span>). **(4) Several local `master` branches are ahead of GitHub**: bullseye (78), sentinel (59), spyder (9), orthograph (8), and threedee (2). loadmon has no remote. These are counted under the skill's local-default-branch rule. **(5) HMS has no local `master`**, so gather fell back to the checked-out branch and called 31 branch commits "landed". `origin/master` has none in the window, so HMS counts as in-flight. **(6) New exclude:** `canticode/certs` `profiles/**` and `certs/**` (fastlane match-encrypted signing blobs). `marcelocantos/think` had no commits this week and stays out of the headline. Excluded bulk on the counted repos: <span style="color:#1a7f37">+8,122</span>/<span style="color:#cf222e">−2,295</span>. That covers lockfiles, `bullseye.yaml` ledgers, jevons `docs/audits/**/*.json`, the certs blobs, and the report repos' own `reports/**` and `docs/**`.
-
 ### Major Achievements & Innovations
 
 - **jevons reaches a usable state** ([marcelocantos/jevons](https://github.com/marcelocantos/jevons) #74). Every seat runs on bare pi-agent-core, and the coding-agent SDK that had been adopted beside it is dropped (T1074.12). The control plane splits into two databases with one writer each, after a shared broker file was found to have lost J44, J39, and about 22 journeys behind them. Fleet reconcile passes are serialised, and a handoff with an unknown receipt reports `delivered_unconfirmed`, not "sent". The journey suite runs 45/45, and a topology oracle guards the shared-file defect.
@@ -53,7 +51,7 @@
 
 ### [marcelocantos/claudia](https://github.com/marcelocantos/claudia) — Restart-Safe Broker, Eight Releases (115 commits, v0.58.0–v0.65.0)
 
-272 file changes, <span style="color:#1a7f37">+9,321</span>/<span style="color:#cf222e">−2,587</span>. **~117 added test declarations**. Eight releases, plus a `v0.63.1-t861` tag that is not counted as a release. Counted as the union of local and origin `master`; see the honesty note.
+272 file changes, <span style="color:#1a7f37">+9,321</span>/<span style="color:#cf222e">−2,587</span>. **~117 added test declarations**. Eight releases, plus a `v0.63.1-t861` tag that is not counted as a release.
 
 - **Restart safety (T206, T207, T208, T213, T214)**: covered under Major Achievements.
 - **Sidecar policy (T209, T886)**: protected paths and a truncated-read write guard, ratcheted in the seat's coding-tools wiring. Ledger `protected_paths` persist across a seat reload.
@@ -66,7 +64,7 @@
 
 ### [marcelocantos/bullseye](https://github.com/marcelocantos/bullseye) — Commit Mode and Ledger Repair (38 commits)
 
-80 file changes, <span style="color:#1a7f37">+4,141</span>/<span style="color:#cf222e">−251</span>. **~39 added tests** (Rust). No tag. Local `master` is 78 commits ahead of GitHub.
+80 file changes, <span style="color:#1a7f37">+4,141</span>/<span style="color:#cf222e">−251</span>. **~39 added tests** (Rust). No tag.
 
 - **T100.1–T100.5**: covered under Major Achievements.
 - **T96–T99**: CAS-protected achieve and retire with concurrent-write retries, and per-target schema parse failures tolerated on read.
@@ -106,7 +104,7 @@ A new Swift package with no GitHub remote. 113 file changes, <span style="color:
 
 ### [marcelocantos/vellum](https://github.com/marcelocantos/vellum) — Seven Releases and verify-release (21 commits, v0.29.0–v0.35.0)
 
-70 file changes, <span style="color:#1a7f37">+1,755</span>/<span style="color:#cf222e">−130</span>, ~10 tests. Each release has a Scoop manifest. T36 is achieved with the Colossus `cv gate` plus a zero-skip hms-vm suite as its oracle, T7.1 is superseded, and T23 is achieved. `docs/HANDOVER.md` is marked historical (T30.3). Converters fail fast in `convert.Run` (T30.5). `make verify-release` was added. Anchor links, wide PDF fitting, and the download menu followed.
+70 file changes, <span style="color:#1a7f37">+1,755</span>/<span style="color:#cf222e">−130</span>, ~10 tests. Each release has a Scoop manifest. T36 is achieved with a local `cv gate` plus a zero-skip hms-vm suite as its oracle, T7.1 is superseded, and T23 is achieved. `docs/HANDOVER.md` is marked historical (T30.3). Converters fail fast in `convert.Run` (T30.5). `make verify-release` was added. Anchor links, wide PDF fitting, and the download menu followed.
 
 ### [marcelocantos/sqlpipe](https://github.com/marcelocantos/sqlpipe) — v0.33.0 (4 commits)
 
@@ -140,13 +138,13 @@ Nothing commercial landed on a default branch.
 - **marcelocantos/den**: 3 in-flight, <span style="color:#1a7f37">+2,142</span>/<span style="color:#cf222e">−70</span>.
 - **arr-ai/arrai**: 3 in-flight, <span style="color:#1a7f37">+1,055</span>/<span style="color:#cf222e">−35</span>.
 - **squz/yourworld2**: 3 in-flight (see Commercial). **marcelocantos/spyder**: 6 on side branches. **marcelocantos/cv** and **go-ios**: 1 each.
-- **marcelocantos/jevons**: the checked-out `steer-modes-stop-guards-seat-stops` branch is 1,879 commits ahead of `origin/master`. Gather's in-flight figures for jevons and claudia are not used, because with local `master` diverged they mostly re-count commits that are already on origin or inside #74.
+- **marcelocantos/jevons**: the checked-out `steer-modes-stop-guards-seat-stops` branch is 1,879 commits ahead of `origin/master`.
 
 ---
 
 ## Metrics
 
-*All metrics reflect Marcelo Cantos's contributions only, and count **landed** commits within 2026-10-19…25 by commit date. That means the local default branch for most repos, and the union of local and `origin/master` for claudia and jevons. The `.jevons-worktrees-jevons/` clones and HMS's branch are excluded (see the honesty notes). In-flight branch work is excluded by design.*
+*All metrics reflect Marcelo Cantos's contributions only, and count **landed** commits within 2026-10-19…25 by commit date. In-flight branch work is excluded by design.*
 
 ### Aggregate
 
@@ -170,7 +168,7 @@ Nothing commercial landed on a default branch.
 
 | Repo | Commits | Files changed | Lines added | Lines removed | Net |
 |------|---------|---------------|-------------|---------------|-----|
-| [marcelocantos/claudia](https://github.com/marcelocantos/claudia) | 115 | 272 | <span style="color:#1a7f37">+9,321</span> | <span style="color:#cf222e">−2,587</span> | <span style="color:#1a7f37">+6,734</span>* |
+| [marcelocantos/claudia](https://github.com/marcelocantos/claudia) | 115 | 272 | <span style="color:#1a7f37">+9,321</span> | <span style="color:#cf222e">−2,587</span> | <span style="color:#1a7f37">+6,734</span> |
 | [marcelocantos/spyder](https://github.com/marcelocantos/spyder) | 74 | 163 | <span style="color:#1a7f37">+9,853</span> | <span style="color:#cf222e">−808</span> | <span style="color:#1a7f37">+9,045</span> |
 | [marcelocantos/bullseye](https://github.com/marcelocantos/bullseye) | 38 | 80 | <span style="color:#1a7f37">+4,141</span> | <span style="color:#cf222e">−251</span> | <span style="color:#1a7f37">+3,890</span> |
 | [marcelocantos/vellum](https://github.com/marcelocantos/vellum) | 21 | 70 | <span style="color:#1a7f37">+1,755</span> | <span style="color:#cf222e">−130</span> | <span style="color:#1a7f37">+1,625</span> |
@@ -183,8 +181,6 @@ Nothing commercial landed on a default branch.
 | [marcelocantos/threedee](https://github.com/marcelocantos/threedee) | 2 | 7 | <span style="color:#1a7f37">+82</span> | <span style="color:#cf222e">−9</span> | <span style="color:#1a7f37">+73</span> |
 | [marcelocantos/progress-reports](https://github.com/marcelocantos/progress-reports) | 1 | 3 | <span style="color:#1a7f37">+35</span> | <span style="color:#cf222e">−14</span> | <span style="color:#1a7f37">+21</span> |
 | [marcelocantos/progress-reports-private](https://github.com/marcelocantos/progress-reports-private) | 1 | 1 | <span style="color:#1a7f37">+1</span> | <span style="color:#cf222e">−0</span> | <span style="color:#1a7f37">+1</span> |
-
-\* *The union of local and `origin/master`: 81 origin commits plus 34 unpushed local commits. Two of the 81 were authored on 14 and 18 Oct but committed in this window.*
 
 † *Squash #74 (242 items, many previously reported as in-flight) plus four unpushed local commits.*
 
