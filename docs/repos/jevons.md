@@ -28,6 +28,8 @@ The long in-flight branch then **landed in two squash merges** (#71, #72) in the
 
 The week ending 25 Oct squash-landed the usable-state train (#74). Every seat runs on bare pi-agent-core and the coding-agent SDK adopted beside it was dropped. The control plane split into two databases with one writer each, after a broker file shared across journey isolates was found to have lost J44, J39 and about 22 journeys behind them. Fleet runaway fixes and receipt-based handoff status followed, and all 45 journeys went green.
 
+The week ending 1 Nov squash-landed a second train of 2,280 branch commits, which replaced pull requests with a gated push. `make gate` attests the tree it measured and the pre-push hook checks that attestation. Parallel layers and three journey shards cut the gate from about two hours to about eight minutes. Follow-up landings added plan-policy parks that end the turn, a kill guard, cherry-proven worktree cleanup, replay cassettes and an overseer token-burn fix.
+
 ## Highlights
 
 - **JSONL canonical: SQLite and Lua deleted** — the database layer, the legacy Go package and the embedded interpreter all removed once mnemo was recognised as the real replay layer. ([2026-05-10](../../reports/weekly-report-2026-05-10.md))
@@ -44,6 +46,7 @@ The week ending 25 Oct squash-landed the usable-state train (#74). Every seat ru
 - **Survival oracles** — reap seats only on their own completion claims; parent-report dedupe; EMPTY not GREEN for empty `go test`; Grok `GOAL_STATUS` in chat_history closes the mission. ([2026-09-20](../../reports/weekly-report-2026-09-20.md))
 - **Control-plane land (v0.14–v0.15)** — one seat Authority with explicit unknowns; worktree isolation with a merge-tree integrator; rename-proof mission bounds; reap-not-park. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
 - **Usable state (#74)** — bare pi-agent-core seats, a two-database single-writer control plane, fleet runaway fixes, 45 of 45 journeys green. ([2026-10-25](../../reports/weekly-report-2026-10-25.md))
+- **Gated push (🎯T1279)** — attested `make gate` replaces PRs; gate ~2 h → ~8 min with sharded journeys; plan-policy park, `make land`, Android plan-usage widget. ([11-01](../../reports/weekly-report-2026-11-01.md))
 
 ## Standouts
 
@@ -59,12 +62,12 @@ The week ending 25 Oct squash-landed the usable-state train (#74). Every seat ru
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 26 |
-| Commits | ~1,200 (the 10-18 landing is 2 squash commits; the 10-25 landing is 1 squash commit plus 4 local-only commits) |
-| Human attention | ~77–130 h |
-| Traditional equivalent | ~9.6–15.2 months |
+| Weeks active | 27 |
+| Commits | ~1,208 (the 10-18 landing is 2 squash commits; the 10-25 landing is 1 squash commit plus 4 local-only commits; the 11-01 landing is 1 squash commit plus 7 follow-ups) |
+| Human attention | ~79–134 h |
+| Traditional equivalent | ~10.1–15.9 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md)
+[03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md)

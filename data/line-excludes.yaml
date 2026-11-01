@@ -64,6 +64,15 @@ repos:
   marcelocantos/jevons:
     - ios/Vendor/**
     - docs/audits/**/*.json
+    # Android widget native layer (2026-10-29): third-party and amalgamated
+    # C/C++ copied in for the JNI build: sqlite3 amalgamation (261k),
+    # nlohmann/json, lz4, the sqlpipe amalgamation and the generated
+    # deepparser (Lemon) tree. device_store.cpp and CMakeLists stay in ☲.
+    - mobile/android/app/src/main/cpp/include/**
+    - mobile/android/app/src/main/cpp/deepparser/**
+    - mobile/android/app/src/main/cpp/sqlite3.*
+    - mobile/android/app/src/main/cpp/sqlpipe.*
+    - mobile/android/app/src/main/cpp/lz4.*
 
   # Generated 41 MB C blob embedding the Ruby bundle.
   marcelocantos/den:

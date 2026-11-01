@@ -8,6 +8,8 @@ The tap was created in February to distribute mk — later renamed [cv](cv.md) �
 
 From there the tap became the fleet's delivery endpoint rather than one project's afterthought. [ytt](ytt.md)'s formula landed alongside its open-source v0.1.0. [vellum](vellum.md)'s formula was reshaped twice — first with a launchd service block to fix `PATH`, then, when that proved to cover only `brew services` and not terminal or MCP-client launches, by dropping the service block in favour of an install-time shell wrapper. New projects wired the tap into their release workflows from the start: [crosshair](crosshair.md)'s v0.1.0 workflow builds macOS arm64 and Linux amd64/arm64 binaries on tag push, uploads them to the release, then runs homebrew-releaser to update the tap. `tern.rb` was later removed after the rename to [pigeon](pigeon.md). Newer products ([orthograph](orthograph.md), [vellum](vellum.md), [sawmill](sawmill.md)) publish through [tapper](https://github.com/marcelocantos/tapper) instead of a CI job holding a tap token.
 
+The den formula was removed in the week ending 1 Nov, since den now installs itself without Homebrew.
+
 ## Highlights
 
 - **Tap created for mk distribution** — five formula versions in eight commits, evolving from source build to pre-built binaries with shell completions and automated updates. ([2026-02-22](../../reports/weekly-report-2026-02-22.md))
@@ -21,12 +23,12 @@ From there the tap became the fleet's delivery endpoint rather than one project'
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 4 |
-| Commits | ~14 |
+| Weeks active | 5 |
+| Commits | ~15 |
 | Human attention | ~4–8 h |
 | Traditional equivalent | ~0.3–0.5 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[02-22](../../reports/weekly-report-2026-02-22.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [08-17](../../reports/weekly-report-2026-08-23.md)
+[02-22](../../reports/weekly-report-2026-02-22.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [08-17](../../reports/weekly-report-2026-08-23.md), [11-01](../../reports/weekly-report-2026-11-01.md)

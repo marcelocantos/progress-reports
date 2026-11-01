@@ -18,6 +18,8 @@ The Fable-5 audit reopened it. Two critical, six high, and one medium finding ca
 
 v0.33.0 (week ending 25 Oct) makes a write committed mid-handshake cross the link exactly once; claudia now requires it.
 
+v0.34.0 (week ending 1 Nov) re-bundled the Go and Swift wrapper copies; claudia pins it.
+
 ## Highlights
 
 - **Compression, authoriser-driven subscriptions, reconnection** — LZ4 with uncompressed fallback, automatic table-dependency discovery through SQLite's authoriser API, `on_schema_mismatch` migration hooks, and a `reset()` preserving subscriptions and ownership. ([03-01](../../reports/weekly-report-2026-03-01.md))
@@ -45,12 +47,12 @@ v0.33.0 (week ending 25 Oct) makes a write committed mid-handshake cross the lin
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 19 |
-| Commits | ~148 |
+| Weeks active | 20 |
+| Commits | ~150 |
 | Human attention | ~29–47 h |
 | Traditional equivalent | ~3.2–5.1 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-03](../../reports/weekly-report-2026-08-09.md), [10-19](../../reports/weekly-report-2026-10-25.md)
+[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [03-08](../../reports/weekly-report-2026-03-08.md), [03-15](../../reports/weekly-report-2026-03-15.md), [03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-03](../../reports/weekly-report-2026-08-09.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md)

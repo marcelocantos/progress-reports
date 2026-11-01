@@ -14,6 +14,8 @@ The week ending 2026-10-18 tuned the Jevons probe: owner pause honoured, saturat
 
 The week ending 2026-10-25 walked only the directories the FSEvents journal could not name, and filed targets for oversized-memory review degradation and Jevons fault classes.
 
+In the week ending 1 Nov sentinel deferred disk attribution to loadmon's volume report and deleted its own FSEvents observer, journal and trie (−4,250 lines). `sen --growth` became `sen --disk-use`.
+
 ## Highlights
 
 - Broker-admitted restricted Task runs; capacity deferral without fake green
@@ -22,6 +24,7 @@ The week ending 2026-10-25 walked only the directories the FSEvents journal coul
 - Keychain-backed `secrets.enc`; SEMS+ JSON with daylight gate and hysteresis
 - Per-volume size trie and an stdio root observer that skips its own writes
 - In-process Touch ID prompt; `sudo -n` returns before PAM
+- Disk use from loadmon; FSEvents observer and trie deleted (2026-11-01)
 
 ## Standouts
 
@@ -33,11 +36,11 @@ The week ending 2026-10-25 walked only the directories the FSEvents journal coul
 
 | | |
 |--|--|
-| Weeks active (landed) | 5 |
-| Landed commits (series) | 60 |
+| Weeks active (landed) | 6 |
+| Landed commits (series) | 61 |
 | Human attention | ~3–5 h in the 10-11 week; the 10-18 and 10-25 weeks sit in shared rows; earlier weeks sit in shared rows and are not broken out |
 | Traditional equivalent | ~10–15 person-days across the two weeks with their own rows (4–6 then 6–9); founding week not separated |
 
 ## Weekly reports
 
-- [2026-09-21…27](../../reports/weekly-report-2026-09-27.md), [2026-09-28…10-04](../../reports/weekly-report-2026-10-04.md), [2026-10-05…11](../../reports/weekly-report-2026-10-11.md), [2026-10-12…18](../../reports/weekly-report-2026-10-18.md), [2026-10-19…25](../../reports/weekly-report-2026-10-25.md)
+- [2026-09-21…27](../../reports/weekly-report-2026-09-27.md), [2026-09-28…10-04](../../reports/weekly-report-2026-10-04.md), [2026-10-05…11](../../reports/weekly-report-2026-10-11.md), [2026-10-12…18](../../reports/weekly-report-2026-10-18.md), [2026-10-19…25](../../reports/weekly-report-2026-10-25.md), [2026-10-26…11-01](../../reports/weekly-report-2026-11-01.md)

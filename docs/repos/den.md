@@ -16,6 +16,8 @@ The v1 push followed in June: 🎯T73's release-candidate harness and publishing
 
 Since then the work has been operational hardening. A remote conviction-loop harness drives live `~/.den` scenarios over SSH against a physical `den-test-mac` (21 PASS/0 on the harness, 14/0/1 on the soak), Fable F1–F5 remediation closed archive-symlink escapes, env-slug `..` percent-encoding and fail-closed self-update checksums, and a Mach-O bottle-relocation fix stopped poured arm64 binaries being SIGKILLed for invalid codesign until `install_name_tool` rewrote their load commands. The most recent report fixes two silent-failure bugs in one daemon install — a macOS launchd path resolving its own binary through the Linux-only `/proc/self/exe` inside an `#ifdef __APPLE__` block, and `set_setting` inferring JSON type from the *existing* value so a first-time boolean was stored as the string `"true"` and skipped by the reader's `is_boolean()` check. The fix corrects the writer and teaches both readers to accept the legacy form so broken configs heal on next read; it landed without a regression test, which the report calls out as the week's one soft spot.
 
+v0.14–v0.17-rc.1 (week ending 1 Nov) removed den's dependence on Homebrew. A vendored static libarchive, `install.sh` and `den self-update` replaced the formula, and the brew release path and tap formula were retired. Source builds run in a macOS write sandbox, stage through DESTDIR into den's own prefix, and get Mach-O linkage fixed across the keg. Disabled packages are refused, a `version_scheme` downgrade is held, and network fetches retry. Three GA releases shipped in four days.
+
 ## Highlights
 
 - **Bootstrapped as rubrew, renamed to den** — a Homebrew-compatible manager consuming existing formulae, bottles and taps, with multi-version coinstallation and named environments. ([03-22](../../reports/weekly-report-2026-03-22.md))
@@ -30,6 +32,7 @@ Since then the work has been operational hardening. A remote conviction-loop har
 - **Remote conviction-loop soak on real hardware** — live `~/.den` scenarios driven over SSH against a physical `den-test-mac`, plus Fable F1–F5 remediation and a Mach-O bottle-relocation fix. ([07-12](../../reports/weekly-report-2026-07-12.md))
 - **Two silent-failure bugs in one daemon install** — a Linux-only `/proc/self/exe` inside an Apple-guarded branch and a type-inferring settings writer, both of which let a user enable a feature and get nothing, with no error anywhere. ([07-26](../../reports/weekly-report-2026-07-26.md))
 - **A daemon install that did nothing, twice** — the macOS launchd path resolved its binary through Linux-only `/proc/self/exe` and emitted an argv the CLI rejects, while `set_setting` stored `auto_upgrade` as the string `"true"` (v0.13.0). ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
+- **Homebrew-free in three releases (v0.14–v0.16)** — install script and self-update, sandboxed relocated source builds, disabled-package refusal, `version_scheme` hold, ~770 test cases. ([11-01](../../reports/weekly-report-2026-11-01.md))
 
 ## Standouts
 
@@ -43,12 +46,12 @@ Since then the work has been operational hardening. A remote conviction-loop har
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 12 |
-| Commits | 173 |
-| Human attention | ~15–26 h |
-| Traditional equivalent | ~2.1–3.5 months |
+| Weeks active | 13 |
+| Commits | 298 |
+| Human attention | ~19–33 h |
+| Traditional equivalent | ~2.9–4.6 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md)
+[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [11-01](../../reports/weekly-report-2026-11-01.md)

@@ -6,32 +6,28 @@ Commercial project detail (HMS, minicades, and non-`ge` Squz titles) lives in th
 
 ## At a Glance
 
-*40 weeks · 19 January – 25 October 2026*
+*41 weeks · 19 January – 1 November 2026*
 
-- **~9,744 commits** landed to default branches across **42+ repositories** in **20+ languages**
-- **~632–1,055 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
-- **~12.3–20.8 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
-- **~<span style="color:#1a7f37">+3.86M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
+- **~10,316 commits** landed to default branches across **42+ repositories** in **20+ languages**
+- **~650–1,090 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
+- **~12.7–21.4 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
+- **~<span style="color:#1a7f37">+4.04M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
 
 ## The Journey So Far
 
-Forty weeks, from 19 January to 25 October 2026. About **9,740 commits** have landed on default branches across more than forty repositories in twenty-odd languages. A single talented generalist would need roughly **twelve to twenty-one years** to do the same work. The human attention behind it comes to about **630 to 1,055 hours**.
+Forty-one weeks, from 19 January to 1 November 2026. About **10,300 commits** have landed on default branches across more than forty repositories in over twenty languages. A single talented generalist would need roughly **thirteen to twenty-one years** to match that output. The human attention behind it is about **650 to 1,090 hours**.
 
-Those figures describe a way of working more than a pile of output.
+**The first months built tools and products.** Early weeks went to games and engines (ge, the Stock Cars line, yourworld2), parsers and languages (arr.ai, then xbnf), data plumbing (sqlpipe, sqldeep), and a growing set of small developer tools, all published through Homebrew. The pattern was set early: specify carefully, let agents write the code, and test on real devices.
 
-**Breadth without hand-offs.** In a typical week one person directs agent-runtime internals, phone automation, a parser generator, a document converter and a clinical desktop migration. No team is put together for any of them. Working across that many areas is normal here, and the usual cost of it in a traditional organisation, meaning ramp-up, coordination and context switching, mostly doesn't arise.
+**Then the agents themselves became the main project.** By spring the main work was the machinery for running many coding agents at once. mnemo indexes every transcript so past work can be searched. bullseye keeps each repository's convergence targets in a ledger. spyder drives phones and tablets for testing. jevons is the fleet cockpit, and claudia is the library and broker that every seat runs on. Much of the middle of the year was spent learning, often from incidents, what such a fleet needs. A runaway summariser spawned tens of thousands of subagents. Leftover sessions drove a machine to a load of 267. Credentials appeared where they should never be. Each incident produced a rule: tokens never on argv, the host mints request identity, and a stop must actually stop.
 
-**The workshop is the product.** A large share of the effort goes into the machinery that does the work. That machinery includes brokers that own agent processes and a cockpit that schedules and reaps them. It also includes ledgers that record what was proven and health loops that watch the host. When it misbehaves, the fix is a new rule the system enforces, not a one-off patch. For example, a process dies with the parent that started it. A broker restart must not lose its seats. A billing refresh may not start a model turn. The tools improve every week because the work runs on them.
+**Autumn was about consolidation.** claudia moved every provider onto one sidecar core and deleted the CLI era. Seats can now switch provider or model in place, and the broker survives a restart. jevons went through two large squash landings to reach a usable state, and then replaced pull requests with a gated push whose gate runs in minutes instead of hours. sentinel watches host health, and loadmon became the source of truth for load and disk use.
 
-**Subtraction counts.** Some of the most important weeks remove more than they add. Once every agent seat ran on one core, the migration machinery, the terminal-multiplexer backend and the legacy command-line transport were deleted rather than kept as fallbacks. Each remaining path was first made to fail with an explicit error that names it, so nothing could silently depend on what was being removed.
+**The latest turn is self-sufficiency.** den began as a faster client for Homebrew's ecosystem. In the week ending 1 November it shipped three releases that remove its dependence on Homebrew entirely: it installs from a script, updates itself, builds from source in a sandbox under its own prefix, and refuses to upgrade into anything upstream has disabled. pigeon reached Android over QUIC through JNI and was proven on a physical tablet. The decimal floating-point proposal for Go is now backed by a working fork.
 
-**Evidence over appearance.** A test that passes because its oracle crashed does not count as a pass. An unknown lock state is not "ready". A startup outage nobody has explained is recorded as unexplained. A long-lived branch is reported as in-flight until it lands, and then counted once. Commits that exist only in a working clone are flagged, not assumed. Line counts leave out vendored trees, generated mirrors, lockfiles, ledgers, pinned corpora, encrypted signing material and automated ingestion. They remain a measure of activity, not of hand-written source.
+**The human role is now direction and refusal.** The fleet produces the volume. The person decides which design survives, which shortcut is forbidden, which result is not yet true, and when to stop everything to see where the time or tokens went. Most of the hours go there. The multiplier, usually 20× to 95×, is highest where a silent mistake would be costly and the AI can still be checked thoroughly. It is lowest where store reviews, studio decisions or a human login set the pace.
 
-**The human role is inverted.** The volume comes from the system. The person supplies direction and refusal: which design to keep, which shortcut to forbid, which result is not yet true, and when to stop the fleet entirely to find out where the tokens went. Most of the hours go there. That is also why the multiplier, typically 20× to 95×, is highest where a silent error would be expensive and lowest where the work is mechanical.
-
-For the projects, releases and weeks behind these numbers, see **Greatest Hits**, the [per-repository pages](docs/repos/README.md), and the reports below.
-
-![Daily active repositories — full timeline](reports/timeline.svg)
+**Commercial work runs alongside.** Stock Cars ships regular releases to both app stores, and the HMS migration continues on branches. Their detail lives in the private companion series.
 
 ## Greatest Hits
 
@@ -42,6 +38,12 @@ The [top 50 achievements](docs/achievements.md) across all projects, ranked by m
 One page per repository, summarising its whole arc across the series: [docs/repos](docs/repos/README.md). Commercial (HMS / minicades / non-`ge` Squz) journeys: [progress-reports-private](https://github.com/marcelocantos/progress-reports-private).
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-11-01.md"><b>2026-10-26…11-01</b></a> den goes Homebrew-free in three releases, fifteen claudia releases, jevons gated push, pigeon on Android</summary>
+
+<b>den</b> v0.14–v0.16 installs and updates itself without Homebrew, builds from source in a sandbox under its own prefix, and refuses packages upstream disabled. <b>claudia</b> v0.66–v0.80 makes stops stop and guards shared clones. <b>jevons</b> replaced pull requests with a gated push whose gate fell from about two hours to eight minutes. <b>pigeon</b> v0.34–v0.35 runs its relay on Android over ngtcp2 and JNI. <b>Stock Cars 3.27</b> went live on both stores. 572 commits across 29 repos, ~4.4-6.7 months traditional equivalent.
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-10-25.md"><b>2026-10-19…25</b></a> jevons reaches a usable state, claudia restart-safe broker, spyder resident iOS agent, bullseye commit mode, loadmon born</summary>
@@ -330,6 +332,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 
 | Week&nbsp;ℂommits&nbsp;☲±kloc<br>AI&nbsp;Human&nbsp;boost× | Highlights |
 |--------|------------|
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-11-01.md">10-26</a>&nbsp;ℂ572&nbsp;☲<span style="color:#1a7f37">+211</span><span style="color:#cf222e">-33</span>\*<br><b>AI</b>18-35h&nbsp;<b>H</b>4.4-6.7mo&nbsp;20-60× | den Homebrew-free v0.14–v0.16, claudia v0.66–v0.80, jevons gated push, pigeon Android, Stock Cars 3.27. \*new glob: jevons Android native vendored C/C++ |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-25.md">10-19</a>&nbsp;ℂ292&nbsp;☲<span style="color:#1a7f37">+86</span><span style="color:#cf222e">-16</span><br><b>AI</b>13-24h&nbsp;<b>H</b>2.9-4.5mo&nbsp;20-55× | jevons usable state, claudia v0.58–v0.65 restart-safe broker, spyder resident iOS agent, bullseye commit mode, loadmon. |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-18.md">10-12</a>&nbsp;ℂ173&nbsp;☲<span style="color:#1a7f37">+61</span><span style="color:#cf222e">-58</span>\*<br><b>AI</b>12-21h&nbsp;<b>H</b>2.9-4.4mo&nbsp;25-55× | claudia v0.53–v0.56 in-place switch and CLI deletion, jevons train landed, spyder XCTest agent, vellum Windows. \*think vault excluded |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-10-11.md">10-05</a>&nbsp;ℂ136&nbsp;☲<span style="color:#1a7f37">+16</span><span style="color:#cf222e">-1</span>\*<br><b>AI</b>14-24h&nbsp;<b>H</b>2.3-3.5mo&nbsp;25-40× | claudia v0.49–v0.51 request identity, sentinel disk trie, xbnf greedy parse, vellum offline KaTeX. \*xbnf stdlib pin excluded |
@@ -370,7 +373,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-08.md">02-02</a>&nbsp;ℂ77&nbsp;☲<span style="color:#1a7f37">+14</span><span style="color:#cf222e">-9</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>3-5mo&nbsp;25-50× | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC. \*+402k vendor omitted (ge +367k, yourworld2 +34k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-01.md">01-26</a>&nbsp;ℂ61&nbsp;☲<span style="color:#1a7f37">+8</span><span style="color:#cf222e">-3</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>2-4mo&nbsp;25-50× | yourworld2 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation), esfera2 launched. \*+309k vendor omitted (yourworld2 +308k) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-01-25.md">01-19</a>&nbsp;ℂ15&nbsp;☲<span style="color:#1a7f37">+2</span><span style="color:#cf222e">-1</span><br><b>AI</b>6-11h&nbsp;<b>H</b>1-2mo&nbsp;10-25× | yourworld2 globe prototype born, Android 16KB compliance, iOS resolution fix. |
-| **Totals**&nbsp;ℂ**~9,744**\*&nbsp;**☲<span style="color:#1a7f37">+5219</span><span style="color:#cf222e">-1362</span>**<br><b>AI</b>**632-1055h**&nbsp;<b>H</b>**12.3-20.8y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and stock-car `Assets/Tracks/**` from 09-28; xbnf `fromwbnf/testdata/arrai/stdlib/**` from 10-05; `marcelocantos/think` vault excluded from 10-12, with `knowledge/youtube/**` globbed; canticode/certs `profiles/**` and `certs/**` encrypted signing blobs from 10-19; `.jevons-worktrees-*` clones excluded from 10-19). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
+| **Totals**&nbsp;ℂ**~10,316**\*&nbsp;**☲<span style="color:#1a7f37">+5430</span><span style="color:#cf222e">-1395</span>**<br><b>AI</b>**650-1090h**&nbsp;<b>H</b>**12.7-21.4y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and stock-car `Assets/Tracks/**` from 09-28; xbnf `fromwbnf/testdata/arrai/stdlib/**` from 10-05; `marcelocantos/think` vault excluded from 10-12, with `knowledge/youtube/**` globbed; canticode/certs `profiles/**` and `certs/**` encrypted signing blobs from 10-19; `.jevons-worktrees-*` clones excluded from 10-19; jevons `mobile/android/app/src/main/cpp/` vendored sqlite3/json/lz4/sqlpipe/deepparser from 10-26). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, HMS2 codegen, committed sprites. |
 
 
 ## Guide

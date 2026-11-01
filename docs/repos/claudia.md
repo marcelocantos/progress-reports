@@ -30,6 +30,8 @@ v0.53–v0.56 ended the CLI era. A seat now switches provider or model in place 
 
 v0.58–v0.65 made the broker survivable. A refusal now names its provider-failure cause and a billing error is stamped as a spend wall. A sidecar seat survives a broker restart, a restart relaunches only the seats that are wanted, and a restored tool call that never finished is not replayed. After a 22 Oct outage traced to a broken `CLAUDIA_BIN` pin, the pin falls back to the Homebrew broker and the installer stops carrying it forward; v0.65.0 adds `make verify-release` against the installed brew binary.
 
+v0.66–v0.80 (fifteen releases in one week) tightened cancellation and plan safety. Usage observations persist and replicate, a hollow `length` stop is retried and then folded, and Codex host tools are capped at 250. The broker enforces a two-file fleet intent and policy hold, Bash cancellation kills the process group, and a stop that will not settle discards the seat. Destructive git is refused in shared clones, and a failed switch rolls back its compaction.
+
 ## Highlights
 
 - **Bootstrap to v0.6.0, and the PTY-to-tmux pivot** — tmux-backed agents, a `probe-ready-tmux` readiness binary, warm pools and session chains, with the old daemon and its ~1,100-line state machine deleted. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
@@ -46,6 +48,7 @@ v0.58–v0.65 made the broker survivable. A refusal now names its provider-failu
 - **Request identity (v0.49–v0.51)** — the host mints `RequestID`; an uncorrelated fragment is refused; migration loads a destination it does not adopt. ([2026-10-11](../../reports/weekly-report-2026-10-11.md))
 - **In-place switch, CLI era deleted (v0.53–v0.56)** — `SwitchModel` keeps the conversation; migration, tmux backend, and legacy CLI transport removed after a refusal sweep; receipts before dispatch. ([2026-10-18](../../reports/weekly-report-2026-10-18.md))
 - **Restart-safe broker (v0.58–v0.65)** — failure causes and spend walls; sidecar seats survive a broker restart; intent-only relaunch; a broken pin falls back to Homebrew; `make verify-release`. ([2026-10-25](../../reports/weekly-report-2026-10-25.md))
+- **Plan-safe stops (v0.66–v0.80)** — usage replication, hollow-stop retry, policy-hold enforcement, process-group cancellation, a stop that stops, shared-clone git guard, switch-time compaction. ([11-01](../../reports/weekly-report-2026-11-01.md))
 
 ## Standouts
 
@@ -61,12 +64,12 @@ v0.58–v0.65 made the broker survivable. A refusal now names its provider-failu
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 22 |
-| Commits | ~643 |
-| Human attention | ~50–87 h |
-| Traditional equivalent | ~5.5–8.6 months |
+| Weeks active | 23 |
+| Commits | ~822 |
+| Human attention | ~53–93 h |
+| Traditional equivalent | ~6.1–9.5 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md)

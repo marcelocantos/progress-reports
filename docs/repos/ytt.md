@@ -12,6 +12,8 @@ Hardening then dominated. June brought `--json` payloads, paced fetching, newest
 
 None of that caught the failure that mattered. In late July v0.10.0 ended a **16-day silent ingest outage**: channel ingest had done nothing since 2026-07-10 across fifteen consecutive scheduled runs, exiting zero every time. An earlier hardening change had pinned the scheduler to the *installed* binary, repointing `$HERE` at a Homebrew Cellar directory that never contains the gitignored `channels.yaml` and is replaced wholesale on every upgrade — **pinning an executable also repins every path derived from that executable's location**. Config resolution was re-anchored (`$YOUTUBE_CHANNELS_FILE` → `$XDG_CONFIG_HOME/ytt/channels.yaml` → the dev checkout) with a missing config promoted to a hard failure whenever cursor state proves channels previously worked. The sharper lesson was that eighteen prior hardening changes all asked "did this step fail?" and none asked "is this pipeline still producing anything?" — so 🎯T11 added an alerting layer and a liveness backstop that fires on a *non-event*: nothing ingested for seven days while channels are tracked is itself a failure.
 
+v0.18.0 (week ending 1 Nov): `ytt analyze` requires the jevons broker, background ingestion is quiet, and the release builds on a C++23-capable macOS runner.
+
 ## Highlights
 
 - **Open-sourced in three releases** — the `/open-source` skill applied to an internal tool produced v0.1.0 through v0.4.0 prep in a single week, 14 commits. ([2026-04-26](../../reports/weekly-report-2026-04-26.md))
@@ -26,6 +28,7 @@ None of that caught the failure that mattered. In late July v0.10.0 ended a **16
 - **Ported to Go, one dependency lighter** — v0.11.0 moved the CLI and transcript layer to Go on `yt-dlp`, dropping Python and `youtube-transcript-api`, verified against goldens captured from the installed binary before the port. ([2026-08-02](../../reports/weekly-report-2026-08-02.md))
 - **Paced download, unthrottled analysis** — two clocks so a Codex quota miss cannot stall YouTube fetch; mixed-ladder capacity miss is not exit 255. ([2026-08-23](../../reports/weekly-report-2026-08-23.md))
 - **Skip narrated slug replies; pin the broker** — 161 failed replies in two days had each re-raised a ytt alert; Claudia v0.48.0 + `RequireBroker` so tasks never fall back to a direct provider spawn. ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
+- **v0.18.0** — jevons-broker analysis (T33), quiet ingestion, C++23 release runner. ([11-01](../../reports/weekly-report-2026-11-01.md))
 
 ## Standouts
 
@@ -39,12 +42,12 @@ None of that caught the failure that mattered. In late July v0.10.0 ended a **16
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 11 |
-| Commits | 49 |
-| Human attention | ~9–17 h |
-| Traditional equivalent | ~0.9–1.6 months |
+| Weeks active | 12 |
+| Commits | 61 |
+| Human attention | ~9–18 h |
+| Traditional equivalent | ~0.9–1.7 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md)
+[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [11-01](../../reports/weekly-report-2026-11-01.md)

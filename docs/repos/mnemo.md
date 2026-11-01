@@ -20,6 +20,8 @@ The most recent phase is containment and cost. A summariser that fed transcripts
 
 The week ending 2026-10-11 recorded the 1.0 judgment and retired the settling clock. No product code moved. The hour sits in a shared stability-notes row with bullseye and vellum, so it is not added to the hours below.
 
+The week ending 1 Nov added indexing of Oh My Pi sessions (🎯T198).
+
 ## Highlights
 
 
@@ -37,6 +39,7 @@ The week ending 2026-10-11 recorded the 1.0 judgment and retired the settling cl
 - **Packer yields; `/health` without a fast tier; WAL size is not a fault** — encode-outside-txn; leftover-membership status; alert on pinned readers (v0.95–v0.97). ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
 
 - **`/health` in ~2 ms, then drift repair** — serve from the scheduler snapshot (v0.101–v0.106); then sqlift apply wrapped in `BEGIN IMMEDIATE` so a half-applied plan cannot look like a corrupt store (v0.107.0). ([2026-10-04](../../reports/weekly-report-2026-10-04.md))
+- **Oh My Pi sessions (🎯T198)** — v3 JSONL indexed as `source=omp`, resumable with `omp --resume`. ([11-01](../../reports/weekly-report-2026-11-01.md))
 
 ## Standouts
 
@@ -52,12 +55,12 @@ The week ending 2026-10-11 recorded the 1.0 judgment and retired the settling cl
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 24 |
-| Commits | ~424 |
+| Weeks active | 25 |
+| Commits | ~426 |
 | Human attention | ~48–82 h |
 | Traditional equivalent | ~5.5–8.9 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-14](../../reports/weekly-report-2026-09-20.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [11-01](../../reports/weekly-report-2026-11-01.md)

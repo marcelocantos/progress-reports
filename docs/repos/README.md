@@ -22,7 +22,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 ## Libraries & Infrastructure
 
 - [marcelocantos/csp](csp.md) — C++ CSP concurrency library: M:N scheduler, channels, HTTP and QUIC stacks, TLA+ models
-- [marcelocantos/pigeon](pigeon.md) — end-to-end encrypted relay with AEAD channels, QUIC transport, and five-language codegen
+- [marcelocantos/pigeon](pigeon.md) — end-to-end encrypted relay with AEAD channels, QUIC transport, and five-language codegen; Android over JNI (11-01)
 - [marcelocantos/sqlpipe](sqlpipe.md) — bidirectional SQLite replication with a TLA+-verified protocol and a predicate bytecode VM
 - [marcelocantos/sqldeep](sqldeep.md) — SQL transpiler with FROM-first syntax and four-language bindings
 - [marcelocantos/sqlift](sqlift.md) — schema migration in C and Go with cross-language verification
@@ -41,16 +41,16 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 
 - [marcelocantos/mnemo](mnemo.md) — indexes every agent transcript; search, compaction, federation, and a vault wing
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
-- [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface; usable state landed (10-25)
+- [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface; usable state landed (10-25), gated push (11-01)
 - [marcelocantos/jevons-mobile](jevons-mobile.md) — chrome-free Flutter cockpit shell, merged into jevons under `mobile/` (10-18)
 - [marcelocantos/claudia](claudia.md) — Go library and host daemon for coding agents; every seat on one sidecar core, switchable in place
 - [marcelocantos/sentinel](sentinel.md) — never-ending host-health loop via broker-admitted restricted tasks
 - [marcelocantos/serviceboard](serviceboard.md) — loopback Supervisor/Homebrew service dashboard
-- [marcelocantos/finance](finance.md) — personal dual-stream mid-cycle ledger with persistent transfer IDs
+- [marcelocantos/finance](finance.md) — personal dual-stream mid-cycle ledger with persistent transfer IDs; PocketSmith and IG Markets ingestion (11-01)
 - [marcelocantos/bullseye](bullseye.md) — Rust MCP convergence-target ledger; the canonical record of followable work
 - [marcelocantos/sawmill](sawmill.md) — structural code transformation over 18 languages, with a semantic git index
 - [marcelocantos/cv](cv.md) — build tool with a content-hash graph and a discovered-dependencies model
-- [marcelocantos/den](den.md) — universal development-environment manager sharing Homebrew's Cellar
+- [marcelocantos/den](den.md) — universal development-environment manager; Homebrew-free install and self-update from v0.15 (11-01)
 - [marcelocantos/doit](doit.md) — three-level capability broker with an audit log and a threat model
 - [marcelocantos/crosshair](crosshair.md) — Rust convergence-executor daemon with a stateless tick loop
 - [marcelocantos/mcpsafe](mcpsafe.md) — credential-injecting MCP proxy with Starlark request transforms

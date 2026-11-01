@@ -16,6 +16,8 @@ Multi-client came next. v0.21.0 replaced the 1:1 API: `pigeon.Register` returns 
 
 The final phase is security. v0.25.0 let one `PairingRecord` fan out to concurrent services via a fresh sixteen-byte per-session nonce in the HKDF, `Route` sub-addressing carried inside the end-to-end AEAD so the relay never learns the service, and an `enumerate` RPC over a reserved discovery stream. The Fable-5 audit then confirmed eight of nine critical and high findings, including a **non-atomic `send_seq++` nonce-reuse race** — the production channel counter was shared across every stream pump and the datagram pump and advanced by a non-atomic C read-modify-write, so 16,384 concurrent encrypts produced 1,964 colliding nonce prefixes, a race living in C and therefore invisible to Go's race detector — plus deterministic keys from a static pairing record with a counter reset, and a ~19.9-bit SAS with no commit-reveal that a relay MitM could grind. Six releases, v0.26→v0.31, remediated all of it: the counter serialised, then structurally forked so every named stream and the datagram path gets its own AEAD channel derived via HKDF diversify labels and can never share a sequence space; a ZRTP-style commit-reveal SAS round that ends the MitM grind (previously 305,883 tries in 3.2 seconds); per-session salt on artifact reconnect; automatic LAN upgrade; deterministic ceremony teardown; progressive datagram fragmentation; and a hub-ID ownership fix. Each shipped a failing-then-passing reproduction under `-race`, alongside two method essays on formal state machines and adversarial modelling.
 
+v0.34–v0.35 (week ending 1 Nov) brought the relay to Android. ngtcp2 and quictls are cross-built for a JNI AAR, a Kotlin client pairs over a named ceremony stream, and a Pixel Tablet oracle checks an encrypted echo byte for byte. The AAR is published through JitPack. Buffered stream frames now survive FIN and close.
+
 ## Highlights
 
 - **protogen: one spec, six targets** — Go, Swift, Kotlin, TypeScript, TLA+, and PlantUML all generated from YAML protocol specs, so a protocol change propagates to every platform, every formal model, and the documentation at once. ([03-22](../../reports/weekly-report-2026-03-22.md))
@@ -31,6 +33,7 @@ The final phase is security. v0.25.0 let one `PairingRecord` fan out to concurre
 - **Crypto remediation (v0.26→v0.31)** — the AES-GCM nonce-reuse race fixed and then made unrepresentable by forking per-stream and per-datagram AEAD channels through HKDF diversify labels, plus a ZRTP-style commit-reveal SAS round ending the relay-MitM grind; each fix shipped a failing-then-passing repro under `-race`. ([07-12](../../reports/weekly-report-2026-07-12.md))
 - **A pure-Swift product for iOS consumers** — `PigeonCore` plus corrected SPM linker paths, which is what let orthograph's iPad app consume pigeon as a sibling package for its QR pairing ceremony. ([2026-08-09](../../reports/weekly-report-2026-08-09.md))
 - **Yamux-class L4 on native QUIC streams** — reset unmatched, FIN vs RST, GoAway drain; not an app-level muxer (v0.33.0). ([2026-09-13](../../reports/weekly-report-2026-09-13.md))
+- **Android over ngtcp2 (🎯T66, v0.34–v0.35)** — JNI-owned connection, Kotlin pairing, Pixel Tablet oracle, JitPack AAR, FIN buffered-frame fix. ([11-01](../../reports/weekly-report-2026-11-01.md))
 
 ## Standouts
 
@@ -44,12 +47,12 @@ The final phase is security. v0.25.0 let one `PairingRecord` fan out to concurre
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 18 |
-| Commits | ~330 |
-| Human attention | ~30–38 h |
-| Traditional equivalent | ~5.7–8.9 months |
+| Weeks active | 19 |
+| Commits | ~417 |
+| Human attention | ~31–41 h |
+| Traditional equivalent | ~6.1–9.5 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-03](../../reports/weekly-report-2026-08-09.md), [09-07](../../reports/weekly-report-2026-09-13.md)
+[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [08-03](../../reports/weekly-report-2026-08-09.md), [09-07](../../reports/weekly-report-2026-09-13.md), [11-01](../../reports/weekly-report-2026-11-01.md)

@@ -18,6 +18,8 @@ v0.27.0 narrowed releases to darwin-arm64 and dropped Linux; v0.28.0 then **ship
 
 v0.29–v0.35 closed the Windows bookkeeping, moved the CLI and MCP converters onto one fail-fast dependency path, and added `make verify-release`, an end-to-end battery against the Homebrew install running under its supervisord release program. Same-page anchors now resolve and wide PDF artifacts fit the viewer.
 
+v0.36.0 (week ending 1 Nov) pins a leading viewer title under the toolbar as the page scrolls.
+
 ## Highlights
 
 - **New Go MCP server, v0.1.0 in six commits** — goldmark plus Prince with KaTeX, Mermaid and GitHub-flavoured CSS, shipped with full project scaffolding and CI. ([2026-04-12](../../reports/weekly-report-2026-04-12.md))
@@ -46,12 +48,12 @@ v0.29–v0.35 closed the Windows bookkeeping, moved the CLI and MCP converters o
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 16 |
-| Commits | ~98 |
+| Weeks active | 17 |
+| Commits | ~101 |
 | Human attention | ~10–22 h |
 | Traditional equivalent | ~1.4–2.4 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md)
