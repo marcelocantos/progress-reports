@@ -16,6 +16,8 @@ That foundation carried the **second-generation swimlane engine**. swimlane-v2 t
 
 The most recent phase hardened the measurement itself. 🎯T14's `golden_no_oracle` tier renders every one of ~11,251 goldens through the real CLI with the oracle switched off and exact-matches a recorded baseline, so **a regression and an unrecorded improvement both fail the build**, while `harness_guards` freezes the anti-gaming constants (`GEOM_EPS`, the error-golden census) so the ratchet cannot be quietly loosened. rustuml develops on master with no PR ceremony when it lands at all; as of the latest report it carries **278 commits in-flight** (+64k/−10k), the largest unmerged tranche in the fleet.
 
+The week of 2 November was a parity-recovery campaign of 680 commits. It started from a measured baseline (`golden_pairs` 10,496 pass and 755 fail; `parity_perturbations` 349 of 810) and made the parity gates fail closed, pinned reference provenance, and organised the remaining work as numbered maker rounds with independent checker batches.
+
 ## Highlights
 
 - **18 diagram types in a single weekend** — bootstrap to sequence, class, activity, state, component, deployment, timing, ER, Gantt, mindmap, WBS, JSON, YAML, Salt, network and Ditaa, in a six-crate Rust workspace with SVG/PNG/PDF/EPS output. ([03-22](../../reports/weekly-report-2026-03-22.md))
@@ -30,6 +32,7 @@ The most recent phase hardened the measurement itself. 🎯T14's `golden_no_orac
 - **swimlane-v2 lane-tagging engine** — connector lane provenance tagged before routing, giving per-lane MinMax columns, a cross-lane router and N-branch fork routing without per-branch special cases. ([06-21](../../reports/weekly-report-2026-06-21.md))
 - **Real-world diagrams as the parity oracle** — restaurant, shopping-cart, onboarding, approval and expense swimlanes locked golden-by-golden, exercising corners synthetic fixtures never reach. ([06-28](../../reports/weekly-report-2026-06-28.md))
 - **A parity ratchet that refuses silent improvement** — `golden_no_oracle` renders ~11,251 goldens through the real CLI and fails on unrecorded gains as well as regressions, with `harness_guards` freezing the anti-gaming constants. ([07-05](../../reports/weekly-report-2026-07-05.md))
+- **Parity recovery campaign** — fail-closed gates, pinned reference provenance, and checker-reviewed rounds (TIM line continuation took seven) across 680 commits and 275 review records. ([11-02](../../reports/weekly-report-2026-11-08.md))
 
 ## Standouts
 
@@ -43,12 +46,12 @@ The most recent phase hardened the measurement itself. 🎯T14's `golden_no_orac
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 10 |
-| Commits | ~1,150 |
-| Human attention | ~24–40 h |
-| Traditional equivalent | 4.8–7.4 months |
+| Weeks active | 11 |
+| Commits | ~1,830 |
+| Human attention | ~29–49 h |
+| Traditional equivalent | ~5.7–8.7 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md)
+[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md), [11-02](../../reports/weekly-report-2026-11-08.md)

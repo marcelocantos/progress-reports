@@ -44,6 +44,8 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 - [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface; usable state landed (10-25), gated push (11-01)
 - [marcelocantos/jevons-mobile](jevons-mobile.md) — chrome-free Flutter cockpit shell, merged into jevons under `mobile/` (10-18)
 - [marcelocantos/claudia](claudia.md) — Go library and host daemon for coding agents; every seat on one sidecar core, switchable in place
+- [marcelocantos/loadmon](loadmon.md) — menu-bar load monitor with a root helper and a local API for agents
+- [marcelocantos/blurter](blurter.md) — spool-first notification daemon; applications spool to disk, the daemon owns credential and policy
 - [marcelocantos/sentinel](sentinel.md) — never-ending host-health loop via broker-admitted restricted tasks
 - [marcelocantos/serviceboard](serviceboard.md) — loopback Supervisor/Homebrew service dashboard
 - [marcelocantos/finance](finance.md) — personal dual-stream mid-cycle ledger with persistent transfer IDs; PocketSmith and IG Markets ingestion (11-01)
@@ -89,7 +91,6 @@ second.
 - canticode/canticode.github.io — company site: about, Orthograph, contact, privacy
 - marcelocantos/marcelocantos.com — personal Hugo site; blog and an open-source products page
 - marcelocantos/writ — declared-intent execution: manifests compiled into a seatbelt profile, egress proxy, and drift audit
-- marcelocantos/blurter — spool-first notification daemon; applications spool to disk, the daemon owns credential and policy
 - marcelocantos/marcelocantos.github.io — interactive maths and 3D demos on a shared Three.js shell
 - marcelocantos/asc — App Store Connect client for sales, apps, and reviews without a browser
 - marcelocantos/issuepipe — GitHub issue webhooks ingested into per-repo tables for local consumption
@@ -108,3 +109,24 @@ second.
 - unwisegames/tiltbuggy — the reference title behind ge's differential physics oracle
 - golang/go — decimal128 ABI and DWARF support contributions
 - anz-bank/decimal — arbitrary-precision decimal library bug fix
+- marcelocantos/gouml — mechanical Java-to-Go transpiler for PlantUML with a Java-semantics runtime
+- marcelocantos/jv0 — spike for agent coordination with only start, send, stop and list on claudia's broker
+- marcelocantos/headroom — allow, defer or deny check before an agent session starts
+- marcelocantos/killset — frozen exam scoring a test suite by planted defect classes it kills
+- marcelocantos/fidelity — certificates for migrations, driving legacy and port with the same tapes
+- marcelocantos/witness — signed receipts for the tree a signer measured, checked at push
+- marcelocantos/quorum — hash-chained attestations from an oracle the worker did not choose
+- marcelocantos/relic — read-only SQLite over ledgers, receipts and git history
+- marcelocantos/falsify — typed claims with runnable checks from a video-knowledge corpus
+- marcelocantos/gist — fixed-size lossy agent memory with one lossless quote organ
+- marcelocantos/teddy — stops a repeating agent until it writes a structured note
+- marcelocantos/openwindow — trace checker that treats a spec accepting every mutant as vacuous
+- marcelocantos/nightkernel — Lean 4 proof or counterexample drafting judged by the kernel
+- marcelocantos/inkline — compiles an Orthograph scene into a structural invariant for Go code
+- marcelocantos/membrane — one relational program placed across client, edge and server
+- marcelocantos/benchbook — ledger of local-inference runs with host snapshots
+- marcelocantos/holdstill — stop-motion bench accepting frames only when locked regions match
+- marcelocantos/chipwindow — feeds-and-speeds calculator that stays inside a published window
+- marcelocantos/turnaround — discrete-event launch-site toy with seeded golden logs
+- marcelocantos/reactionpath — workholding puzzle gated by a planar statics solver
+- marcelocantos/gadgets — ESP32-S3 sshbox shell and GhostKey USB passthrough firmware

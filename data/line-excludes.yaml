@@ -47,6 +47,12 @@ repos:
   marcelocantos/rustuml:
     - test-diagrams/**
     - test-fixtures/**
+    # 2026-11 parity campaign: docs/parity-reviews/ is ~11.5M lines of
+    # machine-written per-diagram review records; tools/font-chain-reference/
+    # holds generated font-metric reference dumps; third_party/ is vendored.
+    - docs/parity-reviews/**
+    - tools/font-chain-reference/**
+    - third_party/**
 
   # player/vendor is already covered by **/vendor/**; listed for documentation.
   marcelocantos/spyder:
@@ -139,6 +145,9 @@ repos:
   # week), not authored source.
   marcelocantos/think:
     - knowledge/youtube/**
+    # analysis/ holds machine-generated session-mining and audit dumps
+    # (~1M lines in the week of 2026-11-02).
+    - analysis/**
 
   # fastlane match signing repo, new on 2026-10-25. profiles/ and certs/ hold
   # match-encrypted provisioning profiles, .p12 and .cer blobs that fastlane
@@ -146,3 +155,23 @@ repos:
   canticode/certs:
     - profiles/**
     - certs/**
+
+  # Lifted Graphviz/expat C trees, embedded assets and generated font-data
+  # tables from the Java-to-Go port; not authored product.
+  marcelocantos/gouml:
+    - third_party/**
+    - pu/assets/**
+    - rt/fontdata_*.go
+    - gv/textlayout_fonts.c
+    # pu/ is the transpiler's output ("never edited by hand; make gen
+    # regenerates it"): ~270k lines in the week the repo began.
+    - pu/**
+    - test-diagrams/**
+
+  # hms2 port tooling: oracle/evidence is captured Delphi evidence (6.3M lines
+  # deleted in one tidy-up), portsets/ are generated coverage ledgers and
+  # transpiler/generated holds emitted C# stubs.
+  Health-Management-Systems/hms:
+    - hms2/tools/oracle/evidence/**
+    - hms2/tools/transpiler/portsets/**
+    - hms2/tools/transpiler/generated/**
