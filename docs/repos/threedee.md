@@ -25,12 +25,12 @@ The week ending 25 Oct added a ten-key print plate and grouped the shopping-trol
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 5 |
-| Commits | 19 |
+| Weeks active | 6 |
+| Commits | 24 |
 | Human attention | not broken out in report tables |
 | Traditional equivalent | ~0.3–0.6 months |
 | Multiplier | ~30–65× |
 
 ## Weekly reports
 
-[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [09-14](../../reports/weekly-report-2026-09-20.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-02](../../reports/weekly-report-2026-11-08.md)
+[04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [07-12](../../reports/weekly-report-2026-07-12.md), [09-14](../../reports/weekly-report-2026-09-20.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md)

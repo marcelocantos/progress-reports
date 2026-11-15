@@ -130,3 +130,4 @@ second.
 - marcelocantos/turnaround — discrete-event launch-site toy with seeded golden logs
 - marcelocantos/reactionpath — workholding puzzle gated by a planar statics solver
 - marcelocantos/gadgets — ESP32-S3 sshbox shell and GhostKey USB passthrough firmware
+- marcelocantos/t3code — fork of T3 Code with an external plugin protocol for sidebar panels, composer buttons and link handling

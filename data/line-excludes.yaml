@@ -40,6 +40,8 @@ repos:
     - golden/**
     - docs/golden/**
     - ge/verdicts/**
+    # per-device layout measurement dumps (~51k lines in the week of 2026-11-09)
+    - tests/layout/reports/**
 
   squz/multimaze2:
     - golden/**
@@ -175,3 +177,25 @@ repos:
     - hms2/tools/oracle/evidence/**
     - hms2/tools/transpiler/portsets/**
     - hms2/tools/transpiler/generated/**
+
+  # t3-highlights ships a vendored highlights.c (~151k lines) under a
+  # capital-V Vendor directory that the global **/vendor/** glob does not match.
+  marcelocantos/t3code:
+    - apps/mobile/modules/t3-highlights/Vendor/**
+
+  # research/perf-compare/results holds raw benchmark output dumps (~38k lines
+  # per rerun), not authored source.
+  marcelocantos/go-decimal-proposal:
+    - research/perf-compare/results/**
+
+  # licenses/ holds generated dependency licence bundles and provenance.
+  canticode/orthograph:
+    - licenses/**
+
+  # Generated dependency licence listing.
+  marcelocantos/bullseye:
+    - THIRDPARTY.txt
+
+  # Generated third-party licence listing for the bundled editor.
+  marcelocantos/vellum:
+    - viewer/editor/THIRD_PARTY_LICENSES.txt
