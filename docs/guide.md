@@ -45,25 +45,48 @@ Scan all repos under the working directory for commits within the reporting peri
 - `arr-ai/*` — arr.ai ecosystem (frozen, arrai, wbnf, etc.)
 - `anz-bank/*` — work-related (decimal, etc.)
 
-For each candidate directory containing a `.git` folder, run:
+Run the gatherer from the report repository, passing the Monday that starts
+the report and the Monday after its last Sunday:
 
 ```sh
-git -C <repo> log --oneline --after="<start>" --before="<end+1day>" --all
+./scripts/gather.sh "<start YYYY-MM-DD>" "<exclusive end YYYY-MM-DD>"
 ```
 
-Any repo with commits in range is included. Collect the set of active repos before proceeding.
+The gatherer and timeline use Git's committer timestamp because that is the
+timestamp Git log filters on. The author date can differ after a rebase or
+cherry-pick. Both scripts resolve bounds and assign days in `Australia/Melbourne`
+so the report follows the same calendar across daylight-saving changes and
+on hosts in other time zones. A bare date passed directly to Git can inherit
+the current time of day and omit early commits. The scripts specify the first
+midnight and the last second before the following midnight, with the offset
+for each boundary. They use Git 2.37 or later for `--since-as-filter`, which
+keeps commits reachable through ancestors or descendants with skewed clocks.
+
+The period rule is the same in both scripts: a commit belongs to the period
+when its committer timestamp falls between the first Melbourne midnight
+(inclusive) and the Melbourne midnight after the last day (exclusive), and it
+belongs to the Melbourne date of that timestamp. `gather.sh` takes that
+exclusive Monday as its second argument; `timeline-chart.py --until` takes the
+last day itself. The scripts select different commits within the period.
+`gather.sh` counts non-merge commits reachable from the default branch as
+landed and other non-merge commits as in flight. `timeline-chart.py` counts a
+repository as active on any day it has a commit on any ref, merges included,
+so its daily counts can exceed the landed counts from `gather.sh`.
+`tests/reporting_oracle.py` checks both selections against the same merge
+history.
 
 ### 1.3 Per-repo metrics
 
-For each active repo, collect:
+Use `gather.sh` for commit counts, logs and diff stats. If you need additional
+per-repo detail, use the same timestamped Git bounds:
 
 | Metric | Command |
 |--------|---------|
-| Commit count | `git log --oneline --after=... --before=... \| wc -l` |
-| Diff stats | `git log --after=... --before=... --stat --format=""` then sum insertions/deletions |
-| Files changed | `git log --after=... --before=... --name-only --format="" \| sort -u \| wc -l` |
-| New files | `git log --after=... --before=... --diff-filter=A --name-only --format="" \| sort -u \| wc -l` |
-| Contributors | `git log --after=... --before=... --format="%aN" \| sort -u` |
+| Commit count | `git log --oneline --since-as-filter=... --until=... \| wc -l` |
+| Diff stats | `git log --since-as-filter=... --until=... --stat --format=""` then sum insertions/deletions |
+| Files changed | `git log --since-as-filter=... --until=... --name-only --format="" \| sort -u \| wc -l` |
+| New files | `git log --since-as-filter=... --until=... --diff-filter=A --name-only --format="" \| sort -u \| wc -l` |
+| Contributors | `git log --since-as-filter=... --until=... --format="%aN" \| sort -u` |
 | Languages | infer from file extensions in changed files |
 
 Also collect the commit messages and diffs — these are the primary source material for the narrative sections.
@@ -459,14 +482,19 @@ After writing a new report:
 4. **Regenerate the timeline chart**: Run the timeline chart script to update the full-history chart in the README:
 
    ```sh
-   ~/.claude/skills/progress-report/timeline-chart.py \
+   ./scripts/timeline-chart.py \
        --since 2026-01-19 \
+       --until <report last Sunday YYYY-MM-DD> \
        --cache <report-repo>/data/daily-repos.yaml \
        --weekly-dir <report-repo>/reports/ \
        -o <report-repo>/reports/timeline.svg
    ```
 
-   The `--cache` flag reads/writes a YAML file of daily repo counts. Cached days are reused; only dates within the last 2 days are rescanned (to avoid timezone edge cases). The `--weekly-dir` flag also regenerates per-week SVGs from the same data. Commit the updated cache alongside the charts.
+   The `--cache` flag reads and writes a YAML file of daily repo counts. The
+   script reuses cached dates and saves only dates that are at least two days
+   old. The `--weekly-dir` flag emits a chart for each active Monday–Sunday
+   week fully inside the reporting window whose Sunday has ended in Melbourne.
+   Commit the updated cache alongside the charts.
 
    The README embeds this as `![Daily active repositories — full timeline](reports/timeline.svg)` between "The Journey So Far" and "## Reports". The chart is regenerated on every report so it stays current.
 
