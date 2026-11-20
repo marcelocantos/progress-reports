@@ -62,6 +62,19 @@ midnight and the last second before the following midnight, with the offset
 for each boundary. They use Git 2.37 or later for `--since-as-filter`, which
 keeps commits reachable through ancestors or descendants with skewed clocks.
 
+The period rule is the same in both scripts: a commit belongs to the period
+when its committer timestamp falls between the first Melbourne midnight
+(inclusive) and the Melbourne midnight after the last day (exclusive), and it
+belongs to the Melbourne date of that timestamp. `gather.sh` takes that
+exclusive Monday as its second argument; `timeline-chart.py --until` takes the
+last day itself. The scripts select different commits within the period.
+`gather.sh` counts non-merge commits reachable from the default branch as
+landed and other non-merge commits as in flight. `timeline-chart.py` counts a
+repository as active on any day it has a commit on any ref, merges included,
+so its daily counts can exceed the landed counts from `gather.sh`.
+`tests/reporting_oracle.py` checks both selections against the same merge
+history.
+
 ### 1.3 Per-repo metrics
 
 Use `gather.sh` for commit counts, logs and diff stats. If you need additional
