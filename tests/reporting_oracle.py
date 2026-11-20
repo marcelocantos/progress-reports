@@ -53,10 +53,48 @@ DST = {
     "monday-only": [("after the 25-hour day", "2026-04-06T00:00:00+10:00")],
 }
 
+WEEKS = {
+    "weekly-activity": [
+        ("leading partial week", "2026-04-21T12:00:00+10:00"),
+        ("complete week", "2026-04-27T12:00:00+10:00"),
+        ("start of the next week", "2026-05-04T00:00:00+10:00"),
+        ("Sunday activity", "2026-05-10T12:00:00+10:00"),
+        ("future week", "2026-05-11T12:00:00+10:00"),
+    ],
+}
+
+# Set only the reporting clock while executing the real CLI and Git scan.
+TIMELINE_WITH_FROZEN_CLOCK = """
+from datetime import datetime
+from importlib.util import module_from_spec, spec_from_file_location
+import sys
+
+script, now, *args = sys.argv[1:]
+fixed = datetime.fromisoformat(now)
+
+class FixedDatetime(datetime):
+    @classmethod
+    def now(cls, tz=None):
+        return fixed.astimezone(tz)
+
+sys.argv = [script, *args]
+spec = spec_from_file_location('timeline_chart', script)
+timeline = module_from_spec(spec)
+spec.loader.exec_module(timeline)
+timeline.datetime = FixedDatetime
+timeline.main()
+"""
+
 
 class FixtureTest(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(cls):
         temporary = TemporaryDirectory(prefix=".reporting-oracle-", dir=ROOT)
+        cls.addClassCleanup(temporary.cleanup)
+        cls.suite_tmp = Path(temporary.name)
+
+    def setUp(self):
+        temporary = TemporaryDirectory(dir=self.suite_tmp)
         self.addCleanup(temporary.cleanup)
         self.tmp = Path(temporary.name)
         self.work = self.tmp / "work"
@@ -76,7 +114,7 @@ class FixtureTest(unittest.TestCase):
             TZ="UTC",
             TMPDIR=str(self.tmp),
             XDG_CACHE_HOME=str(self.tmp / "cache"),
-            MPLCONFIGDIR=str(self.tmp / "matplotlib"),
+            MPLCONFIGDIR=str(self.suite_tmp / "matplotlib"),
             PROGRESS_WORK_ROOT=str(self.work),
             PROGRESS_LINE_EXCLUDES=str(self.tmp / "no-excludes.yaml"),
         )
@@ -102,12 +140,19 @@ class FixtureTest(unittest.TestCase):
                     GIT_AUTHOR_DATE=author[0] if author else committed,
                 )
 
-    def timeline(self, start, end, **paths):
+    def timeline(self, start, end, *, now=None, **paths):
         output = self.tmp / "timeline.svg"
-        args = ["--since", str(start), "--until", str(end), "--work-root", str(self.work), "-o", str(output)]
+        args = ["--since", str(start), "--work-root", str(self.work), "-o", str(output)]
+        if end is not None:
+            args.extend(("--until", str(end)))
         for flag, path in paths.items():
             args.extend((f"--{flag.replace('_', '-')}", str(path)))
-        self.command(sys.executable, "-B", str(SCRIPTS / "timeline-chart.py"), *args)
+        python = [sys.executable, "-B"]
+        timeline = SCRIPTS / "timeline-chart.py"
+        if now is None:
+            self.command(*python, str(timeline), *args)
+        else:
+            self.command(*python, "-c", TIMELINE_WITH_FROZEN_CLOCK, str(timeline), now, *args)
         self.assertIn("<svg", output.read_text())
 
 
@@ -163,6 +208,36 @@ class T1(FixtureTest):
     def test_timeline_daylight_saving(self):
         self.make_repos(DST)
         self.check_timeline(DST, date(2026, 4, 5), date(2026, 4, 6))
+
+
+class T2(FixtureTest):
+    def setUp(self):
+        super().setUp()
+        self.make_repos(WEEKS)
+        self.weekly = self.tmp / "weekly"
+        self.weekly.mkdir()
+
+    def check_weekly(self, start, end, now):
+        self.timeline(start, end, now=now, weekly_dir=self.weekly)
+        self.assertEqual(
+            {path.name for path in self.weekly.iterdir()},
+            {"daily-activity-2026-05-03.svg"},
+        )
+        self.assertIn("<svg", (self.weekly / "daily-activity-2026-05-03.svg").read_text())
+
+    def test_historical_sunday_cutoff_and_rerun(self):
+        # It is already Monday in Melbourne, though still Sunday on the host.
+        for _ in range(2):
+            self.check_weekly("2026-04-27", "2026-05-03", "2026-05-03T14:00:00+00:00")
+
+    def test_partial_weeks_at_window_edges(self):
+        self.check_weekly("2026-04-21", "2026-05-06", "2026-05-18T00:00:00+10:00")
+
+    def test_in_progress_sunday_and_future_week(self):
+        self.check_weekly("2026-04-27", "2026-05-17", "2026-05-10T23:59:59+10:00")
+
+    def test_default_cutoff_on_monday(self):
+        self.check_weekly("2026-04-27", None, "2026-05-03T14:00:00+00:00")
 
 
 if __name__ == "__main__":

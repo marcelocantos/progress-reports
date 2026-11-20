@@ -84,7 +84,7 @@ def main():
     )
     parser.add_argument(
         "--weekly-dir",
-        help="Also emit per-week SVGs (daily-activity-<date>.svg) into this directory"
+        help="Directory for daily-activity-<date>.svg files for completed Mon–Sun weeks"
     )
     parser.add_argument(
         "--cache",
@@ -225,15 +225,18 @@ def main():
 
     # Per-week charts.
     if args.weekly_dir:
-        _generate_weekly_charts(args.weekly_dir, all_dates, all_counts)
+        # A Melbourne Sunday is complete at the following Monday midnight.
+        completed_through = min(until_date, today - timedelta(days=1))
+        _generate_weekly_charts(args.weekly_dir, all_dates, all_counts, completed_through)
 
 
 def _generate_weekly_charts(
     output_dir: str,
     all_dates: list[date],
     all_counts: list[int],
+    completed_through: date,
 ) -> None:
-    """Slice daily data into Mon-Sun weeks and emit per-week bar charts."""
+    """Emit charts for complete Mon-Sun weeks in the daily data."""
     # Build a date->count lookup.
     by_date = dict(zip(all_dates, all_counts))
 
@@ -242,12 +245,14 @@ def _generate_weekly_charts(
 
     for monday in mondays:
         sunday = monday + timedelta(days=6)
+        if sunday > completed_through:
+            break
         week_dates = []
         week_counts = []
         d = monday
         while d <= sunday:
             week_dates.append(d)
-            week_counts.append(by_date.get(d, 0))
+            week_counts.append(by_date[d])
             d += timedelta(days=1)
 
         if not any(c > 0 for c in week_counts):
