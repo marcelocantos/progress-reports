@@ -45,25 +45,35 @@ Scan all repos under the working directory for commits within the reporting peri
 - `arr-ai/*` — arr.ai ecosystem (frozen, arrai, wbnf, etc.)
 - `anz-bank/*` — work-related (decimal, etc.)
 
-For each candidate directory containing a `.git` folder, run:
+Run the gatherer from the report repository, passing the Monday that starts
+the report and the Monday after its last Sunday:
 
 ```sh
-git -C <repo> log --oneline --after="<start>" --before="<end+1day>" --all
+./scripts/gather.sh "<start YYYY-MM-DD>" "<exclusive end YYYY-MM-DD>"
 ```
 
-Any repo with commits in range is included. Collect the set of active repos before proceeding.
+The gatherer and timeline use Git's committer timestamp because that is the
+timestamp Git log filters on. The author date can differ after a rebase or
+cherry-pick. Both scripts resolve bounds and assign days in `Australia/Melbourne`
+so the report follows the same calendar across daylight-saving changes and
+on hosts in other time zones. A bare date passed directly to Git can inherit
+the current time of day and omit early commits. The scripts specify the first
+midnight and the last second before the following midnight, with the offset
+for each boundary. They use Git 2.37 or later for `--since-as-filter`, which
+keeps commits reachable through ancestors or descendants with skewed clocks.
 
 ### 1.3 Per-repo metrics
 
-For each active repo, collect:
+Use `gather.sh` for commit counts, logs and diff stats. If you need additional
+per-repo detail, use the same timestamped Git bounds:
 
 | Metric | Command |
 |--------|---------|
-| Commit count | `git log --oneline --after=... --before=... \| wc -l` |
-| Diff stats | `git log --after=... --before=... --stat --format=""` then sum insertions/deletions |
-| Files changed | `git log --after=... --before=... --name-only --format="" \| sort -u \| wc -l` |
-| New files | `git log --after=... --before=... --diff-filter=A --name-only --format="" \| sort -u \| wc -l` |
-| Contributors | `git log --after=... --before=... --format="%aN" \| sort -u` |
+| Commit count | `git log --oneline --since-as-filter=... --until=... \| wc -l` |
+| Diff stats | `git log --since-as-filter=... --until=... --stat --format=""` then sum insertions/deletions |
+| Files changed | `git log --since-as-filter=... --until=... --name-only --format="" \| sort -u \| wc -l` |
+| New files | `git log --since-as-filter=... --until=... --diff-filter=A --name-only --format="" \| sort -u \| wc -l` |
+| Contributors | `git log --since-as-filter=... --until=... --format="%aN" \| sort -u` |
 | Languages | infer from file extensions in changed files |
 
 Also collect the commit messages and diffs — these are the primary source material for the narrative sections.
@@ -459,7 +469,7 @@ After writing a new report:
 4. **Regenerate the timeline chart**: Run the timeline chart script to update the full-history chart in the README:
 
    ```sh
-   ~/.claude/skills/progress-report/timeline-chart.py \
+   ./scripts/timeline-chart.py \
        --since 2026-01-19 \
        --cache <report-repo>/data/daily-repos.yaml \
        --weekly-dir <report-repo>/reports/ \

@@ -12,6 +12,9 @@ full narrative for non-commercial work including open-source `squz/ge`. See
 
 Follow [docs/guide.md](docs/guide.md) for detailed instructions on data gathering, structure, and formatting.
 
+Use `scripts/gather.sh` and `scripts/timeline-chart.py` from this checkout.
+Run `make test` to verify both commands against temporary Git repositories.
+
 The repos to scan live under `~/work/github.com/` in these organisations:
 `squz`, `marcelocantos`, `arr-ai`, `anz-bank`, plus client orgs as needed
 (`Health-Management-Systems`, `minicadesmobile`).
@@ -33,7 +36,6 @@ override:
   - tests-exist: skip
   - ci-green: skip
 
-This repo has no CI and contains only narrative reports + supporting
-data/docs. Push directly to `master` — no PR ceremony, no feature
+This repo has no CI. Push directly to `master` — no PR ceremony, no feature
 branch, no review gate. `/push` will commit and push to `master` in
 place.
