@@ -6,28 +6,28 @@ Commercial work is included in the rolled-up metrics. Project-level detail for t
 
 ## At a Glance
 
-*43 weeks · 19 January – 15 November 2026*
+*44 weeks · 19 January – 22 November 2026*
 
-- **~11,902 commits** landed to default branches across **42+ repositories** in **20+ languages**
-- **~690–1,164 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
-- **~13.5–22.6 years** of a single talented generalist's full-time work, produced at a **20–95× multiplier**
-- **~<span style="color:#1a7f37">+4.55M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
+- **~12,200 commits** landed to default branches across **42+ repositories** in **20+ languages**
+- **~712–1,202 hours** of total human attention — the direction, review, and on-device testing a specification can't reach
+- **~13.8–23.2 years** of a single talented generalist's full-time work, produced at a **19–95× multiplier**
+- **~<span style="color:#1a7f37">+4.68M</span> net lines** of tracked change (excl. `vendor/` / `node_modules/` and the fleet `data/line-excludes.yaml` globs) — an activity signal, not hand-authored source
 
 ## The Journey So Far
 
-Forty-three weeks, from 19 January to 15 November 2026. About **11,900 commits** have landed on default branches across more than forty repositories and over twenty languages. A single talented generalist would need roughly **thirteen and a half to twenty-three years** to match that output, and the human attention behind it comes to about **690 to 1,160 hours**.
+Forty-four weeks, from 19 January to 22 November 2026. About **12,200 commits** have landed on default branches across more than forty repositories and over twenty languages. A single talented generalist would need roughly **fourteen to twenty-three years** to match that output, and the human attention behind it comes to about **710 to 1,200 hours**.
 
 **It began with products and plumbing.** The first months went to games and engines, parsers and languages, replication and query layers, and a growing set of small developer tools. The method was fixed early: specify carefully, let agents write the code, and test on real devices.
 
 **Then the agents became the project.** By spring the main work was the machinery for running many coding agents at once: transcript search, convergence ledgers, device automation, a fleet cockpit and a broker every seat runs on. Incidents taught what such a fleet needs, and each one produced a rule. Tokens never travel on a command line, the host mints request identity, and a stop must actually stop.
 
-**Autumn moved toward self-sufficiency.** One provider core replaced several, a gated push replaced pull requests, and den removed its dependence on Homebrew. The tools stopped borrowing infrastructure and started owning it. Verification followed the same path: Orthograph dropped hosted CI entirely and proves its releases locally.
+**Autumn moved toward self-sufficiency.** One provider core replaced several, a gated push replaced pull requests, and den removed its dependence on Homebrew. The tools stopped borrowing infrastructure and started owning it, from verification that runs locally to daemons that run under the operating system's own supervisor.
 
-**Distrust of self-reported success is the recurring theme.** Agents write fast, so the scarce resource is evidence that work is finished. Gates fail closed, frozen exams cannot be edited by the author, and benchmarks are drawn without a pattern so that a faster result cannot be an artefact of friendly inputs. A monitor now counts its own load, and a backup treats an absent disk as a state rather than a stall.
+**Distrust of self-reported success is the recurring theme.** Agents write fast, so the scarce resource is evidence that work is finished. Gates fail closed, frozen exams cannot be edited by the author, and benchmarks are drawn without a pattern so that a faster result cannot be an artefact of friendly inputs. A monitor counts its own load, a backup treats an absent disk as a state rather than a stall, and a document viewer treats every document as hostile.
 
-**The latest turn is that the tools plug into each other.** The week ending 15 November gave the editor the fleet works in a plugin protocol. Tracking, drawing and device control now appear inside the thread view as panels that claim the links they own, instead of living in separate windows. Device tooling matured in step, with leased simulators, inventoried and pruned, so that many agents can share a handful of phones without leaving debris.
+**The latest turn is fidelity by construction.** Rather than hand-write a large program in a new language, the work now transpiles the original mechanically and lets a parity gate decide every merge, so progress is a ledger of measured gaps. The same instinct runs through the smaller tools, which take regular defect hunts and land each finding as a numbered target with a test. Beside it, the editor the fleet works in gained a plugin protocol and a written process for merging a fast-moving upstream.
 
-**The human role is direction and refusal.** The fleet supplies the volume. The person decides which design survives, which shortcut is forbidden and which result is not yet true. Most of the hours go there. The multiplier, usually 20× to 95×, is highest where a silent mistake would be costly and the AI can still be checked thoroughly, and lowest where store reviews, studio decisions or a human login set the pace.
+**The human role is direction and refusal.** The fleet supplies the volume. The person decides which design survives, which shortcut is forbidden and which result is not yet true. Most of the hours go there. The multiplier, usually 20× to 95×, is highest where a silent mistake would be costly and the AI can still be checked thoroughly, and lowest where store reviews, studio decisions or a human looking at a device set the pace.
 
 ![Daily active repositories — full timeline](reports/timeline.svg)
 
@@ -40,6 +40,13 @@ The [top 50 achievements](docs/achievements.md) across all projects, ranked by m
 One page per repository, summarising its whole arc across the series: [docs/repos](docs/repos/README.md). Further journeys are in a [private companion](https://github.com/marcelocantos/progress-reports-private).
 
 ## Reports
+
+<details>
+<summary><a href="reports/weekly-report-2026-11-22.md"><b>2026-11-16…22</b></a> gouml PlantUML parity gate, T3 Code fork releases v0.6–v0.7, spyder device health, den native installs, vellum viewer hardening</summary>
+
+<b>gouml</b> ported a dozen more PlantUML diagram families behind a parity gate, and <b>t3code</b> shipped fork releases v0.6.0 and v0.7.0 with a repeatable upstream merge. <b>spyder</b> v0.111.0 reports device power and lock health, <b>den</b> installs Go module paths and reads formula dependencies natively, and <b>vellum</b> hardened its viewer so nothing a document names is fetched. <b>xbnf</b>, <b>ytt</b>, <b>vendep</b> and <b>sqlpipe</b> closed defect hunts, and nine daemons left supervisord. 298 commits across 29 repos, ~4.1-6.6 months traditional equivalent.
+
+</details>
 
 <details>
 <summary><a href="reports/weekly-report-2026-11-15.md"><b>2026-11-09…15</b></a> T3 Code plugin platform, bullseye T3 panels, orthograph v0.1.0 and Android, spyder simulator leases, go-decimal kernel performance, loadmon load accounting</summary>
@@ -348,6 +355,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 
 | Week&nbsp;ℂommits&nbsp;☲±kloc<br>AI&nbsp;Human&nbsp;boost× | Highlights |
 |--------|------------|
+| <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-11-22.md">11-16</a>&nbsp;ℂ298&nbsp;☲<span style="color:#1a7f37">+160</span><span style="color:#cf222e">-26</span>\*<br><b>AI</b>22-38h&nbsp;<b>H</b>4.1-6.6mo&nbsp;19-52× | gouml parity gate, T3 Code fork releases, spyder device health, den native installs, vellum viewer hardening. \*new glob: den test corpus |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-11-15.md">11-09</a>&nbsp;ℂ487&nbsp;☲<span style="color:#1a7f37">+189</span><span style="color:#cf222e">-28</span>\*<br><b>AI</b>20-36h&nbsp;<b>H</b>4.8-7.6mo&nbsp;23-65× | T3 Code plugins, bullseye T3 panels, orthograph v0.1.0, spyder simulator leases, decimal kernel tuning. \*new globs: t3code Vendor, decimal benchmark dumps |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-11-08.md">11-02</a>&nbsp;ℂ1099&nbsp;☲<span style="color:#1a7f37">+385</span><span style="color:#cf222e">-34</span>\*<br><b>AI</b>20-38h&nbsp;<b>H</b>4.4-6.8mo&nbsp;20-55× | rustuml parity campaign, gouml transpiler, claudia v0.81–v0.85, eighteen oracle-first repos, sqlpipe Postgres. \*new globs: rustuml reviews, gouml pu |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-11-01.md">10-26</a>&nbsp;ℂ572&nbsp;☲<span style="color:#1a7f37">+211</span><span style="color:#cf222e">-33</span>\*<br><b>AI</b>18-35h&nbsp;<b>H</b>4.4-6.7mo&nbsp;20-60× | den Homebrew-free v0.14–v0.16, claudia v0.66–v0.80, jevons gated push, pigeon Android. \*new glob: jevons Android native vendored C/C++ |
@@ -391,7 +399,7 @@ Each row packs the period stats into one cell — commits (ℂ), lines added/rem
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-08.md">02-02</a>&nbsp;ℂ77&nbsp;☲<span style="color:#1a7f37">+14</span><span style="color:#cf222e">-9</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>3-5mo&nbsp;25-50× | Wire rendering architecture, engine extraction, bgfx-to-Dawn, progressive mip streaming + ASTC. \*+402k vendor omitted (ge +367k, +34k elsewhere) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-02-01.md">01-26</a>&nbsp;ℂ61&nbsp;☲<span style="color:#1a7f37">+8</span><span style="color:#cf222e">-3</span>\*<br><b>AI</b>8-15h&nbsp;<b>H</b>2-4mo&nbsp;25-50× | 60-commit explosion (GPU atlas, RAII, Delaunay, damped rotation). \*+309k vendor omitted (+308k in one repo) |
 | <a href="/marcelocantos/progress-reports/blob/master/reports/weekly-report-2026-01-25.md">01-19</a>&nbsp;ℂ15&nbsp;☲<span style="color:#1a7f37">+2</span><span style="color:#cf222e">-1</span><br><b>AI</b>6-11h&nbsp;<b>H</b>1-2mo&nbsp;10-25× | globe prototype born, Android 16KB compliance, iOS resolution fix. |
-| **Totals**&nbsp;ℂ**~11,902**\*&nbsp;**☲<span style="color:#1a7f37">+6004</span><span style="color:#cf222e">-1457</span>**<br><b>AI</b>**690-1164h**&nbsp;<b>H</b>**13.5-22.6y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and Unity `Assets/Tracks/**` from 09-28; xbnf `fromwbnf/testdata/arrai/stdlib/**` from 10-05; `marcelocantos/think` vault excluded from 10-12, with `knowledge/youtube/**` globbed; canticode/certs `profiles/**` and `certs/**` encrypted signing blobs from 10-19; `.jevons-worktrees-*` clones excluded from 10-19; jevons `mobile/android/app/src/main/cpp/` vendored sqlite3/json/lz4/sqlpipe/deepparser from 10-26; rustuml `docs/parity-reviews/**`, `tools/font-chain-reference/**` and `third_party/**`, gouml `pu/**` and lifted third-party trees, tooling evidence, portsets and generated stubs, and think `analysis/**` from 11-02; t3code `Vendor/**`, go-decimal-proposal benchmark result dumps, orthograph `licenses/**`, bullseye `THIRDPARTY.txt` and vellum `THIRD_PARTY_LICENSES.txt` from 11-09). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, codegen, committed sprites. |
+| **Totals**&nbsp;ℂ**~12,200**\*&nbsp;**☲<span style="color:#1a7f37">+6164</span><span style="color:#cf222e">-1483</span>**<br><b>AI</b>**712-1202h**&nbsp;<b>H</b>**13.8-23.2y** | \*landed commits only; ☲ excludes `**/vendor/**` and `**/node_modules/**` across the whole series (~+2985k vendor omitted), plus the fleet `data/line-excludes.yaml` globs from 07-20 onward (earlier weeks not restamped for those; `skills/synced/**` from 09-21; `pubspec.lock` and Unity `Assets/Tracks/**` from 09-28; xbnf `fromwbnf/testdata/arrai/stdlib/**` from 10-05; `marcelocantos/think` vault excluded from 10-12, with `knowledge/youtube/**` globbed; canticode/certs `profiles/**` and `certs/**` encrypted signing blobs from 10-19; `.jevons-worktrees-*` clones excluded from 10-19; jevons `mobile/android/app/src/main/cpp/` vendored sqlite3/json/lz4/sqlpipe/deepparser from 10-26; rustuml `docs/parity-reviews/**`, `tools/font-chain-reference/**` and `third_party/**`, gouml `pu/**` and lifted third-party trees, tooling evidence, portsets and generated stubs, and think `analysis/**` from 11-02; t3code `Vendor/**`, go-decimal-proposal benchmark result dumps, orthograph `licenses/**`, bullseye `THIRDPARTY.txt` and vellum `THIRD_PARTY_LICENSES.txt` from 11-09; den `tests/corpus/**` from 11-16). Remaining activity-signal inflation: Unity garage/UI/scenes, goldens/fixtures, prebuilts outside vendor/, codegen, committed sprites. |
 
 
 ## Guide

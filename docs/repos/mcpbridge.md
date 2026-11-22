@@ -31,12 +31,12 @@ Hardening followed, and its most interesting content is semantic rather than mec
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 5 |
-| Commits | 43 |
+| Weeks active | 6 |
+| Commits | 44 |
 | Human attention | ~4–7 h |
 | Traditional equivalent | ~1.05–1.65 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [08-03](../../reports/weekly-report-2026-08-09.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [08-03](../../reports/weekly-report-2026-08-09.md), [11-16](../../reports/weekly-report-2026-11-22.md)

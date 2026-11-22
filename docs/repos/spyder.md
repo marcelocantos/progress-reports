@@ -56,12 +56,12 @@ The week ending 1 Nov added WebCodecs H.264 playback for the wasm glass, IDBFS s
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 26 |
-| Commits | ~494 |
-| Human attention | ~49–86 h |
-| Traditional equivalent | ~5.9–9.5 months |
+| Weeks active | 27 |
+| Commits | ~509 |
+| Human attention | ~50–88 h |
+| Traditional equivalent | ~6.2–10.0 months |
 | Multiplier | ~18–60× |
 
 ## Weekly reports
 
-[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md)
+[04-19](../../reports/weekly-report-2026-04-19.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-24](../../reports/weekly-report-2026-05-24.md), [05-31](../../reports/weekly-report-2026-05-31.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-14](../../reports/weekly-report-2026-06-14.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-19](../../reports/weekly-report-2026-07-19.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [08-31](../../reports/weekly-report-2026-09-06.md), [09-21](../../reports/weekly-report-2026-09-27.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md), [11-16](../../reports/weekly-report-2026-11-22.md)

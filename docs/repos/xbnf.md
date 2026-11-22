@@ -37,12 +37,12 @@ The week ending 2026-10-18 was attestation and rejects: T28, T37, and T38 achiev
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 4 |
-| Commits | 114 |
+| Weeks active | 5 |
+| Commits | 120 |
 | Human attention | ~10–17 h, plus a 1–2 h row shared with sentinel and serviceboard (10-18) |
 | Traditional equivalent | ~1.4–2.3 months, plus a shared 3–6 person-day row (10-18) |
 | Multiplier | ~40–70× |
 
 ## Weekly reports
 
-[08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md)
+[08-31](../../reports/weekly-report-2026-09-06.md), [09-07](../../reports/weekly-report-2026-09-13.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [11-16](../../reports/weekly-report-2026-11-22.md)

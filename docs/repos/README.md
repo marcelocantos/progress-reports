@@ -23,6 +23,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 
 - [marcelocantos/csp](csp.md) — C++ CSP concurrency library: M:N scheduler, channels, HTTP and QUIC stacks, TLA+ models
 - [marcelocantos/pigeon](pigeon.md) — end-to-end encrypted relay with AEAD channels, QUIC transport, and five-language codegen; Android over JNI (11-01)
+- [marcelocantos/gouml](gouml.md) — mechanical Java-to-Go transpiler for PlantUML with a Java-semantics runtime and a parity gate
 - [marcelocantos/sqlpipe](sqlpipe.md) — bidirectional SQLite replication with a TLA+-verified protocol and a predicate bytecode VM
 - [marcelocantos/sqldeep](sqldeep.md) — SQL transpiler with FROM-first syntax and four-language bindings
 - [marcelocantos/sqlift](sqlift.md) — schema migration in C and Go with cross-language verification
@@ -39,6 +40,7 @@ mk → [cv](cv.md), dais → jevon → [jevons](jevons.md), targets →
 
 ## Agent & Fleet Tooling
 
+- [marcelocantos/t3code](t3code.md) — T3 Code fork with an external plugin protocol and a repeatable upstream merge
 - [marcelocantos/mnemo](mnemo.md) — indexes every agent transcript; search, compaction, federation, and a vault wing
 - [marcelocantos/spyder](spyder.md) — mobile device orchestration and the game fleet's sole control plane
 - [marcelocantos/jevons](jevons.md) — fleet cockpit: durable agent threads, cost governance, and a browser chat surface; usable state landed (10-25), gated push (11-01)
@@ -109,7 +111,6 @@ second.
 - unwisegames/tiltbuggy — the reference title behind ge's differential physics oracle
 - golang/go — decimal128 ABI and DWARF support contributions
 - anz-bank/decimal — arbitrary-precision decimal library bug fix
-- marcelocantos/gouml — mechanical Java-to-Go transpiler for PlantUML with a Java-semantics runtime
 - marcelocantos/jv0 — spike for agent coordination with only start, send, stop and list on claudia's broker
 - marcelocantos/headroom — allow, defer or deny check before an agent session starts
 - marcelocantos/killset — frozen exam scoring a test suite by planted defect classes it kills
@@ -130,4 +131,3 @@ second.
 - marcelocantos/turnaround — discrete-event launch-site toy with seeded golden logs
 - marcelocantos/reactionpath — workholding puzzle gated by a planar statics solver
 - marcelocantos/gadgets — ESP32-S3 sshbox shell and GhostKey USB passthrough firmware
-- marcelocantos/t3code — fork of T3 Code with an external plugin protocol for sidebar panels, composer buttons and link handling

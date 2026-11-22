@@ -19,12 +19,12 @@ Two smaller passes followed: ccache wired into the build, then **v0.3.0's `displ
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 4 |
-| Commits | 31 |
+| Weeks active | 5 |
+| Commits | 33 |
 | Human attention | ~4–8 h |
 | Traditional equivalent | ~0.3–0.7 months |
 | Multiplier | ~25–65× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [05-03](../../reports/weekly-report-2026-05-03.md), [09-28](../../reports/weekly-report-2026-10-04.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-19](../../reports/weekly-report-2026-04-19.md), [05-03](../../reports/weekly-report-2026-05-03.md), [09-28](../../reports/weekly-report-2026-10-04.md), [11-16](../../reports/weekly-report-2026-11-22.md)

@@ -46,12 +46,12 @@ v0.14–v0.17-rc.1 (week ending 1 Nov) removed den's dependence on Homebrew. A v
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 13 |
-| Commits | 298 |
-| Human attention | ~19–33 h |
-| Traditional equivalent | ~2.9–4.6 months |
+| Weeks active | 14 |
+| Commits | 299 |
+| Human attention | ~20–35 h |
+| Traditional equivalent | ~3.1–4.9 months |
 | Multiplier | ~20–95× |
 
 ## Weekly reports
 
-[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [11-01](../../reports/weekly-report-2026-11-01.md)
+[03-22](../../reports/weekly-report-2026-03-22.md), [03-29](../../reports/weekly-report-2026-03-29.md), [04-05](../../reports/weekly-report-2026-04-05.md), [04-12](../../reports/weekly-report-2026-04-12.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-07](../../reports/weekly-report-2026-06-07.md), [06-21](../../reports/weekly-report-2026-06-21.md), [06-28](../../reports/weekly-report-2026-06-28.md), [07-12](../../reports/weekly-report-2026-07-12.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-16](../../reports/weekly-report-2026-11-22.md)

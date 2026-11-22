@@ -21,12 +21,12 @@ After a long quiet period, the week ending 1 Nov moved the proposal onto a corre
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 5 |
-| Commits | 54 |
+| Weeks active | 6 |
+| Commits | 56 |
 | Human attention | ~6–11 h |
 | Traditional equivalent | ~0.3–0.6 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md)
+[02-22](../../reports/weekly-report-2026-02-22.md), [03-01](../../reports/weekly-report-2026-03-01.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md), [11-16](../../reports/weekly-report-2026-11-22.md)

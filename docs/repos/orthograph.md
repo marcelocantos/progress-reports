@@ -25,12 +25,12 @@ In the week ending 25 Oct iOS signing moved to the Canticode Apple team, with fa
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 4 |
-| Commits | ~123 |
+| Weeks active | 5 |
+| Commits | ~127 |
 | Human attention | ~8–14 h |
 | Traditional equivalent | ~1.1–1.8 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[08-03](../../reports/weekly-report-2026-08-09.md), [08-24](../../reports/weekly-report-2026-08-30.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-09](../../reports/weekly-report-2026-11-15.md)
+[08-03](../../reports/weekly-report-2026-08-09.md), [08-24](../../reports/weekly-report-2026-08-30.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-09](../../reports/weekly-report-2026-11-15.md), [11-16](../../reports/weekly-report-2026-11-22.md)

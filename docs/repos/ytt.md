@@ -42,12 +42,12 @@ v0.18.0 (week ending 1 Nov): `ytt analyze` requires the jevons broker, backgroun
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 12 |
-| Commits | 61 |
-| Human attention | ~9–18 h |
-| Traditional equivalent | ~0.9–1.7 months |
+| Weeks active | 13 |
+| Commits | 64 |
+| Human attention | ~10–19 h |
+| Traditional equivalent | ~1.0–1.9 months |
 | Multiplier | ~25–95× |
 
 ## Weekly reports
 
-[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [11-01](../../reports/weekly-report-2026-11-01.md)
+[04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-17](../../reports/weekly-report-2026-05-17.md), [05-24](../../reports/weekly-report-2026-05-24.md), [06-21](../../reports/weekly-report-2026-06-21.md), [07-05](../../reports/weekly-report-2026-07-05.md), [07-26](../../reports/weekly-report-2026-07-26.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-16](../../reports/weekly-report-2026-11-22.md)

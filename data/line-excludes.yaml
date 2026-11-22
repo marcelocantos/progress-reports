@@ -82,9 +82,11 @@ repos:
     - mobile/android/app/src/main/cpp/sqlpipe.*
     - mobile/android/app/src/main/cpp/lz4.*
 
-  # Generated 41 MB C blob embedding the Ruby bundle.
+  # Generated 41 MB C blob embedding the Ruby bundle; tests/corpus holds the
+  # pinned Homebrew formula oracle (409 formula files plus API snapshot).
   marcelocantos/den:
     - src/ruby/bundle_data.c
+    - tests/corpus/**
 
   # Vendored Facebook zstd amalgamation bound via cgo (zstd.c is ~52k lines).
   marcelocantos/mnemo:

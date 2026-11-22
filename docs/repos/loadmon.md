@@ -25,12 +25,12 @@ The following week made the trees faster and lazier: the popover fetches one tre
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 4 |
-| Commits | 80 |
+| Weeks active | 5 |
+| Commits | 91 |
 | Human attention | not broken out in report tables |
 | Traditional equivalent | not broken out in report tables |
 | Multiplier | not broken out in report tables |
 
 ## Weekly reports
 
-[10-19](../../reports/weekly-report-2026-10-25.md), [10-26](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md)
+[10-19](../../reports/weekly-report-2026-10-25.md), [10-26](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md), [11-16](../../reports/weekly-report-2026-11-22.md)

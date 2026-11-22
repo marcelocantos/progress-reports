@@ -48,12 +48,12 @@ v0.36.0 (week ending 1 Nov) pins a leading viewer title under the toolbar as the
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 19 |
-| Commits | ~121 |
-| Human attention | ~10–22 h |
-| Traditional equivalent | ~1.4–2.4 months |
+| Weeks active | 20 |
+| Commits | ~132 |
+| Human attention | ~11–24 h |
+| Traditional equivalent | ~1.6–2.8 months |
 | Multiplier | ~18–95× |
 
 ## Weekly reports
 
-[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md)
+[04-12](../../reports/weekly-report-2026-04-12.md), [04-26](../../reports/weekly-report-2026-04-26.md), [05-03](../../reports/weekly-report-2026-05-03.md), [05-10](../../reports/weekly-report-2026-05-10.md), [05-17](../../reports/weekly-report-2026-05-17.md), [06-14](../../reports/weekly-report-2026-06-14.md), [07-27](../../reports/weekly-report-2026-08-02.md), [08-03](../../reports/weekly-report-2026-08-09.md), [08-10](../../reports/weekly-report-2026-08-16.md), [08-17](../../reports/weekly-report-2026-08-23.md), [08-24](../../reports/weekly-report-2026-08-30.md), [09-07](../../reports/weekly-report-2026-09-13.md), [09-28](../../reports/weekly-report-2026-10-04.md), [10-05](../../reports/weekly-report-2026-10-11.md), [10-12](../../reports/weekly-report-2026-10-18.md), [10-19](../../reports/weekly-report-2026-10-25.md), [11-01](../../reports/weekly-report-2026-11-01.md), [11-02](../../reports/weekly-report-2026-11-08.md), [11-09](../../reports/weekly-report-2026-11-15.md), [11-16](../../reports/weekly-report-2026-11-22.md)

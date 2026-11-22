@@ -24,12 +24,12 @@ v0.2.0 followed in the week ending 1 November. Independent alert keys no longer 
 
 | Metric | Value |
 |--------|-------|
-| Weeks active | 2 |
-| Commits | 9 |
+| Weeks active | 3 |
+| Commits | 10 |
 | Human attention | not broken out in report tables |
 | Traditional equivalent | not broken out in report tables |
 | Multiplier | not broken out in report tables |
 
 ## Weekly reports
 
-[07-20](../../reports/weekly-report-2026-07-26.md), [10-26](../../reports/weekly-report-2026-11-01.md)
+[07-20](../../reports/weekly-report-2026-07-26.md), [10-26](../../reports/weekly-report-2026-11-01.md), [11-16](../../reports/weekly-report-2026-11-22.md)
